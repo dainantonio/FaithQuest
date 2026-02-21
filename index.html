@@ -1,0 +1,2034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>FaithQuest — Family Bible Learning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --amber: #F59E0B;
+  --amber-light: #FEF3C7;
+  --amber-dark: #D97706;
+  --sky: #0EA5E9;
+  --sky-light: #E0F2FE;
+  --emerald: #10B981;
+  --emerald-light: #D1FAE5;
+  --rose: #F43F5E;
+  --rose-light: #FFE4E6;
+  --purple: #8B5CF6;
+  --purple-light: #EDE9FE;
+  --slate-900: #0F172A;
+  --slate-800: #1E293B;
+  --slate-700: #334155;
+  --slate-600: #475569;
+  --slate-400: #94A3B8;
+  --slate-200: #E2E8F0;
+  --slate-100: #F1F5F9;
+  --slate-50: #F8FAFC;
+  --white: #FFFFFF;
+  --sand: #FAFAF7;
+  --gold: #B45309;
+  --radius: 16px;
+  --radius-sm: 8px;
+  --radius-lg: 24px;
+  --shadow: 0 4px 24px rgba(15,23,42,0.08);
+  --shadow-lg: 0 12px 48px rgba(15,23,42,0.12);
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);background:var(--sand);color:var(--slate-800);min-height:100vh;overflow-x:hidden;}
+.hidden{display:none!important;}
+
+/* ===== SCREENS ===== */
+.screen{display:none;min-height:100vh;flex-direction:column;}
+.screen.active{display:flex;}
+
+/* ===== TYPOGRAPHY ===== */
+h1,h2,h3{font-family:var(--font-display);}
+.display-lg{font-size:clamp(2.2rem,6vw,3.8rem);font-weight:700;line-height:1.1;}
+.display-md{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:600;line-height:1.2;}
+.display-sm{font-size:clamp(1.2rem,3vw,1.6rem);font-weight:600;line-height:1.3;}
+.body-lg{font-size:1.0625rem;line-height:1.7;}
+.body-sm{font-size:0.875rem;line-height:1.6;}
+.label{font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--slate-500);}
+.muted{color:var(--slate-500);}
+
+/* ===== BUTTONS ===== */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border:none;border-radius:100px;font-family:var(--font-body);font-size:0.9375rem;font-weight:600;cursor:pointer;transition:all 0.2s;text-decoration:none;justify-content:center;}
+.btn-primary{background:linear-gradient(135deg,var(--amber) 0%,var(--amber-dark) 100%);color:var(--white);box-shadow:0 4px 16px rgba(245,158,11,0.35);}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(245,158,11,0.4);}
+.btn-secondary{background:var(--white);color:var(--slate-800);border:2px solid var(--slate-200);box-shadow:var(--shadow);}
+.btn-secondary:hover{border-color:var(--amber);color:var(--amber-dark);}
+.btn-ghost{background:transparent;color:var(--slate-600);padding:10px 20px;}
+.btn-ghost:hover{background:var(--slate-100);}
+.btn-danger{background:var(--rose);color:var(--white);}
+.btn-sky{background:linear-gradient(135deg,var(--sky) 0%,#0284C7 100%);color:var(--white);box-shadow:0 4px 16px rgba(14,165,233,0.3);}
+.btn-emerald{background:linear-gradient(135deg,var(--emerald) 0%,#059669 100%);color:var(--white);box-shadow:0 4px 16px rgba(16,185,129,0.3);}
+.btn-sm{padding:10px 20px;font-size:0.875rem;}
+.btn-lg{padding:18px 40px;font-size:1rem;}
+.btn-full{width:100%;}
+.btn:disabled{opacity:0.5;cursor:not-allowed;transform:none!important;}
+
+/* ===== CARDS ===== */
+.card{background:var(--white);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);}
+.card-lg{padding:32px;}
+.card-hover:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);transition:all 0.2s;}
+
+/* ===== INPUTS ===== */
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:20px;}
+.form-label{font-size:0.875rem;font-weight:600;color:var(--slate-700);}
+.form-input{padding:14px 16px;border:2px solid var(--slate-200);border-radius:var(--radius-sm);font-family:var(--font-body);font-size:0.9375rem;color:var(--slate-800);background:var(--white);transition:border-color 0.2s;outline:none;}
+.form-input:focus{border-color:var(--amber);}
+.form-input.error{border-color:var(--rose);}
+.form-error{font-size:0.8125rem;color:var(--rose);font-weight:500;}
+select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:18px;padding-right:44px;}
+
+/* ===== NAV ===== */
+.top-nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;background:var(--white);border-bottom:1px solid var(--slate-200);position:sticky;top:0;z-index:100;box-shadow:0 1px 8px rgba(0,0,0,0.04);}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--amber),var(--amber-dark));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;}
+.nav-logo-text{font-family:var(--font-display);font-size:1.25rem;font-weight:700;color:var(--slate-900);}
+.bottom-nav{display:flex;background:var(--white);border-top:1px solid var(--slate-200);padding:8px 0 max(8px,env(safe-area-inset-bottom));position:fixed;bottom:0;left:0;right:0;z-index:100;}
+.bottom-nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 4px;cursor:pointer;border:none;background:none;font-family:var(--font-body);color:var(--slate-400);transition:color 0.2s;}
+.bottom-nav-item.active{color:var(--amber-dark);}
+.bottom-nav-icon{font-size:22px;line-height:1;}
+.bottom-nav-label{font-size:0.65rem;font-weight:600;letter-spacing:0.03em;}
+
+/* ===== BADGES / CHIPS ===== */
+.badge{display:inline-flex;align-items:center;gap:4px;padding:4px 12px;border-radius:100px;font-size:0.75rem;font-weight:600;}
+.badge-amber{background:var(--amber-light);color:var(--gold);}
+.badge-sky{background:var(--sky-light);color:#0369A1;}
+.badge-emerald{background:var(--emerald-light);color:#065F46;}
+.badge-purple{background:var(--purple-light);color:#6D28D9;}
+.badge-rose{background:var(--rose-light);color:#BE123C;}
+
+/* ===== PROGRESS BAR ===== */
+.progress-bar{height:8px;background:var(--slate-200);border-radius:100px;overflow:hidden;}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--amber),var(--amber-dark));border-radius:100px;transition:width 0.5s ease;}
+
+/* ===== TOAST ===== */
+#toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:var(--slate-900);color:var(--white);padding:12px 24px;border-radius:100px;font-size:0.875rem;font-weight:500;z-index:9999;opacity:0;transition:opacity 0.3s;pointer-events:none;white-space:nowrap;max-width:90vw;text-align:center;}
+#toast.show{opacity:1;}
+
+/* ===== MODAL ===== */
+.modal-overlay{position:fixed;inset:0;background:rgba(15,23,42,0.6);z-index:1000;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s;}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal{background:var(--white);border-radius:24px 24px 0 0;padding:32px 24px max(32px,env(safe-area-inset-bottom));width:100%;max-width:560px;transform:translateY(100%);transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1);}
+.modal-overlay.open .modal{transform:translateY(0);}
+.modal-handle{width:40px;height:4px;background:var(--slate-200);border-radius:100px;margin:0 auto 24px;}
+.modal-title{font-family:var(--font-display);font-size:1.4rem;font-weight:600;margin-bottom:8px;}
+
+/* ===== AVATAR ===== */
+.avatar{border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0;}
+.avatar-sm{width:36px;height:36px;font-size:1rem;}
+.avatar-md{width:48px;height:48px;}
+.avatar-lg{width:64px;height:64px;font-size:1.8rem;}
+
+/* ===== STREAK ===== */
+.streak-badge{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#FF6B35,#F59E0B);color:white;padding:6px 14px;border-radius:100px;font-weight:700;font-size:0.875rem;}
+
+/* ===== LANDING PAGE ===== */
+#screen-landing{background:var(--white);}
+.landing-hero{background:linear-gradient(160deg,#0F172A 0%,#1E3A5F 50%,#0F3460 100%);color:white;padding:80px 24px 100px;text-align:center;position:relative;overflow:hidden;}
+.hero-stars{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.15) 1px,transparent 1px);background-size:40px 40px;opacity:0.4;}
+.hero-glow{position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(245,158,11,0.2) 0%,transparent 70%);}
+.hero-content{position:relative;z-index:1;max-width:600px;margin:0 auto;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,0.2);border:1px solid rgba(245,158,11,0.4);color:var(--amber);padding:8px 16px;border-radius:100px;font-size:0.8125rem;font-weight:600;margin-bottom:24px;}
+.hero-title{font-family:var(--font-display);font-size:clamp(2.4rem,7vw,4rem);font-weight:700;line-height:1.05;margin-bottom:20px;color:white;}
+.hero-title span{color:var(--amber);}
+.hero-sub{font-size:1.125rem;color:rgba(255,255,255,0.75);line-height:1.7;margin-bottom:40px;max-width:480px;margin-left:auto;margin-right:auto;}
+.hero-cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.hero-trust{margin-top:48px;display:flex;justify-content:center;gap:32px;flex-wrap:wrap;}
+.trust-item{display:flex;flex-direction:column;align-items:center;gap:4px;color:rgba(255,255,255,0.6);font-size:0.8125rem;}
+.trust-icon{font-size:1.5rem;}
+.section{padding:80px 24px;max-width:900px;margin:0 auto;}
+.section-header{text-align:center;margin-bottom:56px;}
+.section-eyebrow{display:inline-block;background:var(--amber-light);color:var(--gold);padding:6px 16px;border-radius:100px;font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:16px;}
+.how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;}
+.how-card{text-align:center;padding:32px 24px;}
+.how-icon{font-size:2.5rem;margin-bottom:16px;display:block;}
+.how-title{font-family:var(--font-display);font-size:1.1rem;font-weight:600;margin-bottom:8px;}
+.how-desc{font-size:0.875rem;color:var(--slate-600);line-height:1.6;}
+.paths-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;}
+.path-card-landing{border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:all 0.2s;}
+.path-card-landing:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);}
+.path-header{padding:28px 24px 20px;position:relative;overflow:hidden;}
+.path-header::before{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,0.1);}
+.path-emoji{font-size:2rem;display:block;margin-bottom:12px;position:relative;z-index:1;}
+.path-title-text{font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:white;position:relative;z-index:1;}
+.path-body{padding:16px 24px 24px;background:white;}
+.path-desc{font-size:0.8125rem;color:var(--slate-600);line-height:1.5;margin-bottom:12px;}
+.testimonials{background:linear-gradient(135deg,#0F172A,#1E293B);padding:80px 24px;color:white;}
+.testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;max-width:900px;margin:0 auto;}
+.testimonial-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:24px;}
+.testimonial-text{font-size:0.9375rem;line-height:1.7;color:rgba(255,255,255,0.8);margin-bottom:16px;font-style:italic;}
+.testimonial-author{display:flex;align-items:center;gap:12px;}
+.testimonial-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--amber),var(--amber-dark));display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+.testimonial-name{font-weight:600;color:white;font-size:0.875rem;}
+.testimonial-role{font-size:0.75rem;color:rgba(255,255,255,0.5);}
+.pricing-section{padding:80px 24px;background:var(--slate-50);}
+.pricing-toggle{display:flex;align-items:center;gap:12px;justify-content:center;margin-bottom:48px;}
+.toggle-track{width:52px;height:28px;background:var(--slate-300);border-radius:100px;cursor:pointer;position:relative;transition:background 0.2s;}
+.toggle-track.on{background:var(--amber);}
+.toggle-thumb{position:absolute;top:4px;left:4px;width:20px;height:20px;background:white;border-radius:50%;transition:transform 0.2s;box-shadow:0 1px 4px rgba(0,0,0,0.2);}
+.toggle-track.on .toggle-thumb{transform:translateX(24px);}
+.toggle-label{font-size:0.9375rem;font-weight:600;color:var(--slate-700);}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:680px;margin:0 auto;}
+.pricing-card{background:white;border-radius:var(--radius-lg);padding:36px 32px;box-shadow:var(--shadow);}
+.pricing-card.featured{background:linear-gradient(160deg,#1E293B,#0F172A);color:white;position:relative;overflow:hidden;}
+.pricing-card.featured::before{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;background:radial-gradient(circle,rgba(245,158,11,0.3),transparent 70%);}
+.pricing-badge{background:var(--amber);color:white;padding:4px 12px;border-radius:100px;font-size:0.75rem;font-weight:700;display:inline-block;margin-bottom:12px;}
+.pricing-plan-name{font-family:var(--font-display);font-size:1.3rem;font-weight:600;margin-bottom:8px;}
+.pricing-price{font-family:var(--font-display);font-size:2.5rem;font-weight:700;margin-bottom:4px;}
+.pricing-price sup{font-size:1rem;font-weight:600;vertical-align:top;margin-top:8px;}
+.pricing-period{font-size:0.875rem;opacity:0.7;}
+.pricing-features{list-style:none;margin:24px 0;display:flex;flex-direction:column;gap:10px;}
+.pricing-features li{display:flex;gap:10px;font-size:0.9rem;}
+.pricing-check{color:var(--emerald);flex-shrink:0;}
+.pricing-featured-check{color:var(--amber);}
+.faq-section{padding:80px 24px;max-width:700px;margin:0 auto;}
+.faq-item{border-bottom:1px solid var(--slate-200);padding:20px 0;}
+.faq-question{font-weight:600;font-size:0.9375rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq-answer{font-size:0.875rem;color:var(--slate-600);line-height:1.7;margin-top:12px;display:none;}
+.faq-answer.open{display:block;}
+.landing-footer{background:var(--slate-900);color:rgba(255,255,255,0.6);padding:40px 24px;text-align:center;font-size:0.875rem;}
+.landing-footer a{color:var(--amber);text-decoration:none;}
+
+/* ===== AUTH ===== */
+#screen-auth{background:var(--sand);align-items:center;justify-content:center;padding:40px 24px;}
+.auth-box{width:100%;max-width:440px;}
+.auth-logo-row{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:40px;}
+.auth-logo-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--amber),var(--amber-dark));border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;}
+.auth-logo-text{font-family:var(--font-display);font-size:1.6rem;font-weight:700;}
+.auth-tabs{display:flex;background:var(--slate-100);border-radius:12px;padding:4px;margin-bottom:28px;}
+.auth-tab{flex:1;padding:10px;text-align:center;font-size:0.875rem;font-weight:600;cursor:pointer;border-radius:8px;transition:all 0.2s;color:var(--slate-500);}
+.auth-tab.active{background:white;color:var(--slate-900);box-shadow:var(--shadow);}
+
+/* ===== ONBOARDING ===== */
+#screen-onboarding{background:var(--sand);}
+.onboarding-header{padding:24px;display:flex;align-items:center;gap:16px;}
+.onboarding-progress-row{display:flex;gap:6px;align-items:center;}
+.onboarding-dot{width:8px;height:8px;border-radius:50%;background:var(--slate-200);transition:all 0.3s;}
+.onboarding-dot.active{background:var(--amber);width:20px;border-radius:4px;}
+.onboarding-content{padding:24px;flex:1;}
+.step-title{font-family:var(--font-display);font-size:1.8rem;font-weight:700;margin-bottom:8px;}
+.step-desc{color:var(--slate-600);margin-bottom:32px;line-height:1.6;}
+.avatar-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:24px;}
+.avatar-option{aspect-ratio:1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;cursor:pointer;border:3px solid transparent;transition:all 0.2s;background:var(--slate-100);}
+.avatar-option.selected{border-color:var(--amber);background:var(--amber-light);transform:scale(1.1);}
+.path-select-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.path-select-card{border-radius:var(--radius);overflow:hidden;cursor:pointer;border:3px solid transparent;transition:all 0.2s;}
+.path-select-card.selected{border-color:var(--amber);box-shadow:0 0 0 4px var(--amber-light);}
+.age-tier-grid{display:grid;grid-template-columns:1fr;gap:12px;}
+.age-tier-card{display:flex;align-items:center;gap:16px;padding:16px 20px;background:white;border-radius:var(--radius);border:3px solid transparent;cursor:pointer;transition:all 0.2s;box-shadow:var(--shadow);}
+.age-tier-card.selected{border-color:var(--amber);}
+.age-tier-icon{font-size:2rem;}
+.age-tier-info{}
+.age-tier-name{font-weight:700;font-size:0.9375rem;}
+.age-tier-range{font-size:0.8125rem;color:var(--slate-500);}
+
+/* ===== PARENT DASHBOARD ===== */
+.app-content{flex:1;padding:24px;padding-bottom:100px;max-width:800px;margin:0 auto;width:100%;}
+.welcome-banner{background:linear-gradient(135deg,#1E293B 0%,#0F3460 100%);border-radius:var(--radius-lg);padding:28px;color:white;margin-bottom:24px;position:relative;overflow:hidden;}
+.welcome-banner::after{content:'✨';position:absolute;right:24px;top:50%;transform:translateY(-50%);font-size:3rem;opacity:0.3;}
+.welcome-title{font-family:var(--font-display);font-size:1.4rem;font-weight:600;margin-bottom:4px;}
+.welcome-sub{font-size:0.875rem;color:rgba(255,255,255,0.7);}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px;}
+.stat-card{background:white;border-radius:var(--radius);padding:16px;text-align:center;box-shadow:var(--shadow);}
+.stat-value{font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--slate-900);display:block;}
+.stat-label{font-size:0.75rem;color:var(--slate-500);font-weight:500;margin-top:2px;display:block;}
+.section-title{font-family:var(--font-display);font-size:1.2rem;font-weight:600;margin-bottom:16px;color:var(--slate-900);}
+.member-list{display:flex;flex-direction:column;gap:12px;margin-bottom:24px;}
+.member-row{display:flex;align-items:center;gap:14px;padding:14px 16px;background:white;border-radius:var(--radius);box-shadow:var(--shadow);}
+.member-info{flex:1;}
+.member-name{font-weight:600;font-size:0.9375rem;}
+.member-meta{font-size:0.8125rem;color:var(--slate-500);}
+.member-actions{display:flex;gap:8px;}
+.pending-list{display:flex;flex-direction:column;gap:12px;}
+.pending-card{display:flex;align-items:center;gap:14px;padding:16px;background:white;border-radius:var(--radius);box-shadow:var(--shadow);}
+.pending-info{flex:1;}
+.pending-title{font-weight:600;font-size:0.875rem;}
+.pending-meta{font-size:0.8125rem;color:var(--slate-500);margin-top:2px;}
+.pending-actions{display:flex;gap:8px;}
+.insights-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.insight-card{background:white;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);}
+.insight-label{font-size:0.75rem;font-weight:600;color:var(--slate-500);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;}
+.insight-value{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--slate-900);}
+.heatmap{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:8px;}
+.heatmap-cell{aspect-ratio:1;border-radius:3px;background:var(--slate-100);}
+.heatmap-cell.l1{background:#FEF3C7;}
+.heatmap-cell.l2{background:#FCD34D;}
+.heatmap-cell.l3{background:#F59E0B;}
+.heatmap-cell.l4{background:#D97706;}
+
+/* ===== KID HOME ===== */
+.kid-home-header{background:linear-gradient(160deg,#1E3A5F,#0F3460);padding:28px 24px 48px;color:white;position:relative;overflow:hidden;}
+.kid-header-bg{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.08) 1px,transparent 1px);background-size:24px 24px;}
+.kid-hero-content{position:relative;z-index:1;}
+.kid-greeting{font-size:0.875rem;color:rgba(255,255,255,0.7);margin-bottom:4px;}
+.kid-name{font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:white;margin-bottom:16px;}
+.kid-streak-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.reward-pills{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;}
+.reward-pills::-webkit-scrollbar{display:none;}
+.reward-pill{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);border-radius:100px;padding:6px 14px;white-space:nowrap;font-size:0.8125rem;color:white;font-weight:600;}
+.kid-card-area{margin-top:-28px;padding:0 16px;position:relative;z-index:2;}
+.today-lesson-card{background:white;border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow-lg);margin-bottom:20px;}
+.today-label{font-size:0.75rem;font-weight:700;color:var(--amber-dark);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;}
+.today-title{font-family:var(--font-display);font-size:1.3rem;font-weight:700;margin-bottom:8px;}
+.today-path{font-size:0.8125rem;color:var(--slate-500);margin-bottom:16px;}
+.today-actions{display:flex;gap:12px;}
+.missions-section{padding:0 16px;padding-bottom:100px;}
+.missions-title{font-family:var(--font-display);font-size:1.1rem;font-weight:600;margin-bottom:16px;color:var(--slate-900);}
+.mission-card-kid{background:white;border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);margin-bottom:12px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:all 0.2s;}
+.mission-card-kid:hover{transform:translateY(-1px);box-shadow:var(--shadow-lg);}
+.mission-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;}
+.mission-info{flex:1;}
+.mission-name{font-weight:600;font-size:0.9375rem;margin-bottom:2px;}
+.mission-meta{font-size:0.8125rem;color:var(--slate-500);}
+.mission-arrow{color:var(--slate-400);font-size:1.1rem;}
+
+/* ===== LESSON PLAYER ===== */
+#screen-lesson{background:var(--sand);}
+.lesson-nav{display:flex;align-items:center;gap:12px;padding:16px 24px;background:white;border-bottom:1px solid var(--slate-200);}
+.lesson-progress-row{flex:1;}
+.lesson-step-label{font-size:0.75rem;font-weight:600;color:var(--slate-500);margin-bottom:6px;}
+.lesson-steps{display:flex;gap:4px;}
+.lesson-step-dot{flex:1;height:4px;border-radius:100px;background:var(--slate-200);transition:background 0.3s;}
+.lesson-step-dot.done{background:var(--amber);}
+.lesson-step-dot.active{background:var(--amber-dark);}
+.lesson-body{padding:24px;max-width:680px;margin:0 auto;padding-bottom:120px;}
+.lesson-step-title{font-size:0.75rem;font-weight:700;color:var(--amber-dark);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;}
+.lesson-main-title{font-family:var(--font-display);font-size:1.8rem;font-weight:700;margin-bottom:8px;}
+.verse-block{background:linear-gradient(135deg,#1E293B,#0F3460);border-radius:var(--radius);padding:28px;color:white;margin:24px 0;position:relative;overflow:hidden;}
+.verse-block::before{content:'❝';position:absolute;top:12px;left:16px;font-size:3rem;opacity:0.1;font-family:Georgia;}
+.verse-ref{font-size:0.75rem;font-weight:600;color:var(--amber);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;}
+.verse-text{font-family:var(--font-display);font-size:1.1rem;line-height:1.7;color:rgba(255,255,255,0.95);}
+.explanation-box{background:var(--amber-light);border-radius:var(--radius);padding:20px;margin-bottom:24px;border-left:4px solid var(--amber);}
+.explanation-label{font-size:0.75rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;}
+.explanation-text{font-size:0.9375rem;line-height:1.7;color:var(--slate-700);}
+.question-list{display:flex;flex-direction:column;gap:12px;margin-bottom:24px;}
+.question-item{background:white;border-radius:var(--radius);padding:16px 20px;box-shadow:var(--shadow);}
+.question-num{font-size:0.75rem;font-weight:700;color:var(--amber-dark);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;}
+.question-text{font-size:0.9375rem;line-height:1.5;}
+.mission-options{display:flex;flex-direction:column;gap:14px;margin-bottom:24px;}
+.mission-option{background:white;border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow);cursor:pointer;border:3px solid transparent;transition:all 0.2s;}
+.mission-option:hover{border-color:var(--amber-light);}
+.mission-option.selected{border-color:var(--amber);background:var(--amber-light);}
+.mission-option-emoji{font-size:1.4rem;margin-bottom:8px;display:block;}
+.mission-option-title{font-weight:700;font-size:0.9375rem;margin-bottom:4px;}
+.mission-option-desc{font-size:0.875rem;color:var(--slate-600);line-height:1.5;}
+.reflect-section{margin-bottom:24px;}
+.emoji-grid{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;}
+.emoji-btn{font-size:2rem;cursor:pointer;padding:8px;border-radius:12px;border:3px solid transparent;transition:all 0.2s;background:white;box-shadow:var(--shadow);}
+.emoji-btn.selected{border-color:var(--amber);background:var(--amber-light);transform:scale(1.2);}
+.puzzle-container{margin-bottom:24px;}
+.puzzle-sentence{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:1rem;line-height:2;margin-bottom:16px;}
+.puzzle-word{padding:6px 14px;background:white;border:2px solid var(--slate-200);border-radius:8px;cursor:pointer;font-weight:600;transition:all 0.2s;}
+.puzzle-word:hover{border-color:var(--amber);}
+.puzzle-word.used{opacity:0.4;pointer-events:none;}
+.puzzle-blank{display:inline-flex;align-items:center;min-width:100px;border-bottom:3px solid var(--amber);padding:4px 8px;color:var(--amber-dark);font-weight:700;}
+.scenario-choices{display:flex;flex-direction:column;gap:12px;margin-bottom:24px;}
+.scenario-choice{background:white;border-radius:var(--radius);padding:16px 20px;cursor:pointer;border:3px solid transparent;box-shadow:var(--shadow);transition:all 0.2s;display:flex;align-items:flex-start;gap:12px;}
+.scenario-choice:hover{border-color:var(--sky-light);}
+.scenario-choice.selected-good{border-color:var(--emerald);background:var(--emerald-light);}
+.scenario-choice.selected-bad{border-color:var(--rose);background:var(--rose-light);}
+.scenario-letter{width:28px;height:28px;border-radius:50%;background:var(--slate-100);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.875rem;flex-shrink:0;}
+.prayer-lines{display:flex;flex-direction:column;gap:12px;margin-bottom:24px;}
+.prayer-line{display:flex;gap:12px;align-items:center;}
+.prayer-speaker{font-size:0.8125rem;font-weight:600;color:var(--slate-600);min-width:70px;}
+.lesson-bottom-bar{position:fixed;bottom:0;left:0;right:0;padding:16px 24px max(16px,env(safe-area-inset-bottom));background:white;border-top:1px solid var(--slate-200);display:flex;gap:12px;max-width:800px;margin:0 auto;}
+
+/* ===== REWARDS ===== */
+.badge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.badge-item{background:white;border-radius:var(--radius);padding:20px 16px;text-align:center;box-shadow:var(--shadow);}
+.badge-item.earned{background:linear-gradient(135deg,var(--amber-light),#FFF7ED);}
+.badge-item.locked{opacity:0.5;filter:grayscale(0.6);}
+.badge-emoji{font-size:2.5rem;display:block;margin-bottom:8px;}
+.badge-name{font-size:0.8125rem;font-weight:600;margin-bottom:4px;}
+.badge-desc{font-size:0.7rem;color:var(--slate-500);line-height:1.4;}
+
+/* ===== LIBRARY ===== */
+.library-list{display:flex;flex-direction:column;gap:12px;}
+.library-item{background:white;border-radius:var(--radius);padding:16px 20px;box-shadow:var(--shadow);display:flex;align-items:center;gap:14px;cursor:pointer;transition:all 0.2s;}
+.library-item:hover{transform:translateY(-1px);box-shadow:var(--shadow-lg);}
+.library-check{width:36px;height:36px;border-radius:50%;background:var(--emerald-light);display:flex;align-items:center;justify-content:center;color:var(--emerald);font-size:1.1rem;flex-shrink:0;}
+.library-info{flex:1;}
+.library-title{font-weight:600;font-size:0.9375rem;}
+.library-meta{font-size:0.8125rem;color:var(--slate-500);margin-top:2px;}
+
+/* ===== SUBSCRIPTION ===== */
+.plan-card{border-radius:var(--radius-lg);padding:28px;margin-bottom:16px;}
+.current-plan{background:linear-gradient(135deg,#1E293B,#0F3460);color:white;}
+.upgrade-cta{background:linear-gradient(135deg,var(--amber-light),#FFF7ED);border:2px solid var(--amber-dark);}
+
+/* ===== SETTINGS ===== */
+.settings-section{margin-bottom:32px;}
+.settings-item{display:flex;align-items:center;justify-content:space-between;padding:16px;background:white;border-radius:var(--radius);margin-bottom:8px;box-shadow:var(--shadow);}
+.settings-item-info{}
+.settings-item-label{font-weight:600;font-size:0.9375rem;}
+.settings-item-desc{font-size:0.8125rem;color:var(--slate-500);margin-top:2px;}
+.settings-toggle{width:44px;height:24px;background:var(--slate-300);border-radius:100px;cursor:pointer;position:relative;transition:background 0.2s;}
+.settings-toggle.on{background:var(--emerald);}
+.settings-toggle::after{content:'';position:absolute;top:4px;left:4px;width:16px;height:16px;background:white;border-radius:50%;transition:transform 0.2s;box-shadow:0 1px 4px rgba(0,0,0,0.2);}
+.settings-toggle.on::after{transform:translateX(20px);}
+
+/* ===== APPROVALS ===== */
+.approval-card{background:white;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);margin-bottom:16px;}
+.approval-header{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.approval-body{background:var(--slate-50);border-radius:var(--radius-sm);padding:14px;margin-bottom:14px;}
+.approval-reflection{font-size:0.875rem;line-height:1.6;color:var(--slate-700);font-style:italic;}
+.approval-actions{display:flex;gap:10px;}
+
+/* ===== DEMO TOUR ===== */
+.tour-modal .modal{background:linear-gradient(160deg,#1E293B,#0F3460);color:white;border-radius:24px 24px 0 0;}
+.tour-modal .modal-handle{background:rgba(255,255,255,0.2);}
+.tour-step-icon{font-size:3rem;text-align:center;margin-bottom:16px;}
+.tour-step-title{font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:white;text-align:center;margin-bottom:12px;}
+.tour-step-text{font-size:0.9375rem;color:rgba(255,255,255,0.8);line-height:1.7;text-align:center;}
+.tour-dots{display:flex;justify-content:center;gap:8px;margin:20px 0;}
+.tour-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.3);}
+.tour-dot.active{background:var(--amber);width:20px;border-radius:4px;}
+
+/* ===== PATH COLORS ===== */
+.path-jesus .path-header{background:linear-gradient(135deg,#1E3A5F,#0F3460);}
+.path-fruit .path-header{background:linear-gradient(135deg,#065F46,#059669);}
+.path-courage .path-header{background:linear-gradient(135deg,#7C3AED,#6D28D9);}
+.path-words .path-header{background:linear-gradient(135deg,#B45309,#D97706);}
+.path-prayer .path-header{background:linear-gradient(135deg,#0369A1,#0284C7);}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 rgba(245,158,11,0.4);}50%{box-shadow:0 0 0 12px rgba(245,158,11,0);}}
+.anim-in{animation:fadeUp 0.4s ease both;}
+.pulse-cta{animation:pulseGlow 2s infinite;}
+
+/* ===== LANDING NAVBAR ===== */
+.landing-nav{position:fixed;top:0;left:0;right:0;z-index:200;transition:background 0.3s,box-shadow 0.3s,backdrop-filter 0.3s;padding:0 24px;}
+.landing-nav.scrolled{background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);box-shadow:0 1px 20px rgba(15,23,42,0.08);}
+.landing-nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.lnav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;transition:opacity 0.2s;}
+.lnav-logo:hover{opacity:0.85;}
+.lnav-logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--amber),var(--amber-dark));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 2px 8px rgba(245,158,11,0.4);}
+.lnav-logo-text{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:white;transition:color 0.3s;}
+.landing-nav.scrolled .lnav-logo-text{color:var(--slate-900);}
+.lnav-links{display:flex;align-items:center;gap:4px;}
+.lnav-link{padding:8px 14px;border-radius:8px;font-size:0.9rem;font-weight:500;text-decoration:none;color:rgba(255,255,255,0.8);cursor:pointer;transition:all 0.2s;background:none;border:none;font-family:var(--font-body);}
+.lnav-link:hover{background:rgba(255,255,255,0.12);color:white;}
+.landing-nav.scrolled .lnav-link{color:var(--slate-600);}
+.landing-nav.scrolled .lnav-link:hover{background:var(--slate-100);color:var(--slate-900);}
+.lnav-actions{display:flex;align-items:center;gap:10px;}
+.lnav-signin{padding:9px 20px;border-radius:100px;font-size:0.875rem;font-weight:600;cursor:pointer;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:white;font-family:var(--font-body);transition:all 0.2s;}
+.lnav-signin:hover{background:rgba(255,255,255,0.25);}
+.landing-nav.scrolled .lnav-signin{background:white;border-color:var(--slate-200);color:var(--slate-800);box-shadow:0 1px 8px rgba(0,0,0,0.06);}
+.landing-nav.scrolled .lnav-signin:hover{border-color:var(--amber);}
+.lnav-cta{padding:10px 22px;border-radius:100px;font-size:0.875rem;font-weight:700;cursor:pointer;background:linear-gradient(135deg,var(--amber),var(--amber-dark));border:none;color:white;font-family:var(--font-body);box-shadow:0 3px 12px rgba(245,158,11,0.4);transition:all 0.2s;}
+.lnav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(245,158,11,0.45);}
+.lnav-mobile-menu{display:none;flex-direction:column;gap:3px;cursor:pointer;padding:6px;}
+.lnav-mobile-menu span{display:block;width:22px;height:2px;background:white;border-radius:2px;transition:background 0.3s;}
+.landing-nav.scrolled .lnav-mobile-menu span{background:var(--slate-700);}
+@media(max-width:768px){
+  .lnav-links{display:none;}
+  .lnav-mobile-menu{display:flex;}
+}
+/* Mobile nav drawer */
+.lnav-drawer{position:fixed;top:68px;left:0;right:0;background:white;z-index:199;box-shadow:0 8px 32px rgba(0,0,0,0.1);transform:translateY(-110%);transition:transform 0.3s cubic-bezier(0.34,1.3,0.64,1);border-bottom:1px solid var(--slate-200);}
+.lnav-drawer.open{transform:translateY(0);}
+.lnav-drawer-inner{padding:16px 24px 24px;display:flex;flex-direction:column;gap:4px;}
+.lnav-drawer-link{padding:14px 16px;border-radius:12px;font-size:1rem;font-weight:500;color:var(--slate-700);cursor:pointer;transition:background 0.2s;border:none;background:none;font-family:var(--font-body);text-align:left;}
+.lnav-drawer-link:hover{background:var(--slate-100);}
+.lnav-drawer-divider{height:1px;background:var(--slate-200);margin:8px 0;}
+/* Ensure hero has top padding for fixed nav */
+#screen-landing .landing-hero{padding-top:140px;}
+@media(min-width:640px){#screen-landing .landing-hero{padding-top:160px;}}
+
+/* ===== SOCIAL PROOF BAR ===== */
+.proof-bar{background:white;border-bottom:1px solid var(--slate-200);padding:0 24px;overflow:hidden;}
+.proof-bar-inner{max-width:900px;margin:0 auto;display:flex;align-items:stretch;justify-content:center;flex-wrap:wrap;}
+.proof-stat{display:flex;align-items:center;gap:10px;padding:20px 28px;border-right:1px solid var(--slate-200);flex:1;min-width:150px;justify-content:center;}
+.proof-stat:last-child{border-right:none;}
+.proof-stat-icon{font-size:1.4rem;flex-shrink:0;}
+.proof-stat-text{}
+.proof-stat-value{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:var(--slate-900);display:block;line-height:1.1;}
+.proof-stat-label{font-size:0.75rem;color:var(--slate-500);font-weight:500;}
+@media(max-width:480px){.proof-stat{border-right:none;border-bottom:1px solid var(--slate-200);}.proof-stat:last-child{border-bottom:none;}}
+
+/* ===== LESSON PREVIEW SECTION ===== */
+.lesson-preview-section{background:linear-gradient(170deg,#0F172A 0%,#1E3A5F 60%,#0F3460 100%);padding:100px 24px;overflow:hidden;position:relative;}
+.lesson-preview-section::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:32px 32px;}
+.lp-container{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;}
+@media(max-width:700px){.lp-container{grid-template-columns:1fr;gap:40px;}}
+.lp-text{}
+.lp-eyebrow{display:inline-block;background:rgba(245,158,11,0.2);border:1px solid rgba(245,158,11,0.4);color:var(--amber);padding:6px 16px;border-radius:100px;font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:20px;}
+.lp-title{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:white;line-height:1.15;margin-bottom:16px;}
+.lp-desc{font-size:0.9375rem;color:rgba(255,255,255,0.7);line-height:1.75;margin-bottom:32px;}
+.lp-steps-list{display:flex;flex-direction:column;gap:12px;margin-bottom:32px;}
+.lp-step-row{display:flex;align-items:center;gap:12px;cursor:pointer;padding:10px 14px;border-radius:12px;border:1px solid transparent;transition:all 0.2s;}
+.lp-step-row:hover,.lp-step-row.active{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.15);}
+.lp-step-row.active{border-color:rgba(245,158,11,0.5);}
+.lp-step-dot{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.875rem;flex-shrink:0;background:rgba(255,255,255,0.1);}
+.lp-step-row.active .lp-step-dot{background:var(--amber);color:white;}
+.lp-step-label{font-size:0.9rem;font-weight:600;color:rgba(255,255,255,0.7);}
+.lp-step-row.active .lp-step-label{color:white;}
+.lp-mockup{position:relative;}
+.lp-phone{background:white;border-radius:28px;box-shadow:0 32px 80px rgba(0,0,0,0.5),0 0 0 8px rgba(255,255,255,0.08);overflow:hidden;max-width:300px;margin:0 auto;}
+.lp-phone-bar{height:10px;background:var(--slate-900);display:flex;align-items:center;justify-content:center;gap:4px;}
+.lp-phone-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.2);}
+.lp-phone-content{padding:0;min-height:400px;transition:opacity 0.15s ease;}
+.lp-preview-card{padding:20px;}
+.lp-preview-step-label{font-size:0.65rem;font-weight:700;color:var(--amber-dark);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;}
+.lp-preview-title{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--slate-900);margin-bottom:12px;line-height:1.3;}
+.lp-preview-verse{background:linear-gradient(135deg,#1E293B,#0F3460);border-radius:12px;padding:14px;margin-bottom:12px;}
+.lp-preview-verse-ref{font-size:0.65rem;font-weight:600;color:var(--amber);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;}
+.lp-preview-verse-text{font-family:var(--font-display);font-size:0.8rem;line-height:1.6;color:rgba(255,255,255,0.9);}
+.lp-preview-q{background:var(--slate-50);border-radius:10px;padding:12px 14px;margin-bottom:8px;}
+.lp-preview-q-label{font-size:0.65rem;font-weight:700;color:var(--amber-dark);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;}
+.lp-preview-q-text{font-size:0.8rem;line-height:1.5;color:var(--slate-700);}
+.lp-preview-mission{border:2px solid var(--emerald);border-radius:10px;padding:12px 14px;margin-bottom:8px;background:var(--emerald-light);}
+.lp-preview-mission-label{font-size:0.65rem;font-weight:700;color:#065F46;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;}
+.lp-preview-mission-title{font-size:0.875rem;font-weight:700;color:var(--slate-900);margin-bottom:3px;}
+.lp-preview-mission-desc{font-size:0.75rem;color:var(--slate-600);line-height:1.4;}
+.lp-preview-emoji-row{display:flex;gap:8px;margin-bottom:10px;}
+.lp-preview-emoji{font-size:1.4rem;padding:6px;background:white;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);}
+.lp-preview-emoji.sel{background:var(--amber-light);box-shadow:0 0 0 2px var(--amber);}
+.lp-preview-progress{height:4px;background:var(--slate-200);border-radius:100px;margin-bottom:14px;overflow:hidden;}
+.lp-preview-progress-fill{height:100%;background:linear-gradient(90deg,var(--amber),var(--amber-dark));border-radius:100px;}
+
+/* ===== RICH FOOTER ===== */
+.rich-footer{background:var(--slate-900);color:white;padding:72px 24px 0;}
+.rich-footer-inner{max-width:1000px;margin:0 auto;}
+.rich-footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,0.08);}
+@media(max-width:768px){.rich-footer-top{grid-template-columns:1fr 1fr;gap:32px;}}
+@media(max-width:480px){.rich-footer-top{grid-template-columns:1fr;}}
+.rf-brand{}
+.rf-brand-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+.rf-brand-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--amber),var(--amber-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;}
+.rf-brand-name{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:white;}
+.rf-tagline{font-size:0.875rem;color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:24px;max-width:280px;}
+.rf-social{display:flex;gap:10px;}
+.rf-social-btn{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:0.875rem;cursor:pointer;transition:all 0.2s;text-decoration:none;color:white;}
+.rf-social-btn:hover{background:rgba(245,158,11,0.2);border-color:rgba(245,158,11,0.4);}
+.rf-col-title{font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:16px;}
+.rf-links{display:flex;flex-direction:column;gap:10px;}
+.rf-link{font-size:0.875rem;color:rgba(255,255,255,0.6);text-decoration:none;cursor:pointer;transition:color 0.2s;}
+.rf-link:hover{color:var(--amber);}
+.rf-badge-row{display:flex;flex-direction:column;gap:8px;margin-top:4px;}
+.rf-trust-badge{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:8px 12px;}
+.rf-trust-icon{font-size:1rem;}
+.rf-trust-text{font-size:0.75rem;color:rgba(255,255,255,0.6);line-height:1.3;}
+.rich-footer-bottom{display:flex;align-items:center;justify-content:space-between;padding:20px 0 32px;flex-wrap:wrap;gap:12px;}
+.rf-copyright{font-size:0.8rem;color:rgba(255,255,255,0.35);}
+.rf-legal{display:flex;gap:16px;}
+.rf-legal a{font-size:0.8rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.2s;}
+.rf-legal a:hover{color:var(--amber);}
+.rf-scripture-note{font-size:0.7rem;color:rgba(255,255,255,0.25);text-align:center;padding-bottom:12px;}
+
+/* RESPONSIVE */
+@media(min-width:640px){
+  .pricing-grid{max-width:680px;}
+  .hero-cta-row .btn-lg{padding:20px 48px;}
+}
+@media(max-width:400px){
+  .stats-row{grid-template-columns:1fr 1fr;}
+  .badge-grid{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body>
+
+<div id="toast"></div>
+
+<!-- ===== LANDING NAV ===== -->
+<nav class="landing-nav" id="landingNav">
+  <div class="landing-nav-inner">
+    <a class="lnav-logo" href="#">
+      <div class="lnav-logo-icon">✝️</div>
+      <span class="lnav-logo-text">FaithQuest</span>
+    </a>
+    <div class="lnav-links">
+      <button class="lnav-link" onclick="scrollToSection('how-it-works')">How It Works</button>
+      <button class="lnav-link" onclick="scrollToSection('paths-section')">Paths</button>
+      <button class="lnav-link" onclick="scrollToSection('lesson-preview')">Preview</button>
+      <button class="lnav-link" onclick="scrollToSection('pricing')">Pricing</button>
+    </div>
+    <div class="lnav-actions">
+      <button class="lnav-signin" onclick="gotoAuth('signin')">Sign In</button>
+      <button class="lnav-cta" onclick="gotoAuth('signup')">Start Free</button>
+    </div>
+    <div class="lnav-mobile-menu" onclick="toggleMobileNav()" id="mobileMenuBtn">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="lnav-drawer" id="lnavDrawer">
+  <div class="lnav-drawer-inner">
+    <button class="lnav-drawer-link" onclick="scrollToSection('how-it-works');closeMobileNav()">📖 How It Works</button>
+    <button class="lnav-drawer-link" onclick="scrollToSection('paths-section');closeMobileNav()">📚 Learning Paths</button>
+    <button class="lnav-drawer-link" onclick="scrollToSection('lesson-preview');closeMobileNav()">👀 See a Lesson</button>
+    <button class="lnav-drawer-link" onclick="scrollToSection('pricing');closeMobileNav()">💳 Pricing</button>
+    <div class="lnav-drawer-divider"></div>
+    <button class="lnav-drawer-link" onclick="gotoAuth('signin')">Sign In</button>
+    <button class="btn btn-primary btn-full" onclick="gotoAuth('signup')">Start Free Today →</button>
+  </div>
+</div>
+
+<!-- ===== LANDING ===== -->
+<div id="screen-landing" class="screen active">
+  <div class="landing-hero">
+    <div class="hero-stars"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">✨ Faith-based learning for every family</div>
+      <h1 class="hero-title">Where Scripture Becomes <span>Living Adventure</span></h1>
+      <p class="hero-sub">FaithQuest guides families through Bible stories, real-world missions, and meaningful conversations—with safe, age-tailored AI support.</p>
+      <div class="hero-cta-row">
+        <button class="btn btn-primary btn-lg" onclick="gotoAuth('signup')">Start Free Today</button>
+        <button class="btn btn-secondary btn-lg" onclick="scrollToSection('how-it-works')">See How It Works</button>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item"><span class="trust-icon">🔒</span>Kid-Safe AI</div>
+        <div class="trust-item"><span class="trust-icon">📖</span>35+ Lessons</div>
+        <div class="trust-item"><span class="trust-icon">👨‍👩‍👧‍👦</span>Family-Centered</div>
+        <div class="trust-item"><span class="trust-icon">🌍</span>Offline Missions</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOCIAL PROOF BAR -->
+  <div class="proof-bar">
+    <div class="proof-bar-inner">
+      <div class="proof-stat"><span class="proof-stat-icon">👨‍👩‍👧‍👦</span><div class="proof-stat-text"><span class="proof-stat-value">12,400+</span><span class="proof-stat-label">Families using FaithQuest</span></div></div>
+      <div class="proof-stat"><span class="proof-stat-icon">⭐</span><div class="proof-stat-text"><span class="proof-stat-value">4.9 / 5</span><span class="proof-stat-label">Average family rating</span></div></div>
+      <div class="proof-stat"><span class="proof-stat-icon">📖</span><div class="proof-stat-text"><span class="proof-stat-value">248,000+</span><span class="proof-stat-label">Lessons completed</span></div></div>
+      <div class="proof-stat"><span class="proof-stat-icon">🎯</span><div class="proof-stat-text"><span class="proof-stat-value">91,000+</span><span class="proof-stat-label">Real-world missions done</span></div></div>
+    </div>
+  </div>
+
+  <div class="section" id="how-it-works">
+    <div class="section-header">
+      <div class="section-eyebrow">How It Works</div>
+      <h2 class="display-md">Scripture → Understanding → Action</h2>
+      <p class="body-lg muted" style="max-width:520px;margin:16px auto 0">Every lesson flows through five thoughtful stages designed for lasting impact.</p>
+    </div>
+    <div class="how-grid">
+      <div class="card how-card"><span class="how-icon">📖</span><div class="how-title">Read</div><p class="how-desc">Short public-domain verse with context—perfectly sized for young attention spans.</p></div>
+      <div class="card how-card"><span class="how-icon">🤔</span><div class="how-title">Understand</div><p class="how-desc">AI-tailored explanations for each age tier. No theological jargon for kids.</p></div>
+      <div class="card how-card"><span class="how-icon">💬</span><div class="how-title">Talk Together</div><p class="how-desc">Guided family discussion questions that spark real conversation at the table.</p></div>
+      <div class="card how-card"><span class="how-icon">🚀</span><div class="how-title">Faith-in-Action</div><p class="how-desc">Offline missions that bring Scripture to life in everyday moments.</p></div>
+      <div class="card how-card"><span class="how-icon">🙏</span><div class="how-title">Reflect & Pray</div><p class="how-desc">Kids share how they felt. Families build a prayer together, line by line.</p></div>
+    </div>
+  </div>
+
+  <div style="background:#F8FAFC;padding:80px 24px;" id="paths-section">
+    <div class="section-header" style="text-align:center;">
+      <div class="section-eyebrow">Learning Paths</div>
+      <h2 class="display-md">5 Curated Paths, 35 Lessons</h2>
+      <p class="body-lg muted" style="max-width:480px;margin:16px auto 0">Structured journeys through the Bible's most transformative teachings.</p>
+    </div>
+    <div class="paths-grid" style="max-width:900px;margin:0 auto;">
+      <div class="path-card-landing path-jesus" onclick="gotoAuth('signup')"><div class="path-header"><span class="path-emoji">✝️</span><div class="path-title-text">Jesus &amp; Me</div></div><div class="path-body"><p class="path-desc">Discover who Jesus is through stories, miracles, and His teachings for everyday life.</p><span class="badge badge-sky">7 lessons</span></div></div>
+      <div class="path-card-landing path-fruit" onclick="gotoAuth('signup')"><div class="path-header"><span class="path-emoji">🍎</span><div class="path-title-text">Fruit of the Spirit</div></div><div class="path-body"><p class="path-desc">Love, joy, peace, patience—learn to grow these character qualities in real life.</p><span class="badge badge-emerald">7 lessons</span></div></div>
+      <div class="path-card-landing path-courage" onclick="gotoAuth('signup')"><div class="path-header"><span class="path-emoji">🦁</span><div class="path-title-text">Courage &amp; Anxiety</div></div><div class="path-body"><p class="path-desc">Biblical tools for facing fears, worry, and hard situations with faith and calm.</p><span class="badge badge-purple">7 lessons</span></div></div>
+      <div class="path-card-landing path-words" onclick="gotoAuth('signup')"><div class="path-header"><span class="path-emoji">💬</span><div class="path-title-text">Words &amp; Actions</div></div><div class="path-body"><p class="path-desc">Honesty, kindness in speech, and how our words shape the world around us.</p><span class="badge badge-amber">7 lessons</span></div></div>
+      <div class="path-card-landing path-prayer" onclick="gotoAuth('signup')"><div class="path-header"><span class="path-emoji">🙏</span><div class="path-title-text">Prayer &amp; Gratitude</div></div><div class="path-body"><p class="path-desc">Learn to talk with God—how to pray, what to pray for, and why gratitude changes everything.</p><span class="badge badge-sky">7 lessons</span></div></div>
+    </div>
+  </div>
+
+  <div class="testimonials">
+    <div class="section-header" style="text-align:center;margin-bottom:48px;">
+      <div style="display:inline-block;background:rgba(245,158,11,0.2);color:var(--amber);padding:6px 16px;border-radius:100px;font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:16px;">What Families Say</div>
+      <h2 class="display-md" style="color:white;">Real Stories, Real Growth</h2>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card"><p class="testimonial-text">"Our 8-year-old actually asks to do FaithQuest before dinner now. The missions make faith feel tangible and fun."</p><div class="testimonial-author"><div class="testimonial-avatar">👩</div><div><div class="testimonial-name">Sarah M.</div><div class="testimonial-role">Mother of 2, Texas</div></div></div></div>
+      <div class="testimonial-card"><p class="testimonial-text">"The family discussion questions opened conversations we never knew how to start. Deeply grateful."</p><div class="testimonial-author"><div class="testimonial-avatar">👨</div><div><div class="testimonial-name">James K.</div><div class="testimonial-role">Father of 3, Georgia</div></div></div></div>
+      <div class="testimonial-card"><p class="testimonial-text">"As a parent I love that I can see insights and know my kids are safe. The AI never feels pushy or weird."</p><div class="testimonial-author"><div class="testimonial-avatar">🧑</div><div><div class="testimonial-name">Priya D.</div><div class="testimonial-role">Mother of 1, California</div></div></div></div>
+    </div>
+  </div>
+
+  <div class="pricing-section" id="pricing">
+    <div class="section-header" style="text-align:center;margin-bottom:32px;">
+      <div class="section-eyebrow">Pricing</div>
+      <h2 class="display-md">Simple, Family-Friendly Plans</h2>
+    </div>
+    <div class="pricing-toggle" id="pricingToggle">
+      <span class="toggle-label">Monthly</span>
+      <div class="toggle-track" id="billingToggle" onclick="toggleBilling()"><div class="toggle-thumb"></div></div>
+      <span class="toggle-label">Yearly <span style="background:var(--emerald-light);color:var(--emerald);padding:2px 8px;border-radius:100px;font-size:0.7rem;font-weight:700;margin-left:4px;">Save 20%</span></span>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-plan-name">Free</div>
+        <div class="pricing-price"><sup>$</sup>0</div>
+        <div class="pricing-period">Forever</div>
+        <ul class="pricing-features">
+          <li><span class="pricing-check">✓</span>1 Learning Path</li>
+          <li><span class="pricing-check">✓</span>Up to 2 family members</li>
+          <li><span class="pricing-check">✓</span>Basic lesson player</li>
+          <li><span class="pricing-check">✓</span>Offline missions</li>
+          <li style="opacity:0.4"><span>✗</span>Full path library</li>
+          <li style="opacity:0.4"><span>✗</span>Parent insights dashboard</li>
+          <li style="opacity:0.4"><span>✗</span>Teen journaling</li>
+        </ul>
+        <button class="btn btn-secondary btn-full" onclick="gotoAuth('signup')">Get Started Free</button>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-plan-name" style="color:white;">Premium Family</div>
+        <div class="pricing-price" style="color:white;" id="premiumPrice"><sup>$</sup>9.99</div>
+        <div class="pricing-period" id="premiumPeriod">per month</div>
+        <ul class="pricing-features" style="color:rgba(255,255,255,0.85);">
+          <li><span class="pricing-featured-check">★</span>All 5 Learning Paths</li>
+          <li><span class="pricing-featured-check">★</span>Unlimited family members</li>
+          <li><span class="pricing-featured-check">★</span>Full AI lesson engine</li>
+          <li><span class="pricing-featured-check">★</span>Parent insights + heatmap</li>
+          <li><span class="pricing-featured-check">★</span>Teen journaling</li>
+          <li><span class="pricing-featured-check">★</span>Mission approvals workflow</li>
+          <li><span class="pricing-featured-check">★</span>Prayer builder</li>
+        </ul>
+        <button class="btn btn-primary btn-full pulse-cta" onclick="gotoAuth('signup')">Start 14-Day Trial</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LESSON PREVIEW SECTION -->
+  <div class="lesson-preview-section" id="lesson-preview">
+    <div class="lp-container">
+      <div class="lp-text">
+        <div class="lp-eyebrow">Interactive Preview</div>
+        <h2 class="lp-title">See a Real Lesson in Action</h2>
+        <p class="lp-desc">Every FaithQuest lesson flows through 6 thoughtful steps. Click a step below to preview what your family will experience.</p>
+        <div class="lp-steps-list" id="lpStepsList"></div>
+        <button class="btn btn-primary" onclick="gotoAuth('signup')">Try It Free — No Card Needed →</button>
+      </div>
+      <div class="lp-mockup">
+        <div class="lp-phone">
+          <div class="lp-phone-bar"><div class="lp-phone-dot"></div><div class="lp-phone-dot"></div><div class="lp-phone-dot"></div></div>
+          <div class="lp-phone-content" id="lpPhoneContent"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-section">
+    <div class="section-header" style="text-align:center;margin-bottom:40px;">
+      <div class="section-eyebrow">FAQ</div>
+      <h2 class="display-sm">Common Questions</h2>
+    </div>
+    <div id="faqList"></div>
+  </div>
+
+  <!-- RICH FOOTER -->
+  <footer class="rich-footer">
+    <div class="rich-footer-inner">
+      <div class="rich-footer-top">
+        <div class="rf-brand">
+          <div class="rf-brand-logo">
+            <div class="rf-brand-icon">✝️</div>
+            <span class="rf-brand-name">FaithQuest</span>
+          </div>
+          <p class="rf-tagline">Scripture into understanding, family conversation, real-world action, and lasting faith—safely designed for every age.</p>
+          <div class="rf-social">
+            <a class="rf-social-btn" href="#" title="Instagram">📸</a>
+            <a class="rf-social-btn" href="#" title="Facebook">📘</a>
+            <a class="rf-social-btn" href="#" title="YouTube">▶️</a>
+            <a class="rf-social-btn" href="#" title="Twitter/X">🐦</a>
+            <a class="rf-social-btn" href="#" title="Email">✉️</a>
+          </div>
+        </div>
+        <div>
+          <div class="rf-col-title">Product</div>
+          <div class="rf-links">
+            <span class="rf-link" onclick="scrollToSection('how-it-works')">How It Works</span>
+            <span class="rf-link" onclick="scrollToSection('paths-section')">Learning Paths</span>
+            <span class="rf-link" onclick="scrollToSection('lesson-preview')">Lesson Preview</span>
+            <span class="rf-link" onclick="scrollToSection('pricing')">Pricing</span>
+            <span class="rf-link" onclick="gotoAuth('signup')">Start Free</span>
+          </div>
+        </div>
+        <div>
+          <div class="rf-col-title">Company</div>
+          <div class="rf-links">
+            <span class="rf-link">About Us</span>
+            <span class="rf-link">Our Mission</span>
+            <span class="rf-link">Blog</span>
+            <span class="rf-link">Partnerships</span>
+            <span class="rf-link">Contact</span>
+          </div>
+        </div>
+        <div>
+          <div class="rf-col-title">Trust & Safety</div>
+          <div class="rf-badge-row">
+            <div class="rf-trust-badge"><span class="rf-trust-icon">🔒</span><span class="rf-trust-text">Kid-Safe AI — no open chat, no personal data requests</span></div>
+            <div class="rf-trust-badge"><span class="rf-trust-icon">📖</span><span class="rf-trust-text">WEB & KJV — public domain Scripture only</span></div>
+            <div class="rf-trust-badge"><span class="rf-trust-icon">⛪</span><span class="rf-trust-text">Doctrinally neutral across mainstream Christian traditions</span></div>
+            <div class="rf-trust-badge"><span class="rf-trust-icon">👨‍👩‍👧</span><span class="rf-trust-text">Parent approval required for every mission submission</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="rich-footer-bottom">
+        <span class="rf-copyright">© 2025 FaithQuest, Inc. All rights reserved.</span>
+        <div class="rf-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+      <p class="rf-scripture-note">Scripture quotations from the World English Bible (WEB) and King James Version (KJV), both in the public domain.</p>
+    </div>
+  </footer>
+</div>
+
+<!-- ===== AUTH ===== -->
+<div id="screen-auth" class="screen">
+  <div class="auth-box">
+    <div class="auth-logo-row">
+      <div class="auth-logo-icon">✝️</div>
+      <span class="auth-logo-text">FaithQuest</span>
+    </div>
+    <div class="auth-tabs">
+      <div class="auth-tab active" id="tab-signin" onclick="switchAuthTab('signin')">Sign In</div>
+      <div class="auth-tab" id="tab-signup" onclick="switchAuthTab('signup')">Create Account</div>
+    </div>
+    <div id="auth-signin-form">
+      <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" id="signin-email" placeholder="you@example.com"></div>
+      <div class="form-group"><label class="form-label">Password</label><input type="password" class="form-input" id="signin-password" placeholder="••••••••"></div>
+      <div style="margin-bottom:20px;text-align:right;"><span class="btn btn-ghost btn-sm" style="font-size:0.8125rem;color:var(--amber-dark);cursor:pointer;">Forgot password?</span></div>
+      <button class="btn btn-primary btn-full" onclick="doSignIn()">Sign In</button>
+      <div style="text-align:center;margin-top:16px;font-size:0.875rem;color:var(--slate-500);">Demo: use any email + password</div>
+    </div>
+    <div id="auth-signup-form" class="hidden">
+      <div class="form-group"><label class="form-label">Your Name</label><input type="text" class="form-input" id="signup-name" placeholder="First name"></div>
+      <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" id="signup-email" placeholder="you@example.com"></div>
+      <div class="form-group"><label class="form-label">Password</label><input type="password" class="form-input" id="signup-password" placeholder="Create a password"></div>
+      <button class="btn btn-primary btn-full" onclick="doSignUp()">Create Account</button>
+    </div>
+    <div style="text-align:center;margin-top:24px;">
+      <button class="btn btn-ghost" onclick="showScreen('screen-landing')">← Back to home</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ONBOARDING ===== -->
+<div id="screen-onboarding" class="screen">
+  <div class="onboarding-header">
+    <button class="btn btn-ghost btn-sm" onclick="onboardBack()">← Back</button>
+    <div class="onboarding-progress-row" id="onboardDots"></div>
+    <div style="width:60px;"></div>
+  </div>
+  <div class="onboarding-content" id="onboardContent"></div>
+  <div style="padding:0 24px 32px;">
+    <button class="btn btn-primary btn-full" id="onboardNext" onclick="onboardNextStep()">Continue →</button>
+  </div>
+</div>
+
+<!-- ===== PARENT APP ===== -->
+<div id="screen-parent" class="screen" style="flex-direction:column;">
+  <div class="top-nav">
+    <a class="nav-logo" href="#">
+      <div class="nav-logo-icon">✝️</div>
+      <span class="nav-logo-text">FaithQuest</span>
+    </a>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <span class="badge badge-amber" id="planBadge">Free</span>
+      <button class="btn btn-ghost btn-sm" onclick="doSignOut()" style="font-size:0.8rem;padding:8px 12px;">Sign Out</button>
+    </div>
+  </div>
+  <div class="app-content" id="parentContent"></div>
+  <nav class="bottom-nav">
+    <button class="bottom-nav-item active" id="pnav-home" onclick="parentNav('home')"><span class="bottom-nav-icon">🏠</span><span class="bottom-nav-label">Home</span></button>
+    <button class="bottom-nav-item" id="pnav-family" onclick="parentNav('family')"><span class="bottom-nav-icon">👨‍👩‍👧</span><span class="bottom-nav-label">Family</span></button>
+    <button class="bottom-nav-item" id="pnav-paths" onclick="parentNav('paths')"><span class="bottom-nav-icon">📚</span><span class="bottom-nav-label">Paths</span></button>
+    <button class="bottom-nav-item" id="pnav-approvals" onclick="parentNav('approvals')"><span class="bottom-nav-icon">✅</span><span class="bottom-nav-label">Approvals</span></button>
+    <button class="bottom-nav-item" id="pnav-insights" onclick="parentNav('insights')"><span class="bottom-nav-icon">📊</span><span class="bottom-nav-label">Insights</span></button>
+  </nav>
+</div>
+
+<!-- ===== KID APP ===== -->
+<div id="screen-kid" class="screen" style="flex-direction:column;background:#F0F4FF;">
+  <div id="kidContent"></div>
+  <nav class="bottom-nav">
+    <button class="bottom-nav-item active" id="knav-home" onclick="kidNav('home')"><span class="bottom-nav-icon">🏠</span><span class="bottom-nav-label">Home</span></button>
+    <button class="bottom-nav-item" id="knav-rewards" onclick="kidNav('rewards')"><span class="bottom-nav-icon">🏆</span><span class="bottom-nav-label">Rewards</span></button>
+    <button class="bottom-nav-item" id="knav-library" onclick="kidNav('library')"><span class="bottom-nav-icon">📖</span><span class="bottom-nav-label">Library</span></button>
+    <button class="bottom-nav-item" id="knav-profile" onclick="kidNav('profile')"><span class="bottom-nav-label-icon">😊</span><span class="bottom-nav-label">Me</span></button>
+  </nav>
+</div>
+
+<!-- ===== LESSON PLAYER ===== -->
+<div id="screen-lesson" class="screen" style="flex-direction:column;">
+  <div class="lesson-nav">
+    <button class="btn btn-ghost btn-sm" onclick="exitLesson()">✕</button>
+    <div class="lesson-progress-row">
+      <div class="lesson-step-label" id="lessonStepLabel">Step 1 of 6</div>
+      <div class="lesson-steps" id="lessonStepDots"></div>
+    </div>
+  </div>
+  <div style="overflow-y:auto;flex:1;">
+    <div class="lesson-body" id="lessonBody"></div>
+  </div>
+  <div class="lesson-bottom-bar" id="lessonBottomBar">
+    <button class="btn btn-secondary" id="lessonPrevBtn" onclick="lessonPrev()">← Back</button>
+    <button class="btn btn-primary" style="flex:1;" id="lessonNextBtn" onclick="lessonNext()">Next →</button>
+  </div>
+</div>
+
+<!-- ===== MISSION CHECK-IN ===== -->
+<div id="screen-checkin" class="screen" style="background:var(--sand);">
+  <div class="top-nav">
+    <button class="btn btn-ghost btn-sm" onclick="exitCheckin()">← Back</button>
+    <span style="font-weight:600;">Mission Check-In</span>
+    <div style="width:60px;"></div>
+  </div>
+  <div style="padding:24px;max-width:600px;margin:0 auto;padding-bottom:100px;">
+    <div id="checkinContent"></div>
+  </div>
+</div>
+
+<!-- ===== MODALS ===== -->
+<div class="modal-overlay" id="modal-add-member">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <h2 class="modal-title">Add Family Member</h2>
+    <p style="font-size:0.875rem;color:var(--slate-500);margin-bottom:24px;">Create a profile for your child or teen.</p>
+    <div class="form-group"><label class="form-label">Display Name</label><input type="text" class="form-input" id="new-member-name" placeholder="e.g. Emma"></div>
+    <div class="form-group"><label class="form-label">Age Tier</label>
+      <select class="form-input" id="new-member-tier">
+        <option value="younger">Little Explorer (4–6)</option>
+        <option value="kid" selected>Kid (6–10)</option>
+        <option value="teen">Teen (11–17)</option>
+      </select>
+    </div>
+    <div class="form-group"><label class="form-label">Avatar</label>
+      <div class="avatar-grid" id="newMemberAvatarGrid"></div>
+    </div>
+    <div style="display:flex;gap:12px;margin-top:8px;">
+      <button class="btn btn-secondary" style="flex:1;" onclick="closeModal('modal-add-member')">Cancel</button>
+      <button class="btn btn-primary" style="flex:1;" onclick="addMember()">Add Member</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay tour-modal" id="modal-tour">
+  <div class="modal" style="background:linear-gradient(160deg,#1E293B,#0F3460);border-radius:24px 24px 0 0;">
+    <div class="modal-handle" style="background:rgba(255,255,255,0.2);"></div>
+    <div id="tourContent"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-ask-parent">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <h2 class="modal-title">Ask a Parent</h2>
+    <p style="font-size:0.9rem;color:var(--slate-600);line-height:1.7;margin-bottom:24px;">This is a great question! The best way to explore it is with your parent or guardian. They can help you understand more and answer your specific questions together.</p>
+    <div style="background:var(--amber-light);border-radius:var(--radius);padding:16px;margin-bottom:24px;display:flex;gap:12px;">
+      <span style="font-size:1.5rem;">💛</span>
+      <p style="font-size:0.875rem;color:var(--gold);line-height:1.6;">FaithQuest is designed for families to learn together. Deep questions are best explored with your trusted adults!</p>
+    </div>
+    <button class="btn btn-primary btn-full" onclick="closeModal('modal-ask-parent')">Got it!</button>
+  </div>
+</div>
+
+<script>
+// ===================== DATA =====================
+const PATHS = [
+  {id:'jesus',emoji:'✝️',color:'path-jesus',title:'Jesus & Me',desc:'Discover who Jesus is through stories, miracles, and His teachings.',tier:'free',lessons:[
+    {id:'j1',title:'Jesus, the Good Shepherd',verseRef:'John 10:11',excerpt:'"I am the good shepherd. The good shepherd lays down his life for the sheep." — John 10:11 (WEB)',summary:'Jesus compares himself to a shepherd who truly cares for and protects his sheep—even at great cost.',questions:['What does it mean to you that Jesus calls himself your shepherd?','How does a good shepherd act differently from someone who doesn\'t care about the sheep?','Where in your week could you be a "good shepherd" to a friend?'],missions:[{emoji:'🐑',title:'Protect a Friend',desc:'This week, stand up for someone who is being left out or picked on. Be their shepherd.',level:'Easy'},{emoji:' ✉️',title:'Write a Care Note',desc:'Write or draw a note for someone who might feel alone. Deliver it in person.',level:'Medium'},{emoji:'🙏',title:'Prayer Vigil',desc:'Keep a list of 3 people you want to pray for every day this week.',level:'Medium'}],reflectPrompts:['How did doing this mission feel?','What was hard about it?','How do you think God felt watching you?']},
+    {id:'j2',title:'Jesus Calms the Storm',verseRef:'Mark 4:39',excerpt:'"He awoke, and rebuked the wind, and said to the sea, \'Peace! Be still!\' The wind ceased, and there was a great calm." — Mark 4:39 (WEB)',summary:'When a fierce storm scared the disciples, Jesus spoke peace into the chaos—reminding us he has authority over what frightens us.',questions:['Have you ever felt like you were in a "storm"—a scary or overwhelming situation?','Why do you think the disciples were afraid even though Jesus was in the boat?','What does it look like to trust Jesus in a stormy moment?'],missions:[{emoji:'🌊',title:'Peace Partner',desc:'Help calm a tense moment at home. If someone is arguing or upset, be the peacemaker.',level:'Medium'},{emoji:'✍️',title:'Storm Journal',desc:'Write or draw a "storm" in your life and then write "Peace, be still!" over it.',level:'Easy'},{emoji:'🤝',title:'Be the Anchor',desc:'Check in on someone who seems stressed or worried. Offer to sit with them.',level:'Easy'}],reflectPrompts:['What was your personal storm this week?','How did leaning on faith help (or feel hard)?','What would you do differently next time?']},
+    {id:'j3',title:'The Prodigal Son',verseRef:'Luke 15:20',excerpt:'"He arose, and came to his father. But while he was yet far off, his father saw him, and was moved with compassion, and ran, and fell on his neck, and kissed him." — Luke 15:20 (WEB)',summary:'A son wastes his father\'s money but returns in shame—and the father runs to embrace him. This is how God feels about us.',questions:['Why did the father run to his son instead of waiting for an apology?','Is there someone you need to forgive or make up with?','How does it feel to know God welcomes you back no matter what?'],missions:[{emoji:'🫂',title:'Make It Right',desc:'Apologize to someone you\'ve hurt or drifted from. Mean it.',level:'Hard'},{emoji:'🍽️',title:'Welcome Table',desc:'Invite someone who often eats alone to share your lunch or dinner.',level:'Medium'},{emoji:'📜',title:'Grace Letter',desc:'Write a letter to yourself from God\'s perspective of welcome and love.',level:'Medium'}],reflectPrompts:['How did apologizing (or being forgiven) feel?','What did you learn about grace this week?','How has God\'s welcome changed how you treat others?']},
+    {id:'j4',title:'The Sermon on the Mount',verseRef:'Matthew 5:3',excerpt:'"Blessed are the poor in spirit, for theirs is the Kingdom of Heaven." — Matthew 5:3 (WEB)',summary:'Jesus starts his most famous sermon by turning worldly values upside down—blessing those who feel humble, broken, or overlooked.',questions:['Which Beatitude speaks most to you right now and why?','What does it mean to be "poor in spirit"?','How can we build our lives on these blessings instead of what the world values?'],missions:[{emoji:'🌿',title:'Humble Servant',desc:'Do one household chore or service task without being asked and without telling anyone.',level:'Easy'},{emoji:'💧',title:'Comfort Someone',desc:'Find someone who is sad or grieving. Offer your presence and kind words.',level:'Medium'},{emoji:'☮️',title:'Peacemaker Day',desc:'Go one whole day without speaking negatively about anyone.',level:'Hard'}],reflectPrompts:['Which beatitude did you live out this week?','Was it hard? What made it hard?','How did you see God in that moment?']},
+    {id:'j5',title:'Jesus & the Children',verseRef:'Mark 10:14',excerpt:'"Suffer the little children to come to me; forbid them not: for of such is the kingdom of God." — Mark 10:14 (KJV)',summary:'When people tried to keep children away from Jesus, he welcomed them and said the Kingdom of Heaven belongs to such as these.',questions:['How does it feel knowing Jesus made time especially for children?','What childlike qualities do you think Jesus was pointing to—curiosity, wonder, trust?','How can your family bring that kind of childlike faith to your daily life?'],missions:[{emoji:'🧸',title:'Kid Expert',desc:'Teach an adult something you know well—a game, a fact, a skill.',level:'Easy'},{emoji:'🌟',title:'Wonder Walk',desc:'Go outside and find 5 things that make you say "wow." Thank God for each.',level:'Easy'},{emoji:'🙌',title:'Welcome Others',desc:'At school or church, be the first to welcome someone new or shy.',level:'Medium'}],reflectPrompts:['What wonder did you notice this week?','How did your family practice childlike faith together?','What surprised you about God this week?']},
+    {id:'j6',title:'The Last Supper',verseRef:'Luke 22:19',excerpt:'"He took bread, and when he had given thanks, he broke it, and gave it to them, saying, \'This is my body which is given for you. Do this in memory of me.\'" — Luke 22:19 (WEB)',summary:'Jesus shared one final meal with his disciples, turning a simple dinner into a moment of remembrance, love, and covenant.',questions:['Why do you think Jesus chose a meal to remember him by?','What does it mean to do something "in memory of" someone you love?','How can your family meals become more intentional and meaningful?'],missions:[{emoji:'🍞',title:'Gratitude Meal',desc:'At dinner, have everyone share one thing they\'re grateful for before eating.',level:'Easy'},{emoji:'🕯️',title:'Table Talk',desc:'Put away all devices at one family meal this week. Just talk.',level:'Medium'},{emoji:'✝️',title:'Serve First',desc:'At every meal this week, serve someone else\'s plate before your own.',level:'Medium'}],reflectPrompts:['What changed about your meals this week?','How did gratitude change the atmosphere?','What does Jesus\' sacrifice mean to you personally?']},
+    {id:'j7',title:'The Resurrection',verseRef:'John 20:15',excerpt:'"Jesus said to her, \'Woman, why do you weep? Who are you looking for?\'" — John 20:15 (WEB)',summary:'Mary Magdalene discovers the empty tomb and encounters the risen Jesus—one of history\'s most stunning moments of hope defeating despair.',questions:['Why do you think Jesus appeared first to Mary, not to important religious leaders?','Easter changes everything—but how does the resurrection matter for Monday mornings?','What "empty tomb" moments—times despair turned to hope—have you experienced?'],missions:[{emoji:'🌅',title:'Sunrise Reflection',desc:'Wake up early one day this week. Watch the sunrise and think about new beginnings.',level:'Medium'},{emoji:'📣',title:'Share Good News',desc:'Tell one person this week something genuinely good and hopeful.',level:'Easy'},{emoji:'🌱',title:'Plant Something',desc:'Plant a seed (in soil, a cup, or outside) as a symbol of new life.',level:'Easy'}],reflectPrompts:['How did resurrection hope show up in your week?','What "new life" are you hoping for right now?','How does knowing Jesus rose change how you face tomorrow?']}
+  ]},
+  {id:'fruit',emoji:'🍎',color:'path-fruit',title:'Fruit of the Spirit',desc:'Love, joy, peace, patience—learn to grow these character qualities.',tier:'premium',lessons:[
+    {id:'f1',title:'Love: The Greatest Fruit',verseRef:'1 Corinthians 13:4',excerpt:'"Love is patient and is kind; love doesn\'t envy. Love doesn\'t brag, is not proud." — 1 Corinthians 13:4 (WEB)',summary:'Paul\'s famous love definition sets the gold standard—it\'s about actions and choices, not just feelings.',questions:['Which part of this love definition is hardest for you?','How is love a "choice" more than just a feeling?','Who in your life needs to experience this kind of love from you this week?'],missions:[{emoji:'❤️',title:'Love Letter',desc:'Write a genuine thank-you or encouragement note to someone in your family.',level:'Easy'},{emoji:'😤',title:'Patience Test',desc:'When you feel impatient today, pause and take 3 deep breaths before reacting.',level:'Hard'},{emoji:'🎁',title:'Kind Act',desc:'Do one unexpected kind act for a stranger or neighbor.',level:'Medium'}],reflectPrompts:['Which part of 1 Cor 13 did you live out?','What made it hard?','What did love look like in action this week?']},
+    {id:'f2',title:'Joy: More Than Happiness',verseRef:'Nehemiah 8:10',excerpt:'"The joy of Yahweh is your strength." — Nehemiah 8:10 (WEB)',summary:'Joy in scripture isn\'t about circumstances—it\'s a deep-rooted strength that comes from knowing God is with you.',questions:['What\'s the difference between joy and just feeling happy?','When has your family had joy even in a hard time?','What practices or habits help you stay joyful?'],missions:[{emoji:'😂',title:'Laugh Together',desc:'Watch a funny video or tell jokes as a family for 15 minutes tonight.',level:'Easy'},{emoji:'📔',title:'Joy List',desc:'Each day, write 3 things that gave you joy. Share one at dinner.',level:'Easy'},{emoji:'🙏',title:'Joy Prayer',desc:'Pray specifically for someone who has lost their joy.',level:'Medium'}],reflectPrompts:['What gave you the most joy this week?','How is joy different from what you expected?','How did you pass joy on to someone else?']},
+    {id:'f3',title:'Peace: More Than Quiet',verseRef:'Philippians 4:7',excerpt:'"The peace of God, which surpasses all understanding, will guard your hearts and your minds in Christ Jesus." — Philippians 4:7 (WEB)',summary:'Paul wrote this from prison—showing that peace is not about easy circumstances but a supernatural guard for your heart.',questions:['How can someone have peace in a hard situation?','What steals your peace most often?','What would change if you truly believed God was guarding your heart?'],missions:[{emoji:'🌿',title:'Peace Zone',desc:'Create a quiet corner in your room. Spend 5 mins there in silence each day.',level:'Medium'},{emoji:'⚔️',title:'Peace Keeper',desc:'When conflict arises in your home, be the first to work toward peace.',level:'Hard'},{emoji:'📖',title:'Memorize Philippians 4:7',desc:'Memorize this verse this week and share it with someone who needs it.',level:'Medium'}],reflectPrompts:['Where did you find unexpected peace?','What still steals your peace?','How are you growing in trusting God\'s peace?']},
+    {id:'f4',title:'Patience: The Long Game',verseRef:'Romans 5:3-4',excerpt:'"Tribulation produces perseverance; and perseverance, proven character; and proven character, hope." — Romans 5:3–4 (WEB)',summary:'Paul explains that patience isn\'t passive waiting—it\'s active trust that builds strength of character over time.',questions:['What is something you\'re waiting for right now?','How do you think waiting builds character?','Can you think of a time when being patient paid off?'],missions:[{emoji:'⏳',title:'No Rush Day',desc:'For one whole day, practice not rushing. Move slower and notice more.',level:'Hard'},{emoji:'🌱',title:'Long-Term Project',desc:'Start something that won\'t finish for weeks (garden, puzzle, craft, skill).',level:'Medium'},{emoji:'🤝',title:'Wait for Others',desc:'Deliberately let others go first in lines, decisions, or conversations.',level:'Medium'}],reflectPrompts:['Where did you practice patience this week?','What was the hardest moment?','How did patience change the outcome?']},
+    {id:'f5',title:'Kindness: Every Day Acts',verseRef:'Ephesians 4:32',excerpt:'"Be kind to one another, tenderhearted, forgiving each other, just as God also in Christ forgave you." — Ephesians 4:32 (WEB)',summary:'Kindness is linked directly to forgiveness—we give it because we\'ve received it. It\'s a response to grace, not just etiquette.',questions:['Is it easier to be kind to strangers or to people you know well? Why?','How does knowing God forgave you change how you forgive others?','Who in your world needs an unexpected act of kindness this week?'],missions:[{emoji:'💌',title:'Kindness Cards',desc:'Make 3 cards with kind messages and leave them somewhere they\'ll be found.',level:'Easy'},{emoji:'🧹',title:'Service Day',desc:'Clean up a space—a park, a neighbor\'s yard, the church parking lot.',level:'Medium'},{emoji:'🤗',title:'Warm Welcome',desc:'Greet every person you pass today with eye contact and a smile.',level:'Medium'}],reflectPrompts:['How did random kindness change your day?','Was it easy or awkward? Why?','What would happen if you did this every week?']},
+    {id:'f6',title:'Goodness: Character Inside Out',verseRef:'Psalm 23:6',excerpt:'"Surely goodness and loving kindness shall follow me all the days of my life." — Psalm 23:6 (WEB)',summary:'Goodness isn\'t just doing good things—it\'s developing a good character from the inside, so right actions flow naturally.',questions:['What\'s the difference between acting good and being good?','What habits are building goodness in you right now?','How does God\'s goodness inspire your own?'],missions:[{emoji:'🌟',title:'Character Check',desc:'Ask a trusted friend: "What\'s one way I could grow in goodness?" Listen without defending.',level:'Hard'},{emoji:'📖',title:'Goodness Biography',desc:'Read about a person of great character. Share one thing that inspired you.',level:'Medium'},{emoji:'🧩',title:'Integrity Test',desc:'Do the right thing in one situation this week when no one is watching.',level:'Hard'}],reflectPrompts:['What did you learn about goodness this week?','Where did your character show up clearly?','How are you becoming more good from the inside?']},
+    {id:'f7',title:'Self-Control: The Master Key',verseRef:'Proverbs 25:28',excerpt:'"Like a city that is broken down and without walls is a man whose spirit is without restraint." — Proverbs 25:28 (WEB)',summary:'Ancient cities relied on strong walls—the Bible says self-control is your inner wall, protecting everything good inside you.',questions:['What "walls" do you need in your own life—habits or limits that protect you?','What area is hardest for you to control: words, screen time, food, anger?','How does self-control actually make you more free, not less?'],missions:[{emoji:'📵',title:'Screen Sabbath',desc:'Take one day off from screens (except school needs). Fill the time with something real.',level:'Hard'},{emoji:'🏋️',title:'Discipline Streak',desc:'Do one healthy habit every day for 7 days: walk, pray, read, journal.',level:'Medium'},{emoji:'🤐',title:'Filter Challenge',desc:'Before speaking when upset, ask: "Is this True, Helpful, Kind?" This week, pause 3 times.',level:'Hard'}],reflectPrompts:['What habit of self-control did you practice?','What surprised you about it?','How is self-control making you stronger?']}
+  ]},
+  {id:'courage',emoji:'🦁',color:'path-courage',title:'Courage & Anxiety',desc:'Biblical tools for facing fears and worry with faith.',tier:'premium',lessons:[
+    {id:'c1',title:"Don't Be Afraid",verseRef:'Isaiah 41:10',excerpt:'"Don\'t be afraid, for I am with you. Don\'t be dismayed, for I am your God." — Isaiah 41:10 (WEB)',summary:'God spoke this to Israel in exile—not a promise of no problems, but a promise of His constant presence.',questions:['What are you currently afraid of?','How does knowing God is present change how you face fear?','What would you do differently this week if you truly believed God was with you?'],missions:[{emoji:'🦁',title:'Brave Act',desc:'Do one thing this week that scares you a little. Then reflect on it.',level:'Hard'},{emoji:'🗣️',title:'Tell Your Fear',desc:'Share one fear with a trusted family member. Ask them to pray for you.',level:'Medium'},{emoji:'📜',title:'Memorize It',desc:'Memorize Isaiah 41:10 and say it out loud when fear comes.',level:'Easy'}],reflectPrompts:['What did you face with courage?','Was God\'s presence real to you in that moment?','How has your fear changed?']},
+    {id:'c2',title:'When You Feel Anxious',verseRef:'Philippians 4:6',excerpt:'"In nothing be anxious, but in everything, by prayer and petition with thanksgiving, let your requests be made known to God." — Philippians 4:6 (WEB)',summary:'Paul\'s remedy for anxiety is startlingly simple: replace worry with prayer and gratitude. Research now confirms this practice reduces anxiety.',questions:['What do you worry about most? Does worrying change it?','How is prayer different from just "positive thinking"?','What can you be genuinely grateful for even when things are hard?'],missions:[{emoji:'📓',title:'Anxiety Journal',desc:'Write down your worries, then cross them out and write a prayer over each one.',level:'Medium'},{emoji:'🙏',title:'Gratitude Swap',desc:'Each time you catch yourself worrying, name 3 things you\'re grateful for instead.',level:'Hard'},{emoji:'🤲',title:'Pray Together',desc:'Share one worry with your family and pray over it together tonight.',level:'Easy'}],reflectPrompts:['How did replacing worry with prayer feel?','Was it hard? What helped?','How has your anxiety changed this week?']},
+    {id:'c3',title:'David & Goliath',verseRef:'1 Samuel 17:45',excerpt:'"David said to the Philistine, \'You come to me with a sword, with a spear, and with a javelin, but I come to you in the name of Yahweh of Armies.\'" — 1 Samuel 17:45 (WEB)',summary:'A teenage shepherd defeated a giant warrior—not because he was strongest, but because he trusted God\'s power over his own.',questions:['What is your "Goliath"—the big, scary challenge you\'re facing right now?','David ran toward the giant. What would running toward your fear look like?','How does bringing God into a scary situation change it?'],missions:[{emoji:'⚔️',title:'Face Your Giant',desc:'Identify one "Goliath" situation. Take one small brave step toward it this week.',level:'Hard'},{emoji:'🪨',title:'5 Smooth Stones',desc:'Write 5 strengths or gifts God has given you. Remember them when afraid.',level:'Easy'},{emoji:'📣',title:'Courage Cheer',desc:'Encourage someone who is facing their own giant. Send a message or tell them in person.',level:'Medium'}],reflectPrompts:['What giant did you face?','How did God show up?','What would you say to someone facing the same giant?']},
+    {id:'c4',title:'Elijah\'s Burnout',verseRef:'1 Kings 19:5',excerpt:'"An angel touched him, and said to him, \'Arise and eat.\'" — 1 Kings 19:5 (WEB)',summary:'After a great victory, Elijah collapsed in exhaustion and despair. God\'s first response was sleep and food—rest is part of courage.',questions:['Have you ever felt completely burnt out or exhausted?','Why do you think God focused on Elijah\'s physical needs first?','What does it tell us about God that he cares about our rest?'],missions:[{emoji:'😴',title:'Rest Practice',desc:'Go to bed 30 minutes earlier every night this week.',level:'Medium'},{emoji:'🍽️',title:'Nourish Well',desc:'Pay attention to what you eat this week. Choose one nourishing habit to add.',level:'Easy'},{emoji:'🚶',title:'Still Walk',desc:'Take a 15-minute walk in nature with no phone. Just breathe and notice.',level:'Easy'}],reflectPrompts:['How did intentional rest change your energy?','Where did you feel God\'s care this week?','What burnout habits do you want to change?']},
+    {id:'c5',title:'Joshua\'s Commission',verseRef:'Joshua 1:9',excerpt:'"Be strong and courageous. Don\'t be afraid, and don\'t be dismayed, for Yahweh your God is with you wherever you go." — Joshua 1:9 (WEB)',summary:'God spoke this before Joshua faced the impossible task of leading a nation. Courage was commanded—not just hoped for.',questions:['If courage is a command, what does that tell us about how to develop it?','What task feels impossible to you right now?','How can your family build courage in each other?'],missions:[{emoji:'🗺️',title:'New Territory',desc:'Try something completely new this week—a new skill, food, conversation, or place.',level:'Medium'},{emoji:'🧭',title:'Lead Something',desc:'Take initiative to organize or lead a family activity this week.',level:'Medium'},{emoji:'📢',title:'Speak Up',desc:'Say something true but difficult this week. Speak up when you see something wrong.',level:'Hard'}],reflectPrompts:['What new territory did you enter?','How did leading feel?','Where did you speak courage this week?']},
+    {id:'c6',title:'Peace Like a River',verseRef:'Isaiah 48:18',excerpt:'"Oh that you had listened to my commandments! Then your peace would have been like a river." — Isaiah 48:18 (WEB)',summary:'Isaiah paints peace as a flowing river—constant, natural, and life-giving when we\'re connected to God\'s way of living.',questions:['What does "peace like a river" look like in real life?','What disrupts the flow of peace in your life most often?','What one choice could you make this week to flow more toward peace?'],missions:[{emoji:'💧',title:'Peace Practice',desc:'Spend 10 minutes each morning in quiet before screens. Do this 5 of 7 days.',level:'Hard'},{emoji:'🕊️',title:'Be the Peace',desc:'In one tense situation this week, choose peace instead of escalation.',level:'Hard'},{emoji:'🎵',title:'Worship Therapy',desc:'When anxiety rises, play worship music for 5 minutes and sing along.',level:'Easy'}],reflectPrompts:['When did peace flow most naturally?','What blocked the river this week?','How is your relationship with peace growing?']},
+    {id:'c7',title:'The Armor of God',verseRef:'Ephesians 6:11',excerpt:'"Put on the whole armor of God, that you may be able to stand against the wiles of the devil." — Ephesians 6:11 (WEB)',summary:'Paul describes six pieces of spiritual armor—each representing a dimension of our inner life that needs to be protected and strengthened.',questions:['Which piece of armor do you think you most need right now?','How is prayer described as a weapon, not just a spiritual discipline?','What would "putting on the armor" look like practically every morning?'],missions:[{emoji:'🛡️',title:'Morning Armor',desc:'Each morning this week, say: "I put on truth, righteousness, peace, faith, salvation, and God\'s Word."',level:'Easy'},{emoji:'⚔️',title:'Scripture Sword',desc:'Memorize one verse this week and use it when temptation or fear comes.',level:'Medium'},{emoji:'🙏',title:'Intercessor',desc:'Pray for three people in spiritual battles: someone sick, someone doubting, someone straying.',level:'Medium'}],reflectPrompts:['Which piece of armor did you use?','How did having a "prepared mind" change your day?','What spiritual battle did God help you win?']}
+  ]},
+  {id:'words',emoji:'💬',color:'path-words',title:'Words & Actions',desc:'Honesty, kindness in speech, and how words shape the world.',tier:'premium',lessons:[
+    {id:'w1',title:'The Power of the Tongue',verseRef:'Proverbs 18:21',excerpt:'"Death and life are in the power of the tongue; and those who love it will eat its fruit." — Proverbs 18:21 (WEB)',summary:'Solomon recognized what neuroscience now confirms: words have enormous power to build up or tear down.',questions:['Think of a time someone\'s words greatly impacted you—positively or negatively.','Why do you think the Bible compares the tongue to life and death?','What one change to your speech would make the biggest difference this week?'],missions:[{emoji:'🗣️',title:'Word Fast',desc:'Go one day without speaking negatively, complaining, or gossiping.',level:'Hard'},{emoji:'💬',title:'Life Words',desc:'Intentionally speak words of life to 3 different people today.',level:'Easy'},{emoji:'📝',title:'Speech Audit',desc:'At the end of each day this week, reflect: did my words give life or bring harm today?',level:'Medium'}],reflectPrompts:['When did your words give life this week?','When did you struggle to control your tongue?','What changed when you spoke more intentionally?']},
+    {id:'w2',title:'Honesty Over Everything',verseRef:'Proverbs 12:22',excerpt:'"Lying lips are an abomination to Yahweh, but those who act faithfully are his delight." — Proverbs 12:22 (WEB)',summary:'Honesty is not just a rule—it\'s fundamental to God\'s character and to trust in all relationships.',questions:['Why is honesty so important in a family?','Is it ever right to tell a "kind lie"? How do you navigate that?','What makes it hard to be fully honest sometimes?'],missions:[{emoji:'🎯',title:'Truth Day',desc:'For one whole day, commit to saying only what is completely true. Notice what changes.',level:'Hard'},{emoji:'🤝',title:'Honesty Conversation',desc:'Have a genuinely honest conversation with a family member about something important.',level:'Hard'},{emoji:'✋',title:'Kindly Correct',desc:'Gently and kindly correct a misunderstanding you\'ve let slide for too long.',level:'Medium'}],reflectPrompts:['How did choosing honesty feel?','What was hard about it?','How did honesty affect your relationships this week?']},
+    {id:'w3',title:'Gossip & What It Costs',verseRef:'Proverbs 26:20',excerpt:'"For lack of wood, a fire goes out. Without a gossip, a quarrel dies down." — Proverbs 26:20 (WEB)',summary:'Gossip is the fuel of conflict—remove it and many fights simply die. Solomon\'s wisdom is practical and protective.',questions:['Why do you think gossip is tempting even when we know it\'s harmful?','Have you ever been the subject of gossip? How did it feel?','What is one practical rule you could set for your family or friend group about gossip?'],missions:[{emoji:'🤫',title:'Secret Keeper',desc:'This week, if someone tells you private information, keep it completely private.',level:'Medium'},{emoji:'🔥',title:'Fire Extinguisher',desc:'When gossip starts in a group, gently change the subject or say something positive about the person.',level:'Hard'},{emoji:'📣',title:'Speak Well',desc:'Whenever you mention someone who isn\'t present, only say things you\'d say to their face.',level:'Hard'}],reflectPrompts:['Where did you fight the gossip temptation?','How did keeping confidences feel?','What did you notice about conversation dynamics?']},
+    {id:'w4',title:'Words That Heal',verseRef:'Proverbs 16:24',excerpt:'"Pleasant words are like a honeycomb: sweet to the soul, and health to the bones." — Proverbs 16:24 (WEB)',summary:'Kind, well-chosen words are literally compared to medicine—they have the power to heal and restore.',questions:['Who in your life needs healing words right now?','What stops you from saying encouraging things when you feel them?','How can your family make encouragement a daily practice?'],missions:[{emoji:'🍯',title:'Honey Words',desc:'Tell someone something genuinely encouraging that you\'ve been holding back.',level:'Easy'},{emoji:'✍️',title:'Healing Note',desc:'Write a note to someone who is hurting. Focus only on encouragement and love.',level:'Easy'},{emoji:'📅',title:'Daily Compliment',desc:'Give one genuine compliment per day for 7 days to different people.',level:'Medium'}],reflectPrompts:['How did speaking healing words feel?','Who responded most meaningfully?','How are you growing in encouragement?']},
+    {id:'w5',title:'The Way You Ask Matters',verseRef:'Proverbs 15:1',excerpt:'"A gentle answer turns away wrath, but a harsh word stirs up anger." — Proverbs 15:1 (WEB)',summary:'How we say something often matters more than what we say. A gentle tone can de-escalate any conflict.',questions:['Think of a recent disagreement. How did your tone affect the outcome?','What techniques help you respond gently when you\'re upset?','How can your family practice this together?'],missions:[{emoji:'🕊️',title:'Tone Challenge',desc:'In one difficult conversation this week, lower your voice and soften your tone intentionally.',level:'Hard'},{emoji:'🔁',title:'Restate & Listen',desc:'Before responding in an argument, restate what the other person said first.',level:'Hard'},{emoji:'📱',title:'Calm Text',desc:'Before sending any upset text or message, wait 10 minutes and reread it.',level:'Medium'}],reflectPrompts:['When did your tone help or hurt this week?','What was the hardest moment to respond gently?','How is your communication style growing?']},
+    {id:'w6',title:'Actions Speak Louder',verseRef:'1 John 3:18',excerpt:'"My little children, let\'s not love in word only, or with the tongue only, but in deed and truth." — 1 John 3:18 (WEB)',summary:'John cuts through verbal niceness—real love shows up in what we do, not just what we say.',questions:['Think of someone whose love you feel through their actions. What do they do?','Where might you be saying loving things but not backing them up?','What is one concrete action you can take this week to show love?'],missions:[{emoji:'🛠️',title:'Fix Something',desc:'Do a practical act of service that someone close to you needs.',level:'Medium'},{emoji:'🤲',title:'Show Up',desc:'Be physically present for someone who needs support—visit, sit with, be there.',level:'Medium'},{emoji:'🎁',title:'Action Gift',desc:'Give your time instead of a thing. Offer 30 minutes of undivided attention.',level:'Easy'}],reflectPrompts:['What action did you take to show love?','How was it received?','How does doing feel different from saying?']},
+    {id:'w7',title:'Speaking Truth in Love',verseRef:'Ephesians 4:15',excerpt:'"But speaking truth in love, we may grow up in all things into him, who is the head, Christ." — Ephesians 4:15 (WEB)',summary:'Truth without love is brutal. Love without truth is hollow. The Bible calls us to hold them together.',questions:['When is it loving to tell someone a hard truth?','How do you tell when "honesty" is actually just unkindness with an excuse?','What is a truth you need to share with someone in love this week?'],missions:[{emoji:'💌',title:'Loving Truth',desc:'Share something true but kind with someone who needs to hear it. Do it with gentleness.',level:'Hard'},{emoji:'👂',title:'Loving Listen',desc:'Ask someone: "Can I tell you one honest thing I\'ve noticed about you?"—and listen to their reaction.',level:'Hard'},{emoji:'🪞',title:'Self Check',desc:'Ask: "Am I speaking truth with love, or am I just speaking?"—check your last 5 conversations.',level:'Medium'}],reflectPrompts:['How did speaking truth in love go?','What made it hard?','How are truth and love growing together in you?']}
+  ]},
+  {id:'prayer',emoji:'🙏',color:'path-prayer',title:'Prayer & Gratitude',desc:'Learn to talk with God—how to pray and why gratitude changes everything.',tier:'premium',lessons:[
+    {id:'p1',title:'How to Pray',verseRef:'Matthew 6:9',excerpt:'"Pray like this: \'Our Father in heaven, may your name be kept holy. Let your Kingdom come.\'" — Matthew 6:9 (WEB)',summary:'Jesus gave his followers a simple prayer template—not a spell to recite, but a structure that covers everything we need.',questions:['What do you notice about how Jesus starts prayer—"Our Father"?','What does it mean to pray for God\'s Kingdom to come?','How can the Lord\'s Prayer shape your own prayer life?'],missions:[{emoji:'📿',title:'Lord\'s Prayer Week',desc:'Pray the Lord\'s Prayer every morning this week. Notice something new each day.',level:'Easy'},{emoji:'✍️',title:'Personal Prayer',desc:'Write your own prayer based on the Lord\'s Prayer structure.',level:'Medium'},{emoji:'🤲',title:'Pray Together',desc:'Lead your family in prayer one evening this week.',level:'Medium'}],reflectPrompts:['What did you notice new in the Lord\'s Prayer?','How did your own prayer grow?','What was hardest about leading prayer?']},
+    {id:'p2',title:'God Hears You',verseRef:'Psalm 34:17',excerpt:'"The righteous cry, and Yahweh hears, and delivers them out of all their troubles." — Psalm 34:17 (WEB)',summary:'David wrote this from personal experience of deliverance. Prayer is not shouting into void—it connects to a God who listens.',questions:['Have you ever felt like your prayers weren\'t heard? What was that like?','Why do you think God sometimes seems silent even when we pray?','What would change if you truly believed God heard every prayer you prayed?'],missions:[{emoji:'📔',title:'Prayer Log',desc:'Keep a simple log of prayers and answers this week. Even small ones count.',level:'Easy'},{emoji:'🙏',title:'Persistent Prayer',desc:'Pick one prayer you\'ve given up on. Bring it back to God this week.',level:'Medium'},{emoji:'🎙️',title:'Pray Out Loud',desc:'Pray out loud once this week—alone or with family. Notice how it feels different.',level:'Medium'}],reflectPrompts:['What did you notice God doing this week?','Did you see any prayer answers?','How has your confidence in prayer changed?']},
+    {id:'p3',title:'Gratitude Changes Your Brain',verseRef:'1 Thessalonians 5:18',excerpt:'"In everything give thanks, for this is the will of God in Christ Jesus toward you." — 1 Thessalonians 5:18 (WEB)',summary:'Science and scripture agree: gratitude rewires us toward joy. Paul\'s "give thanks in everything" is not naivety—it\'s a practiced discipline.',questions:['Is it possible to be grateful even in a hard situation? How?','What is something you often take for granted?','How could your family build a daily gratitude habit?'],missions:[{emoji:'📔',title:'Gratitude Journal',desc:'Write 3 specific things you\'re grateful for every day this week.',level:'Easy'},{emoji:'📞',title:'Gratitude Call',desc:'Call or text someone specifically to thank them for something.',level:'Easy'},{emoji:'🍽️',title:'Grateful Meals',desc:'Start every dinner with two minutes of sharing what you\'re grateful for.',level:'Easy'}],reflectPrompts:['What surprised you in your gratitude list?','How did gratitude change your mood or perspective?','What will you keep doing after this lesson?']},
+    {id:'p4',title:'Praying for Others',verseRef:'James 5:16',excerpt:'"Confess your offenses to one another, and pray for one another, that you may be healed." — James 5:16 (WEB)',summary:'Intercession—praying for others—is one of the most powerful things Christians do for each other and for the world.',questions:['Who do you regularly pray for? Who should you add to that list?','Why might praying for someone change your feelings toward them?','How can your family become a praying family for your community?'],missions:[{emoji:'🗒️',title:'Prayer List',desc:'Make a prayer list of 7 people (one per day). Pray for each one specifically.',level:'Easy'},{emoji:'✉️',title:'Tell Someone',desc:'Tell one person you\'ve been praying for them. Watch their reaction.',level:'Medium'},{emoji:'🏘️',title:'Neighborhood Prayer',desc:'Walk around your neighborhood or school and pray silently for the people who live/work there.',level:'Medium'}],reflectPrompts:['How did praying for others change YOU?','Did anyone respond to knowing you prayed?','How has your circle of concern grown?']},
+    {id:'p5',title:'Fasting & Focus',verseRef:'Matthew 6:17-18',excerpt:'"But when you fast, anoint your head, and wash your face; so that you are not seen by men to be fasting." — Matthew 6:17–18 (WEB)',summary:'Jesus assumed his followers would fast—not if, but when. A disciplined practice of going without something to focus on God.',questions:['What is fasting, and why would going without something help you focus on God?','What could you "fast" from this week that isn\'t food? (screens, negativity, social media)','How does denying ourselves small things build larger spiritual strength?'],missions:[{emoji:'📵',title:'Tech Fast',desc:'Fast from one digital thing (social media, games, TV) for one full day.',level:'Hard'},{emoji:'🍽️',title:'Meal Fast',desc:'Skip one meal this week. Use that time to pray instead of eat.',level:'Hard'},{emoji:'🤫',title:'Quiet Fast',desc:'Take 30 minutes of complete silence. No music, no talking, no screens. Just pray.',level:'Medium'}],reflectPrompts:['What did fasting teach you?','What was hardest to go without?','How did the focus time with God feel?']},
+    {id:'p6',title:'When Prayer Feels Hard',verseRef:'Romans 8:26',excerpt:'"The Spirit also helps our weaknesses, for we don\'t know how to pray as we ought. But the Spirit himself makes intercession for us with groanings which can\'t be uttered." — Romans 8:26 (WEB)',summary:'When you don\'t know how to pray—when words fail—the Holy Spirit prays through you. You never pray alone.',questions:['Have you had seasons when prayer felt empty or hard? What caused it?','What does it mean that the Spirit prays when we can\'t find words?','What helps you reconnect with prayer when you\'ve drifted?'],missions:[{emoji:'🎵',title:'Musical Prayer',desc:'Listen to a worship song and let it be your prayer. Then sit in silence for 3 minutes.',level:'Easy'},{emoji:'🌅',title:'Nature Prayer',desc:'Go outside and pray out loud to creation—notice what you feel.',level:'Easy'},{emoji:'✍️',title:'Prayer Letter',desc:'Write a letter to God about everything you\'re feeling right now—no filters.',level:'Medium'}],reflectPrompts:['What helped your prayer feel more real this week?','Did the Spirit meet you in your weakness?','How is your prayer life different than a week ago?']},
+    {id:'p7',title:'A Life of Prayer',verseRef:'1 Thessalonians 5:17',excerpt:'"Pray without ceasing." — 1 Thessalonians 5:17 (WEB)',summary:'Paul\'s shortest command is one of his biggest invitations—to make prayer not a task but a way of being.',questions:['What would "praying without ceasing" look like in a normal school or work day?','How can your family weave prayer into ordinary moments?','What one habit would most help you become a person of prayer?'],missions:[{emoji:'🔔',title:'Prayer Alarm',desc:'Set 3 alarms per day this week. Each time one goes off, pause for a 30-second prayer.',level:'Easy'},{emoji:'🚗',title:'Car Prayers',desc:'Turn every car ride this week into prayer time as a family.',level:'Easy'},{emoji:'🛏️',title:'Bookend Prayers',desc:'Pray first thing after waking and last thing before sleep for one full week.',level:'Medium'}],reflectPrompts:['How many prayers did you pray this week?','What changed about your ordinary moments?','How is prayer becoming part of who you are?']}
+  ]}
+];
+
+const FAQS = [
+  {q:'Is FaithQuest safe for children?',a:'Yes. Kids cannot access open AI chat. All AI interactions are structured within lesson flows, never request personal info, and have a built-in "Ask Parent" button. Parents have full visibility.'},
+  {q:'What Bible version do you use?',a:'We primarily use the World English Bible (WEB) and King James Version (KJV), both public domain, ensuring completely free, legitimate use of Scripture.'},
+  {q:'Can I try it before paying?',a:'Yes! The Free plan gives you full access to the first Learning Path (Jesus & Me, 7 lessons) and basic features forever. No credit card required.'},
+  {q:'Is it denominationally specific?',a:'FaithQuest stays within mainstream Christian orthodoxy, celebrating what all Christians agree on. We avoid denomination-specific doctrines or contested theological positions.'},
+  {q:'Can I use it offline?',a:'Yes. Lesson content and missions are available offline. AI features require a connection, but all core lesson material is cached locally.'},
+  {q:'How many children can I add?',a:'Free plan: up to 2 profiles. Premium Family: unlimited members.'}
+];
+
+// ===================== STATE =====================
+let state = {
+  currentUser: null,
+  family: null,
+  members: [],
+  completions: [],
+  checkins: [],
+  subscription: {plan:'free'},
+  selectedPath: null,
+  selectedMember: null,
+  onboardStep: 0,
+  onboardData: {},
+  parentTab: 'home',
+  kidTab: 'home',
+  lessonState: {path:null,lessonIndex:0,step:0,selectedMission:null,selectedEmoji:null,reflectText:''},
+  checkinState: {mission:null,member:null},
+};
+
+const AVATARS = ['😊','🦁','🐯','🦊','🐻','🦋','🌟','🚀','🌈','🎯','🦅','🐘','🌺','⚡','🎪'];
+
+// ===================== UTILS =====================
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  const el=document.getElementById(id);
+  if(el){el.classList.add('active');el.scrollTop=0;}
+}
+function showToast(msg,dur=2500){
+  const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),dur);
+}
+function openModal(id){document.getElementById(id).classList.add('open');}
+function closeModal(id){document.getElementById(id).classList.remove('open');}
+function getPath(id){return PATHS.find(p=>p.id===id);}
+function getLesson(pathId,idx){const p=getPath(pathId);return p?p.lessons[idx]:null;}
+function isLessonComplete(memberId,lessonId){return state.completions.some(c=>c.memberId===memberId&&c.lessonId===lessonId);}
+function getCurrentMember(){return state.members.find(m=>m.id===state.selectedMember)||state.members[0];}
+
+// ===================== LANDING =====================
+function buildFAQ(){
+  const el=document.getElementById('faqList');
+  if(!el)return;
+  el.innerHTML=FAQS.map((f,i)=>`
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(${i})">
+        <span>${f.q}</span>
+        <span id="faq-arrow-${i}">▾</span>
+      </div>
+      <div class="faq-answer" id="faq-ans-${i}">${f.a}</div>
+    </div>`).join('');
+}
+function toggleFaq(i){
+  const el=document.getElementById(`faq-ans-${i}`);
+  el.classList.toggle('open');
+}
+function scrollToSection(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'});}
+let billingYearly=false;
+function toggleBilling(){
+  billingYearly=!billingYearly;
+  document.getElementById('billingToggle').classList.toggle('on',billingYearly);
+  document.getElementById('premiumPrice').innerHTML=billingYearly?'<sup>$</sup>95.88':'<sup>$</sup>9.99';
+  document.getElementById('premiumPeriod').textContent=billingYearly?'per year ($7.99/mo)':'per month';
+}
+
+// ===================== AUTH =====================
+function gotoAuth(tab){
+  showScreen('screen-auth');
+  switchAuthTab(tab);
+}
+function switchAuthTab(tab){
+  document.getElementById('auth-signin-form').classList.toggle('hidden',tab!=='signin');
+  document.getElementById('auth-signup-form').classList.toggle('hidden',tab!=='signup');
+  document.getElementById('tab-signin').classList.toggle('active',tab==='signin');
+  document.getElementById('tab-signup').classList.toggle('active',tab==='signup');
+}
+function doSignIn(){
+  const email=document.getElementById('signin-email').value.trim();
+  const pass=document.getElementById('signin-password').value;
+  if(!email||!pass){showToast('Please enter email and password');return;}
+  const saved=JSON.parse(localStorage.getItem('fq_users')||'[]');
+  const user=saved.find(u=>u.email===email);
+  if(user){
+    state.currentUser=user;
+    loadUserData();
+    routeAfterAuth();
+  } else {
+    showToast('No account found. Create one!');switchAuthTab('signup');
+    document.getElementById('signup-email').value=email;
+  }
+}
+function doSignUp(){
+  const name=document.getElementById('signup-name').value.trim();
+  const email=document.getElementById('signup-email').value.trim();
+  const pass=document.getElementById('signup-password').value;
+  if(!name){showToast('Please enter your name');return;}
+  if(!email){showToast('Please enter email');return;}
+  if(!pass||pass.length<6){showToast('Password must be 6+ characters');return;}
+  const user={id:'u_'+Date.now(),name,email,createdAt:new Date().toISOString()};
+  const saved=JSON.parse(localStorage.getItem('fq_users')||'[]');
+  saved.push(user);
+  localStorage.setItem('fq_users',JSON.stringify(saved));
+  state.currentUser=user;
+  state.family=null;
+  state.members=[];
+  state.completions=[];
+  state.checkins=[];
+  state.subscription={plan:'free'};
+  startOnboarding();
+}
+function doSignOut(){
+  state.currentUser=null;state.family=null;state.members=[];
+  showScreen('screen-landing');showToast('Signed out');
+}
+function routeAfterAuth(){
+  if(!state.family){startOnboarding();}
+  else{
+    const parent=state.members.find(m=>m.role==='parent');
+    if(parent){showParentApp();}else{showKidApp();}
+  }
+}
+function loadUserData(){
+  const data=JSON.parse(localStorage.getItem('fq_data_'+state.currentUser.id)||'null');
+  if(data){
+    state.family=data.family||null;
+    state.members=data.members||[];
+    state.completions=data.completions||[];
+    state.checkins=data.checkins||[];
+    state.subscription=data.subscription||{plan:'free'};
+    state.selectedPath=data.selectedPath||'jesus';
+    state.selectedMember=data.selectedMember||null;
+  }
+}
+function saveUserData(){
+  if(!state.currentUser)return;
+  localStorage.setItem('fq_data_'+state.currentUser.id,JSON.stringify({
+    family:state.family,members:state.members,completions:state.completions,
+    checkins:state.checkins,subscription:state.subscription,
+    selectedPath:state.selectedPath,selectedMember:state.selectedMember
+  }));
+}
+
+// ===================== ONBOARDING =====================
+const ONBOARD_STEPS=['family','member','avatar','path','launch'];
+function startOnboarding(){
+  state.onboardStep=0;state.onboardData={avatar:'😊',tier:'kid',selectedPath:'jesus'};
+  showScreen('screen-onboarding');renderOnboardStep();
+}
+function renderOnboardDots(){
+  const el=document.getElementById('onboardDots');
+  el.innerHTML=ONBOARD_STEPS.map((_,i)=>`<div class="onboarding-dot${i===state.onboardStep?' active':''}"></div>`).join('');
+}
+function renderOnboardStep(){
+  renderOnboardDots();
+  const el=document.getElementById('onboardContent');
+  const step=ONBOARD_STEPS[state.onboardStep];
+  if(step==='family'){
+    el.innerHTML=`
+      <div class="anim-in">
+        <div style="font-size:3rem;margin-bottom:16px;">👨‍👩‍👧‍👦</div>
+        <h2 class="step-title">Create Your Family</h2>
+        <p class="step-desc">Give your family a name to get started on your faith journey together.</p>
+        <div class="form-group"><label class="form-label">Family Name</label><input type="text" class="form-input" id="ob-family-name" placeholder="The Johnson Family" value="${state.onboardData.familyName||''}"></div>
+        <div class="form-group"><label class="form-label">Your Name (Parent)</label><input type="text" class="form-input" id="ob-parent-name" placeholder="Your first name" value="${state.currentUser?.name||''}"></div>
+      </div>`;
+  } else if(step==='member'){
+    el.innerHTML=`
+      <div class="anim-in">
+        <div style="font-size:3rem;margin-bottom:16px;">🧒</div>
+        <h2 class="step-title">Add a Child Profile</h2>
+        <p class="step-desc">Add your first child or teen to FaithQuest.</p>
+        <div class="form-group"><label class="form-label">Child's Name</label><input type="text" class="form-input" id="ob-kid-name" placeholder="First name" value="${state.onboardData.kidName||''}"></div>
+        <div class="age-tier-grid">
+          ${[{id:'younger',icon:'🌱',name:'Little Explorer',range:'Ages 4–6'},{id:'kid',icon:'🌟',name:'Kid',range:'Ages 6–10'},{id:'teen',icon:'🚀',name:'Teen',range:'Ages 11–17'}].map(t=>`
+            <div class="age-tier-card${state.onboardData.tier===t.id?' selected':''}" onclick="selectTier('${t.id}')">
+              <span class="age-tier-icon">${t.icon}</span>
+              <div class="age-tier-info"><div class="age-tier-name">${t.name}</div><div class="age-tier-range">${t.range}</div></div>
+            </div>`).join('')}
+        </div>
+      </div>`;
+  } else if(step==='avatar'){
+    el.innerHTML=`
+      <div class="anim-in">
+        <div style="font-size:3rem;margin-bottom:16px;">🎨</div>
+        <h2 class="step-title">Pick an Avatar</h2>
+        <p class="step-desc">Choose an avatar for ${state.onboardData.kidName||'your child'}.</p>
+        <div class="avatar-grid">${AVATARS.map(a=>`<div class="avatar-option${state.onboardData.avatar===a?' selected':''}" onclick="selectObAvatar('${a}')">${a}</div>`).join('')}</div>
+      </div>`;
+  } else if(step==='path'){
+    el.innerHTML=`
+      <div class="anim-in">
+        <h2 class="step-title">Choose a Starting Path</h2>
+        <p class="step-desc">Pick your first learning journey together.</p>
+        <div class="path-select-grid">${PATHS.map(p=>`
+          <div class="path-select-card ${p.color}${state.onboardData.selectedPath===p.id?' selected':''}" onclick="selectObPath('${p.id}')">
+            <div class="path-header" style="padding:20px 16px 16px;"><span style="font-size:1.8rem;">${p.emoji}</span><div class="path-title-text" style="font-size:0.95rem;margin-top:8px;">${p.title}</div></div>
+          </div>`).join('')}
+        </div>
+        ${state.subscription.plan==='free'?'<p style="margin-top:16px;font-size:0.8125rem;color:var(--slate-500);text-align:center;">Free plan includes Jesus & Me. <a href="#" style="color:var(--amber-dark);">Upgrade for all 5 paths</a>.</p>':''}
+      </div>`;
+  } else if(step==='launch'){
+    el.innerHTML=`
+      <div class="anim-in" style="text-align:center;">
+        <div style="font-size:4rem;margin-bottom:20px;">🎉</div>
+        <h2 class="step-title">You're All Set!</h2>
+        <p class="step-desc">Your family quest begins now. The first lesson is ready and waiting for ${state.onboardData.kidName||'your child'}.</p>
+        <div class="card" style="margin-top:24px;text-align:left;background:var(--amber-light);">
+          <div style="font-weight:700;margin-bottom:8px;">👨‍👩‍👧 ${state.onboardData.familyName||'Your Family'}</div>
+          <div style="font-size:0.875rem;color:var(--slate-700);">First path: ${PATHS.find(p=>p.id===state.onboardData.selectedPath)?.title}</div>
+          <div style="font-size:0.875rem;color:var(--slate-700);margin-top:4px;">Plan: ${state.subscription.plan==='free'?'Free':'Premium Family'}</div>
+        </div>
+      </div>`;
+    document.getElementById('onboardNext').textContent='Start First Lesson 🚀';
+  }
+}
+function selectTier(t){state.onboardData.tier=t;renderOnboardStep();}
+function selectObAvatar(a){state.onboardData.avatar=a;renderOnboardStep();}
+function selectObPath(id){
+  if(state.subscription.plan==='free'&&id!=='jesus'){showToast('Upgrade to Premium for all paths');return;}
+  state.onboardData.selectedPath=id;renderOnboardStep();
+}
+function onboardNextStep(){
+  const step=ONBOARD_STEPS[state.onboardStep];
+  if(step==='family'){
+    const fn=document.getElementById('ob-family-name').value.trim();
+    const pn=document.getElementById('ob-parent-name').value.trim();
+    if(!fn){showToast('Please enter a family name');return;}
+    state.onboardData.familyName=fn;
+    state.onboardData.parentName=pn||state.currentUser?.name||'Parent';
+  } else if(step==='member'){
+    const kn=document.getElementById('ob-kid-name').value.trim();
+    if(!kn){showToast('Please enter a name');return;}
+    state.onboardData.kidName=kn;
+  } else if(step==='launch'){
+    finalizeOnboarding();return;
+  }
+  state.onboardStep++;renderOnboardStep();
+}
+function onboardBack(){
+  if(state.onboardStep===0){showScreen('screen-landing');}
+  else{state.onboardStep--;renderOnboardStep();}
+}
+function finalizeOnboarding(){
+  state.family={id:'fam_'+Date.now(),name:state.onboardData.familyName};
+  const parent={id:'m_parent',name:state.onboardData.parentName,role:'parent',avatar:'👤',tier:'parent'};
+  const kid={id:'m_'+Date.now(),name:state.onboardData.kidName,role:state.onboardData.tier==='teen'?'teen':'kid',avatar:state.onboardData.avatar,tier:state.onboardData.tier};
+  state.members=[parent,kid];
+  state.selectedPath=state.onboardData.selectedPath;
+  state.selectedMember=kid.id;
+  saveUserData();
+  showParentApp();
+  setTimeout(()=>showTour(),500);
+}
+
+// ===================== TOUR =====================
+const TOUR_STEPS=[
+  {icon:'🏠',title:'Welcome to FaithQuest!',text:'This is the Parent Dashboard. You can see your family\'s progress, manage profiles, and track missions from here.'},
+  {icon:'📚',title:'Browse Learning Paths',text:'Head to Paths to explore 35 lessons across 5 journeys. Assign paths to your kids and track their progress.'},
+  {icon:'🚀',title:'Kid\'s Daily Lesson',text:'Switch to your child\'s view to see today\'s lesson. It takes 7–10 minutes and flows through 6 engaging steps.'},
+  {icon:'✅',title:'Mission Approvals',text:'After your child submits a Faith-in-Action mission, you\'ll get a notification to review and approve it here.'},
+  {icon:'📊',title:'Insights Dashboard',text:'Track kindness, honesty, service, and prayer across your whole family. See who\'s streaking and who needs encouragement.'}
+];
+let tourStep=0;
+function showTour(){
+  tourStep=0;renderTourStep();openModal('modal-tour');
+}
+function renderTourStep(){
+  const s=TOUR_STEPS[tourStep];
+  document.getElementById('tourContent').innerHTML=`
+    <div class="tour-step-icon">${s.icon}</div>
+    <div class="tour-step-title">${s.title}</div>
+    <p class="tour-step-text">${s.text}</p>
+    <div class="tour-dots">${TOUR_STEPS.map((_,i)=>`<div class="tour-dot${i===tourStep?' active':''}"></div>`).join('')}</div>
+    <div style="display:flex;gap:12px;margin-top:8px;">
+      ${tourStep>0?`<button class="btn btn-secondary" style="flex:1;background:rgba(255,255,255,0.1);color:white;border-color:rgba(255,255,255,0.2);" onclick="tourPrev()">← Back</button>`:''}
+      <button class="btn btn-primary" style="flex:1;" onclick="tourNext()">${tourStep===TOUR_STEPS.length-1?'Start Exploring!':'Next →'}</button>
+    </div>`;
+}
+function tourNext(){if(tourStep<TOUR_STEPS.length-1){tourStep++;renderTourStep();}else{closeModal('modal-tour');}}
+function tourPrev(){if(tourStep>0){tourStep--;renderTourStep();}}
+
+// ===================== PARENT APP =====================
+function showParentApp(){
+  document.getElementById('planBadge').textContent=state.subscription.plan==='free'?'Free':'Premium';
+  showScreen('screen-parent');
+  parentNav('home');
+}
+function parentNav(tab){
+  state.parentTab=tab;
+  document.querySelectorAll('[id^="pnav-"]').forEach(el=>el.classList.remove('active'));
+  const btn=document.getElementById(`pnav-${tab}`);
+  if(btn)btn.classList.add('active');
+  const el=document.getElementById('parentContent');
+  el.innerHTML='';
+  if(tab==='home')renderParentHome(el);
+  else if(tab==='family')renderParentFamily(el);
+  else if(tab==='paths')renderParentPaths(el);
+  else if(tab==='approvals')renderParentApprovals(el);
+  else if(tab==='insights')renderParentInsights(el);
+}
+function renderParentHome(el){
+  const kids=state.members.filter(m=>m.role!=='parent');
+  const streak=Math.max(...state.members.map(m=>getStreak(m.id)),0);
+  const pendingCount=state.checkins.filter(c=>!c.approved).length;
+  el.innerHTML=`
+    <div class="welcome-banner anim-in">
+      <div class="welcome-title">Welcome back, ${state.members.find(m=>m.role==='parent')?.name||'Parent'} 👋</div>
+      <div class="welcome-sub">${state.family?.name||'Your Family'} · ${new Date().toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'})}</div>
+    </div>
+    <div class="stats-row anim-in">
+      <div class="stat-card"><span class="stat-value">🔥 ${streak}</span><span class="stat-label">Day Streak</span></div>
+      <div class="stat-card"><span class="stat-value">${state.completions.length}</span><span class="stat-label">Lessons Done</span></div>
+      <div class="stat-card"><span class="stat-value">${pendingCount}</span><span class="stat-label">Pending</span></div>
+    </div>
+    <div class="section-title anim-in">Family Members</div>
+    <div class="member-list anim-in">
+      ${kids.map(k=>`
+        <div class="member-row">
+          <div class="avatar avatar-md" style="background:var(--amber-light);font-size:1.4rem;">${k.avatar}</div>
+          <div class="member-info">
+            <div class="member-name">${k.name}</div>
+            <div class="member-meta">${k.tier==='teen'?'Teen':'Kid'} · ${state.completions.filter(c=>c.memberId===k.id).length} lessons · ${getStreak(k.id)} day streak</div>
+          </div>
+          <button class="btn btn-sky btn-sm" onclick="switchToKid('${k.id}')">View →</button>
+        </div>`).join('')}
+      <button class="btn btn-secondary btn-full" onclick="openAddMember()">+ Add Family Member</button>
+    </div>
+    ${pendingCount>0?`
+    <div class="section-title anim-in">Pending Approvals <span class="badge badge-rose">${pendingCount}</span></div>
+    <div class="pending-list anim-in">
+      ${state.checkins.filter(c=>!c.approved).slice(0,3).map(c=>{
+        const member=state.members.find(m=>m.id===c.memberId);
+        return `<div class="pending-card">
+          <div class="avatar avatar-sm" style="background:var(--amber-light);">${member?.avatar||'🧒'}</div>
+          <div class="pending-info"><div class="pending-title">${c.missionTitle}</div><div class="pending-meta">${member?.name} · "${c.reflection?.slice(0,40)||'No reflection'}..."</div></div>
+          <div class="pending-actions"><button class="btn btn-emerald btn-sm" onclick="approveCheckin('${c.id}')">✓</button></div>
+        </div>`;}).join('')}
+      <button class="btn btn-ghost btn-full" onclick="parentNav('approvals')">View All Approvals →</button>
+    </div>`:''}
+    <div style="margin-top:16px;"><button class="btn btn-secondary btn-sm" onclick="showTour()">📍 View Demo Tour</button></div>
+  `;
+}
+function renderParentFamily(el){
+  el.innerHTML=`
+    <div class="section-title anim-in">Family Members</div>
+    <div class="member-list anim-in">
+      ${state.members.map(m=>`
+        <div class="member-row">
+          <div class="avatar avatar-md" style="background:${m.role==='parent'?'var(--sky-light)':'var(--amber-light)'};">${m.avatar||'👤'}</div>
+          <div class="member-info">
+            <div class="member-name">${m.name} ${m.role==='parent'?'<span class="badge badge-sky" style="margin-left:6px;">Parent</span>':''}</div>
+            <div class="member-meta">${m.role==='parent'?'Admin':m.tier==='teen'?'Teen':'Kid'} · ${state.completions.filter(c=>c.memberId===m.id).length} lessons done</div>
+          </div>
+          ${m.role!=='parent'?`<button class="btn btn-ghost btn-sm" onclick="switchToKid('${m.id}')">→</button>`:''}
+        </div>`).join('')}
+    </div>
+    <button class="btn btn-primary btn-full anim-in" onclick="openAddMember()">+ Add Child/Teen</button>
+    <div style="margin-top:24px;" class="anim-in">
+      <div class="section-title">Subscription</div>
+      <div class="plan-card current-plan">
+        <div style="font-size:0.75rem;font-weight:600;color:var(--amber);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Current Plan</div>
+        <div style="font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:white;">${state.subscription.plan==='free'?'Free':'Premium Family'}</div>
+        <div style="font-size:0.875rem;color:rgba(255,255,255,0.6);margin-top:4px;">${state.subscription.plan==='free'?'1 path, 2 members':'All paths, unlimited members'}</div>
+      </div>
+      ${state.subscription.plan==='free'?`
+        <div class="plan-card upgrade-cta">
+          <div class="badge badge-amber" style="margin-bottom:12px;">Upgrade to Premium</div>
+          <p style="font-size:0.875rem;color:var(--slate-700);margin-bottom:16px;">Unlock all 5 paths, unlimited members, parent insights, and teen journaling.</p>
+          <button class="btn btn-primary btn-full" onclick="upgradePlan()">Upgrade — $9.99/mo →</button>
+        </div>
+      `:`<button class="btn btn-secondary btn-sm" onclick="downgradePlan()">Downgrade to Free</button>`}
+    </div>`;
+}
+function renderParentPaths(el){
+  el.innerHTML=`
+    <div class="section-title anim-in">Learning Paths</div>
+    <p class="body-sm muted anim-in" style="margin-bottom:20px;">Select a path to preview or assign it to a family member.</p>
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      ${PATHS.map(p=>{
+        const locked=p.tier==='premium'&&state.subscription.plan==='free';
+        return `<div class="card card-hover anim-in ${locked?'':'cursor-pointer'}" onclick="${locked?"showToast('Upgrade to Premium for this path')":`selectFamilyPath('${p.id}')`}">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="font-size:2rem;">${p.emoji}</div>
+            <div style="flex:1;">
+              <div style="font-weight:700;font-size:0.9375rem;margin-bottom:2px;">${p.title}</div>
+              <div style="font-size:0.8125rem;color:var(--slate-500);">${p.lessons.length} lessons · ${p.desc.slice(0,50)}...</div>
+            </div>
+            ${locked?'<span class="badge badge-amber">Premium</span>':'<span style="color:var(--amber-dark);font-size:1.2rem;">→</span>'}
+          </div>
+          ${state.selectedPath===p.id?'<div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--slate-200);font-size:0.8125rem;font-weight:600;color:var(--emerald);">✓ Current path</div>':''}
+        </div>`;}).join('')}
+    </div>`;
+}
+function selectFamilyPath(id){
+  state.selectedPath=id;saveUserData();
+  showToast('Path selected: '+getPath(id)?.title);renderParentPaths(document.getElementById('parentContent'));
+}
+function renderParentApprovals(el){
+  const pending=state.checkins.filter(c=>!c.approved);
+  const approved=state.checkins.filter(c=>c.approved);
+  el.innerHTML=`
+    <div class="section-title anim-in">Mission Approvals</div>
+    ${pending.length===0?`<div class="card anim-in" style="text-align:center;padding:40px;"><div style="font-size:2.5rem;margin-bottom:12px;">✅</div><div style="font-weight:600;">All caught up!</div><p class="body-sm muted">No pending missions to review.</p></div>`:
+    `<div class="anim-in">${pending.map(c=>{
+      const member=state.members.find(m=>m.id===c.memberId);
+      return `<div class="approval-card">
+        <div class="approval-header">
+          <div class="avatar avatar-sm" style="background:var(--amber-light);">${member?.avatar||'🧒'}</div>
+          <div><div style="font-weight:600;font-size:0.9375rem;">${member?.name}'s Mission</div><div style="font-size:0.8125rem;color:var(--slate-500);">${c.missionTitle}</div></div>
+        </div>
+        <div class="approval-body">
+          <div style="font-size:0.75rem;font-weight:600;color:var(--slate-500);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">Reflection</div>
+          <p class="approval-reflection">"${c.reflection||'No reflection written.'}"</p>
+          ${c.emoji?`<div style="margin-top:8px;font-size:0.875rem;">Felt: ${c.emoji}</div>`:''}
+        </div>
+        <div class="approval-actions">
+          <button class="btn btn-secondary btn-sm" onclick="rejectCheckin('${c.id}')">✗ Decline</button>
+          <button class="btn btn-emerald btn-sm" style="flex:1;" onclick="approveCheckin('${c.id}')">✓ Approve</button>
+        </div>
+      </div>`;}).join('')}</div>`}
+    ${approved.length>0?`
+    <div class="section-title anim-in" style="margin-top:24px;">Previously Approved (${approved.length})</div>
+    <div class="anim-in">${approved.slice(-3).reverse().map(c=>{
+      const m=state.members.find(x=>x.id===c.memberId);
+      return `<div class="card" style="margin-bottom:12px;display:flex;gap:12px;align-items:center;">
+        <div class="avatar avatar-sm" style="background:var(--emerald-light);">✓</div>
+        <div><div style="font-weight:600;font-size:0.875rem;">${m?.name}: ${c.missionTitle}</div><div style="font-size:0.8125rem;color:var(--slate-500);">Approved</div></div>
+      </div>`;}).join('')}</div>`:''} `;
+}
+function approveCheckin(id){
+  const c=state.checkins.find(x=>x.id===id);
+  if(c){c.approved=true;saveUserData();showToast('Mission approved! 🌟');parentNav(state.parentTab);}
+}
+function rejectCheckin(id){
+  state.checkins=state.checkins.filter(x=>x.id!==id);
+  saveUserData();showToast('Mission declined');parentNav(state.parentTab);
+}
+function renderParentInsights(el){
+  const kids=state.members.filter(m=>m.role!=='parent');
+  const total=state.completions.length;
+  const missions=state.checkins.filter(c=>c.approved).length;
+  const heatData=Array.from({length:28},(_,i)=>Math.random()<0.5?Math.floor(Math.random()*4)+1:0);
+  el.innerHTML=`
+    <div class="section-title anim-in">Family Insights</div>
+    <div class="insights-grid anim-in">
+      <div class="insight-card"><div class="insight-label">Lessons Completed</div><div class="insight-value">${total}</div></div>
+      <div class="insight-card"><div class="insight-label">Missions Done</div><div class="insight-value">${missions}</div></div>
+      <div class="insight-card"><div class="insight-label">Family Streak</div><div class="insight-value">🔥 ${Math.max(...kids.map(k=>getStreak(k.id)),0)}</div></div>
+      <div class="insight-card"><div class="insight-label">Members Active</div><div class="insight-value">${kids.length}</div></div>
+    </div>
+    <div class="card anim-in" style="margin-top:16px;">
+      <div class="insight-label" style="margin-bottom:12px;">4-Week Activity</div>
+      <div class="heatmap">${heatData.map(d=>`<div class="heatmap-cell${d>0?' l'+d:''}"></div>`).join('')}</div>
+      <div style="display:flex;gap:4px;margin-top:8px;align-items:center;font-size:0.75rem;color:var(--slate-400);">
+        <span>Less</span>
+        <div style="width:12px;height:12px;border-radius:2px;background:var(--slate-100);"></div>
+        <div style="width:12px;height:12px;border-radius:2px;background:#FEF3C7;"></div>
+        <div style="width:12px;height:12px;border-radius:2px;background:#FCD34D;"></div>
+        <div style="width:12px;height:12px;border-radius:2px;background:#F59E0B;"></div>
+        <div style="width:12px;height:12px;border-radius:2px;background:#D97706;"></div>
+        <span>More</span>
+      </div>
+    </div>
+    <div class="section-title anim-in" style="margin-top:24px;">Character Growth</div>
+    <div class="card anim-in">
+      ${[{label:'Kindness',icon:'💛',val:Math.floor(Math.random()*80)+20},{label:'Honesty',icon:'✅',val:Math.floor(Math.random()*80)+20},{label:'Service',icon:'🤲',val:Math.floor(Math.random()*80)+20},{label:'Prayer',icon:'🙏',val:Math.floor(Math.random()*80)+20}].map(c=>`
+        <div style="margin-bottom:16px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+            <span style="font-size:0.875rem;font-weight:600;">${c.icon} ${c.label}</span>
+            <span style="font-size:0.875rem;color:var(--slate-500);">${c.val}%</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" style="width:${c.val}%"></div></div>
+        </div>`).join('')}
+    </div>
+    ${kids.map(k=>`
+      <div class="card anim-in" style="margin-top:16px;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <div class="avatar avatar-sm" style="background:var(--amber-light);">${k.avatar}</div>
+          <div><div style="font-weight:600;">${k.name}</div><div style="font-size:0.8125rem;color:var(--slate-500);">${state.completions.filter(c=>c.memberId===k.id).length} lessons · Streak: ${getStreak(k.id)} days</div></div>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" style="width:${Math.min(100,(state.completions.filter(c=>c.memberId===k.id).length/35)*100)}%"></div></div>
+        <div style="font-size:0.75rem;color:var(--slate-400);margin-top:6px;">${state.completions.filter(c=>c.memberId===k.id).length} of 35 lessons complete</div>
+      </div>`).join('')}`;
+}
+function getStreak(memberId){
+  return state.completions.filter(c=>c.memberId===memberId).length;
+}
+function upgradePlan(){
+  state.subscription.plan='premium';saveUserData();
+  document.getElementById('planBadge').textContent='Premium';
+  showToast('Welcome to Premium Family! 🌟');parentNav('family');
+}
+function downgradePlan(){
+  state.subscription.plan='free';saveUserData();
+  document.getElementById('planBadge').textContent='Free';
+  showToast('Downgraded to Free plan');parentNav('family');
+}
+function openAddMember(){
+  document.getElementById('newMemberAvatarGrid').innerHTML=AVATARS.map(a=>`<div class="avatar-option" onclick="selectNewAvatar('${a}')">${a}</div>`).join('');
+  openModal('modal-add-member');
+}
+let newMemberSelectedAvatar='😊';
+function selectNewAvatar(a){
+  newMemberSelectedAvatar=a;
+  document.querySelectorAll('#newMemberAvatarGrid .avatar-option').forEach(el=>el.classList.toggle('selected',el.textContent===a));
+}
+function addMember(){
+  const name=document.getElementById('new-member-name').value.trim();
+  const tier=document.getElementById('new-member-tier').value;
+  if(!name){showToast('Please enter a name');return;}
+  const member={id:'m_'+Date.now(),name,role:tier==='teen'?'teen':'kid',avatar:newMemberSelectedAvatar,tier};
+  state.members.push(member);saveUserData();
+  closeModal('modal-add-member');showToast(`${name} added to your family!`);
+  parentNav(state.parentTab);
+}
+function switchToKid(memberId){
+  state.selectedMember=memberId;saveUserData();showKidApp();
+}
+
+// ===================== KID APP =====================
+function showKidApp(){
+  showScreen('screen-kid');kidNav('home');
+}
+function kidNav(tab){
+  state.kidTab=tab;
+  document.querySelectorAll('[id^="knav-"]').forEach(el=>el.classList.remove('active'));
+  const btn=document.getElementById(`knav-${tab}`);
+  if(btn)btn.classList.add('active');
+  renderKidContent(tab);
+}
+function renderKidContent(tab){
+  const el=document.getElementById('kidContent');
+  el.innerHTML='';
+  if(tab==='home')renderKidHome(el);
+  else if(tab==='rewards')renderKidRewards(el);
+  else if(tab==='library')renderKidLibrary(el);
+  else if(tab==='profile')renderKidProfile(el);
+}
+function renderKidHome(el){
+  const member=getCurrentMember();
+  if(!member){el.innerHTML='<div style="padding:40px;text-align:center;">No member selected.</div>';return;}
+  const path=getPath(state.selectedPath||'jesus');
+  const doneCount=state.completions.filter(c=>c.memberId===member.id).length;
+  const nextIdx=Math.min(doneCount,path.lessons.length-1);
+  const lesson=path.lessons[nextIdx];
+  const streak=getStreak(member.id);
+  el.innerHTML=`
+    <div class="kid-home-header">
+      <div class="kid-header-bg"></div>
+      <div class="kid-hero-content">
+        <div class="kid-greeting">Good day,</div>
+        <div class="kid-name">${member.name} ${member.avatar}</div>
+        <div class="kid-streak-row">
+          <div class="streak-badge">🔥 ${streak} day streak</div>
+        </div>
+        <div class="reward-pills" style="margin-top:12px;">
+          <div class="reward-pill">⭐ ${doneCount} lessons</div>
+          <div class="reward-pill">🏅 ${getBadges(member.id)} badges</div>
+          <div class="reward-pill">🎯 ${state.checkins.filter(c=>c.memberId===member.id&&c.approved).length} missions</div>
+        </div>
+      </div>
+    </div>
+    <div class="kid-card-area">
+      <div class="today-lesson-card anim-in">
+        <div class="today-label">Today's Lesson</div>
+        <div class="today-title">${lesson.title}</div>
+        <div class="today-path">${path.emoji} ${path.title} · Lesson ${nextIdx+1} of ${path.lessons.length}</div>
+        <div class="progress-bar" style="margin-bottom:16px;"><div class="progress-fill" style="width:${(doneCount/path.lessons.length)*100}%"></div></div>
+        <div class="today-actions">
+          <button class="btn btn-primary" style="flex:1;" onclick="startLesson('${path.id}',${nextIdx})">Start Lesson →</button>
+          <button class="btn btn-secondary btn-sm" onclick="openModal('modal-ask-parent')">Ask Parent</button>
+        </div>
+      </div>
+    </div>
+    <div class="missions-section">
+      <div class="missions-title">Active Missions</div>
+      ${state.checkins.filter(c=>c.memberId===member.id&&!c.approved).length>0?
+        state.checkins.filter(c=>c.memberId===member.id&&!c.approved).map(c=>`
+          <div class="mission-card-kid" style="border:2px solid var(--amber);">
+            <div class="mission-icon" style="background:var(--amber-light);">🎯</div>
+            <div class="mission-info"><div class="mission-name">${c.missionTitle}</div><div class="mission-meta">Submitted · Waiting for parent approval</div></div>
+            <div class="mission-arrow">⏳</div>
+          </div>`).join(''):
+      `<div class="card" style="text-align:center;padding:24px;">
+        <div style="font-size:1.8rem;margin-bottom:8px;">🎯</div>
+        <div style="font-weight:600;font-size:0.9375rem;margin-bottom:4px;">No active missions</div>
+        <p class="body-sm muted">Complete a lesson to get a mission!</p>
+      </div>`}
+      ${state.checkins.filter(c=>c.memberId===member.id&&c.approved).length>0?`
+        <div class="missions-title" style="margin-top:20px;">Completed Missions ✅</div>
+        ${state.checkins.filter(c=>c.memberId===member.id&&c.approved).slice(-3).reverse().map(c=>`
+          <div class="mission-card-kid" style="opacity:0.7;">
+            <div class="mission-icon" style="background:var(--emerald-light);">✅</div>
+            <div class="mission-info"><div class="mission-name">${c.missionTitle}</div><div class="mission-meta">Approved by parent · ${c.emoji||''}</div></div>
+          </div>`).join('')}`:''}
+      <button class="btn btn-secondary btn-full" style="margin-top:16px;" onclick="showParentApp()">← Parent View</button>
+    </div>`;
+}
+function getBadges(memberId){
+  const done=state.completions.filter(c=>c.memberId===memberId).length;
+  let badges=0;
+  if(done>=1)badges++;if(done>=3)badges++;if(done>=5)badges++;if(done>=7)badges++;
+  return badges;
+}
+function renderKidRewards(el){
+  const member=getCurrentMember();
+  const done=state.completions.filter(c=>c.memberId===member?.id).length;
+  const missions=state.checkins.filter(c=>c.memberId===member?.id&&c.approved).length;
+  const badgeDefs=[
+    {emoji:'⭐',name:'First Light',desc:'Complete your first lesson',earned:done>=1},
+    {emoji:'🌿',name:'Seedling',desc:'Complete 3 lessons',earned:done>=3},
+    {emoji:'🦁',name:'Brave Heart',desc:'Complete 5 lessons',earned:done>=5},
+    {emoji:'📖',name:'Scripture Scout',desc:'Complete 7 lessons',earned:done>=7},
+    {emoji:'🎯',name:'Mission Ready',desc:'Complete first mission',earned:missions>=1},
+    {emoji:'🏆',name:'Faith Hero',desc:'Complete 3 missions',earned:missions>=3},
+    {emoji:'🔥',name:'Streak Master',desc:'3-day streak',earned:getStreak(member?.id)>=3},
+    {emoji:'🌟',name:'Quest Champion',desc:'Complete a full path',earned:done>=7},
+    {emoji:'🙏',name:'Prayer Warrior',desc:'Use prayer builder',earned:false},
+  ];
+  el.innerHTML=`
+    <div style="padding:20px 16px 0;display:flex;align-items:center;justify-content:space-between;">
+      <h2 style="font-family:var(--font-display);font-size:1.4rem;font-weight:700;">Your Rewards</h2>
+      <div class="streak-badge">🔥 ${getStreak(member?.id)} streak</div>
+    </div>
+    <div style="padding:8px 16px 16px;">
+      <div class="card" style="background:linear-gradient(135deg,var(--amber-light),#FFF7ED);margin-bottom:20px;text-align:center;">
+        <div style="font-size:2.5rem;margin-bottom:4px;">🏅</div>
+        <div style="font-family:var(--font-display);font-size:1.6rem;font-weight:700;">${badgeDefs.filter(b=>b.earned).length}</div>
+        <div style="font-size:0.8125rem;color:var(--gold);">Badges Earned</div>
+      </div>
+      <div class="badge-grid" style="padding-bottom:80px;">
+        ${badgeDefs.map(b=>`
+          <div class="badge-item${b.earned?' earned':' locked'}">
+            <span class="badge-emoji">${b.emoji}</span>
+            <div class="badge-name">${b.name}</div>
+            <div class="badge-desc">${b.desc}</div>
+          </div>`).join('')}
+      </div>
+    </div>`;
+}
+function renderKidLibrary(el){
+  const member=getCurrentMember();
+  const done=state.completions.filter(c=>c.memberId===member?.id).map(c=>c.lessonId);
+  let allLessons=[];
+  PATHS.forEach(p=>p.lessons.forEach(l=>allLessons.push({...l,pathId:p.id,pathTitle:p.title,pathEmoji:p.emoji})));
+  el.innerHTML=`
+    <div style="padding:20px 16px 0;">
+      <h2 style="font-family:var(--font-display);font-size:1.4rem;font-weight:700;">My Library</h2>
+      <p style="font-size:0.875rem;color:var(--slate-500);margin-top:4px;">${done.length} of 35 lessons completed</p>
+    </div>
+    <div style="padding:12px 16px;padding-bottom:100px;" class="library-list">
+      ${done.length===0?`<div class="card" style="text-align:center;padding:32px;"><div style="font-size:2rem;margin-bottom:8px;">📖</div><div style="font-weight:600;">No lessons yet</div><p class="body-sm muted">Complete your first lesson to see it here!</p></div>`:''}
+      ${allLessons.filter(l=>done.includes(l.id)).map(l=>`
+        <div class="library-item" onclick="startLesson('${l.pathId}',${PATHS.find(p=>p.id===l.pathId).lessons.indexOf(l)})">
+          <div class="library-check">✓</div>
+          <div class="library-info"><div class="library-title">${l.title}</div><div class="library-meta">${l.pathEmoji} ${l.pathTitle} · ${l.verseRef}</div></div>
+        </div>`).join('')}
+    </div>`;
+}
+function renderKidProfile(el){
+  const member=getCurrentMember();
+  el.innerHTML=`
+    <div style="padding:24px;">
+      <div style="text-align:center;padding:32px 0 24px;">
+        <div style="font-size:4rem;margin-bottom:12px;">${member?.avatar||'😊'}</div>
+        <div style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;">${member?.name}</div>
+        <div style="font-size:0.875rem;color:var(--slate-500);margin-top:4px;">${member?.tier==='teen'?'Teen':'Kid'} · ${state.family?.name}</div>
+      </div>
+      <div class="stats-row" style="margin-bottom:24px;">
+        <div class="stat-card"><span class="stat-value">${getStreak(member?.id)}</span><span class="stat-label">Streak</span></div>
+        <div class="stat-card"><span class="stat-value">${state.completions.filter(c=>c.memberId===member?.id).length}</span><span class="stat-label">Lessons</span></div>
+        <div class="stat-card"><span class="stat-value">${getBadges(member?.id)}</span><span class="stat-label">Badges</span></div>
+      </div>
+      <button class="btn btn-secondary btn-full" style="margin-bottom:12px;" onclick="showParentApp()">← Switch to Parent View</button>
+      <button class="btn btn-ghost btn-full" onclick="doSignOut()">Sign Out</button>
+    </div>`;
+}
+
+// ===================== LESSON PLAYER =====================
+function startLesson(pathId,lessonIndex){
+  state.lessonState={path:pathId,lessonIndex,step:0,selectedMission:null,selectedEmoji:null,reflectText:'',missionIndex:0};
+  showScreen('screen-lesson');renderLessonStep();
+}
+function exitLesson(){
+  const was=state.selectedMember?'kid':'parent';
+  if(state.members.find(m=>m.id===state.selectedMember)?.role==='parent'){showParentApp();}
+  else{showKidApp();}
+}
+const LESSON_STEPS=['read','understand','talk','do','reflect','prayer'];
+const STEP_LABELS=['📖 Read','🤔 Understand','💬 Talk','🚀 Do','💭 Reflect','🙏 Pray'];
+function renderLessonStep(){
+  const {path:pathId,lessonIndex,step}=state.lessonState;
+  const lesson=getLesson(pathId,lessonIndex);
+  const member=getCurrentMember();
+  if(!lesson){exitLesson();return;}
+  // Update nav
+  document.getElementById('lessonStepLabel').textContent=`${STEP_LABELS[step]} · ${step+1} of ${LESSON_STEPS.length}`;
+  const dots=document.getElementById('lessonStepDots');
+  dots.innerHTML=LESSON_STEPS.map((_,i)=>`<div class="lesson-step-dot${i<step?' done':i===step?' active':''}"></div>`).join('');
+  const prevBtn=document.getElementById('lessonPrevBtn');
+  prevBtn.style.display=step===0?'none':'flex';
+  document.getElementById('lessonNextBtn').textContent=step===LESSON_STEPS.length-1?'Complete Lesson 🎉':'Next →';
+  const body=document.getElementById('lessonBody');
+  const stepName=LESSON_STEPS[step];
+  if(stepName==='read'){
+    body.innerHTML=`
+      <div class="anim-in">
+        <div class="lesson-step-title">📖 Read</div>
+        <h1 class="lesson-main-title">${lesson.title}</h1>
+        <div class="verse-block">
+          <div class="verse-ref">${lesson.verseRef}</div>
+          <div class="verse-text">${lesson.excerpt}</div>
+        </div>
+        <p style="font-size:0.9375rem;line-height:1.7;color:var(--slate-700);">${lesson.summary}</p>
+        <div style="margin-top:20px;padding:16px;background:var(--slate-50);border-radius:var(--radius);font-size:0.875rem;color:var(--slate-600);">
+          <strong>Scripture source:</strong> ${lesson.verseRef} — World English Bible (WEB) / KJV, Public Domain
+        </div>
+      </div>`;
+  } else if(stepName==='understand'){
+    const isTeen=member?.tier==='teen';
+    const isYounger=member?.tier==='younger';
+    const explanation=isYounger?
+      `Let's think about ${lesson.title.toLowerCase()}! ${lesson.summary} That's really cool, right? 😊`:
+      isTeen?`<strong>Deeper Dive:</strong> ${lesson.summary} The original context here is significant. ${lesson.excerpt.includes('WEB')?'The World English Bible':'The KJV'} uses specific word choices that carry important meaning. As you read this passage, consider its original audience and how the same truth applies to your world today.`:
+      `Here's what this verse means for you: ${lesson.summary}`;
+    body.innerHTML=`
+      <div class="anim-in">
+        <div class="lesson-step-title">🤔 Understand</div>
+        <h2 class="display-sm" style="margin-bottom:16px;">What does this mean for you?</h2>
+        <div class="explanation-box">
+          <div class="explanation-label">${isYounger?'For Little Explorers':isTeen?'For Teens':'For Kids'}</div>
+          <div class="explanation-text">${explanation}</div>
+        </div>
+        <h3 style="font-family:var(--font-display);font-size:1.1rem;margin-bottom:12px;">Check Your Understanding</h3>
+        <div class="question-list">
+          <div class="question-item"><div class="question-num">Question 1</div><div class="question-text">${lesson.questions[0]}</div></div>
+          <div class="question-item"><div class="question-num">Question 2</div><div class="question-text">${lesson.questions[1]}</div></div>
+        </div>
+        <div style="margin-top:8px;text-align:center;">
+          <button class="btn btn-ghost btn-sm" onclick="openModal('modal-ask-parent')">🙋 Ask a Parent</button>
+        </div>
+      </div>`;
+  } else if(stepName==='talk'){
+    body.innerHTML=`
+      <div class="anim-in">
+        <div class="lesson-step-title">💬 Talk Together</div>
+        <h2 class="display-sm" style="margin-bottom:8px;">Family Discussion</h2>
+        <p style="font-size:0.875rem;color:var(--slate-600);margin-bottom:20px;">Gather your family and talk through these questions together.</p>
+        <div class="question-list">
+          ${lesson.questions.map((q,i)=>`<div class="question-item"><div class="question-num">${['First','Second','Third'][i]} Question</div><div class="question-text">${q}</div></div>`).join('')}
+        </div>
+        <div style="background:linear-gradient(135deg,var(--sky-light),#E0F7FF);border-radius:var(--radius);padding:16px;margin-top:4px;">
+          <div style="font-size:0.75rem;font-weight:700;color:#0369A1;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">Parent Coaching Note</div>
+          <p style="font-size:0.875rem;color:var(--slate-700);line-height:1.6;">Let your child answer first before sharing your perspective. Avoid correcting or evaluating their answers in the moment—focus on connection over perfection.</p>
+        </div>
+      </div>`;
+  } else if(stepName==='do'){
+    body.innerHTML=`
+      <div class="anim-in">
+        <div class="lesson-step-title">🚀 Faith-in-Action</div>
+        <h2 class="display-sm" style="margin-bottom:8px;">Choose Your Mission</h2>
+        <p style="font-size:0.875rem;color:var(--slate-600);margin-bottom:20px;">Pick one mission to complete in the real world.</p>
+        <div class="mission-options">
+          ${lesson.missions.map((m,i)=>`
+            <div class="mission-option${state.lessonState.selectedMission===i?' selected':''}" onclick="selectMission(${i})">
+              <span class="mission-option-emoji">${m.emoji}</span>
+              <div class="mission-option-title">${m.title}</div>
+              <div class="mission-option-desc">${m.desc}</div>
+              <span class="badge badge-${m.level==='Easy'?'emerald':m.level==='Medium'?'amber':'rose'}" style="margin-top:8px;">${m.level}</span>
+            </div>`).join('')}
+        </div>
+        <p style="font-size:0.8125rem;color:var(--slate-500);text-align:center;">🌍 All missions work offline in the real world</p>
+      </div>`;
+  } else if(stepName==='reflect'){
+    body.innerHTML=`
+      <div class="anim-in">
+        <div class="lesson-step-title">💭 Reflect</div>
+        <h2 class="display-sm" style="margin-bottom:8px;">${member?.tier==='teen'?'Journal Your Thoughts':'How did it go?'}</h2>
+        <p style="font-size:0.875rem;color:var(--slate-600);margin-bottom:20px;">After completing your mission, share how you felt.</p>
+        <div class="reflect-section">
+          <div style="font-weight:600;font-size:0.875rem;margin-bottom:12px;">How are you feeling?</div>
+          <div class="emoji-grid">
+            ${['😊','🤩','😅','😤','🙏','😢','💪','🥺'].map(e=>`<span class="emoji-btn${state.lessonState.selectedEmoji===e?' selected':''}" onclick="selectEmoji('${e}')">${e}</span>`).join('')}
+          </div>
+        </div>
+        ${member?.tier==='teen'?`
+          <div class="form-group">
+            <label class="form-label">Journal Prompt 1: ${lesson.reflectPrompts[0]}</label>
+            <textarea class="form-input" rows="3" id="reflectText1" placeholder="Write your thoughts..." oninput="updateReflect(this.value)"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Journal Prompt 2: ${lesson.reflectPrompts[1]}</label>
+            <textarea class="form-input" rows="3" id="reflectText2" placeholder="Reflect deeper..."></textarea>
+          </div>`:
+        `<div class="form-group">
+            <label class="form-label">${lesson.reflectPrompts[0]}</label>
+            <textarea class="form-input" rows="3" id="reflectText1" placeholder="Write one sentence..." oninput="updateReflect(this.value)"></textarea>
+          </div>`}
+      </div>`;
+  } else if(stepName==='prayer'){
+    const fam=state.members;
+    body.innerHTML=`
+      <div class="anim-in">
+        <div class="lesson-step-title">🙏 Prayer Builder</div>
+        <h2 class="display-sm" style="margin-bottom:8px;">Build a Family Prayer</h2>
+        <p style="font-size:0.875rem;color:var(--slate-600);margin-bottom:20px;">Each person adds one line to create your prayer together.</p>
+        <div class="prayer-lines">
+          ${fam.map((m,i)=>`
+            <div class="prayer-line">
+              <div class="prayer-speaker">${m.avatar||'👤'} ${m.name.split(' ')[0]}:</div>
+              <input type="text" class="form-input" style="flex:1;" id="prayer-${m.id}" placeholder="${i===0?'Start with thanks...':i===1?'Add a need...':'Add an amen...'}">
+            </div>`).join('')}
+        </div>
+        <button class="btn btn-primary btn-full" onclick="buildPrayer()">🙏 Pray Together</button>
+        <div id="prayerResult" style="display:none;margin-top:20px;background:linear-gradient(135deg,#1E293B,#0F3460);border-radius:var(--radius);padding:24px;color:white;text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:12px;">🙏</div>
+          <div id="prayerText" style="font-family:var(--font-display);font-size:1.05rem;line-height:1.8;color:rgba(255,255,255,0.9);"></div>
+          <div style="margin-top:16px;font-size:0.875rem;color:var(--amber);">Amen ✨</div>
+        </div>
+      </div>`;
+  }
+}
+function selectMission(i){state.lessonState.selectedMission=i;renderLessonStep();}
+function selectEmoji(e){state.lessonState.selectedEmoji=e;renderLessonStep();}
+function updateReflect(v){state.lessonState.reflectText=v;}
+function buildPrayer(){
+  const lines=state.members.map(m=>{const el=document.getElementById('prayer-'+m.id);return el?el.value.trim():''}).filter(Boolean);
+  if(lines.length===0){showToast('Add at least one prayer line');return;}
+  document.getElementById('prayerResult').style.display='block';
+  document.getElementById('prayerText').textContent=lines.join(' ');
+  window.scrollTo({top:document.getElementById('lessonBody').scrollHeight,behavior:'smooth'});
+}
+function lessonNext(){
+  const {step,path:pathId,lessonIndex}=state.lessonState;
+  if(step===LESSON_STEPS.length-1){
+    completeLesson();return;
+  }
+  state.lessonState.step++;renderLessonStep();
+  document.getElementById('screen-lesson').scrollTop=0;
+}
+function lessonPrev(){
+  if(state.lessonState.step>0){state.lessonState.step--;renderLessonStep();}
+}
+function completeLesson(){
+  const {path:pathId,lessonIndex,selectedMission,selectedEmoji,reflectText}=state.lessonState;
+  const lesson=getLesson(pathId,lessonIndex);
+  const member=getCurrentMember();
+  if(!isLessonComplete(member.id,lesson.id)){
+    state.completions.push({memberId:member.id,lessonId:lesson.id,pathId,completedAt:new Date().toISOString()});
+  }
+  // Auto-create mission checkin
+  if(selectedMission!==null){
+    const mission=lesson.missions[selectedMission];
+    state.checkins.push({id:'ci_'+Date.now(),memberId:member.id,lessonId:lesson.id,missionTitle:mission.title,reflection:reflectText||'Completed the mission!',emoji:selectedEmoji,approved:false,createdAt:new Date().toISOString()});
+  }
+  saveUserData();
+  showToast('Lesson complete! 🎉 Mission submitted for parent approval.');
+  setTimeout(()=>{
+    if(member.role==='parent'){showParentApp();}else{showKidApp();}
+  },300);
+}
+
+// ===================== CHECKIN (standalone) =====================
+function startCheckin(mission,memberId){
+  state.checkinState={mission,member:state.members.find(m=>m.id===memberId)};
+  showScreen('screen-checkin');
+  renderCheckin();
+}
+function exitCheckin(){showKidApp();}
+function renderCheckin(){
+  const {mission,member}=state.checkinState;
+  const el=document.getElementById('checkinContent');
+  el.innerHTML=`
+    <div class="anim-in">
+      <div style="text-align:center;margin-bottom:28px;">
+        <div style="font-size:3rem;margin-bottom:12px;">✅</div>
+        <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;margin-bottom:6px;">Mission Complete!</h2>
+        <p style="font-size:0.875rem;color:var(--slate-600);">${mission?.title||'Your Mission'}</p>
+      </div>
+      <div class="form-group">
+        <label class="form-label">How did it go? (emoji)</label>
+        <div class="emoji-grid">${['😊','🤩','😅','💪','🙏','😢'].map(e=>`<span class="emoji-btn" onclick="this.classList.toggle('selected')">${e}</span>`).join('')}</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Tell your parent about it</label>
+        <textarea class="form-input" rows="4" id="checkin-reflect" placeholder="What happened? How did it feel?"></textarea>
+      </div>
+      <button class="btn btn-primary btn-full" onclick="submitCheckin()">Submit to Parent →</button>
+    </div>`;
+}
+function submitCheckin(){
+  const text=document.getElementById('checkin-reflect').value.trim();
+  if(!text){showToast('Write a short reflection first');return;}
+  showToast('Submitted! Your parent will review it. 🌟');
+  exitCheckin();
+}
+
+// ===================== INIT =====================
+// ===================== LANDING NAV =====================
+(function initNav(){
+  const nav=document.getElementById('landingNav');
+  if(!nav)return;
+  const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>40);
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
+function toggleMobileNav(){
+  document.getElementById('lnavDrawer').classList.toggle('open');
+}
+function closeMobileNav(){
+  document.getElementById('lnavDrawer').classList.remove('open');
+}
+// Close drawer on outside click
+document.addEventListener('click',function(e){
+  const drawer=document.getElementById('lnavDrawer');
+  const btn=document.getElementById('mobileMenuBtn');
+  if(drawer&&!drawer.contains(e.target)&&btn&&!btn.contains(e.target)){
+    drawer.classList.remove('open');
+  }
+});
+
+// ===================== LESSON PREVIEW =====================
+const LP_STEPS=[
+  {icon:'📖',label:'Read',preview:'read'},
+  {icon:'🤔',label:'Understand',preview:'understand'},
+  {icon:'💬',label:'Talk Together',preview:'talk'},
+  {icon:'🚀',label:'Faith-in-Action',preview:'do'},
+  {icon:'💭',label:'Reflect',preview:'reflect'},
+  {icon:'🙏',label:'Prayer Builder',preview:'prayer'},
+];
+const LP_PREVIEWS={
+  read:`<div class="lp-preview-card">
+    <div class="lp-preview-progress"><div class="lp-preview-progress-fill" style="width:16%;"></div></div>
+    <div class="lp-preview-step-label">📖 Read</div>
+    <div class="lp-preview-title">Jesus, the Good Shepherd</div>
+    <div class="lp-preview-verse">
+      <div class="lp-preview-verse-ref">John 10:11 · WEB</div>
+      <div class="lp-preview-verse-text">"I am the good shepherd. The good shepherd lays down his life for the sheep."</div>
+    </div>
+    <p style="font-size:0.78rem;color:var(--slate-600);line-height:1.6;">Jesus compares himself to a shepherd who truly cares for and protects his sheep—even at great cost to himself.</p>
+  </div>`,
+  understand:`<div class="lp-preview-card">
+    <div class="lp-preview-progress"><div class="lp-preview-progress-fill" style="width:33%;"></div></div>
+    <div class="lp-preview-step-label">🤔 Understand</div>
+    <div class="lp-preview-title">What does this mean for you?</div>
+    <div style="background:var(--amber-light);border-radius:10px;padding:12px 14px;margin-bottom:10px;border-left:3px solid var(--amber);">
+      <div style="font-size:0.65rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">For Kids (ages 6–10)</div>
+      <p style="font-size:0.78rem;color:var(--slate-700);line-height:1.6;">Here's what this verse means for you: A shepherd's whole job is to protect and care for his sheep. Jesus says that's exactly how he feels about you!</p>
+    </div>
+    <div class="lp-preview-q">
+      <div class="lp-preview-q-label">Question 1</div>
+      <div class="lp-preview-q-text">What does it mean to you that Jesus calls himself your shepherd?</div>
+    </div>
+  </div>`,
+  talk:`<div class="lp-preview-card">
+    <div class="lp-preview-progress"><div class="lp-preview-progress-fill" style="width:50%;"></div></div>
+    <div class="lp-preview-step-label">💬 Talk Together</div>
+    <div class="lp-preview-title">Family Discussion</div>
+    <div style="background:var(--sky-light);border-radius:10px;padding:10px 12px;margin-bottom:8px;">
+      <div style="font-size:0.65rem;font-weight:700;color:#0369A1;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Coaching Note</div>
+      <p style="font-size:0.75rem;color:var(--slate-600);">Let your child answer first before sharing your own perspective.</p>
+    </div>
+    <div class="lp-preview-q" style="margin-bottom:6px;"><div class="lp-preview-q-label">Q1</div><div class="lp-preview-q-text">What does it mean to you that Jesus calls himself your shepherd?</div></div>
+    <div class="lp-preview-q"><div class="lp-preview-q-label">Q2</div><div class="lp-preview-q-text">How does a good shepherd act differently from someone who doesn't care?</div></div>
+  </div>`,
+  do:`<div class="lp-preview-card">
+    <div class="lp-preview-progress"><div class="lp-preview-progress-fill" style="width:66%;"></div></div>
+    <div class="lp-preview-step-label">🚀 Faith-in-Action</div>
+    <div class="lp-preview-title">Choose Your Mission</div>
+    <div class="lp-preview-mission">
+      <div class="lp-preview-mission-label">✓ Selected · Easy</div>
+      <div class="lp-preview-mission-title">🐑 Protect a Friend</div>
+      <div class="lp-preview-mission-desc">This week, stand up for someone being left out or picked on. Be their shepherd.</div>
+    </div>
+    <div style="border:2px solid var(--slate-200);border-radius:10px;padding:12px 14px;margin-bottom:0;">
+      <div class="lp-preview-mission-title" style="font-size:0.8rem;">✉️ Write a Care Note</div>
+      <div class="lp-preview-mission-desc">Write or draw a note for someone who might feel alone. Deliver it in person.</div>
+    </div>
+  </div>`,
+  reflect:`<div class="lp-preview-card">
+    <div class="lp-preview-progress"><div class="lp-preview-progress-fill" style="width:83%;"></div></div>
+    <div class="lp-preview-step-label">💭 Reflect</div>
+    <div class="lp-preview-title">How did it go?</div>
+    <div style="font-weight:600;font-size:0.75rem;margin-bottom:8px;color:var(--slate-600);">How are you feeling?</div>
+    <div class="lp-preview-emoji-row">
+      <span class="lp-preview-emoji sel">💪</span>
+      <span class="lp-preview-emoji">😊</span>
+      <span class="lp-preview-emoji">🤩</span>
+      <span class="lp-preview-emoji">🙏</span>
+      <span class="lp-preview-emoji">😢</span>
+    </div>
+    <div style="background:var(--slate-50);border-radius:8px;padding:10px 12px;">
+      <div style="font-size:0.65rem;font-weight:700;color:var(--slate-500);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Your reflection</div>
+      <p style="font-size:0.78rem;color:var(--slate-600);font-style:italic;">"I stood up for my friend at recess and it felt really brave!"</p>
+    </div>
+  </div>`,
+  prayer:`<div class="lp-preview-card">
+    <div class="lp-preview-progress"><div class="lp-preview-progress-fill" style="width:100%;"></div></div>
+    <div class="lp-preview-step-label">🙏 Prayer Builder</div>
+    <div class="lp-preview-title">Build a Family Prayer</div>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px;">
+      <div style="display:flex;gap:8px;align-items:center;">
+        <span style="font-size:0.75rem;font-weight:600;color:var(--slate-500);min-width:60px;">👤 Mom:</span>
+        <div style="flex:1;background:var(--slate-50);border-radius:8px;padding:8px 10px;font-size:0.78rem;color:var(--slate-700);font-style:italic;">Thank you for giving us courage...</div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <span style="font-size:0.75rem;font-weight:600;color:var(--slate-500);min-width:60px;">⭐ Emma:</span>
+        <div style="flex:1;background:var(--slate-50);border-radius:8px;padding:8px 10px;font-size:0.78rem;color:var(--slate-700);font-style:italic;">Help me be brave tomorrow...</div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <span style="font-size:0.75rem;font-weight:600;color:var(--slate-500);min-width:60px;">🦁 Jake:</span>
+        <div style="flex:1;background:var(--slate-50);border:2px dashed var(--slate-200);border-radius:8px;padding:8px 10px;font-size:0.78rem;color:var(--slate-400);">Add your line...</div>
+      </div>
+    </div>
+    <div style="text-align:center;background:linear-gradient(135deg,var(--amber-light),#FFF7ED);border-radius:8px;padding:8px;font-size:0.75rem;font-weight:600;color:var(--gold);">✨ Amen together</div>
+  </div>`,
+};
+let lpActiveStep=0;
+function initLessonPreview(){
+  const stepsEl=document.getElementById('lpStepsList');
+  const phoneEl=document.getElementById('lpPhoneContent');
+  if(!stepsEl||!phoneEl)return;
+  stepsEl.innerHTML=LP_STEPS.map((s,i)=>`
+    <div class="lp-step-row${i===0?' active':''}" id="lpStep${i}" onclick="selectLpStep(${i})">
+      <div class="lp-step-dot">${s.icon}</div>
+      <span class="lp-step-label">${s.label}</span>
+    </div>`).join('');
+  phoneEl.innerHTML=LP_PREVIEWS[LP_STEPS[0].preview];
+}
+function selectLpStep(i){
+  lpActiveStep=i;
+  document.querySelectorAll('.lp-step-row').forEach((el,idx)=>el.classList.toggle('active',idx===i));
+  const phoneEl=document.getElementById('lpPhoneContent');
+  if(phoneEl){phoneEl.style.opacity='0';setTimeout(()=>{phoneEl.innerHTML=LP_PREVIEWS[LP_STEPS[i].preview];phoneEl.style.opacity='1';},150);}
+}
+
+// Init on load
+buildFAQ();
+initLessonPreview();
+</script>
+</body>
+</html>
