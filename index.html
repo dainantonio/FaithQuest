@@ -2078,6 +2078,8 @@ if(_fbConfigured){
 
   // ── Auth state listener ────────────────────────────────────────────────────
   onAuthStateChanged(_fbAuth, async (fbUser) => {
+    // Signal that Firebase is live and ready
+    if(window._fbReadyResolve){ window._fbReadyResolve(true); window._fbReadyResolve=null; }
     if(fbUser){
       window._fbUser = fbUser;
       state.currentUser = {
@@ -2380,48 +2382,50 @@ function switchAuthTab(tab){
   document.getElementById('auth-signin-form').classList.toggle('hidden',tab!=='signin');
   document.getElementById('auth-signup-form').classList.toggle('hidden',tab!=='signup');
 }
+// ── Firebase ready gate — waits for module to set window._fb ────────────────
+window._fbReady = new Promise(function(resolve){
+  window._fbReadyResolve = resolve;
+  setTimeout(function(){ resolve(false); }, 5000);
+});
+
+function _fbGate(){ return window._fbReady || Promise.resolve(false); }
+
 function doSignIn(){
   const email=document.getElementById('signin-email').value.trim();
   const pass=document.getElementById('signin-password').value;
   if(!email||!pass){showToast('Please enter email and password');return;}
+  const btn=document.querySelector('#auth-signin-form .btn-primary');
+  if(btn){btn.textContent='Signing in…';btn.disabled=true;}
 
-  if(window._fb?.configured){
-    // ── Firebase sign-in ──
-    const btn=document.querySelector('#auth-signin-form .btn-primary');
-    if(btn){btn.textContent='Signing in…';btn.disabled=true;}
-    window._fb.signIn(email,pass)
-      .then(()=>{
-        // onAuthStateChanged handles routing
-      })
-      .catch(err=>{
-        if(btn){btn.textContent='Sign In →';btn.disabled=false;}
-        const msg={
-          'auth/user-not-found':'No account found. Create one!',
-          'auth/wrong-password':'Incorrect password. Try again.',
-          'auth/invalid-email':'Please enter a valid email address.',
-          'auth/too-many-requests':'Too many attempts. Try again later.',
-          'auth/invalid-credential':'Email or password is incorrect.',
-        }[err.code]||'Sign-in failed. Please try again.';
-        showToast(msg);
-        if(err.code==='auth/user-not-found'){
-          switchAuthTab('signup');
-          document.getElementById('signup-email').value=email;
-        }
-      });
-  } else {
-    // ── Demo mode: localStorage ──
-    const saved=JSON.parse(localStorage.getItem('fq_users')||'[]');
-    const user=saved.find(u=>u.email===email);
-    if(user){
-      state.currentUser=user;
-      loadUserData();
-      routeAfterAuth();
+  _fbGate().then(function(configured){
+    if(configured && window._fb?.signIn){
+      window._fb.signIn(email,pass)
+        .then(function(){/* onAuthStateChanged handles routing */})
+        .catch(function(err){
+          if(btn){btn.textContent='Sign In →';btn.disabled=false;}
+          const msg={
+            'auth/user-not-found':'No account found — create one below!',
+            'auth/wrong-password':'Incorrect password.',
+            'auth/invalid-email':'Please enter a valid email address.',
+            'auth/too-many-requests':'Too many attempts. Try again later.',
+            'auth/invalid-credential':'Email or password is incorrect.',
+            'auth/network-request-failed':'Network error — check your connection.',
+          }[err.code]||('Sign-in error: '+err.message);
+          showToast(msg);
+          console.error('[FQ] signIn error', err.code, err.message);
+          if(err.code==='auth/user-not-found'){
+            switchAuthTab('signup');
+            document.getElementById('signup-email').value=email;
+          }
+        });
     } else {
-      showToast('No account found. Create one!');
-      switchAuthTab('signup');
-      document.getElementById('signup-email').value=email;
+      if(btn){btn.textContent='Sign In →';btn.disabled=false;}
+      const saved=JSON.parse(localStorage.getItem('fq_users')||'[]');
+      const user=saved.find(function(u){return u.email===email;});
+      if(user){state.currentUser=user;loadUserData();routeAfterAuth();}
+      else{showToast('No account found. Create one!');switchAuthTab('signup');document.getElementById('signup-email').value=email;}
     }
-  }
+  });
 }
 
 function doSignUp(){
@@ -2431,81 +2435,90 @@ function doSignUp(){
   if(!name){showToast('Please enter your name');return;}
   if(!email){showToast('Please enter your email');return;}
   if(!pass||pass.length<6){showToast('Password must be at least 6 characters');return;}
+  const btn=document.querySelector('#auth-signup-form .btn-primary');
+  if(btn){btn.textContent='Creating account…';btn.disabled=true;}
 
-  if(window._fb?.configured){
-    // ── Firebase sign-up ──
-    const btn=document.querySelector('#auth-signup-form .btn-primary');
-    if(btn){btn.textContent='Creating account…';btn.disabled=true;}
-    window._fb.signUp(email,pass,name)
-      .then(()=>{
-        // Fresh user — reset state before onAuthStateChanged routes
-        state.family=null;state.members=[];state.completions=[];
-        state.checkins=[];state.subscription={plan:'free'};
-        // onAuthStateChanged → routeAfterAuth → startOnboarding
-      })
-      .catch(err=>{
-        if(btn){btn.textContent='Create Free Account →';btn.disabled=false;}
-        const msg={
-          'auth/email-already-in-use':'An account with this email already exists.',
-          'auth/invalid-email':'Please enter a valid email address.',
-          'auth/weak-password':'Password must be at least 6 characters.',
-        }[err.code]||'Sign-up failed. Please try again.';
-        showToast(msg);
-        if(err.code==='auth/email-already-in-use') switchAuthTab('signin');
-      });
-  } else {
-    // ── Demo mode: localStorage ──
-    const user={id:'u_'+Date.now(),name,email,createdAt:new Date().toISOString()};
-    const saved=JSON.parse(localStorage.getItem('fq_users')||'[]');
-    saved.push(user);
-    localStorage.setItem('fq_users',JSON.stringify(saved));
-    state.currentUser=user;
-    state.family=null;state.members=[];state.completions=[];
-    state.checkins=[];state.subscription={plan:'free'};
-    startOnboarding();
-  }
+  _fbGate().then(function(configured){
+    if(configured && window._fb?.signUp){
+      window._fb.signUp(email,pass,name)
+        .then(function(){
+          state.family=null;state.members=[];state.completions=[];
+          state.checkins=[];state.subscription={plan:'free'};
+        })
+        .catch(function(err){
+          if(btn){btn.textContent='Create Free Account →';btn.disabled=false;}
+          const msg={
+            'auth/email-already-in-use':'That email is already registered. Sign in instead.',
+            'auth/invalid-email':'Please enter a valid email address.',
+            'auth/weak-password':'Password must be at least 6 characters.',
+            'auth/network-request-failed':'Network error — check your connection.',
+          }[err.code]||('Sign-up error: '+err.message);
+          showToast(msg);
+          console.error('[FQ] signUp error', err.code, err.message);
+          if(err.code==='auth/email-already-in-use') switchAuthTab('signin');
+        });
+    } else {
+      if(btn){btn.textContent='Create Free Account →';btn.disabled=false;}
+      const user={id:'u_'+Date.now(),name:name,email:email,createdAt:new Date().toISOString()};
+      const saved=JSON.parse(localStorage.getItem('fq_users')||'[]');
+      saved.push(user);
+      localStorage.setItem('fq_users',JSON.stringify(saved));
+      state.currentUser=user;state.family=null;state.members=[];
+      state.completions=[];state.checkins=[];state.subscription={plan:'free'};
+      startOnboarding();
+    }
+  });
 }
 
 function doGoogleSignIn(){
-  if(!window._fb?.configured){showToast('Google sign-in requires Firebase configuration');return;}
-  window._fb.googleSignIn()
-    .then(result=>{
-      // New Google users skip onboarding check — routeAfterAuth handles it
-    })
-    .catch(err=>{
-      if(err.code!=='auth/popup-closed-by-user'){
-        showToast('Google sign-in failed. Please try again.');
-      }
-    });
+  _fbGate().then(function(configured){
+    if(!configured||!window._fb?.googleSignIn){
+      showToast('Google sign-in unavailable — try email/password');
+      console.warn('[FQ] Google sign-in: Firebase not ready');
+      return;
+    }
+    window._fb.googleSignIn()
+      .catch(function(err){
+        if(err.code==='auth/popup-blocked'){
+          showToast('Popup blocked — allow popups for this site and try again');
+        } else if(err.code==='auth/unauthorized-domain'){
+          showToast('Add this domain to Firebase Console → Auth → Authorized Domains');
+          console.error('[FQ] Unauthorized domain:', location.hostname);
+        } else if(err.code!=='auth/popup-closed-by-user'){
+          showToast('Google sign-in failed: '+err.message);
+          console.error('[FQ] Google signIn error', err.code, err.message);
+        }
+      });
+  });
 }
 
 function doForgotPassword(){
   const email=document.getElementById('signin-email').value.trim();
   if(!email){showToast('Enter your email address first');return;}
-  if(!window._fb?.configured){showToast('Password reset requires Firebase configuration');return;}
-  window._fb.resetPw(email)
-    .then(()=>showToast('Password reset email sent! Check your inbox. 📧'))
-    .catch(err=>{
-      const msg={
-        'auth/user-not-found':'No account found with that email.',
-        'auth/invalid-email':'Please enter a valid email address.',
-      }[err.code]||'Failed to send reset email.';
-      showToast(msg);
-    });
+  _fbGate().then(function(configured){
+    if(!configured||!window._fb?.resetPw){showToast('Password reset requires Firebase');return;}
+    window._fb.resetPw(email)
+      .then(function(){showToast('Password reset email sent! Check your inbox 📧');})
+      .catch(function(err){
+        const msg={'auth/user-not-found':'No account with that email.','auth/invalid-email':'Enter a valid email.'}[err.code]||'Failed to send reset email.';
+        showToast(msg);
+      });
+  });
 }
 
 function doSignOut(){
-  if(window._fb?.configured){
-    window._fb.signOut().then(()=>{
+  _fbGate().then(function(configured){
+    if(configured&&window._fb?.signOut){
+      window._fb.signOut().then(function(){
+        state.currentUser=null;state.family=null;state.members=[];
+        state.completions=[];state.checkins=[];
+        showScreen('screen-landing');showToast('Signed out');
+      });
+    } else {
       state.currentUser=null;state.family=null;state.members=[];
-      state.completions=[];state.checkins=[];
-      showScreen('screen-landing');
-      showToast('Signed out');
-    });
-  } else {
-    state.currentUser=null;state.family=null;state.members=[];
-    showScreen('screen-landing');showToast('Signed out');
-  }
+      showScreen('screen-landing');showToast('Signed out');
+    }
+  });
 }
 
 function loadUserData(){
