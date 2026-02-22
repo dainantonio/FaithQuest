@@ -1,9 +1,4 @@
-Sources: package deps + webcrypto patch + compile/share + OCR + bible-api fetch :contentReference[oaicite:2]{index=2}
 
----
-
-# 4) `FaithQuest/README.md` (Landing + concept)
-```md
 # FaithQuest — Family Bible Learning
 
 FaithQuest is a family-first Bible learning concept:
