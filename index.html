@@ -3,29 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="
-  default-src 'self';
-  script-src 'self' 'unsafe-inline' 'unsafe-eval'
-    https://www.gstatic.com
-    https://apis.google.com
-    https://accounts.google.com;
-  connect-src 'self'
-    https://*.googleapis.com
-    https://*.google.com
-    https://*.firebaseio.com
-    https://*.firebaseapp.com
-    https://identitytoolkit.googleapis.com
-    https://securetoken.googleapis.com
-    https://generativelanguage.googleapis.com
-    wss://*.firebaseio.com;
-  frame-src
-    https://accounts.google.com
-    https://*.firebaseapp.com;
-  img-src 'self' data: https:;
-  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-  font-src 'self' https://fonts.gstatic.com;
-  worker-src blob:;
-">
+
 <meta name="application-name" content="FaithQuest">
 <meta name="description" content="Family Bible learning with guided lessons, real-world missions, and age-safe AI.">
 <meta name="theme-color" content="#0F172A">
@@ -4973,16 +4951,32 @@ initLessonPreview();
 (function(){
   function hideOverlay(){
     var ov = document.getElementById('fq-loading-overlay');
-    if(ov) ov.style.display = 'none';
+    if(ov){ ov.style.display = 'none'; }
   }
 
-  // Hard timeout: never stay stuck longer than 4 seconds
+  // Hard timeout: force hide overlay after 5 seconds NO MATTER WHAT
   setTimeout(function(){
     hideOverlay();
-    showScreen('screen-landing');
-  }, 4000);
+    // Only navigate to landing if no screen is active yet
+    try {
+      var active = document.querySelector('.screen.active');
+      if(!active || active.id === 'screen-loading'){
+        var landing = document.getElementById('screen-landing');
+        if(landing) landing.classList.add('active');
+      }
+    } catch(e){}
+  }, 5000);
 
-  // Soft check at 1s — update UI hints
+  // Soft check at 1.5s — if Firebase never initialized, hide overlay + show landing
+  setTimeout(function(){
+    if(!window._fb || !window._fb.configured){
+      hideOverlay();
+      try {
+        var active = document.querySelector('.screen.active');
+        if(!active){ if(typeof showScreen==='function') showScreen('screen-landing'); }
+      } catch(e){}
+    }
+  }, 1500);
   setTimeout(function(){
     var configured = window._fb?.configured;
     var hint = document.getElementById('authDemoHintText');
@@ -4995,7 +4989,7 @@ initLessonPreview();
       var banner = document.getElementById('fq-firebase-banner');
       if(banner) banner.style.display = 'block';
       hideOverlay();
-      showScreen('screen-landing');
+      try { if(typeof showScreen==='function') showScreen('screen-landing'); } catch(e){}
     }
   }, 1000);
 })();
