@@ -3,6 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="application-name" content="FaithQuest">
+<meta name="description" content="Family Bible learning with guided lessons, real-world missions, and age-safe AI.">
+<meta name="theme-color" content="#0F172A">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="FaithQuest">
 <title>FaithQuest — Family Bible Learning</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -40,11 +47,11 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:var(--font-body);background:var(--sand);color:var(--slate-800);min-height:100vh;overflow-x:hidden;}
+html,body{height:100%;overflow:hidden;}body{font-family:var(--font-body);background:var(--sand);color:var(--slate-800);}
 .hidden{display:none!important;}
 
 /* ===== SCREENS ===== */
-.screen{display:none;min-height:100vh;flex-direction:column;}
+.screen{display:none;height:100vh;flex-direction:column;overflow:hidden;}
 .screen.active{display:flex;}
 
 /* ===== TYPOGRAPHY ===== */
@@ -133,12 +140,13 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 
 /* ===== LANDING PAGE ===== */
 #screen-landing{background:var(--white);}
-.landing-hero{background:linear-gradient(160deg,#0F172A 0%,#1E3A5F 50%,#0F3460 100%);color:white;padding:80px 24px 100px;text-align:center;position:relative;overflow:hidden;}
+#how-it-works,#paths-section,#lesson-preview,#pricing{scroll-margin-top:80px;}
+.landing-hero{background:linear-gradient(160deg,#0F172A 0%,#1E3A5F 50%,#0F3460 100%);color:white;padding:80px 24px 80px;text-align:center;position:relative;overflow:visible;}
 .hero-stars{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.15) 1px,transparent 1px);background-size:40px 40px;opacity:0.4;}
 .hero-glow{position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(245,158,11,0.2) 0%,transparent 70%);}
 .hero-content{position:relative;z-index:1;max-width:600px;margin:0 auto;}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,0.2);border:1px solid rgba(245,158,11,0.4);color:var(--amber);padding:8px 16px;border-radius:100px;font-size:0.8125rem;font-weight:600;margin-bottom:24px;}
-.hero-title{font-family:var(--font-display);font-size:clamp(2.4rem,7vw,4rem);font-weight:700;line-height:1.05;margin-bottom:20px;color:white;}
+.hero-title{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.2rem);font-weight:700;line-height:1.1;margin-bottom:20px;color:white;}
 .hero-title span{color:var(--amber);}
 .hero-sub{font-size:1.125rem;color:rgba(255,255,255,0.75);line-height:1.7;margin-bottom:40px;max-width:480px;margin-left:auto;margin-right:auto;}
 .hero-cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
@@ -199,8 +207,8 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 .landing-footer a{color:var(--amber);text-decoration:none;}
 
 /* ===== AUTH SCREEN — split panel ===== */
-#screen-auth{background:var(--slate-900);align-items:stretch;justify-content:center;padding:0;flex-direction:row!important;min-height:100vh;}
-.auth-panel-left{flex:1;background:linear-gradient(160deg,#0F172A 0%,#1E3A5F 55%,#0F3460 100%);display:flex;flex-direction:column;justify-content:space-between;padding:48px 52px;position:relative;overflow:hidden;min-height:100vh;}
+#screen-auth{background:var(--slate-900);align-items:stretch;justify-content:center;padding:0;flex-direction:row!important;height:100vh;overflow:hidden;}
+.auth-panel-left{flex:1;background:linear-gradient(160deg,#0F172A 0%,#1E3A5F 55%,#0F3460 100%);display:flex;flex-direction:column;justify-content:space-between;padding:48px 52px;position:relative;overflow:hidden;}
 .auth-panel-left::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.05) 1px,transparent 1px);background-size:28px 28px;}
 .auth-panel-left-glow{position:absolute;bottom:-120px;left:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(245,158,11,0.15) 0%,transparent 65%);}
 .auth-left-content{position:relative;z-index:1;}
@@ -216,7 +224,7 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 .auth-feature-text{font-size:0.875rem;color:rgba(255,255,255,0.7);line-height:1.4;}
 .auth-feature-text strong{color:white;font-weight:600;}
 .auth-left-footer{position:relative;z-index:1;font-size:0.75rem;color:rgba(255,255,255,0.3);}
-.auth-panel-right{width:100%;max-width:480px;background:white;display:flex;flex-direction:column;justify-content:center;padding:48px 48px;overflow-y:auto;min-height:100vh;}
+.auth-panel-right{width:100%;max-width:480px;background:white;display:flex;flex-direction:column;justify-content:center;padding:48px 48px;overflow-y:auto;}
 .auth-right-back{display:inline-flex;align-items:center;gap:6px;font-size:0.875rem;font-weight:500;color:var(--slate-500);cursor:pointer;margin-bottom:40px;transition:color 0.2s;background:none;border:none;font-family:var(--font-body);padding:0;}
 .auth-right-back:hover{color:var(--slate-900);}
 .auth-right-heading{font-family:var(--font-display);font-size:1.75rem;font-weight:700;color:var(--slate-900);margin-bottom:6px;}
@@ -249,34 +257,102 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 @media(max-width:768px){
   #screen-auth{flex-direction:column!important;}
   .auth-panel-left{display:none;}
-  .auth-panel-right{max-width:100%;padding:32px 24px;min-height:100vh;}
+  .auth-panel-right{max-width:100%;padding:32px 24px;}
 }
 
-/* ===== ONBOARDING ===== */
-#screen-onboarding{background:var(--sand);}
-.onboarding-header{padding:24px;display:flex;align-items:center;gap:16px;}
-.onboarding-progress-row{display:flex;gap:6px;align-items:center;}
-.onboarding-dot{width:8px;height:8px;border-radius:50%;background:var(--slate-200);transition:all 0.3s;}
-.onboarding-dot.active{background:var(--amber);width:20px;border-radius:4px;}
-.onboarding-content{padding:24px;flex:1;}
-.step-title{font-family:var(--font-display);font-size:1.8rem;font-weight:700;margin-bottom:8px;}
-.step-desc{color:var(--slate-600);margin-bottom:32px;line-height:1.6;}
-.avatar-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:24px;}
-.avatar-option{aspect-ratio:1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;cursor:pointer;border:3px solid transparent;transition:all 0.2s;background:var(--slate-100);}
-.avatar-option.selected{border-color:var(--amber);background:var(--amber-light);transform:scale(1.1);}
-.path-select-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.path-select-card{border-radius:var(--radius);overflow:hidden;cursor:pointer;border:3px solid transparent;transition:all 0.2s;}
-.path-select-card.selected{border-color:var(--amber);box-shadow:0 0 0 4px var(--amber-light);}
-.age-tier-grid{display:grid;grid-template-columns:1fr;gap:12px;}
-.age-tier-card{display:flex;align-items:center;gap:16px;padding:16px 20px;background:white;border-radius:var(--radius);border:3px solid transparent;cursor:pointer;transition:all 0.2s;box-shadow:var(--shadow);}
-.age-tier-card.selected{border-color:var(--amber);}
+/* ===== ONBOARDING — immersive redesign ===== */
+#screen-onboarding{background:white;}
+/* Chrome bar */
+.ob-chrome{display:flex;align-items:center;padding:14px 18px;gap:12px;position:absolute;top:0;left:0;right:0;z-index:20;}
+.ob-back{width:34px;height:34px;border-radius:10px;border:none;background:rgba(255,255,255,0.18);color:white;display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;flex-shrink:0;transition:all 0.18s;}
+.ob-back:hover{background:rgba(255,255,255,0.3);}
+.ob-back.on-light{background:var(--slate-100);color:var(--slate-600);}
+.ob-back.on-light:hover{background:var(--slate-200);}
+.ob-segments{display:flex;gap:5px;flex:1;}
+.ob-seg{flex:1;height:3px;border-radius:100px;background:rgba(255,255,255,0.28);transition:background 0.35s;}
+.ob-seg.done,.ob-seg.active{background:rgba(255,255,255,0.95);}
+.ob-seg-bar.on-light .ob-seg{background:var(--slate-200);}
+.ob-seg-bar.on-light .ob-seg.done,.ob-seg-bar.on-light .ob-seg.active{background:var(--amber);}
+.ob-skip{font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.65);cursor:pointer;background:none;border:none;font-family:var(--font-body);transition:color 0.18s;white-space:nowrap;}
+.ob-skip:hover{color:white;}
+.ob-skip.on-light{color:var(--slate-400);}
+.ob-skip.on-light:hover{color:var(--slate-700);}
+/* Hero illustration area */
+.ob-hero{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:240px;padding:72px 24px 32px;}
+.ob-hero-grid{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.1) 1px,transparent 1px);background-size:24px 24px;z-index:1;}
+.ob-hero-glow{position:absolute;bottom:-80px;right:-60px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(245,158,11,0.22),transparent 65%);z-index:1;}
+.ob-hero-text{position:relative;z-index:2;}
+.ob-hero-eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.22);color:rgba(255,255,255,0.9);padding:4px 12px;border-radius:100px;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px;}
+.ob-hero-title{font-family:var(--font-display);font-size:clamp(1.7rem,5vw,2.3rem);font-weight:700;color:white;line-height:1.15;margin-bottom:6px;}
+.ob-hero-sub{font-size:0.875rem;color:rgba(255,255,255,0.65);line-height:1.6;max-width:360px;}
+.ob-hero-icon-big{font-size:3.5rem;display:block;margin-bottom:14px;line-height:1;}
+/* Per-step gradients */
+.ob-bg-family{background:linear-gradient(155deg,#0F172A 0%,#1E3A5F 60%,#0F3460 100%);}
+.ob-bg-child{background:linear-gradient(155deg,#065F46 0%,#047857 60%,#059669 100%);}
+.ob-bg-avatar{background:linear-gradient(155deg,#6D28D9 0%,#7C3AED 70%);}
+.ob-bg-path{background:linear-gradient(155deg,#92400E 0%,#B45309 60%,#D97706 100%);}
+.ob-bg-launch{background:linear-gradient(155deg,#0F172A 0%,#1E3A5F 55%,#0F3460 100%);}
+/* Body / form area */
+.ob-body{padding:24px 24px 0;flex:1;overflow-y:auto;}
+/* Sticky CTA footer */
+.ob-footer{padding:16px 24px max(24px,env(safe-area-inset-bottom));background:white;border-top:1px solid var(--slate-100);}
+.ob-footer-note{text-align:center;font-size:0.75rem;color:var(--slate-400);margin-top:10px;line-height:1.5;}
+/* Inputs */
+.ob-field-label{font-size:0.8rem;font-weight:700;color:var(--slate-600);margin-bottom:6px;display:block;letter-spacing:0.02em;}
+.ob-input{width:100%;padding:14px 16px;border:2px solid var(--slate-200);border-radius:12px;font-family:var(--font-body);font-size:1rem;color:var(--slate-900);transition:border-color 0.2s,box-shadow 0.2s;outline:none;margin-bottom:16px;}
+.ob-input:focus{border-color:var(--amber);box-shadow:0 0 0 4px rgba(245,158,11,0.1);}
+/* Age tier cards */
+.age-tier-grid{display:flex;flex-direction:column;gap:10px;}
+.age-tier-card{display:flex;align-items:center;gap:16px;padding:16px 18px;background:white;border-radius:14px;border:2.5px solid var(--slate-200);cursor:pointer;transition:all 0.2s;box-shadow:var(--shadow);}
+.age-tier-card:hover{border-color:var(--amber-light);transform:translateY(-1px);}
+.age-tier-card.selected{border-color:var(--amber);background:linear-gradient(135deg,#FFFBF0,white);box-shadow:0 0 0 4px rgba(245,158,11,0.1),var(--shadow);}
+.age-tier-visual{width:50px;height:50px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;background:var(--slate-100);transition:background 0.2s;}
+.age-tier-card.selected .age-tier-visual{background:var(--amber-light);}
 .age-tier-icon{font-size:2rem;}
-.age-tier-info{}
-.age-tier-name{font-weight:700;font-size:0.9375rem;}
-.age-tier-range{font-size:0.8125rem;color:var(--slate-500);}
+.age-tier-info{flex:1;}
+.age-tier-name{font-weight:700;font-size:0.9375rem;color:var(--slate-900);margin-bottom:1px;}
+.age-tier-range{font-size:0.78rem;color:var(--slate-500);}
+.age-tier-desc{font-size:0.75rem;color:var(--slate-400);margin-top:2px;line-height:1.4;}
+.age-tier-check{width:22px;height:22px;border-radius:50%;border:2px solid var(--slate-200);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:white;flex-shrink:0;transition:all 0.2s;}
+.age-tier-card.selected .age-tier-check{background:var(--amber);border-color:var(--amber);}
+/* Avatar picker */
+.ob-avatar-preview{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--amber-light),#FFF7ED);border:3px solid var(--amber);display:flex;align-items:center;justify-content:center;font-size:2.6rem;margin:0 auto 20px;box-shadow:0 0 0 6px rgba(245,158,11,0.1);transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);}
+.avatar-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-bottom:8px;}
+.avatar-option{aspect-ratio:1;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.65rem;cursor:pointer;border:2.5px solid transparent;transition:all 0.18s;background:var(--slate-100);}
+.avatar-option:hover{background:var(--amber-light);transform:scale(1.08);}
+.avatar-option.selected{border-color:var(--amber);background:var(--amber-light);transform:scale(1.12);box-shadow:0 4px 12px rgba(245,158,11,0.3);}
+/* Path picker */
+.ob-path-list{display:flex;flex-direction:column;gap:10px;}
+.ob-path-row{display:flex;align-items:center;gap:0;border-radius:14px;overflow:hidden;cursor:pointer;border:2.5px solid transparent;transition:all 0.2s;background:white;box-shadow:var(--shadow);}
+.ob-path-row:hover{transform:translateY(-1px);box-shadow:var(--shadow-lg);}
+.ob-path-row.selected{border-color:var(--amber);box-shadow:0 0 0 4px rgba(245,158,11,0.12),var(--shadow);}
+.ob-path-row.locked{opacity:0.45;cursor:not-allowed;}
+.ob-path-swatch{width:52px;min-height:68px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;}
+.ob-path-swatch.sw-jesus{background:linear-gradient(160deg,#1E3A5F,#0F3460);}
+.ob-path-swatch.sw-fruit{background:linear-gradient(160deg,#065F46,#059669);}
+.ob-path-swatch.sw-courage{background:linear-gradient(160deg,#7C3AED,#6D28D9);}
+.ob-path-swatch.sw-words{background:linear-gradient(160deg,#B45309,#D97706);}
+.ob-path-swatch.sw-prayer{background:linear-gradient(160deg,#0369A1,#0284C7);}
+.ob-path-body{flex:1;padding:13px 14px;}
+.ob-path-title{font-weight:700;font-size:0.9375rem;color:var(--slate-900);margin-bottom:2px;}
+.ob-path-meta{font-size:0.75rem;color:var(--slate-500);line-height:1.4;}
+.ob-path-check{width:24px;height:24px;border-radius:50%;border:2px solid var(--slate-200);display:flex;align-items:center;justify-content:center;font-size:0.75rem;color:white;flex-shrink:0;margin-right:14px;transition:all 0.2s;}
+.ob-path-row.selected .ob-path-check{background:var(--amber);border-color:var(--amber);}
+/* Launch / confirm step */
+.ob-confirm-card{background:linear-gradient(140deg,#0F172A,#1E3A5F);border-radius:20px;padding:24px;color:white;margin-bottom:16px;}
+.ob-confirm-avatar{font-size:3.5rem;display:block;text-align:center;margin-bottom:4px;}
+.ob-confirm-name{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:white;text-align:center;margin-bottom:2px;}
+.ob-confirm-sub{font-size:0.825rem;color:rgba(255,255,255,0.5);text-align:center;margin-bottom:20px;}
+.ob-confirm-row{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.08);border-radius:12px;padding:12px 16px;margin-bottom:8px;}
+.ob-confirm-row-icon{font-size:1.2rem;flex-shrink:0;}
+.ob-confirm-row-text{font-size:0.85rem;color:rgba(255,255,255,0.75);line-height:1.4;}
+.ob-confirm-row-text strong{color:white;}
+/* Slide transition */
+@keyframes obIn{from{opacity:0;transform:translateX(18px);}to{opacity:1;transform:translateX(0);}}
+.ob-slide{animation:obIn 0.28s cubic-bezier(0.34,1.15,0.64,1) both;}
 
 /* ===== PARENT DASHBOARD ===== */
-.app-content{flex:1;padding:24px;padding-bottom:100px;max-width:800px;margin:0 auto;width:100%;}
+.app-content{flex:1;overflow-y:auto;padding:24px;padding-bottom:100px;max-width:800px;margin:0 auto;width:100%;}
 .welcome-banner{background:linear-gradient(135deg,#1E293B 0%,#0F3460 100%);border-radius:var(--radius-lg);padding:28px;color:white;margin-bottom:24px;position:relative;overflow:hidden;}
 .welcome-banner::after{content:'✨';position:absolute;right:24px;top:50%;transform:translateY(-50%);font-size:3rem;opacity:0.3;}
 .welcome-title{font-family:var(--font-display);font-size:1.4rem;font-weight:600;margin-bottom:4px;}
@@ -459,6 +535,9 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 .lesson-complete-banner h3{font-family:var(--font-display);font-size:1.4rem;font-weight:700;margin-bottom:6px;}
 .lesson-complete-banner p{font-size:0.9rem;color:rgba(255,255,255,0.8);}
 
+/* ===== PWA ===== */
+@keyframes slideUpBanner{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
 /* ===== VIEW SWITCHER ===== */
 /* Parent app header — richer */
 .parent-topbar{
@@ -597,7 +676,7 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 
 /* ===== LANDING NAVBAR — always dark/branded ===== */
 .landing-nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;padding:0 24px;
+  position:sticky;top:0;left:0;right:0;z-index:200;padding:0 24px;
   background:rgba(13,20,38,0.82);
   backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
   border-bottom:1px solid rgba(255,255,255,0.07);
@@ -657,15 +736,16 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 
 /* Mobile drawer — matches dark brand */
 .lnav-drawer{
-  position:fixed;top:68px;left:0;right:0;z-index:199;
+  position:sticky;top:68px;left:0;right:0;z-index:199;
   background:rgba(13,20,38,0.97);
   backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
   border-bottom:1px solid rgba(255,255,255,0.08);
   box-shadow:0 12px 40px rgba(0,0,0,0.4);
-  transform:translateY(-110%);
-  transition:transform 0.32s cubic-bezier(0.34,1.2,0.64,1);
+  display:none;
+  animation:drawerSlideIn 0.28s cubic-bezier(0.34,1.2,0.64,1) both;
 }
-.lnav-drawer.open{transform:translateY(0);}
+.lnav-drawer.open{display:block;}
+@keyframes drawerSlideIn{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);}}
 .lnav-drawer-inner{padding:12px 20px 24px;display:flex;flex-direction:column;gap:2px;}
 .lnav-drawer-link{
   padding:13px 16px;border-radius:10px;font-size:0.9375rem;font-weight:500;
@@ -676,8 +756,8 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 .lnav-drawer-divider{height:1px;background:rgba(255,255,255,0.08);margin:10px 0;}
 
 /* Ensure hero has top padding for fixed nav */
-#screen-landing .landing-hero{padding-top:140px;}
-@media(min-width:640px){#screen-landing .landing-hero{padding-top:160px;}}
+#screen-landing{overflow-y:auto;height:100vh;}
+#screen-landing .landing-hero{padding-top:80px;padding-bottom:80px;}
 
 /* ===== SOCIAL PROOF BAR ===== */
 .proof-bar{background:white;border-bottom:1px solid var(--slate-200);padding:0 24px;overflow:hidden;}
@@ -775,6 +855,9 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 
 <div id="toast"></div>
 
+<!-- ===== LANDING ===== -->
+<div id="screen-landing" class="screen active">
+
 <!-- ===== LANDING NAV ===== -->
 <nav class="landing-nav" id="landingNav">
   <div class="landing-nav-inner">
@@ -809,8 +892,6 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
   </div>
 </div>
 
-<!-- ===== LANDING ===== -->
-<div id="screen-landing" class="screen active">
   <div class="landing-hero">
     <div class="hero-stars"></div>
     <div class="hero-glow"></div>
@@ -1094,15 +1175,25 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 </div>
 
 <!-- ===== ONBOARDING ===== -->
-<div id="screen-onboarding" class="screen">
-  <div class="onboarding-header">
-    <button class="btn btn-ghost btn-sm" onclick="onboardBack()">← Back</button>
-    <div class="onboarding-progress-row" id="onboardDots"></div>
-    <div style="width:60px;"></div>
+<div id="screen-onboarding" class="screen" style="flex-direction:column;">
+  <!-- Hero zone — JS writes the gradient class + content here -->
+  <div id="obHero" class="ob-hero ob-bg-family">
+    <div class="ob-hero-grid"></div>
+    <div class="ob-hero-glow"></div>
+    <!-- Chrome (back + segments + skip) sits inside hero -->
+    <div class="ob-chrome" id="obChrome">
+      <button class="ob-back" id="obBack" onclick="onboardBack()">←</button>
+      <div class="ob-segments ob-seg-bar" id="obSegBar"></div>
+      <button class="ob-skip" id="obSkip" onclick="onboardSkip()">Skip</button>
+    </div>
+    <div class="ob-hero-text" id="obHeroText"></div>
   </div>
-  <div class="onboarding-content" id="onboardContent"></div>
-  <div style="padding:0 24px 32px;">
-    <button class="btn btn-primary btn-full" id="onboardNext" onclick="onboardNextStep()">Continue →</button>
+  <!-- Scrollable body -->
+  <div class="ob-body ob-slide" id="obBody"></div>
+  <!-- Sticky footer CTA -->
+  <div class="ob-footer">
+    <button class="btn btn-primary btn-full btn-lg" id="onboardNext" onclick="onboardNextStep()">Continue →</button>
+    <div class="ob-footer-note" id="obFooterNote"></div>
   </div>
 </div>
 
@@ -1181,8 +1272,10 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
     <span style="font-weight:600;">Mission Check-In</span>
     <div style="width:60px;"></div>
   </div>
-  <div style="padding:24px;max-width:600px;margin:0 auto;padding-bottom:100px;">
-    <div id="checkinContent"></div>
+  <div style="flex:1;overflow-y:auto;">
+    <div style="padding:24px;max-width:600px;margin:0 auto;padding-bottom:100px;">
+      <div id="checkinContent"></div>
+    </div>
   </div>
 </div>
 
@@ -1314,6 +1407,10 @@ function showScreen(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   const el=document.getElementById(id);
   if(el){el.classList.add('active');el.scrollTop=0;}
+  // Close mobile nav drawer when leaving landing
+  if(id!=='screen-landing'){
+    document.getElementById('lnavDrawer')?.classList.remove('open');
+  }
 }
 function showToast(msg,dur=2500){
   const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
@@ -1343,7 +1440,18 @@ function toggleFaq(i){
   const el=document.getElementById(`faq-ans-${i}`);
   el.classList.toggle('open');
 }
-function scrollToSection(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'});}
+function scrollToSection(id){
+  const target=document.getElementById(id);
+  if(!target)return;
+  // Scroll within the landing screen container (which has overflow-y:auto)
+  const container=document.getElementById('screen-landing');
+  if(container){
+    const offset=target.getBoundingClientRect().top - container.getBoundingClientRect().top + container.scrollTop;
+    container.scrollTo({top:offset,behavior:'smooth'});
+  } else {
+    target.scrollIntoView({behavior:'smooth'});
+  }
+}
 let billingYearly=false;
 function toggleBilling(){
   billingYearly=!billingYearly;
@@ -1449,99 +1557,194 @@ function saveUserData(){
 
 // ===================== ONBOARDING =====================
 const ONBOARD_STEPS=['family','member','avatar','path','launch'];
+
+const OB_META={
+  family:{bg:"ob-bg-family",icon:"👨‍👩‍👧‍👦",eyebrow:"Step 1 of 5 · Your Family",title:"Name your family",sub:"This is how you'll appear throughout FaithQuest.",cta:"Continue →",skipable:false},
+  member:{bg:'ob-bg-child',icon:'🧒',eyebrow:'Step 2 of 5 · First Child',title:'Tell us about your child',sub:'We use this to tailor every lesson to their age and stage.',cta:'Continue →',skipable:false},
+  avatar:{bg:'ob-bg-avatar',icon:'🎨',eyebrow:'Step 3 of 5 · Avatar',title:'Pick an avatar',sub:'Your child will see this on their home screen every day.',cta:'Continue →',skipable:true},
+  path:{bg:'ob-bg-path',icon:'📚',eyebrow:'Step 4 of 5 · First Path',title:'Choose your starting path',sub:'You can switch paths any time from the parent dashboard.',cta:'Continue →',skipable:false},
+  launch:{bg:'ob-bg-launch',icon:'🎉',eyebrow:'Step 5 of 5 · All Set',title:'Your quest begins now',sub:"Everything is ready. Let's go.",cta:'Enter FaithQuest 🚀',skipable:false},
+};
+
 function startOnboarding(){
-  state.onboardStep=0;state.onboardData={avatar:'😊',tier:'kid',selectedPath:'jesus'};
-  showScreen('screen-onboarding');renderOnboardStep();
+  state.onboardStep=0;
+  state.onboardData={avatar:'😊',tier:'kid',selectedPath:'jesus'};
+  showScreen('screen-onboarding');
+  renderOnboardStep();
 }
-function renderOnboardDots(){
-  const el=document.getElementById('onboardDots');
-  el.innerHTML=ONBOARD_STEPS.map((_,i)=>`<div class="onboarding-dot${i===state.onboardStep?' active':''}"></div>`).join('');
-}
+
 function renderOnboardStep(){
-  renderOnboardDots();
-  const el=document.getElementById('onboardContent');
-  const step=ONBOARD_STEPS[state.onboardStep];
-  if(step==='family'){
-    el.innerHTML=`
-      <div class="anim-in">
-        <div style="font-size:3rem;margin-bottom:16px;">👨‍👩‍👧‍👦</div>
-        <h2 class="step-title">Create Your Family</h2>
-        <p class="step-desc">Give your family a name to get started on your faith journey together.</p>
-        <div class="form-group"><label class="form-label">Family Name</label><input type="text" class="form-input" id="ob-family-name" placeholder="The Johnson Family" value="${state.onboardData.familyName||''}"></div>
-        <div class="form-group"><label class="form-label">Your Name (Parent)</label><input type="text" class="form-input" id="ob-parent-name" placeholder="Your first name" value="${state.currentUser?.name||''}"></div>
-      </div>`;
-  } else if(step==='member'){
-    el.innerHTML=`
-      <div class="anim-in">
-        <div style="font-size:3rem;margin-bottom:16px;">🧒</div>
-        <h2 class="step-title">Add a Child Profile</h2>
-        <p class="step-desc">Add your first child or teen to FaithQuest.</p>
-        <div class="form-group"><label class="form-label">Child's Name</label><input type="text" class="form-input" id="ob-kid-name" placeholder="First name" value="${state.onboardData.kidName||''}"></div>
-        <div class="age-tier-grid">
-          ${[{id:'younger',icon:'🌱',name:'Little Explorer',range:'Ages 4–6'},{id:'kid',icon:'🌟',name:'Kid',range:'Ages 6–10'},{id:'teen',icon:'🚀',name:'Teen',range:'Ages 11–17'}].map(t=>`
-            <div class="age-tier-card${state.onboardData.tier===t.id?' selected':''}" onclick="selectTier('${t.id}')">
-              <span class="age-tier-icon">${t.icon}</span>
-              <div class="age-tier-info"><div class="age-tier-name">${t.name}</div><div class="age-tier-range">${t.range}</div></div>
-            </div>`).join('')}
-        </div>
-      </div>`;
-  } else if(step==='avatar'){
-    el.innerHTML=`
-      <div class="anim-in">
-        <div style="font-size:3rem;margin-bottom:16px;">🎨</div>
-        <h2 class="step-title">Pick an Avatar</h2>
-        <p class="step-desc">Choose an avatar for ${state.onboardData.kidName||'your child'}.</p>
-        <div class="avatar-grid">${AVATARS.map(a=>`<div class="avatar-option${state.onboardData.avatar===a?' selected':''}" onclick="selectObAvatar('${a}')">${a}</div>`).join('')}</div>
-      </div>`;
-  } else if(step==='path'){
-    el.innerHTML=`
-      <div class="anim-in">
-        <h2 class="step-title">Choose a Starting Path</h2>
-        <p class="step-desc">Pick your first learning journey together.</p>
-        <div class="path-select-grid">${PATHS.map(p=>`
-          <div class="path-select-card ${p.color}${state.onboardData.selectedPath===p.id?' selected':''}" onclick="selectObPath('${p.id}')">
-            <div class="path-header" style="padding:20px 16px 16px;"><span style="font-size:1.8rem;">${p.emoji}</span><div class="path-title-text" style="font-size:0.95rem;margin-top:8px;">${p.title}</div></div>
+  const stepName=ONBOARD_STEPS[state.onboardStep];
+  const meta=OB_META[stepName];
+  const total=ONBOARD_STEPS.length;
+  const idx=state.onboardStep;
+
+  // ── Hero zone ──
+  const hero=document.getElementById('obHero');
+  hero.className='ob-hero '+meta.bg;
+
+  // Segments
+  document.getElementById('obSegBar').innerHTML=
+    ONBOARD_STEPS.map((_,i)=>`<div class="ob-seg${i<idx?' done':i===idx?' active':''}"></div>`).join('');
+
+  // Skip visibility
+  const skipEl=document.getElementById('obSkip');
+  skipEl.style.display=meta.skipable?'block':'none';
+
+  // Hero text
+  document.getElementById('obHeroText').innerHTML=`
+    <span class="ob-hero-icon-big">${meta.icon}</span>
+    <div class="ob-hero-eyebrow">${meta.eyebrow}</div>
+    <h2 class="ob-hero-title">${meta.title}</h2>
+    <p class="ob-hero-sub">${meta.sub}</p>`;
+
+  // ── Body ──
+  const body=document.getElementById('obBody');
+  body.classList.remove('ob-slide');
+  void body.offsetWidth; // force reflow to restart animation
+  body.classList.add('ob-slide');
+
+  // CTA label
+  document.getElementById('onboardNext').textContent=meta.cta;
+
+  // Footer note
+  const noteEl=document.getElementById('obFooterNote');
+
+  if(stepName==='family'){
+    body.innerHTML=`
+      <label class="ob-field-label">Family name</label>
+      <input class="ob-input" id="ob-family-name" type="text" placeholder="The Johnson Family" value="${state.onboardData.familyName||''}" autocomplete="family-name">
+      <label class="ob-field-label">Your name (parent)</label>
+      <input class="ob-input" id="ob-parent-name" type="text" placeholder="Your first name" value="${state.onboardData.parentName||state.currentUser?.name||''}" autocomplete="given-name">`;
+    noteEl.textContent='You can edit these later in Family settings.';
+
+  } else if(stepName==='member'){
+    const tiers=[
+      {id:'younger',icon:'🌱',name:'Little Explorer',range:'Ages 4–6',desc:'Simplified language, bigger pictures, shorter lessons.'},
+      {id:'kid',    icon:'⭐',name:'Kid',            range:'Ages 6–10',desc:'Clear explanations, fun questions, real-world missions.'},
+      {id:'teen',   icon:'🚀',name:'Teen',           range:'Ages 11–17',desc:'Deeper dives, journaling prompts, theological context.'},
+    ];
+    body.innerHTML=`
+      <label class="ob-field-label">Child's first name</label>
+      <input class="ob-input" id="ob-kid-name" type="text" placeholder="e.g. Emma" value="${state.onboardData.kidName||''}" autocomplete="given-name">
+      <label class="ob-field-label" style="margin-bottom:10px;">Age group</label>
+      <div class="age-tier-grid">
+        ${tiers.map(t=>`
+          <div class="age-tier-card${state.onboardData.tier===t.id?' selected':''}" onclick="selectTier('${t.id}')">
+            <div class="age-tier-visual">${t.icon}</div>
+            <div class="age-tier-info">
+              <div class="age-tier-name">${t.name} <span style="font-weight:400;font-size:0.78rem;color:var(--slate-400);">${t.range}</span></div>
+              <div class="age-tier-desc">${t.desc}</div>
+            </div>
+            <div class="age-tier-check">${state.onboardData.tier===t.id?'✓':''}</div>
           </div>`).join('')}
-        </div>
-        ${state.subscription.plan==='free'?'<p style="margin-top:16px;font-size:0.8125rem;color:var(--slate-500);text-align:center;">Free plan includes Jesus & Me. <a href="#" style="color:var(--amber-dark);">Upgrade for all 5 paths</a>.</p>':''}
       </div>`;
-  } else if(step==='launch'){
-    el.innerHTML=`
-      <div class="anim-in" style="text-align:center;">
-        <div style="font-size:4rem;margin-bottom:20px;">🎉</div>
-        <h2 class="step-title">You're All Set!</h2>
-        <p class="step-desc">Your family quest begins now. The first lesson is ready and waiting for ${state.onboardData.kidName||'your child'}.</p>
-        <div class="card" style="margin-top:24px;text-align:left;background:var(--amber-light);">
-          <div style="font-weight:700;margin-bottom:8px;">👨‍👩‍👧 ${state.onboardData.familyName||'Your Family'}</div>
-          <div style="font-size:0.875rem;color:var(--slate-700);">First path: ${PATHS.find(p=>p.id===state.onboardData.selectedPath)?.title}</div>
-          <div style="font-size:0.875rem;color:var(--slate-700);margin-top:4px;">Plan: ${state.subscription.plan==='free'?'Free':'Premium Family'}</div>
+    noteEl.textContent='You can add more children after setup.';
+
+  } else if(stepName==='avatar'){
+    body.innerHTML=`
+      <div class="ob-avatar-preview" id="obAvatarPreview">${state.onboardData.avatar}</div>
+      <div class="avatar-grid">
+        ${AVATARS.map(a=>`<div class="avatar-option${state.onboardData.avatar===a?' selected':''}" onclick="selectObAvatar('${a}')">${a}</div>`).join('')}
+      </div>`;
+    noteEl.textContent='';
+
+  } else if(stepName==='path'){
+    const swatchMap={jesus:'sw-jesus',fruit:'sw-fruit',courage:'sw-courage',words:'sw-words',prayer:'sw-prayer'};
+    const descMap={
+      jesus:'Who Jesus is — stories, miracles, and everyday faith.',
+      fruit:'Love, joy, peace, patience — growing character that lasts.',
+      courage:'Biblical tools for anxiety, fear, and hard situations.',
+      words:'Honesty, kindness in speech, and the power of what we say.',
+      prayer:'How to pray, why it matters, and a life of gratitude.',
+    };
+    const isFree=state.subscription.plan==='free';
+    body.innerHTML=`
+      <div class="ob-path-list">
+        ${PATHS.map(p=>{
+          const locked=isFree&&p.id!=='jesus';
+          return `<div class="ob-path-row${state.onboardData.selectedPath===p.id?' selected':''} ${locked?' locked':''}" onclick="selectObPath('${p.id}')">
+            <div class="ob-path-swatch ${swatchMap[p.id]||''}">${p.emoji}</div>
+            <div class="ob-path-body">
+              <div class="ob-path-title">${p.title}${locked?' 🔒':''}</div>
+              <div class="ob-path-meta">${descMap[p.id]||''} · 7 lessons</div>
+            </div>
+            <div class="ob-path-check">${state.onboardData.selectedPath===p.id&&!locked?'✓':''}</div>
+          </div>`;
+        }).join('')}
+      </div>`;
+    noteEl.innerHTML=isFree?'Free plan includes <strong>Jesus &amp; Me</strong>. <span style="color:var(--amber-dark);cursor:pointer;" onclick="upgradePlan()">Upgrade for all 5 →</span>':'All 5 paths included in your Premium plan.';
+
+  } else if(stepName==='launch'){
+    const path=PATHS.find(p=>p.id===state.onboardData.selectedPath);
+    body.innerHTML=`
+      <div class="ob-confirm-card">
+        <span class="ob-confirm-avatar">${state.onboardData.avatar}</span>
+        <div class="ob-confirm-name">${state.onboardData.kidName||'Your Child'}</div>
+        <div class="ob-confirm-sub">${state.onboardData.tier==='teen'?'Teen':'Kid'} · ${state.onboardData.familyName||'Your Family'}</div>
+        <div class="ob-confirm-row">
+          <span class="ob-confirm-row-icon">📚</span>
+          <div class="ob-confirm-row-text">Starting path: <strong>${path?.title}</strong> — ${path?.emoji} 7 lessons</div>
+        </div>
+        <div class="ob-confirm-row">
+          <span class="ob-confirm-row-icon">🔒</span>
+          <div class="ob-confirm-row-text"><strong>Kid-safe AI</strong> — all content reviewed, no open chat</div>
+        </div>
+        <div class="ob-confirm-row">
+          <span class="ob-confirm-row-icon">✅</span>
+          <div class="ob-confirm-row-text"><strong>Parent approval</strong> required for every mission submission</div>
         </div>
       </div>`;
-    document.getElementById('onboardNext').textContent='Start First Lesson 🚀';
+    noteEl.textContent='You can add more children and change paths at any time.';
   }
 }
-function selectTier(t){state.onboardData.tier=t;renderOnboardStep();}
-function selectObAvatar(a){state.onboardData.avatar=a;renderOnboardStep();}
+
+function selectTier(t){
+  state.onboardData.tier=t;
+  renderOnboardStep();
+}
+function selectObAvatar(a){
+  state.onboardData.avatar=a;
+  // Animate the big preview without full re-render
+  const prev=document.getElementById('obAvatarPreview');
+  if(prev){prev.style.transform='scale(1.25)';prev.textContent=a;setTimeout(()=>prev.style.transform='',220);}
+  // Update grid selection
+  document.querySelectorAll('.avatar-option').forEach(el=>{
+    el.classList.toggle('selected',el.textContent===a);
+  });
+}
 function selectObPath(id){
   if(state.subscription.plan==='free'&&id!=='jesus'){showToast('Upgrade to Premium for all paths');return;}
-  state.onboardData.selectedPath=id;renderOnboardStep();
+  state.onboardData.selectedPath=id;
+  // Update rows without full re-render
+  document.querySelectorAll('.ob-path-row').forEach((el,i)=>{
+    const pid=PATHS[i]?.id;
+    el.classList.toggle('selected',pid===id);
+    const check=el.querySelector('.ob-path-check');
+    if(check)check.textContent=pid===id?'✓':'';
+  });
+}
+function onboardSkip(){
+  state.onboardStep++;
+  renderOnboardStep();
 }
 function onboardNextStep(){
   const step=ONBOARD_STEPS[state.onboardStep];
   if(step==='family'){
-    const fn=document.getElementById('ob-family-name').value.trim();
-    const pn=document.getElementById('ob-parent-name').value.trim();
+    const fn=document.getElementById('ob-family-name')?.value.trim();
+    const pn=document.getElementById('ob-parent-name')?.value.trim();
     if(!fn){showToast('Please enter a family name');return;}
     state.onboardData.familyName=fn;
     state.onboardData.parentName=pn||state.currentUser?.name||'Parent';
   } else if(step==='member'){
-    const kn=document.getElementById('ob-kid-name').value.trim();
-    if(!kn){showToast('Please enter a name');return;}
+    const kn=document.getElementById('ob-kid-name')?.value.trim();
+    if(!kn){showToast("Please enter your child's name");return;}
     state.onboardData.kidName=kn;
   } else if(step==='launch'){
     finalizeOnboarding();return;
   }
-  state.onboardStep++;renderOnboardStep();
+  state.onboardStep++;
+  renderOnboardStep();
 }
 function onboardBack(){
   if(state.onboardStep===0){showScreen('screen-landing');}
@@ -1564,7 +1767,7 @@ const TOUR_STEPS=[
   {icon:'🏠',title:'Welcome to FaithQuest!',text:'This is the Parent Dashboard. You can see your family\'s progress, manage profiles, and track missions from here.'},
   {icon:'📚',title:'Browse Learning Paths',text:'Head to Paths to explore 35 lessons across 5 journeys. Assign paths to your kids and track their progress.'},
   {icon:'🚀',title:'Kid\'s Daily Lesson',text:'Switch to your child\'s view to see today\'s lesson. It takes 7–10 minutes and flows through 6 engaging steps.'},
-  {icon:'✅',title:'Mission Approvals',text:'After your child submits a Faith-in-Action mission, you\'ll get a notification to review and approve it here.'},
+  {icon:'✅',title:'Mission Approvals',text:'After your child submits a Faith-in-Action mission, you will get a notification to review and approve it here.'},
   {icon:'📊',title:'Insights Dashboard',text:'Track kindness, honesty, service, and prayer across your whole family. See who\'s streaking and who needs encouragement.'}
 ];
 let tourStep=0;
@@ -2448,6 +2651,109 @@ function selectLpStep(i){
 // Init on load
 buildFAQ();
 initLessonPreview();
+
+
+// ── PWA: Inline Web App Manifest ─────────────────────────────────────────
+(function(){
+  var manifest = {
+    name: "FaithQuest \u2014 Family Bible Learning",
+    short_name: "FaithQuest",
+    description: "Family Bible learning with guided lessons, real-world missions, and age-safe AI.",
+    start_url: "./",
+    display: "standalone",
+    orientation: "portrait-primary",
+    background_color: "#0F172A",
+    theme_color: "#0F172A",
+    categories: ["education","lifestyle"],
+    icons: [
+      { src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='115' fill='%230F172A'/%3E%3Crect x='60' y='60' width='392' height='392' rx='80' fill='%23F59E0B'/%3E%3Ctext x='256' y='330' font-size='240' text-anchor='middle' fill='white'%3E%E2%9C%9D%3C/text%3E%3C/svg%3E", sizes: "512x512", type: "image/svg+xml", purpose: "any maskable" },
+      { src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='42' fill='%230F172A'/%3E%3Crect x='22' y='22' width='148' height='148' rx='30' fill='%23F59E0B'/%3E%3Ctext x='96' y='125' font-size='90' text-anchor='middle' fill='white'%3E%E2%9C%9D%3C/text%3E%3C/svg%3E", sizes: "192x192", type: "image/svg+xml", purpose: "any maskable" }
+    ],
+    shortcuts: [
+      { name: "Today's Lesson", short_name: "Lesson", url: "./#lesson" },
+      { name: "Mission Check-In", short_name: "Mission", url: "./#mission" }
+    ]
+  };
+  var blob = new Blob([JSON.stringify(manifest)], {type:'application/manifest+json'});
+  var link = document.createElement('link');
+  link.rel = 'manifest';
+  link.href = URL.createObjectURL(blob);
+  document.head.appendChild(link);
+})();
+
+// ── PWA: Service Worker via Blob (no separate sw.js needed) ───────────────
+(function(){
+  if (!('serviceWorker' in navigator)) return;
+  var sw = [
+    "const CACHE='faithquest-v1';",
+    "const FC='faithquest-fonts-v1';",
+    "self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.add(self.location.pathname||'/').catch(()=>{})).then(()=>self.skipWaiting()));});",
+    "self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE&&k!==FC).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});",
+    "self.addEventListener('fetch',e=>{",
+    "  const u=new URL(e.request.url);",
+    "  if(u.hostname==='fonts.googleapis.com'||u.hostname==='fonts.gstatic.com'){",
+    "    e.respondWith(caches.open(FC).then(c=>c.match(e.request).then(cached=>{",
+    "      if(cached)return cached;",
+    "      return fetch(e.request).then(r=>{if(r&&r.status===200)c.put(e.request,r.clone());return r;}).catch(()=>cached);",
+    "    })));return;",
+    "  }",
+    "  if(e.request.mode==='navigate'){",
+    "    e.respondWith(fetch(e.request).then(r=>{if(r&&r.status===200)caches.open(CACHE).then(c=>c.put(e.request,r.clone()));return r;}).catch(()=>caches.match(e.request).then(c=>c||new Response('<html><body style=\"font-family:sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;background:#0F172A;color:white;text-align:center;padding:24px\"><div><div style=\"font-size:3rem;margin-bottom:16px\">&#10013;</div><h2 style=\"font-family:serif\">FaithQuest</h2><p style=\"opacity:.7\">You are offline. Reconnect to continue.</p></div></body></html>',{headers:{'Content-Type':'text/html'}}))));return;",
+    "  }",
+    "  e.respondWith(caches.match(e.request).then(cached=>{",
+    "    const fresh=fetch(e.request).then(r=>{if(r&&r.status===200)caches.open(CACHE).then(c=>c.put(e.request,r.clone()));return r;}).catch(()=>cached);",
+    "    return cached||fresh;",
+    "  }));",
+    "});",
+    "self.addEventListener('sync',e=>{if(e.tag==='sync-missions')console.log('[FQ SW] sync');});",
+    "self.addEventListener('notificationclick',e=>{e.notification.close();e.waitUntil(clients.matchAll({type:'window',includeUncontrolled:true}).then(l=>{for(const c of l){if(c.focus)return c.focus();}return clients.openWindow('./');})  );});"
+  ].join('\n');
+  var blob = new Blob([sw], {type:'application/javascript'});
+  navigator.serviceWorker.register(URL.createObjectURL(blob))
+    .then(function(reg){
+      console.log('[FaithQuest] SW registered');
+      setInterval(function(){reg.update();}, 60000);
+      reg.addEventListener('updatefound', function(){
+        var nw = reg.installing;
+        nw.addEventListener('statechange', function(){
+          if(nw.state==='installed' && navigator.serviceWorker.controller){
+            showToast('App updated — refresh to get the latest version', 5000);
+          }
+        });
+      });
+    })
+    .catch(function(err){ console.warn('[FaithQuest] SW error:', err); });
+})();
+
+// ── PWA: Add to Home Screen banner ───────────────────────────────────────
+var _ip = null;
+window.addEventListener('beforeinstallprompt', function(e){
+  e.preventDefault(); _ip = e;
+  setTimeout(showInstallBanner, 20000);
+});
+window.addEventListener('appinstalled', function(){
+  _ip = null; hideInstallBanner();
+  showToast('FaithQuest added to your home screen!', 4000);
+});
+function showInstallBanner(){
+  if(!_ip || document.getElementById('pwa-banner')) return;
+  var b = document.createElement('div');
+  b.id = 'pwa-banner';
+  b.style.cssText = 'position:fixed;bottom:80px;left:12px;right:12px;background:white;border-radius:16px;padding:14px 16px;box-shadow:0 8px 40px rgba(0,0,0,0.18);display:flex;align-items:center;gap:10px;z-index:9000;animation:slideUpBanner 0.35s cubic-bezier(0.34,1.56,0.64,1) both';
+  b.innerHTML = '<div style="display:flex;align-items:center;gap:12px;flex:1"><div style="font-size:1.6rem">&#10013;&#65039;</div><div><div style="font-weight:700;font-size:0.875rem;color:#0F172A">Add FaithQuest to Home Screen</div><div style="font-size:0.75rem;color:#64748B;margin-top:1px">Offline access &middot; Faster &middot; No browser chrome</div></div></div><button onclick="triggerInstall()" style="background:#F59E0B;color:white;border:none;padding:10px 18px;border-radius:10px;font-weight:700;font-size:0.85rem;cursor:pointer;font-family:inherit;white-space:nowrap;flex-shrink:0">Install</button><button onclick="hideInstallBanner()" style="background:none;border:none;font-size:1.1rem;cursor:pointer;color:#94A3B8;padding:4px 8px;flex-shrink:0">&times;</button>';
+  document.body.appendChild(b);
+}
+function hideInstallBanner(){
+  var b=document.getElementById('pwa-banner'); if(b) b.remove();
+}
+function triggerInstall(){
+  if(!_ip) return;
+  _ip.prompt();
+  _ip.userChoice.then(function(r){
+    if(r.outcome==='accepted') showToast('Installing FaithQuest...', 3000);
+    _ip = null; hideInstallBanner();
+  });
+}
 </script>
 </body>
 </html>
