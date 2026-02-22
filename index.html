@@ -1115,6 +1115,121 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 }
 .ci-next-btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(5,150,105,0.45);}
 
+/* ===== TEEN JOURNAL ===== */
+
+/* Hero */
+.jn-hero{
+  background:linear-gradient(155deg,#1E0A3C 0%,#3B0764 45%,#6D28D9 100%);
+  padding:32px 20px 44px;position:relative;overflow:hidden;
+}
+.jn-hero-grid{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.06) 1px,transparent 1px);background-size:22px 22px;pointer-events:none;}
+.jn-hero-glow{position:absolute;top:-60px;right:-40px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,0.18),transparent 65%);pointer-events:none;}
+.jn-hero-content{position:relative;z-index:2;}
+.jn-hero-top{display:flex;align-items:center;gap:14px;margin-bottom:20px;}
+.jn-hero-icon{width:56px;height:56px;border-radius:18px;background:rgba(167,139,250,0.2);border:1.5px solid rgba(167,139,250,0.35);display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0;}
+.jn-hero-name{font-family:var(--font-display);font-size:1.35rem;font-weight:700;color:white;margin-bottom:2px;}
+.jn-hero-sub{font-size:0.72rem;color:rgba(255,255,255,0.45);font-weight:600;}
+.jn-streak-row{display:flex;gap:8px;}
+.jn-stat{flex:1;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:10px 8px;text-align:center;}
+.jn-stat-val{font-family:var(--font-display);font-size:1.2rem;font-weight:800;color:white;display:block;line-height:1;}
+.jn-stat-lbl{font-size:0.6rem;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.07em;margin-top:3px;display:block;}
+
+/* Body */
+.jn-body{padding:16px 16px 100px;}
+.jn-section-hd{display:flex;align-items:center;justify-content:space-between;margin:18px 0 10px;}
+.jn-section-title{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--slate-900);}
+.jn-section-sub{font-size:0.72rem;color:var(--slate-400);font-weight:600;}
+
+/* New entry composer */
+.jn-composer{
+  background:white;border-radius:22px;
+  box-shadow:0 4px 24px rgba(109,40,217,0.1),0 1px 4px rgba(0,0,0,0.06);
+  overflow:hidden;margin-bottom:16px;
+  animation:lp2CardIn 0.4s cubic-bezier(0.34,1.2,0.64,1) both;
+}
+.jn-composer-header{
+  background:linear-gradient(135deg,#3B0764,#6D28D9);
+  padding:16px 20px;display:flex;align-items:center;justify-content:space-between;
+}
+.jn-composer-title{font-weight:800;font-size:0.9rem;color:white;}
+.jn-composer-date{font-size:0.7rem;color:rgba(255,255,255,0.5);}
+.jn-composer-body{padding:16px 20px 20px;}
+
+/* AI prompt chip */
+.jn-prompt-row{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+.jn-prompt-chip{
+  display:flex;align-items:center;gap:6px;
+  background:linear-gradient(135deg,#EDE9FE,#F5F3FF);
+  border:1.5px solid rgba(109,40,217,0.2);
+  border-radius:100px;padding:6px 12px;
+  font-size:0.72rem;font-weight:700;color:#5B21B6;
+  cursor:pointer;transition:all 0.2s;white-space:nowrap;
+}
+.jn-prompt-chip:hover{background:linear-gradient(135deg,#DDD6FE,#EDE9FE);transform:translateY(-1px);}
+.jn-prompt-chip.active{background:linear-gradient(135deg,#6D28D9,#7C3AED);color:white;border-color:transparent;}
+.jn-prompt-chip-icon{font-size:0.85rem;}
+.jn-prompt-chip-generate{
+  background:linear-gradient(135deg,#1E0A3C,#3B0764);
+  border-color:transparent;color:rgba(255,255,255,0.8);
+}
+.jn-prompt-chip-generate:hover{background:linear-gradient(135deg,#3B0764,#6D28D9);color:white;}
+
+/* AI generating state */
+.jn-ai-generating{
+  display:flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,#EDE9FE,#F5F3FF);
+  border-radius:12px;padding:10px 14px;margin-bottom:14px;
+  font-size:0.8rem;color:#5B21B6;font-weight:600;
+}
+.jn-ai-dot{width:6px;height:6px;border-radius:50%;background:#7C3AED;animation:dotPulse 1.2s ease-in-out infinite;}
+
+/* Textarea */
+.jn-textarea{
+  width:100%;border:2px solid var(--slate-200);border-radius:14px;
+  padding:14px 16px;font-family:var(--font-body);font-size:0.9rem;
+  color:var(--slate-900);resize:none;outline:none;line-height:1.75;
+  background:#FAFBFC;transition:border-color 0.2s,box-shadow 0.2s;
+  min-height:120px;
+}
+.jn-textarea:focus{border-color:#7C3AED;box-shadow:0 0 0 4px rgba(124,58,237,0.1);background:white;}
+.jn-composer-footer{display:flex;align-items:center;justify-content:space-between;margin-top:12px;}
+.jn-char-count{font-size:0.68rem;color:var(--slate-400);}
+.jn-save-btn{
+  padding:11px 22px;border-radius:12px;border:none;
+  background:linear-gradient(135deg,#6D28D9,#7C3AED);
+  color:white;font-family:var(--font-body);font-weight:800;
+  font-size:0.875rem;cursor:pointer;transition:all 0.2s;
+  box-shadow:0 4px 14px rgba(109,40,217,0.35);
+}
+.jn-save-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(109,40,217,0.45);}
+.jn-save-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none;}
+
+/* Past entries */
+.jn-entry{
+  background:white;border-radius:18px;padding:18px 20px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.07);margin-bottom:10px;
+  border-left:4px solid #7C3AED;
+  animation:lp2CardIn 0.4s calc(var(--i,0)*0.06s) cubic-bezier(0.34,1.2,0.64,1) both;
+  cursor:pointer;transition:box-shadow 0.2s;
+}
+.jn-entry:hover{box-shadow:0 4px 20px rgba(109,40,217,0.12);}
+.jn-entry-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.jn-entry-date{font-size:0.68rem;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:0.08em;}
+.jn-entry-mood{font-size:1.2rem;}
+.jn-entry-prompt{font-size:0.72rem;color:var(--slate-400);margin-bottom:6px;font-style:italic;}
+.jn-entry-text{font-size:0.875rem;color:var(--slate-700);line-height:1.65;}
+.jn-entry-text.collapsed{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.jn-entry-lesson{display:inline-flex;align-items:center;gap:4px;margin-top:8px;background:var(--slate-100);border-radius:100px;padding:3px 9px;font-size:0.65rem;font-weight:700;color:var(--slate-500);}
+
+/* Empty state */
+.jn-empty{background:white;border-radius:22px;padding:36px 24px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
+.jn-empty-icon{font-size:3rem;margin-bottom:12px;display:block;}
+.jn-empty-title{font-weight:800;font-size:1rem;color:var(--slate-700);margin-bottom:6px;}
+.jn-empty-sub{font-size:0.82rem;color:var(--slate-400);line-height:1.6;}
+
+/* Gemini badge */
+.jn-gemini-badge{display:inline-flex;align-items:center;gap:5px;background:linear-gradient(135deg,#1A73E8,#4285F4);border-radius:100px;padding:3px 10px;font-size:0.62rem;font-weight:800;color:white;letter-spacing:0.05em;}
+
 /* ===== PWA ===== */
 @keyframes slideUpBanner{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 
@@ -1957,6 +2072,7 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
   <nav class="bottom-nav">
     <button class="bottom-nav-item active" id="knav-home" onclick="kidNav('home')"><span class="bottom-nav-icon">🏠</span><span class="bottom-nav-label">Home</span></button>
     <button class="bottom-nav-item" id="knav-rewards" onclick="kidNav('rewards')"><span class="bottom-nav-icon">🏆</span><span class="bottom-nav-label">Rewards</span></button>
+    <button class="bottom-nav-item" id="knav-journal" onclick="kidNav('journal')" style="display:none;"><span class="bottom-nav-icon">✍️</span><span class="bottom-nav-label">Journal</span></button>
     <button class="bottom-nav-item" id="knav-library" onclick="kidNav('library')"><span class="bottom-nav-icon">📖</span><span class="bottom-nav-label">Library</span></button>
     <button class="bottom-nav-item" id="knav-profile" onclick="kidNav('profile')"><span class="bottom-nav-icon">😊</span><span class="bottom-nav-label">Me</span></button>
   </nav>
@@ -2162,6 +2278,7 @@ async function _fbLoadUserData(uid){
       state.members      = d.members      || [];
       state.completions  = d.completions  || [];
       state.checkins     = d.checkins     || [];
+      state.journals     = d.journals     || [];
       state.subscription = d.subscription || {plan:'free'};
       state.selectedPath = d.selectedPath || 'jesus';
       state.selectedMember = d.selectedMember || null;
@@ -2197,6 +2314,7 @@ async function _fbSaveUserData(uid){
       members:       state.members,
       completions:   state.completions,
       checkins:      state.checkins,
+      journals:      state.journals||[],
       subscription:  state.subscription,
       selectedPath:  state.selectedPath,
       selectedMember:state.selectedMember,
@@ -2305,6 +2423,7 @@ let state = {
   members: [],
   completions: [],
   checkins: [],
+  journals: [],
   subscription: {plan:'free'},
   selectedPath: null,
   selectedMember: null,
@@ -2560,6 +2679,7 @@ function loadUserData(){
     state.members=data.members||[];
     state.completions=data.completions||[];
     state.checkins=data.checkins||[];
+    state.journals=data.journals||[];
     state.subscription=data.subscription||{plan:'free'};
     state.selectedPath=data.selectedPath||'jesus';
     state.selectedMember=data.selectedMember||null;
@@ -2570,7 +2690,7 @@ function saveUserData(){
   if(!state.currentUser)return;
   const payload={
     family:state.family,members:state.members,completions:state.completions,
-    checkins:state.checkins,subscription:state.subscription,
+    checkins:state.checkins,journals:state.journals||[],subscription:state.subscription,
     selectedPath:state.selectedPath,selectedMember:state.selectedMember,
   };
   // Always write localStorage as offline cache
@@ -3263,8 +3383,14 @@ function renderKidContent(tab){
   el.innerHTML='';
   if(tab==='home')renderKidHome(el);
   else if(tab==='rewards')renderKidRewards(el);
+  else if(tab==='journal')renderKidJournal(el);
   else if(tab==='library')renderKidLibrary(el);
   else if(tab==='profile')renderKidProfile(el);
+
+  // Show journal tab only for teens
+  const member = getCurrentMember();
+  const journalBtn = document.getElementById('knav-journal');
+  if(journalBtn) journalBtn.style.display = member?.tier==='teen' ? 'flex' : 'none';
 }
 function renderKidHome(el){
   const member=getCurrentMember();
@@ -3608,6 +3734,244 @@ function renderKidLibrary(el){
         </div>`).join('')}
     </div>`;
 }
+// ===================== TEEN JOURNAL =====================
+
+// Gemini API key — set your key here or via window.FQ_GEMINI_KEY
+const GEMINI_KEY = window.FQ_GEMINI_KEY || 'AIzaSyBFYKsXcVsg1jXHwv-qb5X5blKPXLI2oY8';
+const GEMINI_CONFIGURED = !GEMINI_KEY.startsWith('YOUR_');
+
+const JOURNAL_PROMPTS_DEFAULT = [
+  {icon:'🪞', text:'What did God show me today?'},
+  {icon:'💡', text:'What challenged me this week?'},
+  {icon:'🙏', text:'What am I grateful for right now?'},
+  {icon:'⚔️', text:'Where did I need more courage?'},
+  {icon:'🌱', text:'How am I growing in faith?'},
+];
+
+async function geminiJournalPrompts(lessonTitle, lessonSummary, memberName){
+  if(!GEMINI_CONFIGURED) return null;
+  try {
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_KEY}`,
+      {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({
+          contents:[{parts:[{text:
+            `You are a thoughtful faith journaling coach for teenagers (ages 11-17).
+A teen just completed a Bible lesson titled "${lessonTitle}".
+Lesson summary: "${lessonSummary}"
+Their name is ${memberName}.
+
+Generate exactly 4 short, personal journaling prompts tailored to this lesson.
+Each prompt should be 6-10 words, written directly to the teen, starting with an action verb.
+Format: JSON array of objects with "icon" (single emoji) and "text" (the prompt).
+Only return valid JSON, no markdown, no explanation.
+Example: [{"icon":"🌊","text":"Describe a storm you faced this week."}]`
+          }]}],
+          generationConfig:{temperature:0.8,maxOutputTokens:300}
+        })
+      }
+    );
+    const data = await res.json();
+    const raw = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    const clean = raw.replace(/```json|```/g,'').trim();
+    return JSON.parse(clean);
+  } catch(e) {
+    console.error('[FQ] Gemini error:', e);
+    return null;
+  }
+}
+
+function renderKidJournal(el){
+  const member = getCurrentMember();
+  if(!member){ el.innerHTML=''; return; }
+
+  const isTeen = member.tier === 'teen';
+  const entries = (state.journals||[]).filter(j => j.memberId === member.id)
+    .sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+  // Find last completed lesson for context
+  const lastCompletion = state.completions.filter(c=>c.memberId===member.id).slice(-1)[0];
+  let lastLesson = null;
+  if(lastCompletion){
+    const path = PATHS.find(p=>p.id===lastCompletion.pathId);
+    lastLesson = path?.lessons.find(l=>l.id===lastCompletion.lessonId);
+  }
+
+  const today = new Date().toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+  const wordCount = entries.reduce((sum,e)=>sum+(e.text||'').split(/\s+/).filter(Boolean).length,0);
+
+  el.innerHTML = `
+    <div class="jn-hero">
+      <div class="jn-hero-grid"></div>
+      <div class="jn-hero-glow"></div>
+      <div class="jn-hero-content">
+        <div class="jn-hero-top">
+          <div class="jn-hero-icon">✍️</div>
+          <div>
+            <div class="jn-hero-name">${member.name}'s Journal</div>
+            <div class="jn-hero-sub">Private · Faith reflections</div>
+          </div>
+        </div>
+        <div class="jn-streak-row">
+          <div class="jn-stat"><span class="jn-stat-val">${entries.length}</span><span class="jn-stat-lbl">Entries</span></div>
+          <div class="jn-stat"><span class="jn-stat-val">${wordCount}</span><span class="jn-stat-lbl">Words</span></div>
+          <div class="jn-stat"><span class="jn-stat-val">${getStreak(member.id)}</span><span class="jn-stat-lbl">Streak</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="jn-body">
+      <!-- Composer -->
+      <div class="jn-composer" id="jnComposer">
+        <div class="jn-composer-header">
+          <span class="jn-composer-title">New Entry</span>
+          <span class="jn-composer-date">${today}</span>
+        </div>
+        <div class="jn-composer-body">
+          <div id="jnPromptArea">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+              <span style="font-size:0.72rem;font-weight:700;color:var(--slate-500);text-transform:uppercase;letter-spacing:0.08em;">Prompts</span>
+              ${GEMINI_CONFIGURED
+                ? `<span class="jn-gemini-badge">✨ Gemini AI</span>`
+                : `<span style="font-size:0.65rem;color:var(--slate-400);">Add your Gemini key for AI prompts</span>`}
+            </div>
+            <div class="jn-prompt-row" id="jnPromptChips">
+              ${JOURNAL_PROMPTS_DEFAULT.slice(0,4).map((p,i)=>`
+                <div class="jn-prompt-chip" onclick="jnSelectPrompt(this,'${p.text.replace(/'/g,"\\'")}')">
+                  <span class="jn-prompt-chip-icon">${p.icon}</span>${p.text}
+                </div>`).join('')}
+              ${GEMINI_CONFIGURED && lastLesson ? `
+                <div class="jn-prompt-chip jn-prompt-chip-generate" id="jnAiBtn" onclick="jnLoadAiPrompts()">
+                  ✨ AI prompts for "${lastLesson.title.split(':')[0]}"
+                </div>` : ''}
+            </div>
+          </div>
+          <textarea class="jn-textarea" id="jnText" rows="5"
+            placeholder="Write freely — this is just for you..."
+            oninput="document.getElementById('jnCharCount').textContent=this.value.split(/\\s+/).filter(Boolean).length+' words'">
+          </textarea>
+          <div class="jn-composer-footer">
+            <span class="jn-char-count" id="jnCharCount">0 words</span>
+            <button class="jn-save-btn" onclick="jnSave()">Save Entry ✍️</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Past entries -->
+      <div class="jn-section-hd">
+        <span class="jn-section-title">Past Entries</span>
+        <span class="jn-section-sub">${entries.length} total</span>
+      </div>
+
+      ${entries.length === 0 ? `
+        <div class="jn-empty">
+          <span class="jn-empty-icon">📔</span>
+          <div class="jn-empty-title">Your journal is waiting</div>
+          <div class="jn-empty-sub">Write your first entry above. No one else can see this — it's just between you and God.</div>
+        </div>` :
+        entries.map((e,i)=>{
+          const d = new Date(e.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+          const preview = (e.text||'').slice(0,200);
+          return `
+            <div class="jn-entry" style="--i:${i}" onclick="jnToggleEntry(this)">
+              <div class="jn-entry-header">
+                <span class="jn-entry-date">${d}</span>
+                <span class="jn-entry-mood">${e.mood||'📔'}</span>
+              </div>
+              ${e.prompt?`<div class="jn-entry-prompt">"${e.prompt}"</div>`:''}
+              <div class="jn-entry-text collapsed">${e.text||''}</div>
+              ${e.lessonTitle?`<span class="jn-entry-lesson">📖 ${e.lessonTitle}</span>`:''}
+            </div>`;
+        }).join('')
+      }
+    </div>`;
+
+  // Auto-load AI prompts if Gemini configured and there's a recent lesson
+  if(GEMINI_CONFIGURED && lastLesson && entries.length === 0){
+    setTimeout(()=>jnLoadAiPrompts(), 400);
+  }
+}
+
+function jnSelectPrompt(chip, text){
+  document.querySelectorAll('.jn-prompt-chip').forEach(c=>c.classList.remove('active'));
+  chip.classList.add('active');
+  const ta = document.getElementById('jnText');
+  if(ta && !ta.value.trim()){
+    ta.placeholder = text + '...';
+    ta.focus();
+  }
+  window._jnSelectedPrompt = text;
+}
+
+async function jnLoadAiPrompts(){
+  const member = getCurrentMember();
+  const lastCompletion = state.completions.filter(c=>c.memberId===member?.id).slice(-1)[0];
+  if(!lastCompletion) return;
+  const path = PATHS.find(p=>p.id===lastCompletion.pathId);
+  const lesson = path?.lessons.find(l=>l.id===lastCompletion.lessonId);
+  if(!lesson) return;
+
+  const btn = document.getElementById('jnAiBtn');
+  const chipsEl = document.getElementById('jnPromptChips');
+  if(chipsEl){
+    chipsEl.innerHTML = `<div class="jn-ai-generating"><div class="jn-ai-dot"></div><div class="jn-ai-dot" style="animation-delay:0.2s"></div><div class="jn-ai-dot" style="animation-delay:0.4s"></div><span>Gemini is thinking...</span></div>`;
+  }
+
+  const prompts = await geminiJournalPrompts(lesson.title, lesson.summary, member.name);
+  const toShow = prompts || JOURNAL_PROMPTS_DEFAULT;
+
+  if(chipsEl){
+    chipsEl.innerHTML = toShow.map((p,i)=>`
+      <div class="jn-prompt-chip${i===0?' active':''}" onclick="jnSelectPrompt(this,'${(p.text||'').replace(/'/g,"\\'")}')">
+        <span class="jn-prompt-chip-icon">${p.icon||'💭'}</span>${p.text}
+      </div>`).join('') +
+      `<div class="jn-prompt-chip jn-prompt-chip-generate" onclick="jnLoadAiPrompts()">↻ New prompts</div>`;
+  }
+
+  if(toShow[0]){
+    const ta = document.getElementById('jnText');
+    if(ta && !ta.value.trim()) ta.placeholder = toShow[0].text + '...';
+    window._jnSelectedPrompt = toShow[0].text;
+  }
+}
+
+function jnSave(){
+  const text = (document.getElementById('jnText')?.value||'').trim();
+  if(!text){ showToast('Write something first ✍️'); return; }
+  const member = getCurrentMember();
+  const lastCompletion = state.completions.filter(c=>c.memberId===member?.id).slice(-1)[0];
+  const path = lastCompletion ? PATHS.find(p=>p.id===lastCompletion.pathId) : null;
+  const lesson = path?.lessons.find(l=>l.id===lastCompletion?.lessonId);
+
+  const entry = {
+    id: 'jn_'+Date.now(),
+    memberId: member.id,
+    text,
+    prompt: window._jnSelectedPrompt||null,
+    mood: '📔',
+    lessonTitle: lesson?.title||null,
+    lessonId: lesson?.id||null,
+    createdAt: new Date().toISOString(),
+  };
+
+  if(!state.journals) state.journals = [];
+  state.journals.push(entry);
+  saveUserData();
+  window._jnSelectedPrompt = null;
+  showToast('Entry saved 📔');
+
+  // Re-render
+  const el = document.getElementById('kidContent');
+  if(el) renderKidJournal(el);
+}
+
+function jnToggleEntry(el){
+  const textEl = el.querySelector('.jn-entry-text');
+  if(textEl) textEl.classList.toggle('collapsed');
+}
+
 function renderKidProfile(el){
   const member=getCurrentMember();
   const kids=state.members.filter(m=>m.role!=='parent');
