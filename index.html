@@ -2070,6 +2070,7 @@ const _fbConfigured = !FIREBASE_CONFIG.apiKey.startsWith('YOUR_');
 let _fbApp, _fbAuth, _fbDb, _googleProvider, _unsubSnapshot;
 
 if(_fbConfigured){
+  try {
   _fbApp          = initializeApp(FIREBASE_CONFIG);
   _fbAuth         = getAuth(_fbApp);
   _fbDb           = getFirestore(_fbApp);
@@ -2114,6 +2115,11 @@ if(_fbConfigured){
     const ov = document.getElementById('fq-loading-overlay');
     if(ov) ov.style.display = 'none';
   });
+  } catch(e) {
+    console.error('[FaithQuest] Firebase init error:', e);
+    const ov = document.getElementById('fq-loading-overlay');
+    if(ov) ov.style.display = 'none';
+  }
 } else {
   // No Firebase — hide overlay immediately, stay in demo mode
   const ov = document.getElementById('fq-loading-overlay');
@@ -4153,27 +4159,35 @@ function selectLpStep(i){
 buildFAQ();
 initLessonPreview();
 
-// ── Firebase init check ────────────────────────────────────────────────────
+// ── Firebase init check + hard overlay timeout ─────────────────────────────
 (function(){
-  // Give the module script 800ms to load and set window._fb
+  function hideOverlay(){
+    var ov = document.getElementById('fq-loading-overlay');
+    if(ov) ov.style.display = 'none';
+  }
+
+  // Hard timeout: never stay stuck longer than 4 seconds
   setTimeout(function(){
-    const configured = window._fb?.configured;
-    // Update demo hint
-    const hint = document.getElementById('authDemoHintText');
+    hideOverlay();
+    showScreen('screen-landing');
+  }, 4000);
+
+  // Soft check at 1s — update UI hints
+  setTimeout(function(){
+    var configured = window._fb?.configured;
+    var hint = document.getElementById('authDemoHintText');
     if(hint){
       hint.innerHTML = configured
         ? '<strong>Secure sign-in</strong> powered by Firebase. Your data syncs across all devices.'
         : '<strong>Demo mode:</strong> Firebase not configured. Enter any email + password to explore.';
     }
-    // Show setup banner if not configured
     if(!configured){
-      const banner = document.getElementById('fq-firebase-banner');
+      var banner = document.getElementById('fq-firebase-banner');
       if(banner) banner.style.display = 'block';
-      // Also hide loading overlay (Firebase module won't call onAuthStateChanged)
-      const overlay = document.getElementById('fq-loading-overlay');
-      if(overlay) overlay.style.display = 'none';
+      hideOverlay();
+      showScreen('screen-landing');
     }
-  }, 800);
+  }, 1000);
 })();
 
 
