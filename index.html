@@ -944,6 +944,177 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 @keyframes lp2StepIn{from{opacity:0;transform:translateX(16px);}to{opacity:1;transform:translateX(0);}}
 .lp2-step-in{animation:lp2StepIn 0.3s cubic-bezier(0.34,1.1,0.64,1) both;}
 
+/* ===== MISSION CHECK-IN ===== */
+#screen-checkin{background:#F0F4F8;}
+
+/* Nav */
+.ci-nav{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 16px;background:white;
+  border-bottom:1px solid rgba(0,0,0,0.06);
+  flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.05);
+}
+.ci-close{
+  width:34px;height:34px;border-radius:10px;border:none;
+  background:var(--slate-100);color:var(--slate-500);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.9rem;cursor:pointer;flex-shrink:0;
+  transition:all 0.18s;font-family:var(--font-body);
+}
+.ci-close:hover{background:var(--slate-200);}
+.ci-track{flex:1;display:flex;gap:5px;align-items:center;}
+.ci-pip{
+  flex:1;height:5px;border-radius:100px;background:var(--slate-200);
+  transition:all 0.4s cubic-bezier(0.34,1.2,0.64,1);
+}
+.ci-pip.done{background:var(--emerald);}
+.ci-pip.active{background:var(--amber);box-shadow:0 0 8px rgba(245,158,11,0.5);}
+
+.ci-scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+
+/* ── Step 1: Mission confirm ── */
+.ci-confirm-hero{
+  background:linear-gradient(155deg,#064E3B,#059669 55%,#10B981);
+  padding:44px 24px 56px;text-align:center;position:relative;overflow:hidden;
+}
+.ci-confirm-grid{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.07) 1px,transparent 1px);background-size:22px 22px;pointer-events:none;}
+.ci-confirm-glow{position:absolute;bottom:-60px;left:50%;transform:translateX(-50%);width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,0.12),transparent 65%);pointer-events:none;}
+.ci-confirm-content{position:relative;z-index:2;}
+.ci-confirm-ring{
+  width:88px;height:88px;border-radius:50%;
+  background:rgba(255,255,255,0.15);border:3px solid rgba(255,255,255,0.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.8rem;margin:0 auto 20px;
+  animation:confirmPop 0.6s cubic-bezier(0.34,1.5,0.64,1) both;
+}
+@keyframes confirmPop{from{opacity:0;transform:scale(0.4);}to{opacity:1;transform:scale(1);}}
+.ci-confirm-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.25);color:white;padding:4px 12px;border-radius:100px;font-size:0.65rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;}
+.ci-confirm-title{font-family:var(--font-display);font-size:1.6rem;font-weight:800;color:white;line-height:1.2;margin-bottom:6px;}
+.ci-confirm-mission{font-size:0.875rem;color:rgba(255,255,255,0.7);line-height:1.5;}
+
+.ci-confirm-body{padding:20px 16px;}
+.ci-mission-recap{
+  background:white;border-radius:20px;padding:18px 20px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.09);margin-bottom:14px;
+  display:flex;align-items:center;gap:16px;
+  animation:lp2CardIn 0.4s cubic-bezier(0.34,1.2,0.64,1) both;
+}
+.ci-recap-icon{
+  width:52px;height:52px;border-radius:16px;
+  background:var(--emerald-light);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.8rem;flex-shrink:0;
+}
+.ci-recap-info{flex:1;}
+.ci-recap-label{font-size:0.62rem;font-weight:800;color:var(--emerald);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;}
+.ci-recap-name{font-weight:800;font-size:0.9375rem;color:var(--slate-900);margin-bottom:2px;}
+.ci-recap-desc{font-size:0.78rem;color:var(--slate-500);line-height:1.4;}
+
+/* ── Step 2: Story + mood ── */
+.ci-story-hero{
+  background:linear-gradient(155deg,#0C4A6E,#0369A1 55%,#0284C7);
+  padding:36px 24px 48px;text-align:center;position:relative;overflow:hidden;
+}
+.ci-story-icon{font-size:3rem;margin-bottom:12px;display:block;animation:confirmPop 0.5s cubic-bezier(0.34,1.4,0.64,1) both;}
+.ci-story-title{font-family:var(--font-display);font-size:1.45rem;font-weight:800;color:white;margin-bottom:4px;}
+.ci-story-sub{font-size:0.8rem;color:rgba(255,255,255,0.6);}
+
+.ci-story-body{padding:20px 16px;}
+.ci-card{
+  background:white;border-radius:20px;padding:18px 20px;
+  box-shadow:0 3px 16px rgba(0,0,0,0.08);margin-bottom:14px;
+}
+.ci-card-label{font-size:0.68rem;font-weight:800;color:var(--slate-500);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;}
+/* Mood buttons */
+.ci-mood-grid{display:flex;gap:10px;flex-wrap:wrap;}
+.ci-mood-btn{
+  font-size:2rem;cursor:pointer;padding:10px;
+  border-radius:16px;border:2.5px solid transparent;
+  transition:all 0.2s;background:var(--slate-50);line-height:1;
+}
+.ci-mood-btn:hover{transform:scale(1.1);}
+.ci-mood-btn.selected{
+  border-color:var(--amber);background:var(--amber-light);
+  transform:scale(1.2);box-shadow:0 4px 16px rgba(245,158,11,0.3);
+}
+/* Reflection textarea */
+.ci-textarea{
+  width:100%;border:2px solid var(--slate-200);border-radius:14px;
+  padding:14px 16px;font-family:var(--font-body);font-size:0.9rem;
+  color:var(--slate-900);resize:none;outline:none;line-height:1.7;
+  background:#FAFBFC;transition:border-color 0.2s,box-shadow 0.2s;
+}
+.ci-textarea:focus{border-color:#0369A1;box-shadow:0 0 0 4px rgba(3,105,161,0.1);background:white;}
+.ci-char-count{font-size:0.68rem;color:var(--slate-400);text-align:right;margin-top:6px;}
+
+/* Photo prompt */
+.ci-photo-prompt{
+  display:flex;align-items:center;gap:14px;
+  border:2px dashed var(--slate-200);border-radius:16px;
+  padding:16px 18px;cursor:pointer;transition:all 0.2s;
+}
+.ci-photo-prompt:hover{border-color:var(--slate-300);background:var(--slate-50);}
+.ci-photo-icon{font-size:1.8rem;flex-shrink:0;}
+.ci-photo-text{font-size:0.82rem;color:var(--slate-500);line-height:1.4;}
+.ci-photo-text strong{color:var(--slate-700);display:block;margin-bottom:2px;}
+
+/* ── Step 3: Success ── */
+.ci-success{
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;padding:48px 24px;min-height:70vh;text-align:center;
+}
+.ci-success-ring{
+  width:120px;height:120px;border-radius:50%;
+  background:linear-gradient(135deg,#D1FAE5,#A7F3D0);
+  border:4px solid var(--emerald);
+  display:flex;align-items:center;justify-content:center;
+  font-size:3.5rem;margin-bottom:24px;
+  animation:successRing 0.7s cubic-bezier(0.34,1.6,0.64,1) both;
+}
+@keyframes successRing{from{opacity:0;transform:scale(0.3) rotate(-15deg);}to{opacity:1;transform:scale(1) rotate(0deg);}}
+.ci-success-confetti{font-size:1.8rem;letter-spacing:8px;margin-bottom:16px;animation:confettiFall 0.5s 0.3s ease both;opacity:0;}
+@keyframes confettiFall{from{opacity:0;transform:translateY(-10px);}to{opacity:1;transform:translateY(0);}}
+.ci-success-title{font-family:var(--font-display);font-size:1.8rem;font-weight:800;color:var(--slate-900);margin-bottom:8px;}
+.ci-success-sub{font-size:0.9rem;color:var(--slate-500);line-height:1.65;max-width:280px;margin-bottom:32px;}
+/* XP burst */
+.ci-xp-burst{
+  background:linear-gradient(135deg,var(--amber),#F97316);
+  border-radius:20px;padding:16px 28px;margin-bottom:28px;
+  display:flex;align-items:center;gap:12px;
+  box-shadow:0 8px 28px rgba(245,158,11,0.35);
+  animation:xpBurst 0.6s 0.5s cubic-bezier(0.34,1.4,0.64,1) both;opacity:0;
+}
+@keyframes xpBurst{from{opacity:0;transform:scale(0.7);}to{opacity:1;transform:scale(1);}}
+.ci-xp-icon{font-size:1.8rem;}
+.ci-xp-text{text-align:left;}
+.ci-xp-val{font-family:var(--font-display);font-size:1.3rem;font-weight:900;color:white;line-height:1;}
+.ci-xp-lbl{font-size:0.72rem;color:rgba(255,255,255,0.75);font-weight:700;margin-top:2px;}
+.ci-success-note{font-size:0.8rem;color:var(--slate-400);margin-bottom:32px;line-height:1.6;}
+.ci-done-btn{
+  width:100%;max-width:280px;padding:16px;border-radius:16px;border:none;
+  background:var(--slate-900);color:white;
+  font-family:var(--font-body);font-weight:800;font-size:1rem;
+  cursor:pointer;transition:all 0.2s;
+  box-shadow:0 4px 16px rgba(0,0,0,0.15);
+}
+.ci-done-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.2);}
+
+/* Bottom CTA bar */
+.ci-bar{
+  padding:12px 16px max(16px,env(safe-area-inset-bottom));
+  background:rgba(255,255,255,0.96);backdrop-filter:blur(14px);
+  border-top:1px solid rgba(0,0,0,0.06);
+  flex-shrink:0;box-shadow:0 -4px 24px rgba(0,0,0,0.07);
+}
+.ci-next-btn{
+  width:100%;padding:16px;border-radius:14px;border:none;
+  background:var(--emerald);color:white;
+  font-family:var(--font-body);font-weight:800;font-size:1rem;
+  cursor:pointer;transition:all 0.2s;
+  box-shadow:0 4px 16px rgba(5,150,105,0.35);
+}
+.ci-next-btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(5,150,105,0.45);}
+
 /* ===== PWA ===== */
 @keyframes slideUpBanner{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 
@@ -1020,6 +1191,115 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 @keyframes slideInLeft{from{opacity:0;transform:translateX(-12px);}to{opacity:1;transform:translateX(0);}}
 .slide-in-right{animation:slideInRight 0.25s ease both;}
 .slide-in-left{animation:slideInLeft 0.25s ease both;}
+/* ===== KID REWARDS SCREEN ===== */
+
+/* Hero trophy zone */
+.rw-hero{
+  background:linear-gradient(155deg,#060D1F 0%,#0C1F3F 45%,#1A3A5C 100%);
+  padding:32px 20px 44px;position:relative;overflow:hidden;
+}
+.rw-hero-stars{position:absolute;inset:0;pointer-events:none;}
+.rw-hero-star{position:absolute;border-radius:50%;background:white;animation:starTwinkle var(--dur,3s) ease-in-out infinite;}
+.rw-hero-glow{position:absolute;top:-60px;right:-40px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(245,158,11,0.16),transparent 65%);pointer-events:none;}
+.rw-hero-content{position:relative;z-index:2;}
+.rw-hero-top{display:flex;align-items:center;gap:16px;margin-bottom:22px;}
+.rw-trophy{
+  width:64px;height:64px;border-radius:20px;
+  background:linear-gradient(135deg,rgba(245,158,11,0.25),rgba(245,158,11,0.1));
+  border:1.5px solid rgba(245,158,11,0.35);
+  display:flex;align-items:center;justify-content:center;font-size:2.2rem;
+  flex-shrink:0;
+}
+.rw-hero-name{font-family:var(--font-display);font-size:1.45rem;font-weight:700;color:white;margin-bottom:2px;}
+.rw-hero-level{font-size:0.75rem;color:rgba(255,255,255,0.5);font-weight:600;}
+.rw-xp-section{}
+.rw-xp-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.rw-xp-label{font-size:0.68rem;font-weight:800;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.12em;}
+.rw-xp-val{font-size:0.78rem;font-weight:800;color:var(--amber);}
+.rw-xp-track{height:8px;background:rgba(255,255,255,0.1);border-radius:100px;overflow:hidden;}
+.rw-xp-fill{height:100%;background:linear-gradient(90deg,var(--amber),#F97316);border-radius:100px;transition:width 1.2s cubic-bezier(0.34,1.2,0.64,1);}
+.rw-xp-next{font-size:0.68rem;color:rgba(255,255,255,0.35);margin-top:6px;}
+
+/* Stats pills row */
+.rw-stats{display:flex;gap:8px;margin-top:20px;}
+.rw-stat{
+  flex:1;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);
+  border-radius:14px;padding:12px 8px;text-align:center;
+}
+.rw-stat-val{font-family:var(--font-display);font-size:1.3rem;font-weight:800;color:white;display:block;line-height:1;}
+.rw-stat-lbl{font-size:0.62rem;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.07em;margin-top:4px;display:block;}
+
+/* Body */
+.rw-body{padding:16px 16px 100px;}
+
+/* Section header */
+.rw-section-hd{display:flex;align-items:center;justify-content:space-between;margin:20px 0 12px;}
+.rw-section-title{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--slate-900);}
+.rw-section-count{font-size:0.72rem;font-weight:700;color:var(--slate-400);}
+
+/* Badge grid */
+.rw-badge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+
+/* Earned badge */
+.rw-badge{
+  background:white;border-radius:18px;padding:16px 10px 14px;
+  text-align:center;border:2px solid transparent;
+  box-shadow:0 2px 10px rgba(0,0,0,0.07);
+  transition:all 0.22s;cursor:default;position:relative;
+}
+.rw-badge.earned{
+  background:linear-gradient(150deg,#FFFBF0,white);
+  border-color:rgba(245,158,11,0.3);
+  box-shadow:0 4px 18px rgba(245,158,11,0.15);
+  animation:badgeIn 0.45s calc(var(--i,0)*0.06s) cubic-bezier(0.34,1.3,0.64,1) both;
+}
+.rw-badge.earned:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 8px 24px rgba(245,158,11,0.22);}
+@keyframes badgeIn{from{opacity:0;transform:scale(0.75);}to{opacity:1;transform:scale(1);}}
+.rw-badge.locked{
+  background:var(--slate-50);border-color:var(--slate-100);opacity:0.55;
+}
+.rw-badge-shine{
+  position:absolute;top:6px;right:8px;
+  font-size:0.55rem;font-weight:900;
+  background:var(--amber);color:white;
+  padding:2px 5px;border-radius:100px;
+  letter-spacing:0.05em;
+}
+.rw-badge-icon{font-size:2.2rem;display:block;margin-bottom:8px;line-height:1;}
+.rw-badge.locked .rw-badge-icon{filter:grayscale(1);opacity:0.4;}
+.rw-badge-name{font-size:0.72rem;font-weight:800;color:var(--slate-800);margin-bottom:2px;line-height:1.3;}
+.rw-badge.locked .rw-badge-name{color:var(--slate-400);}
+.rw-badge-req{font-size:0.62rem;color:var(--slate-400);line-height:1.4;}
+
+/* Next unlock card */
+.rw-next-unlock{
+  background:linear-gradient(135deg,#0F172A,#1E3A5F);
+  border-radius:20px;padding:18px 20px;
+  display:flex;align-items:center;gap:16px;
+  margin-bottom:4px;
+}
+.rw-next-icon{font-size:2rem;width:52px;height:52px;border-radius:14px;
+  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;filter:grayscale(1);opacity:0.5;}
+.rw-next-info{flex:1;}
+.rw-next-label{font-size:0.62rem;font-weight:800;color:var(--amber);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;}
+.rw-next-name{font-weight:800;font-size:0.9375rem;color:white;margin-bottom:2px;}
+.rw-next-desc{font-size:0.75rem;color:rgba(255,255,255,0.5);}
+
+/* Streak card */
+.rw-streak-card{
+  background:linear-gradient(135deg,#FF6B1A,#F59E0B);
+  border-radius:20px;padding:20px;
+  display:flex;align-items:center;gap:16px;
+  margin-bottom:10px;
+}
+.rw-streak-flame{font-size:2.4rem;animation:flamePulse 1.8s ease-in-out infinite;flex-shrink:0;}
+.rw-streak-info{flex:1;}
+.rw-streak-num{font-family:var(--font-display);font-size:1.8rem;font-weight:800;color:white;line-height:1;}
+.rw-streak-label{font-size:0.78rem;font-weight:700;color:rgba(255,255,255,0.75);}
+.rw-streak-sub{font-size:0.7rem;color:rgba(255,255,255,0.55);margin-top:2px;}
+
+/* Legacy compat */
 .badge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 .badge-item{background:white;border-radius:var(--radius);padding:20px 16px;text-align:center;box-shadow:var(--shadow);}
 .badge-item.earned{background:linear-gradient(135deg,var(--amber-light),#FFF7ED);}
@@ -1565,11 +1845,16 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
         <input type="password" class="auth-input" id="signin-password" placeholder="••••••••" autocomplete="current-password">
         <span class="auth-pass-toggle" onclick="togglePass('signin-password',this)" title="Show/hide">👁</span>
       </div>
-      <a class="auth-forgot">Forgot password?</a>
+      <a class="auth-forgot" onclick="doForgotPassword()">Forgot password?</a>
       <button class="btn btn-primary btn-full" style="margin-top:8px;" onclick="doSignIn()">Sign In →</button>
+      <div class="auth-divider"><div class="auth-divider-line"></div><div class="auth-divider-text">or</div><div class="auth-divider-line"></div></div>
+      <button class="btn btn-secondary btn-full" style="gap:8px;justify-content:center;" onclick="doGoogleSignIn()">
+        <svg width="18" height="18" viewBox="0 0 18 18" style="flex-shrink:0"><path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/><path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.964 10.706A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.706V4.962H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.038l3.007-2.332z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.962L3.964 7.294C4.672 5.163 6.656 3.58 9 3.58z"/></svg>
+        Continue with Google
+      </button>
       <div class="auth-demo-hint">
         <span class="auth-demo-hint-icon">💡</span>
-        <span class="auth-demo-hint-text"><strong>Demo mode:</strong> Enter any email and password (6+ chars) to sign in or create an account instantly.</span>
+        <span class="auth-demo-hint-text" id="authDemoHintText"><strong>Demo mode:</strong> Firebase not configured. Enter any email + password to explore.</span>
       </div>
     </div>
 
@@ -1696,16 +1981,16 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 </div>
 
 <!-- ===== MISSION CHECK-IN ===== -->
-<div id="screen-checkin" class="screen" style="background:var(--sand);">
-  <div class="top-nav">
-    <button class="btn btn-ghost btn-sm" onclick="exitCheckin()">← Back</button>
-    <span style="font-weight:600;">Mission Check-In</span>
-    <div style="width:60px;"></div>
+<div id="screen-checkin" class="screen" style="flex-direction:column;">
+  <!-- Cinematic nav -->
+  <div class="ci-nav" id="ciNav">
+    <button class="ci-close" onclick="exitCheckin()">✕</button>
+    <div class="ci-track" id="ciTrack"></div>
+    <div style="width:34px;"></div>
   </div>
-  <div style="flex:1;overflow-y:auto;">
-    <div style="padding:24px;max-width:600px;margin:0 auto;padding-bottom:100px;">
-      <div id="checkinContent"></div>
-    </div>
+  <!-- Scrollable content -->
+  <div class="ci-scroll" id="ciScroll">
+    <div id="checkinContent"></div>
   </div>
 </div>
 
@@ -1752,6 +2037,176 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
     <button class="btn btn-primary btn-full" onclick="closeModal('modal-ask-parent')">Got it!</button>
   </div>
 </div>
+
+<!-- ===== FIREBASE SDK ===== -->
+<script type="module">
+// ─────────────────────────────────────────────────────────────────────────────
+//  FIREBASE CONFIGURATION
+//  Replace the placeholder values below with your Firebase project credentials.
+//  Get them from: Firebase Console → Project Settings → Your apps → SDK setup
+// ─────────────────────────────────────────────────────────────────────────────
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+import {
+  getAuth, onAuthStateChanged,
+  createUserWithEmailAndPassword, signInWithEmailAndPassword,
+  signOut, sendPasswordResetEmail,
+  GoogleAuthProvider, signInWithPopup,
+  updateProfile
+} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+import {
+  getFirestore, doc, setDoc, getDoc, onSnapshot
+} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+
+const FIREBASE_CONFIG = {
+  apiKey:            'AIzaSyCMue2lzNL73jok0wFku9K7lAy9BJsimyU',
+  authDomain:        'faithquest-389f2.firebaseapp.com',
+  projectId:         'faithquest-389f2',
+  storageBucket:     'faithquest-389f2.firebasestorage.app',
+  messagingSenderId: '1010380728213',
+  appId:             '1:1010380728213:web:c4dec7d8bcfb58fa22789c',
+};
+
+const _fbConfigured = !FIREBASE_CONFIG.apiKey.startsWith('YOUR_');
+let _fbApp, _fbAuth, _fbDb, _googleProvider, _unsubSnapshot;
+
+if(_fbConfigured){
+  _fbApp          = initializeApp(FIREBASE_CONFIG);
+  _fbAuth         = getAuth(_fbApp);
+  _fbDb           = getFirestore(_fbApp);
+  _googleProvider = new GoogleAuthProvider();
+
+  // ── Auth state listener ────────────────────────────────────────────────────
+  onAuthStateChanged(_fbAuth, async (fbUser) => {
+    if(fbUser){
+      window._fbUser = fbUser;
+      state.currentUser = {
+        id: fbUser.uid,
+        name: fbUser.displayName || fbUser.email.split('@')[0],
+        email: fbUser.email,
+        photoURL: fbUser.photoURL || null,
+      };
+      await _fbLoadUserData(fbUser.uid);
+      // Subscribe to real-time updates
+      if(_unsubSnapshot) _unsubSnapshot();
+      _unsubSnapshot = onSnapshot(doc(_fbDb,'users',fbUser.uid), snap => {
+        if(snap.exists() && window._fbUser){
+          const d = snap.data();
+          state.family       = d.family       || state.family;
+          state.members      = d.members      || state.members;
+          state.completions  = d.completions  || state.completions;
+          state.checkins     = d.checkins     || state.checkins;
+          state.subscription = d.subscription || state.subscription;
+          state.selectedPath = d.selectedPath || state.selectedPath;
+          // Quietly refresh current visible tab
+          _quietRefresh();
+        }
+      });
+      routeAfterAuth();
+    } else {
+      window._fbUser = null;
+      if(_unsubSnapshot){ _unsubSnapshot(); _unsubSnapshot = null; }
+      // Only navigate if we're past the landing screen
+      if(document.querySelector('.screen.active')?.id !== 'screen-landing'){
+        showScreen('screen-landing');
+      }
+    }
+    // Hide loading overlay
+    const ov = document.getElementById('fq-loading-overlay');
+    if(ov) ov.style.display = 'none';
+  });
+} else {
+  // No Firebase — hide overlay immediately, stay in demo mode
+  const ov = document.getElementById('fq-loading-overlay');
+  if(ov) ov.style.display = 'none';
+  console.info('[FaithQuest] Running in demo mode — Firebase not configured.');
+}
+
+// ── Firestore read ──────────────────────────────────────────────────────────
+async function _fbLoadUserData(uid){
+  try {
+    const snap = await getDoc(doc(_fbDb, 'users', uid));
+    if(snap.exists()){
+      const d = snap.data();
+      state.family       = d.family       || null;
+      state.members      = d.members      || [];
+      state.completions  = d.completions  || [];
+      state.checkins     = d.checkins     || [];
+      state.subscription = d.subscription || {plan:'free'};
+      state.selectedPath = d.selectedPath || 'jesus';
+      state.selectedMember = d.selectedMember || null;
+    } else {
+      // New user — also try migrating from localStorage
+      const local = JSON.parse(localStorage.getItem('fq_data_'+uid)||'null');
+      if(local){
+        state.family       = local.family       || null;
+        state.members      = local.members      || [];
+        state.completions  = local.completions  || [];
+        state.checkins     = local.checkins     || [];
+        state.subscription = local.subscription || {plan:'free'};
+        state.selectedPath = local.selectedPath || 'jesus';
+        state.selectedMember = local.selectedMember || null;
+        // Migrate to Firestore
+        await _fbSaveUserData(uid);
+        showToast('Data migrated to cloud sync ☁️');
+      }
+    }
+  } catch(e){
+    console.error('[FaithQuest] Firestore read failed:', e);
+    // Fallback to localStorage
+    const local = JSON.parse(localStorage.getItem('fq_data_'+uid)||'null');
+    if(local){ Object.assign(state, local); }
+  }
+}
+
+// ── Firestore write ─────────────────────────────────────────────────────────
+async function _fbSaveUserData(uid){
+  try {
+    await setDoc(doc(_fbDb,'users',uid||state.currentUser?.id), {
+      family:        state.family,
+      members:       state.members,
+      completions:   state.completions,
+      checkins:      state.checkins,
+      subscription:  state.subscription,
+      selectedPath:  state.selectedPath,
+      selectedMember:state.selectedMember,
+      updatedAt:     new Date().toISOString(),
+    }, {merge:true});
+  } catch(e){
+    console.error('[FaithQuest] Firestore write failed:', e);
+  }
+}
+
+// ── Quiet refresh ───────────────────────────────────────────────────────────
+function _quietRefresh(){
+  const activeTab = state.parentTab || state.kidTab;
+  if(!activeTab) return;
+  const parentEl = document.getElementById('parentContent');
+  const kidEl    = document.getElementById('kidContent');
+  if(parentEl && document.getElementById('screen-parent')?.classList.contains('active')){
+    parentNav(state.parentTab||'home');
+  } else if(kidEl && document.getElementById('screen-kid')?.classList.contains('active')){
+    kidNav(state.kidTab||'home');
+  }
+}
+
+// ── Expose Firebase functions to global scope ─────────────────────────────
+window._fb = {
+  configured: _fbConfigured,
+  auth: () => _fbAuth,
+  db:   () => _fbDb,
+  save: _fbSaveUserData,
+  load: _fbLoadUserData,
+  signIn:  async (email, pass) => signInWithEmailAndPassword(_fbAuth, email, pass),
+  signUp:  async (email, pass, name) => {
+    const cred = await createUserWithEmailAndPassword(_fbAuth, email, pass);
+    if(name) await updateProfile(cred.user, {displayName: name});
+    return cred;
+  },
+  signOut: async () => signOut(_fbAuth),
+  resetPw: async (email) => sendPasswordResetEmail(_fbAuth, email),
+  googleSignIn: async () => signInWithPopup(_fbAuth, _googleProvider),
+};
+</script>
 
 <script>
 // ===================== DATA =====================
@@ -1923,49 +2378,133 @@ function doSignIn(){
   const email=document.getElementById('signin-email').value.trim();
   const pass=document.getElementById('signin-password').value;
   if(!email||!pass){showToast('Please enter email and password');return;}
-  const saved=JSON.parse(localStorage.getItem('fq_users')||'[]');
-  const user=saved.find(u=>u.email===email);
-  if(user){
-    state.currentUser=user;
-    loadUserData();
-    routeAfterAuth();
+
+  if(window._fb?.configured){
+    // ── Firebase sign-in ──
+    const btn=document.querySelector('#auth-signin-form .btn-primary');
+    if(btn){btn.textContent='Signing in…';btn.disabled=true;}
+    window._fb.signIn(email,pass)
+      .then(()=>{
+        // onAuthStateChanged handles routing
+      })
+      .catch(err=>{
+        if(btn){btn.textContent='Sign In →';btn.disabled=false;}
+        const msg={
+          'auth/user-not-found':'No account found. Create one!',
+          'auth/wrong-password':'Incorrect password. Try again.',
+          'auth/invalid-email':'Please enter a valid email address.',
+          'auth/too-many-requests':'Too many attempts. Try again later.',
+          'auth/invalid-credential':'Email or password is incorrect.',
+        }[err.code]||'Sign-in failed. Please try again.';
+        showToast(msg);
+        if(err.code==='auth/user-not-found'){
+          switchAuthTab('signup');
+          document.getElementById('signup-email').value=email;
+        }
+      });
   } else {
-    showToast('No account found. Create one!');switchAuthTab('signup');
-    document.getElementById('signup-email').value=email;
+    // ── Demo mode: localStorage ──
+    const saved=JSON.parse(localStorage.getItem('fq_users')||'[]');
+    const user=saved.find(u=>u.email===email);
+    if(user){
+      state.currentUser=user;
+      loadUserData();
+      routeAfterAuth();
+    } else {
+      showToast('No account found. Create one!');
+      switchAuthTab('signup');
+      document.getElementById('signup-email').value=email;
+    }
   }
 }
+
 function doSignUp(){
   const name=document.getElementById('signup-name').value.trim();
   const email=document.getElementById('signup-email').value.trim();
   const pass=document.getElementById('signup-password').value;
   if(!name){showToast('Please enter your name');return;}
-  if(!email){showToast('Please enter email');return;}
-  if(!pass||pass.length<6){showToast('Password must be 6+ characters');return;}
-  const user={id:'u_'+Date.now(),name,email,createdAt:new Date().toISOString()};
-  const saved=JSON.parse(localStorage.getItem('fq_users')||'[]');
-  saved.push(user);
-  localStorage.setItem('fq_users',JSON.stringify(saved));
-  state.currentUser=user;
-  state.family=null;
-  state.members=[];
-  state.completions=[];
-  state.checkins=[];
-  state.subscription={plan:'free'};
-  startOnboarding();
-}
-function doSignOut(){
-  state.currentUser=null;state.family=null;state.members=[];
-  showScreen('screen-landing');showToast('Signed out');
-}
-function routeAfterAuth(){
-  if(!state.family){startOnboarding();}
-  else{
-    const parent=state.members.find(m=>m.role==='parent');
-    if(parent){showParentApp();}else{showKidApp();}
+  if(!email){showToast('Please enter your email');return;}
+  if(!pass||pass.length<6){showToast('Password must be at least 6 characters');return;}
+
+  if(window._fb?.configured){
+    // ── Firebase sign-up ──
+    const btn=document.querySelector('#auth-signup-form .btn-primary');
+    if(btn){btn.textContent='Creating account…';btn.disabled=true;}
+    window._fb.signUp(email,pass,name)
+      .then(()=>{
+        // Fresh user — reset state before onAuthStateChanged routes
+        state.family=null;state.members=[];state.completions=[];
+        state.checkins=[];state.subscription={plan:'free'};
+        // onAuthStateChanged → routeAfterAuth → startOnboarding
+      })
+      .catch(err=>{
+        if(btn){btn.textContent='Create Free Account →';btn.disabled=false;}
+        const msg={
+          'auth/email-already-in-use':'An account with this email already exists.',
+          'auth/invalid-email':'Please enter a valid email address.',
+          'auth/weak-password':'Password must be at least 6 characters.',
+        }[err.code]||'Sign-up failed. Please try again.';
+        showToast(msg);
+        if(err.code==='auth/email-already-in-use') switchAuthTab('signin');
+      });
+  } else {
+    // ── Demo mode: localStorage ──
+    const user={id:'u_'+Date.now(),name,email,createdAt:new Date().toISOString()};
+    const saved=JSON.parse(localStorage.getItem('fq_users')||'[]');
+    saved.push(user);
+    localStorage.setItem('fq_users',JSON.stringify(saved));
+    state.currentUser=user;
+    state.family=null;state.members=[];state.completions=[];
+    state.checkins=[];state.subscription={plan:'free'};
+    startOnboarding();
   }
 }
+
+function doGoogleSignIn(){
+  if(!window._fb?.configured){showToast('Google sign-in requires Firebase configuration');return;}
+  window._fb.googleSignIn()
+    .then(result=>{
+      // New Google users skip onboarding check — routeAfterAuth handles it
+    })
+    .catch(err=>{
+      if(err.code!=='auth/popup-closed-by-user'){
+        showToast('Google sign-in failed. Please try again.');
+      }
+    });
+}
+
+function doForgotPassword(){
+  const email=document.getElementById('signin-email').value.trim();
+  if(!email){showToast('Enter your email address first');return;}
+  if(!window._fb?.configured){showToast('Password reset requires Firebase configuration');return;}
+  window._fb.resetPw(email)
+    .then(()=>showToast('Password reset email sent! Check your inbox. 📧'))
+    .catch(err=>{
+      const msg={
+        'auth/user-not-found':'No account found with that email.',
+        'auth/invalid-email':'Please enter a valid email address.',
+      }[err.code]||'Failed to send reset email.';
+      showToast(msg);
+    });
+}
+
+function doSignOut(){
+  if(window._fb?.configured){
+    window._fb.signOut().then(()=>{
+      state.currentUser=null;state.family=null;state.members=[];
+      state.completions=[];state.checkins=[];
+      showScreen('screen-landing');
+      showToast('Signed out');
+    });
+  } else {
+    state.currentUser=null;state.family=null;state.members=[];
+    showScreen('screen-landing');showToast('Signed out');
+  }
+}
+
 function loadUserData(){
-  const data=JSON.parse(localStorage.getItem('fq_data_'+state.currentUser.id)||'null');
+  // Demo mode only — Firebase uses _fbLoadUserData in module
+  const data=JSON.parse(localStorage.getItem('fq_data_'+state.currentUser?.id)||'null');
   if(data){
     state.family=data.family||null;
     state.members=data.members||[];
@@ -1976,13 +2515,18 @@ function loadUserData(){
     state.selectedMember=data.selectedMember||null;
   }
 }
+
 function saveUserData(){
   if(!state.currentUser)return;
-  localStorage.setItem('fq_data_'+state.currentUser.id,JSON.stringify({
+  const payload={
     family:state.family,members:state.members,completions:state.completions,
     checkins:state.checkins,subscription:state.subscription,
-    selectedPath:state.selectedPath,selectedMember:state.selectedMember
-  }));
+    selectedPath:state.selectedPath,selectedMember:state.selectedMember,
+  };
+  // Always write localStorage as offline cache
+  localStorage.setItem('fq_data_'+state.currentUser.id,JSON.stringify(payload));
+  // Also write to Firestore if configured
+  if(window._fb?.configured) window._fb.save();
 }
 
 // ===================== ONBOARDING =====================
@@ -2832,45 +3376,160 @@ function renderKidHome(el){
 
 function getBadges(memberId){
   const done=state.completions.filter(c=>c.memberId===memberId).length;
-  let badges=0;
-  if(done>=1)badges++;if(done>=3)badges++;if(done>=5)badges++;if(done>=7)badges++;
-  return badges;
+  const missions=state.checkins.filter(c=>c.memberId===memberId&&c.approved).length;
+  const streak=getStreak(memberId);
+  let count=0;
+  if(done>=1)count++;if(done>=3)count++;if(done>=5)count++;if(done>=7)count++;
+  if(missions>=1)count++;if(missions>=3)count++;if(streak>=3)count++;
+  return count;
 }
 function renderKidRewards(el){
   const member=getCurrentMember();
-  const done=state.completions.filter(c=>c.memberId===member?.id).length;
-  const missions=state.checkins.filter(c=>c.memberId===member?.id&&c.approved).length;
-  const badgeDefs=[
-    {emoji:'⭐',name:'First Light',desc:'Complete your first lesson',earned:done>=1},
-    {emoji:'🌿',name:'Seedling',desc:'Complete 3 lessons',earned:done>=3},
-    {emoji:'🦁',name:'Brave Heart',desc:'Complete 5 lessons',earned:done>=5},
-    {emoji:'📖',name:'Scripture Scout',desc:'Complete 7 lessons',earned:done>=7},
-    {emoji:'🎯',name:'Mission Ready',desc:'Complete first mission',earned:missions>=1},
-    {emoji:'🏆',name:'Faith Hero',desc:'Complete 3 missions',earned:missions>=3},
-    {emoji:'🔥',name:'Streak Master',desc:'3-day streak',earned:getStreak(member?.id)>=3},
-    {emoji:'🌟',name:'Quest Champion',desc:'Complete a full path',earned:done>=7},
-    {emoji:'🙏',name:'Prayer Warrior',desc:'Use prayer builder',earned:false},
+  if(!member){el.innerHTML='';return;}
+  const done=state.completions.filter(c=>c.memberId===member.id).length;
+  const missions=state.checkins.filter(c=>c.memberId===member.id&&c.approved).length;
+  const streak=getStreak(member.id);
+  const lvl=Math.floor(done/3)+1;
+  // XP within current level: each level = 3 lessons
+  const xpInLevel=done%3;
+  const xpPct=Math.round((xpInLevel/3)*100);
+
+  const ALL_BADGES=[
+    {emoji:'⭐',name:'First Light',    req:'Complete 1 lesson',   earned:done>=1,    cat:'lessons'},
+    {emoji:'🌿',name:'Seedling',       req:'Complete 3 lessons',  earned:done>=3,    cat:'lessons'},
+    {emoji:'🦁',name:'Brave Heart',    req:'Complete 5 lessons',  earned:done>=5,    cat:'lessons'},
+    {emoji:'📖',name:'Scripture Scout',req:'Complete 7 lessons',  earned:done>=7,    cat:'lessons'},
+    {emoji:'🌍',name:'World Changer',  req:'Complete all 35 lessons',earned:done>=35, cat:'lessons'},
+    {emoji:'🎯',name:'Mission Ready',  req:'Complete 1 mission',  earned:missions>=1,cat:'missions'},
+    {emoji:'⚔️',name:'Faith Hero',     req:'Complete 3 missions', earned:missions>=3,cat:'missions'},
+    {emoji:'🛡️',name:'Quest Master',   req:'Complete 7 missions', earned:missions>=7,cat:'missions'},
+    {emoji:'🔥',name:'Streak Starter', req:'3-day streak',        earned:streak>=3,  cat:'streak'},
+    {emoji:'💎',name:'Streak Legend',  req:'7-day streak',        earned:streak>=7,  cat:'streak'},
+    {emoji:'🙏',name:'Prayer Warrior', req:'Build a family prayer',earned:false,     cat:'special'},
+    {emoji:'🌟',name:'Quest Champion', req:'Complete a full path', earned:done>=7,   cat:'special'},
   ];
+
+  const earned=ALL_BADGES.filter(b=>b.earned);
+  const locked=ALL_BADGES.filter(b=>!b.earned);
+  const nextBadge=locked[0];
+
+  // Stars
+  const stars=Array.from({length:22},(_,i)=>{
+    const x=(i*41+7)%93+2, y=(i*61+11)%88+2;
+    const sz=((i*7)%2)+1, dur=2.5+((i*9)%3), delay=((i*1.7)%3).toFixed(1);
+    return `<div class="rw-hero-star" style="left:${x}%;top:${y}%;width:${sz}px;height:${sz}px;--dur:${dur}s;animation-delay:${delay}s;"></div>`;
+  }).join('');
+
   el.innerHTML=`
-    <div style="padding:20px 16px 0;display:flex;align-items:center;justify-content:space-between;">
-      <h2 style="font-family:var(--font-display);font-size:1.4rem;font-weight:700;">Your Rewards</h2>
-      <div class="streak-badge">🔥 ${getStreak(member?.id)} streak</div>
-    </div>
-    <div style="padding:8px 16px 16px;">
-      <div class="card" style="background:linear-gradient(135deg,var(--amber-light),#FFF7ED);margin-bottom:20px;text-align:center;">
-        <div style="font-size:2.5rem;margin-bottom:4px;">🏅</div>
-        <div style="font-family:var(--font-display);font-size:1.6rem;font-weight:700;">${badgeDefs.filter(b=>b.earned).length}</div>
-        <div style="font-size:0.8125rem;color:var(--gold);">Badges Earned</div>
+    <!-- ── Trophy hero ── -->
+    <div class="rw-hero">
+      <div class="rw-hero-stars">${stars}</div>
+      <div class="rw-hero-glow"></div>
+      <div class="rw-hero-content">
+        <div class="rw-hero-top">
+          <div class="rw-trophy">🏆</div>
+          <div>
+            <div class="rw-hero-name">${member.name}'s Trophy Room</div>
+            <div class="rw-hero-level">Level ${lvl} · ${earned.length} of ${ALL_BADGES.length} badges</div>
+          </div>
+        </div>
+        <div class="rw-xp-section">
+          <div class="rw-xp-header">
+            <span class="rw-xp-label">Level ${lvl} Progress</span>
+            <span class="rw-xp-val">${xpInLevel}/3 XP</span>
+          </div>
+          <div class="rw-xp-track">
+            <div class="rw-xp-fill" id="rwXpFill" style="width:0%;"></div>
+          </div>
+          <div class="rw-xp-next">${xpInLevel===0&&done===0?'Complete your first lesson to earn XP!':xpInLevel===0?`Level ${lvl} reached! 🎉`:`${3-xpInLevel} more lesson${3-xpInLevel!==1?'s':''} to reach Level ${lvl+1}`}</div>
+        </div>
+        <div class="rw-stats">
+          <div class="rw-stat">
+            <span class="rw-stat-val">${done}</span>
+            <span class="rw-stat-lbl">Lessons</span>
+          </div>
+          <div class="rw-stat">
+            <span class="rw-stat-val">${missions}</span>
+            <span class="rw-stat-lbl">Missions</span>
+          </div>
+          <div class="rw-stat">
+            <span class="rw-stat-val">${streak}</span>
+            <span class="rw-stat-lbl">Streak</span>
+          </div>
+          <div class="rw-stat">
+            <span class="rw-stat-val">${earned.length}</span>
+            <span class="rw-stat-lbl">Badges</span>
+          </div>
+        </div>
       </div>
-      <div class="badge-grid" style="padding-bottom:80px;">
-        ${badgeDefs.map(b=>`
-          <div class="badge-item${b.earned?' earned':' locked'}">
-            <span class="badge-emoji">${b.emoji}</span>
-            <div class="badge-name">${b.name}</div>
-            <div class="badge-desc">${b.desc}</div>
+    </div>
+
+    <div class="rw-body">
+      <!-- ── Streak card ── -->
+      <div class="rw-streak-card">
+        <div class="rw-streak-flame">🔥</div>
+        <div class="rw-streak-info">
+          <div class="rw-streak-num">${streak} Day${streak!==1?'s':''}</div>
+          <div class="rw-streak-label">${streak===0?'No streak yet':'Current Streak'}</div>
+          <div class="rw-streak-sub">${streak===0?'Complete a lesson today to start!':streak<3?'3 days unlocks Streak Starter badge!':streak<7?'7 days unlocks Streak Legend badge!':'You\'re legendary! 🌟'}</div>
+        </div>
+      </div>
+
+      <!-- ── Next unlock ── -->
+      ${nextBadge?`
+      <div class="rw-section-hd">
+        <span class="rw-section-title">Next Unlock</span>
+      </div>
+      <div class="rw-next-unlock">
+        <div class="rw-next-icon">${nextBadge.emoji}</div>
+        <div class="rw-next-info">
+          <div class="rw-next-label">🔒 Locked</div>
+          <div class="rw-next-name">${nextBadge.name}</div>
+          <div class="rw-next-desc">${nextBadge.req}</div>
+        </div>
+      </div>`:''}
+
+      <!-- ── Earned badges ── -->
+      ${earned.length>0?`
+      <div class="rw-section-hd">
+        <span class="rw-section-title">Earned Badges</span>
+        <span class="rw-section-count">${earned.length} unlocked ✨</span>
+      </div>
+      <div class="rw-badge-grid">
+        ${earned.map((b,i)=>`
+          <div class="rw-badge earned" style="--i:${i}">
+            <div class="rw-badge-shine">NEW</div>
+            <span class="rw-badge-icon">${b.emoji}</span>
+            <div class="rw-badge-name">${b.name}</div>
+            <div class="rw-badge-req">${b.req}</div>
+          </div>`).join('')}
+      </div>`:`
+      <div style="background:white;border-radius:20px;padding:28px 20px;text-align:center;margin-bottom:8px;box-shadow:0 2px 12px rgba(0,0,0,0.07);">
+        <div style="font-size:2.5rem;margin-bottom:10px;">🌱</div>
+        <div style="font-weight:800;font-size:0.95rem;color:var(--slate-700);margin-bottom:4px;">No badges yet</div>
+        <div style="font-size:0.8rem;color:var(--slate-400);line-height:1.5;">Complete your first lesson to earn your first badge!</div>
+      </div>`}
+
+      <!-- ── Locked badges ── -->
+      <div class="rw-section-hd" style="margin-top:20px;">
+        <span class="rw-section-title">Still Locked</span>
+        <span class="rw-section-count">${locked.length} to go</span>
+      </div>
+      <div class="rw-badge-grid">
+        ${locked.map((b,i)=>`
+          <div class="rw-badge locked" style="--i:${i}">
+            <span class="rw-badge-icon">${b.emoji}</span>
+            <div class="rw-badge-name">${b.name}</div>
+            <div class="rw-badge-req">${b.req}</div>
           </div>`).join('')}
       </div>
     </div>`;
+
+  // Animate XP bar after paint
+  requestAnimationFrame(()=>{
+    const fill=el.querySelector('#rwXpFill');
+    if(fill) fill.style.width=xpPct+'%';
+  });
 }
 function renderKidLibrary(el){
   const member=getCurrentMember();
@@ -3189,37 +3848,166 @@ function completeLesson(){
 
 // ===================== CHECKIN (standalone) =====================
 function startCheckin(mission,memberId){
-  state.checkinState={mission,member:state.members.find(m=>m.id===memberId)};
+  state.checkinState={
+    mission,
+    member:state.members.find(m=>m.id===memberId),
+    step:0,
+    selectedMood:null,
+    reflectText:'',
+  };
   showScreen('screen-checkin');
   renderCheckin();
 }
 function exitCheckin(){showKidApp();}
+
 function renderCheckin(){
-  const {mission,member}=state.checkinState;
+  const {mission,member,step,selectedMood,reflectText}=state.checkinState;
   const el=document.getElementById('checkinContent');
-  el.innerHTML=`
-    <div class="anim-in">
-      <div style="text-align:center;margin-bottom:28px;">
-        <div style="font-size:3rem;margin-bottom:12px;">✅</div>
-        <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;margin-bottom:6px;">Mission Complete!</h2>
-        <p style="font-size:0.875rem;color:var(--slate-600);">${mission?.title||'Your Mission'}</p>
+  const scroll=document.getElementById('ciScroll');
+
+  // Update step track
+  const track=document.getElementById('ciTrack');
+  if(track){
+    track.innerHTML=[0,1,2].map(i=>`<div class="ci-pip ${i<step?'done':i===step?'active':''}"></div>`).join('');
+  }
+
+  if(step===0){
+    // ── Step 1: Mission confirmation ──────────────────────────────────────
+    el.innerHTML=`
+      <div class="ci-confirm-hero">
+        <div class="ci-confirm-grid"></div>
+        <div class="ci-confirm-glow"></div>
+        <div class="ci-confirm-content">
+          <div class="ci-confirm-ring">${mission?.emoji||'🎯'}</div>
+          <div class="ci-confirm-tag">✅ Mission Complete</div>
+          <div class="ci-confirm-title">You did it!</div>
+          <div class="ci-confirm-mission">${member?.name||'You'} finished a real-world mission.</div>
+        </div>
       </div>
-      <div class="form-group">
-        <label class="form-label">How did it go? (emoji)</label>
-        <div class="emoji-grid">${['😊','🤩','😅','💪','🙏','😢'].map(e=>`<span class="emoji-btn" onclick="this.classList.toggle('selected')">${e}</span>`).join('')}</div>
+      <div class="ci-confirm-body">
+        <div class="ci-mission-recap">
+          <div class="ci-recap-icon">${mission?.emoji||'🎯'}</div>
+          <div class="ci-recap-info">
+            <div class="ci-recap-label">Your mission</div>
+            <div class="ci-recap-name">${mission?.title||'Mission'}</div>
+            <div class="ci-recap-desc">${mission?.desc||''}</div>
+          </div>
+        </div>
+        <p style="font-size:0.82rem;color:var(--slate-500);line-height:1.65;margin-bottom:20px;">
+          Now share how it went — your parent will see this reflection and approve your mission.
+        </p>
+        <div class="ci-bar">
+          <button class="ci-next-btn" onclick="ciNext()">Tell My Story →</button>
+        </div>
+      </div>`;
+
+  } else if(step===1){
+    // ── Step 2: Mood + reflection ─────────────────────────────────────────
+    const moods=['😊','🤩','💪','🙏','😅','😤','😢','🥺'];
+    el.innerHTML=`
+      <div class="ci-story-hero">
+        <div class="ci-confirm-grid"></div>
+        <span class="ci-story-icon">📖</span>
+        <div class="ci-story-title">Tell Your Story</div>
+        <div class="ci-story-sub">How did the mission go? Your parent will love hearing about it.</div>
       </div>
-      <div class="form-group">
-        <label class="form-label">Tell your parent about it</label>
-        <textarea class="form-input" rows="4" id="checkin-reflect" placeholder="What happened? How did it feel?"></textarea>
-      </div>
-      <button class="btn btn-primary btn-full" onclick="submitCheckin()">Submit to Parent →</button>
-    </div>`;
+      <div class="ci-story-body">
+        <div class="ci-card">
+          <div class="ci-card-label">How are you feeling?</div>
+          <div class="ci-mood-grid">
+            ${moods.map(e=>`<button class="ci-mood-btn${selectedMood===e?' selected':''}" onclick="ciSelectMood('${e}')">${e}</button>`).join('')}
+          </div>
+        </div>
+        <div class="ci-card">
+          <div class="ci-card-label">What happened? How did it feel?</div>
+          <textarea class="ci-textarea" rows="5" id="ciReflect"
+            placeholder="Describe what you did and how it went. Even one or two sentences is great!"
+            oninput="state.checkinState.reflectText=this.value;document.getElementById('ciCharCount').textContent=this.value.length+' characters'"
+          >${reflectText}</textarea>
+          <div class="ci-char-count" id="ciCharCount">${reflectText.length} characters</div>
+        </div>
+        <div class="ci-photo-prompt" onclick="showToast('Photo upload coming soon! 📸')">
+          <div class="ci-photo-icon">📸</div>
+          <div class="ci-photo-text">
+            <strong>Add a photo (optional)</strong>
+            Snap a pic of your mission in action
+          </div>
+        </div>
+        <div class="ci-bar">
+          <button class="ci-next-btn" onclick="ciSubmit()" style="background:linear-gradient(135deg,#0369A1,#0284C7);box-shadow:0 4px 16px rgba(3,105,161,0.35);">
+            Submit to Parent 🙏
+          </button>
+        </div>
+      </div>`;
+
+    // Restore scroll
+    if(scroll) scroll.scrollTo({top:0,behavior:'instant'});
+
+  } else if(step===2){
+    // ── Step 3: Success ───────────────────────────────────────────────────
+    el.innerHTML=`
+      <div class="ci-success">
+        <div class="ci-success-confetti">🎉 ⭐ 🎉</div>
+        <div class="ci-success-ring">✅</div>
+        <div class="ci-success-title">Submitted!</div>
+        <div class="ci-success-sub">
+          Your parent will review your mission and reflection soon. Great job putting faith into action!
+        </div>
+        <div class="ci-xp-burst">
+          <div class="ci-xp-icon">⭐</div>
+          <div class="ci-xp-text">
+            <div class="ci-xp-val">+1 XP Earned</div>
+            <div class="ci-xp-lbl">Mission submitted for approval</div>
+          </div>
+        </div>
+        <div class="ci-success-note">
+          You'll get a notification when your parent approves it.<br>
+          Your reflection has been saved.
+        </div>
+        <button class="ci-done-btn" onclick="exitCheckin()">Back to Home 🏠</button>
+      </div>`;
+
+    if(scroll) scroll.scrollTo({top:0,behavior:'instant'});
+  }
 }
-function submitCheckin(){
-  const text=document.getElementById('checkin-reflect').value.trim();
-  if(!text){showToast('Write a short reflection first');return;}
-  showToast('Submitted! Your parent will review it. 🌟');
-  exitCheckin();
+
+function ciSelectMood(e){
+  state.checkinState.selectedMood=e;
+  // In-place update — no full re-render
+  document.querySelectorAll('.ci-mood-btn').forEach(btn=>{
+    btn.classList.toggle('selected',btn.textContent===e);
+  });
+}
+
+function ciNext(){
+  state.checkinState.step++;
+  renderCheckin();
+}
+
+function ciSubmit(){
+  const text=state.checkinState.reflectText.trim()||
+             document.getElementById('ciReflect')?.value.trim()||'';
+  if(!text){showToast('Write a short reflection first ✏️');return;}
+  const {mission,member,selectedMood}=state.checkinState;
+  // Save check-in to state
+  const existing=state.checkins.find(c=>
+    c.memberId===member?.id&&c.missionTitle===mission?.title&&!c.approved
+  );
+  if(!existing){
+    state.checkins.push({
+      id:'ci_'+Date.now(),
+      memberId:member?.id,
+      lessonId:mission?.lessonId||'manual',
+      missionTitle:mission?.title||'Mission',
+      reflection:text,
+      emoji:selectedMood||'😊',
+      approved:false,
+      createdAt:new Date().toISOString(),
+    });
+    saveUserData();
+  }
+  state.checkinState.step=2;
+  renderCheckin();
 }
 
 // ===================== INIT =====================
@@ -3365,6 +4153,29 @@ function selectLpStep(i){
 buildFAQ();
 initLessonPreview();
 
+// ── Firebase init check ────────────────────────────────────────────────────
+(function(){
+  // Give the module script 800ms to load and set window._fb
+  setTimeout(function(){
+    const configured = window._fb?.configured;
+    // Update demo hint
+    const hint = document.getElementById('authDemoHintText');
+    if(hint){
+      hint.innerHTML = configured
+        ? '<strong>Secure sign-in</strong> powered by Firebase. Your data syncs across all devices.'
+        : '<strong>Demo mode:</strong> Firebase not configured. Enter any email + password to explore.';
+    }
+    // Show setup banner if not configured
+    if(!configured){
+      const banner = document.getElementById('fq-firebase-banner');
+      if(banner) banner.style.display = 'block';
+      // Also hide loading overlay (Firebase module won't call onAuthStateChanged)
+      const overlay = document.getElementById('fq-loading-overlay');
+      if(overlay) overlay.style.display = 'none';
+    }
+  }, 800);
+})();
+
 
 // ── PWA: Inline Web App Manifest ─────────────────────────────────────────
 (function(){
@@ -3468,5 +4279,33 @@ function triggerInstall(){
   });
 }
 </script>
+
+<!-- ===== FIREBASE LOADING OVERLAY ===== -->
+<div id="fq-loading-overlay" style="position:fixed;inset:0;background:#060D1F;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;">
+  <div style="width:56px;height:56px;background:linear-gradient(135deg,#F59E0B,#D97706);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 8px 24px rgba(245,158,11,0.4);">✝️</div>
+  <div style="font-family:Georgia,serif;font-size:1.3rem;font-weight:700;color:white;">FaithQuest</div>
+  <div style="display:flex;gap:6px;margin-top:4px;">
+    <div style="width:8px;height:8px;border-radius:50%;background:#F59E0B;animation:dotPulse 1.2s 0s ease-in-out infinite;"></div>
+    <div style="width:8px;height:8px;border-radius:50%;background:#F59E0B;animation:dotPulse 1.2s 0.2s ease-in-out infinite;"></div>
+    <div style="width:8px;height:8px;border-radius:50%;background:#F59E0B;animation:dotPulse 1.2s 0.4s ease-in-out infinite;"></div>
+  </div>
+  <style>@keyframes dotPulse{0%,80%,100%{opacity:0.2;transform:scale(0.8);}40%{opacity:1;transform:scale(1.1);}}</style>
+</div>
+
+<!-- ===== FIREBASE CONFIG BANNER ===== -->
+<div id="fq-firebase-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:8000;background:linear-gradient(135deg,#0F172A,#1E3A5F);border-top:2px solid rgba(245,158,11,0.4);padding:16px 20px;box-shadow:0 -8px 32px rgba(0,0,0,0.4);">
+  <div style="max-width:600px;margin:0 auto;display:flex;align-items:flex-start;gap:12px;">
+    <div style="font-size:1.4rem;flex-shrink:0;margin-top:2px;">🔧</div>
+    <div style="flex:1;">
+      <div style="font-weight:800;font-size:0.9rem;color:white;margin-bottom:4px;">Firebase not configured — running in demo mode</div>
+      <div style="font-size:0.78rem;color:rgba(255,255,255,0.6);line-height:1.5;margin-bottom:10px;">Auth + cloud sync disabled. Add your project credentials to the <code style="background:rgba(255,255,255,0.1);padding:1px 5px;border-radius:4px;">FIREBASE_CONFIG</code> object at the top of the module script.</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="https://console.firebase.google.com/" target="_blank" style="display:inline-flex;align-items:center;gap:5px;background:rgba(245,158,11,0.2);border:1px solid rgba(245,158,11,0.4);color:#F59E0B;padding:6px 12px;border-radius:8px;font-size:0.75rem;font-weight:700;text-decoration:none;">Open Firebase Console ↗</a>
+        <button onclick="document.getElementById('fq-firebase-banner').style.display='none'" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.6);padding:6px 12px;border-radius:8px;font-size:0.75rem;font-weight:700;cursor:pointer;font-family:inherit;">Dismiss</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
