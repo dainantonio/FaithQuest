@@ -198,15 +198,59 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 .landing-footer{background:var(--slate-900);color:rgba(255,255,255,0.6);padding:40px 24px;text-align:center;font-size:0.875rem;}
 .landing-footer a{color:var(--amber);text-decoration:none;}
 
-/* ===== AUTH ===== */
-#screen-auth{background:var(--sand);align-items:center;justify-content:center;padding:40px 24px;}
-.auth-box{width:100%;max-width:440px;}
-.auth-logo-row{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:40px;}
-.auth-logo-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--amber),var(--amber-dark));border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;}
-.auth-logo-text{font-family:var(--font-display);font-size:1.6rem;font-weight:700;}
-.auth-tabs{display:flex;background:var(--slate-100);border-radius:12px;padding:4px;margin-bottom:28px;}
-.auth-tab{flex:1;padding:10px;text-align:center;font-size:0.875rem;font-weight:600;cursor:pointer;border-radius:8px;transition:all 0.2s;color:var(--slate-500);}
-.auth-tab.active{background:white;color:var(--slate-900);box-shadow:var(--shadow);}
+/* ===== AUTH SCREEN — split panel ===== */
+#screen-auth{background:var(--slate-900);align-items:stretch;justify-content:center;padding:0;flex-direction:row!important;min-height:100vh;}
+.auth-panel-left{flex:1;background:linear-gradient(160deg,#0F172A 0%,#1E3A5F 55%,#0F3460 100%);display:flex;flex-direction:column;justify-content:space-between;padding:48px 52px;position:relative;overflow:hidden;min-height:100vh;}
+.auth-panel-left::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.05) 1px,transparent 1px);background-size:28px 28px;}
+.auth-panel-left-glow{position:absolute;bottom:-120px;left:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(245,158,11,0.15) 0%,transparent 65%);}
+.auth-left-content{position:relative;z-index:1;}
+.auth-left-logo{display:flex;align-items:center;gap:12px;margin-bottom:64px;}
+.auth-left-logo-icon{width:44px;height:44px;background:linear-gradient(135deg,var(--amber),var(--amber-dark));border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 4px 16px rgba(245,158,11,0.4);}
+.auth-left-logo-text{font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:white;}
+.auth-left-heading{font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;color:white;line-height:1.15;margin-bottom:16px;}
+.auth-left-heading span{color:var(--amber);}
+.auth-left-sub{font-size:0.9375rem;color:rgba(255,255,255,0.6);line-height:1.75;margin-bottom:48px;max-width:360px;}
+.auth-left-features{display:flex;flex-direction:column;gap:14px;}
+.auth-left-feature{display:flex;align-items:center;gap:12px;}
+.auth-feature-icon{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.auth-feature-text{font-size:0.875rem;color:rgba(255,255,255,0.7);line-height:1.4;}
+.auth-feature-text strong{color:white;font-weight:600;}
+.auth-left-footer{position:relative;z-index:1;font-size:0.75rem;color:rgba(255,255,255,0.3);}
+.auth-panel-right{width:100%;max-width:480px;background:white;display:flex;flex-direction:column;justify-content:center;padding:48px 48px;overflow-y:auto;min-height:100vh;}
+.auth-right-back{display:inline-flex;align-items:center;gap:6px;font-size:0.875rem;font-weight:500;color:var(--slate-500);cursor:pointer;margin-bottom:40px;transition:color 0.2s;background:none;border:none;font-family:var(--font-body);padding:0;}
+.auth-right-back:hover{color:var(--slate-900);}
+.auth-right-heading{font-family:var(--font-display);font-size:1.75rem;font-weight:700;color:var(--slate-900);margin-bottom:6px;}
+.auth-right-sub{font-size:0.9rem;color:var(--slate-500);margin-bottom:32px;line-height:1.6;}
+.auth-right-sub a{color:var(--amber-dark);font-weight:600;cursor:pointer;text-decoration:none;}
+.auth-right-sub a:hover{text-decoration:underline;}
+.auth-divider{display:flex;align-items:center;gap:12px;margin:24px 0;}
+.auth-divider-line{flex:1;height:1px;background:var(--slate-200);}
+.auth-divider-text{font-size:0.75rem;font-weight:600;color:var(--slate-400);text-transform:uppercase;letter-spacing:0.06em;}
+.auth-demo-hint{background:linear-gradient(135deg,var(--amber-light),#FFF7ED);border:1px solid rgba(245,158,11,0.3);border-radius:var(--radius-sm);padding:12px 16px;margin-top:20px;display:flex;gap:10px;align-items:flex-start;}
+.auth-demo-hint-icon{font-size:1rem;flex-shrink:0;margin-top:1px;}
+.auth-demo-hint-text{font-size:0.8125rem;color:var(--gold);line-height:1.5;}
+.auth-input-group{position:relative;margin-bottom:20px;}
+.auth-input-label{display:block;font-size:0.8125rem;font-weight:600;color:var(--slate-700);margin-bottom:6px;}
+.auth-input{width:100%;padding:13px 16px;border:2px solid var(--slate-200);border-radius:10px;font-family:var(--font-body);font-size:0.9375rem;color:var(--slate-900);background:white;transition:border-color 0.2s,box-shadow 0.2s;outline:none;}
+.auth-input:focus{border-color:var(--amber);box-shadow:0 0 0 4px rgba(245,158,11,0.1);}
+.auth-input.has-error{border-color:var(--rose);}
+.auth-input-error{font-size:0.75rem;color:var(--rose);font-weight:500;margin-top:5px;}
+.auth-pass-toggle{position:absolute;right:14px;bottom:13px;cursor:pointer;font-size:1rem;color:var(--slate-400);transition:color 0.2s;}
+.auth-pass-toggle:hover{color:var(--slate-700);}
+.auth-forgot{font-size:0.8125rem;color:var(--amber-dark);font-weight:600;cursor:pointer;float:right;margin-top:-14px;margin-bottom:20px;display:block;}
+.auth-forgot:hover{text-decoration:underline;}
+.auth-terms{font-size:0.75rem;color:var(--slate-400);line-height:1.6;margin-top:16px;text-align:center;}
+.auth-terms a{color:var(--slate-600);}
+.auth-strength{margin-top:6px;display:flex;gap:4px;}
+.auth-strength-bar{height:3px;flex:1;border-radius:100px;background:var(--slate-200);transition:background 0.3s;}
+.auth-strength-bar.weak{background:var(--rose);}
+.auth-strength-bar.medium{background:var(--amber);}
+.auth-strength-bar.strong{background:var(--emerald);}
+@media(max-width:768px){
+  #screen-auth{flex-direction:column!important;}
+  .auth-panel-left{display:none;}
+  .auth-panel-right{max-width:100%;padding:32px 24px;min-height:100vh;}
+}
 
 /* ===== ONBOARDING ===== */
 #screen-onboarding{background:var(--sand);}
@@ -291,58 +335,203 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 .mission-meta{font-size:0.8125rem;color:var(--slate-500);}
 .mission-arrow{color:var(--slate-400);font-size:1.1rem;}
 
-/* ===== LESSON PLAYER ===== */
-#screen-lesson{background:var(--sand);}
-.lesson-nav{display:flex;align-items:center;gap:12px;padding:16px 24px;background:white;border-bottom:1px solid var(--slate-200);}
+/* ===== LESSON PLAYER — polished ===== */
+#screen-lesson{background:#F8FAFC;flex-direction:column;}
+.lesson-nav{
+  display:flex;align-items:center;gap:14px;padding:14px 20px;
+  background:white;border-bottom:1px solid var(--slate-200);
+  position:sticky;top:0;z-index:50;
+  box-shadow:0 1px 8px rgba(0,0,0,0.04);
+}
+.lesson-close-btn{
+  width:36px;height:36px;border-radius:10px;border:none;
+  background:var(--slate-100);color:var(--slate-600);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;cursor:pointer;flex-shrink:0;transition:all 0.18s;
+}
+.lesson-close-btn:hover{background:var(--slate-200);color:var(--slate-900);}
 .lesson-progress-row{flex:1;}
-.lesson-step-label{font-size:0.75rem;font-weight:600;color:var(--slate-500);margin-bottom:6px;}
-.lesson-steps{display:flex;gap:4px;}
-.lesson-step-dot{flex:1;height:4px;border-radius:100px;background:var(--slate-200);transition:background 0.3s;}
+.lesson-step-label{font-size:0.7rem;font-weight:700;color:var(--slate-400);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:5px;}
+.lesson-steps{display:flex;gap:3px;}
+.lesson-step-dot{flex:1;height:4px;border-radius:100px;background:var(--slate-200);transition:all 0.35s ease;}
 .lesson-step-dot.done{background:var(--amber);}
-.lesson-step-dot.active{background:var(--amber-dark);}
-.lesson-body{padding:24px;max-width:680px;margin:0 auto;padding-bottom:120px;}
-.lesson-step-title{font-size:0.75rem;font-weight:700;color:var(--amber-dark);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;}
-.lesson-main-title{font-family:var(--font-display);font-size:1.8rem;font-weight:700;margin-bottom:8px;}
-.verse-block{background:linear-gradient(135deg,#1E293B,#0F3460);border-radius:var(--radius);padding:28px;color:white;margin:24px 0;position:relative;overflow:hidden;}
-.verse-block::before{content:'❝';position:absolute;top:12px;left:16px;font-size:3rem;opacity:0.1;font-family:Georgia;}
-.verse-ref{font-size:0.75rem;font-weight:600;color:var(--amber);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;}
-.verse-text{font-family:var(--font-display);font-size:1.1rem;line-height:1.7;color:rgba(255,255,255,0.95);}
-.explanation-box{background:var(--amber-light);border-radius:var(--radius);padding:20px;margin-bottom:24px;border-left:4px solid var(--amber);}
-.explanation-label{font-size:0.75rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;}
-.explanation-text{font-size:0.9375rem;line-height:1.7;color:var(--slate-700);}
-.question-list{display:flex;flex-direction:column;gap:12px;margin-bottom:24px;}
-.question-item{background:white;border-radius:var(--radius);padding:16px 20px;box-shadow:var(--shadow);}
-.question-num{font-size:0.75rem;font-weight:700;color:var(--amber-dark);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;}
-.question-text{font-size:0.9375rem;line-height:1.5;}
-.mission-options{display:flex;flex-direction:column;gap:14px;margin-bottom:24px;}
-.mission-option{background:white;border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow);cursor:pointer;border:3px solid transparent;transition:all 0.2s;}
-.mission-option:hover{border-color:var(--amber-light);}
-.mission-option.selected{border-color:var(--amber);background:var(--amber-light);}
-.mission-option-emoji{font-size:1.4rem;margin-bottom:8px;display:block;}
-.mission-option-title{font-weight:700;font-size:0.9375rem;margin-bottom:4px;}
-.mission-option-desc{font-size:0.875rem;color:var(--slate-600);line-height:1.5;}
-.reflect-section{margin-bottom:24px;}
-.emoji-grid{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;}
-.emoji-btn{font-size:2rem;cursor:pointer;padding:8px;border-radius:12px;border:3px solid transparent;transition:all 0.2s;background:white;box-shadow:var(--shadow);}
-.emoji-btn.selected{border-color:var(--amber);background:var(--amber-light);transform:scale(1.2);}
-.puzzle-container{margin-bottom:24px;}
-.puzzle-sentence{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:1rem;line-height:2;margin-bottom:16px;}
-.puzzle-word{padding:6px 14px;background:white;border:2px solid var(--slate-200);border-radius:8px;cursor:pointer;font-weight:600;transition:all 0.2s;}
-.puzzle-word:hover{border-color:var(--amber);}
-.puzzle-word.used{opacity:0.4;pointer-events:none;}
-.puzzle-blank{display:inline-flex;align-items:center;min-width:100px;border-bottom:3px solid var(--amber);padding:4px 8px;color:var(--amber-dark);font-weight:700;}
-.scenario-choices{display:flex;flex-direction:column;gap:12px;margin-bottom:24px;}
-.scenario-choice{background:white;border-radius:var(--radius);padding:16px 20px;cursor:pointer;border:3px solid transparent;box-shadow:var(--shadow);transition:all 0.2s;display:flex;align-items:flex-start;gap:12px;}
-.scenario-choice:hover{border-color:var(--sky-light);}
-.scenario-choice.selected-good{border-color:var(--emerald);background:var(--emerald-light);}
-.scenario-choice.selected-bad{border-color:var(--rose);background:var(--rose-light);}
-.scenario-letter{width:28px;height:28px;border-radius:50%;background:var(--slate-100);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.875rem;flex-shrink:0;}
-.prayer-lines{display:flex;flex-direction:column;gap:12px;margin-bottom:24px;}
+.lesson-step-dot.active{background:var(--amber-dark);box-shadow:0 0 8px rgba(245,158,11,0.5);}
+.lesson-step-count{font-size:0.75rem;font-weight:700;color:var(--slate-400);flex-shrink:0;min-width:40px;text-align:right;}
+.lesson-body{padding:0;max-width:680px;margin:0 auto;width:100%;padding-bottom:120px;}
+/* Step header band */
+.lesson-step-band{
+  padding:28px 24px 24px;
+  margin-bottom:0;
+}
+.lesson-step-band.band-read{background:linear-gradient(135deg,#0F172A,#1E3A5F);}
+.lesson-step-band.band-understand{background:linear-gradient(135deg,#B45309,#D97706);}
+.lesson-step-band.band-talk{background:linear-gradient(135deg,#0369A1,#0284C7);}
+.lesson-step-band.band-do{background:linear-gradient(135deg,#065F46,#059669);}
+.lesson-step-band.band-reflect{background:linear-gradient(135deg,#7C3AED,#6D28D9);}
+.lesson-step-band.band-prayer{background:linear-gradient(135deg,#881337,#BE123C);}
+.lesson-step-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.2);color:white;padding:5px 12px;border-radius:100px;font-size:0.7rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:12px;}
+.lesson-step-main-title{font-family:var(--font-display);font-size:clamp(1.4rem,4vw,1.9rem);font-weight:700;color:white;line-height:1.2;}
+.lesson-step-main-sub{font-size:0.875rem;color:rgba(255,255,255,0.65);margin-top:6px;line-height:1.5;}
+/* Content area */
+.lesson-content-area{padding:24px;}
+/* Verse block */
+.verse-block{
+  background:linear-gradient(135deg,#0F172A,#1E3A5F);
+  border-radius:var(--radius);padding:28px 24px;color:white;
+  margin:0 0 24px;position:relative;overflow:hidden;
+}
+.verse-block::before{content:'❝';position:absolute;top:8px;left:12px;font-size:4rem;opacity:0.06;font-family:Georgia;line-height:1;}
+.verse-block::after{content:'';position:absolute;bottom:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(245,158,11,0.12),transparent 70%);}
+.verse-ref{display:inline-flex;align-items:center;gap:6px;background:rgba(245,158,11,0.2);border:1px solid rgba(245,158,11,0.35);color:var(--amber);padding:4px 10px;border-radius:100px;font-size:0.7rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:14px;}
+.verse-text{font-family:var(--font-display);font-size:1.1rem;line-height:1.75;color:rgba(255,255,255,0.95);position:relative;z-index:1;}
+.verse-source{font-size:0.7rem;color:rgba(255,255,255,0.35);margin-top:12px;position:relative;z-index:1;}
+/* Summary card */
+.summary-card{background:white;border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow);margin-bottom:24px;border-left:4px solid var(--amber);}
+.summary-label{font-size:0.7rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;}
+.summary-text{font-size:0.9375rem;line-height:1.72;color:var(--slate-700);}
+/* Explanation */
+.explanation-box{background:linear-gradient(135deg,var(--amber-light),#FFF8E7);border-radius:var(--radius);padding:20px 22px;margin-bottom:20px;border-left:4px solid var(--amber);}
+.explanation-label{font-size:0.7rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;}
+.explanation-text{font-size:0.9375rem;line-height:1.72;color:var(--slate-700);}
+/* Questions */
+.question-list{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;}
+.question-item{
+  background:white;border-radius:var(--radius);padding:16px 20px;
+  box-shadow:var(--shadow);border-top:3px solid transparent;
+  transition:border-color 0.2s;
+}
+.question-item:hover{border-top-color:var(--amber);}
+.question-num{font-size:0.65rem;font-weight:700;color:var(--amber-dark);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:5px;}
+.question-text{font-size:0.9375rem;line-height:1.55;color:var(--slate-800);}
+/* Coaching note */
+.coaching-note{background:linear-gradient(135deg,var(--sky-light),#E8F5FF);border-radius:var(--radius);padding:16px 20px;margin-bottom:20px;}
+.coaching-note-label{font-size:0.7rem;font-weight:700;color:#0369A1;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;}
+.coaching-note-text{font-size:0.875rem;color:var(--slate-700);line-height:1.65;}
+/* Mission options */
+.mission-options{display:flex;flex-direction:column;gap:12px;margin-bottom:24px;}
+.mission-option{
+  background:white;border-radius:var(--radius);padding:18px 20px;
+  box-shadow:var(--shadow);cursor:pointer;
+  border:2px solid transparent;transition:all 0.2s;
+  position:relative;overflow:hidden;
+}
+.mission-option::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(16,185,129,0.04),transparent);opacity:0;transition:opacity 0.2s;}
+.mission-option:hover{border-color:var(--emerald-light);transform:translateY(-1px);box-shadow:var(--shadow-lg);}
+.mission-option:hover::before{opacity:1;}
+.mission-option.selected{border-color:var(--emerald);background:linear-gradient(135deg,#F0FDF9,white);}
+.mission-option.selected::before{opacity:1;}
+.mission-option-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:6px;}
+.mission-option-emoji{font-size:1.5rem;line-height:1;flex-shrink:0;}
+.mission-option-check{width:22px;height:22px;border-radius:50%;border:2px solid var(--slate-200);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s;margin-top:2px;}
+.mission-option.selected .mission-option-check{background:var(--emerald);border-color:var(--emerald);color:white;font-size:0.75rem;}
+.mission-option-title{font-weight:700;font-size:0.9375rem;color:var(--slate-900);margin-bottom:4px;}
+.mission-option-desc{font-size:0.875rem;color:var(--slate-600);line-height:1.55;}
+/* Emoji reflect */
+.emoji-grid{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;}
+.emoji-btn{
+  font-size:1.8rem;cursor:pointer;padding:10px;border-radius:14px;
+  border:2px solid transparent;transition:all 0.2s;
+  background:white;box-shadow:var(--shadow);line-height:1;
+}
+.emoji-btn:hover{transform:scale(1.12);}
+.emoji-btn.selected{border-color:var(--amber);background:var(--amber-light);transform:scale(1.18);box-shadow:0 4px 16px rgba(245,158,11,0.3);}
+/* Prayer builder */
+.prayer-lines{display:flex;flex-direction:column;gap:12px;margin-bottom:20px;}
 .prayer-line{display:flex;gap:12px;align-items:center;}
-.prayer-speaker{font-size:0.8125rem;font-weight:600;color:var(--slate-600);min-width:70px;}
-.lesson-bottom-bar{position:fixed;bottom:0;left:0;right:0;padding:16px 24px max(16px,env(safe-area-inset-bottom));background:white;border-top:1px solid var(--slate-200);display:flex;gap:12px;max-width:800px;margin:0 auto;}
+.prayer-speaker{font-size:0.8125rem;font-weight:600;color:var(--slate-600);min-width:72px;display:flex;align-items:center;gap:6px;}
+/* Bottom bar */
+.lesson-bottom-bar{
+  position:fixed;bottom:0;left:0;right:0;
+  padding:12px 20px max(16px,env(safe-area-inset-bottom));
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(12px);
+  border-top:1px solid var(--slate-200);
+  display:flex;gap:10px;
+  box-shadow:0 -4px 24px rgba(0,0,0,0.06);
+}
+/* Completion banner */
+.lesson-complete-banner{
+  background:linear-gradient(135deg,#065F46,#059669);
+  border-radius:var(--radius);padding:28px 24px;
+  text-align:center;color:white;margin-bottom:24px;
+}
+.lesson-complete-banner .confetti{font-size:2.5rem;margin-bottom:12px;display:block;}
+.lesson-complete-banner h3{font-family:var(--font-display);font-size:1.4rem;font-weight:700;margin-bottom:6px;}
+.lesson-complete-banner p{font-size:0.9rem;color:rgba(255,255,255,0.8);}
 
-/* ===== REWARDS ===== */
+/* ===== VIEW SWITCHER ===== */
+/* Parent app header — richer */
+.parent-topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 20px;height:60px;
+  background:white;border-bottom:1px solid var(--slate-200);
+  position:sticky;top:0;z-index:100;
+  box-shadow:0 1px 8px rgba(0,0,0,0.04);
+  flex-shrink:0;
+}
+.parent-topbar-logo{display:flex;align-items:center;gap:8px;text-decoration:none;}
+.parent-topbar-logo-icon{width:32px;height:32px;background:linear-gradient(135deg,var(--amber),var(--amber-dark));border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;}
+.parent-topbar-logo-text{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--slate-900);}
+.parent-topbar-right{display:flex;align-items:center;gap:8px;}
+/* Kid switcher pill inside parent topbar */
+.kid-switcher{
+  display:flex;align-items:center;gap:4px;
+  background:var(--slate-100);border-radius:100px;padding:4px;
+  max-width:220px;overflow-x:auto;scrollbar-width:none;
+}
+.kid-switcher::-webkit-scrollbar{display:none;}
+.kid-switcher-pill{
+  display:flex;align-items:center;gap:5px;
+  padding:5px 12px;border-radius:100px;
+  font-size:0.75rem;font-weight:600;cursor:pointer;
+  white-space:nowrap;transition:all 0.18s;
+  border:none;background:transparent;font-family:var(--font-body);color:var(--slate-600);
+}
+.kid-switcher-pill:hover{background:rgba(0,0,0,0.06);color:var(--slate-900);}
+.kid-switcher-pill.active{background:white;color:var(--slate-900);box-shadow:0 1px 6px rgba(0,0,0,0.1);}
+.kid-switcher-avatar{font-size:1rem;line-height:1;}
+
+/* Kid app — mode banner at top */
+.kid-mode-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 16px;height:48px;
+  background:var(--slate-900);
+  flex-shrink:0;
+}
+.kid-mode-left{display:flex;align-items:center;gap:8px;}
+.kid-mode-logo{font-family:var(--font-display);font-size:0.9rem;font-weight:700;color:rgba(255,255,255,0.7);}
+.kid-mode-sep{color:rgba(255,255,255,0.3);font-size:0.75rem;}
+.kid-mode-name{font-size:0.875rem;font-weight:700;color:white;display:flex;align-items:center;gap:6px;}
+/* Multi-kid switcher row inside kid app */
+.kid-profile-switcher{
+  display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;
+  background:rgba(255,255,255,0.08);padding:6px 16px;
+}
+.kid-profile-switcher::-webkit-scrollbar{display:none;}
+.kid-profile-pill{
+  display:flex;align-items:center;gap:6px;
+  padding:6px 14px;border-radius:100px;
+  font-size:0.78rem;font-weight:600;cursor:pointer;
+  white-space:nowrap;transition:all 0.18s;
+  border:2px solid transparent;color:rgba(255,255,255,0.6);
+  background:transparent;font-family:var(--font-body);
+}
+.kid-profile-pill:hover{color:white;border-color:rgba(255,255,255,0.2);}
+.kid-profile-pill.active{background:rgba(255,255,255,0.15);color:white;border-color:rgba(255,255,255,0.3);}
+/* Back to parent button in kid mode */
+.back-to-parent-btn{
+  display:flex;align-items:center;gap:6px;
+  padding:6px 14px;border-radius:100px;
+  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);
+  color:rgba(255,255,255,0.8);font-size:0.75rem;font-weight:600;
+  cursor:pointer;font-family:var(--font-body);transition:all 0.18s;
+}
+.back-to-parent-btn:hover{background:rgba(255,255,255,0.2);color:white;}
+/* Transition animation */
+@keyframes slideInRight{from{opacity:0;transform:translateX(12px);}to{opacity:1;transform:translateX(0);}}
+@keyframes slideInLeft{from{opacity:0;transform:translateX(-12px);}to{opacity:1;transform:translateX(0);}}
+.slide-in-right{animation:slideInRight 0.25s ease both;}
+.slide-in-left{animation:slideInLeft 0.25s ease both;}
 .badge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 .badge-item{background:white;border-radius:var(--radius);padding:20px 16px;text-align:center;box-shadow:var(--shadow);}
 .badge-item.earned{background:linear-gradient(135deg,var(--amber-light),#FFF7ED);}
@@ -406,41 +595,86 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 .anim-in{animation:fadeUp 0.4s ease both;}
 .pulse-cta{animation:pulseGlow 2s infinite;}
 
-/* ===== LANDING NAVBAR ===== */
-.landing-nav{position:fixed;top:0;left:0;right:0;z-index:200;transition:background 0.3s,box-shadow 0.3s,backdrop-filter 0.3s;padding:0 24px;}
-.landing-nav.scrolled{background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);box-shadow:0 1px 20px rgba(15,23,42,0.08);}
+/* ===== LANDING NAVBAR — always dark/branded ===== */
+.landing-nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;padding:0 24px;
+  background:rgba(13,20,38,0.82);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,0.07);
+  box-shadow:0 2px 32px rgba(0,0,0,0.25);
+}
 .landing-nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px;}
+
+/* Logo */
 .lnav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;transition:opacity 0.2s;}
 .lnav-logo:hover{opacity:0.85;}
-.lnav-logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--amber),var(--amber-dark));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 2px 8px rgba(245,158,11,0.4);}
-.lnav-logo-text{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:white;transition:color 0.3s;}
-.landing-nav.scrolled .lnav-logo-text{color:var(--slate-900);}
-.lnav-links{display:flex;align-items:center;gap:4px;}
-.lnav-link{padding:8px 14px;border-radius:8px;font-size:0.9rem;font-weight:500;text-decoration:none;color:rgba(255,255,255,0.8);cursor:pointer;transition:all 0.2s;background:none;border:none;font-family:var(--font-body);}
-.lnav-link:hover{background:rgba(255,255,255,0.12);color:white;}
-.landing-nav.scrolled .lnav-link{color:var(--slate-600);}
-.landing-nav.scrolled .lnav-link:hover{background:var(--slate-100);color:var(--slate-900);}
+.lnav-logo-icon{
+  width:36px;height:36px;
+  background:linear-gradient(135deg,var(--amber),var(--amber-dark));
+  border-radius:10px;display:flex;align-items:center;justify-content:center;
+  font-size:18px;box-shadow:0 2px 10px rgba(245,158,11,0.45);
+}
+.lnav-logo-text{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:white;}
+
+/* Nav links */
+.lnav-links{display:flex;align-items:center;gap:2px;}
+.lnav-link{
+  padding:8px 15px;border-radius:8px;font-size:0.875rem;font-weight:500;
+  color:rgba(255,255,255,0.65);cursor:pointer;transition:all 0.18s;
+  background:none;border:none;font-family:var(--font-body);letter-spacing:0.01em;
+}
+.lnav-link:hover{background:rgba(255,255,255,0.09);color:white;}
+
+/* Actions */
 .lnav-actions{display:flex;align-items:center;gap:10px;}
-.lnav-signin{padding:9px 20px;border-radius:100px;font-size:0.875rem;font-weight:600;cursor:pointer;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:white;font-family:var(--font-body);transition:all 0.2s;}
-.lnav-signin:hover{background:rgba(255,255,255,0.25);}
-.landing-nav.scrolled .lnav-signin{background:white;border-color:var(--slate-200);color:var(--slate-800);box-shadow:0 1px 8px rgba(0,0,0,0.06);}
-.landing-nav.scrolled .lnav-signin:hover{border-color:var(--amber);}
-.lnav-cta{padding:10px 22px;border-radius:100px;font-size:0.875rem;font-weight:700;cursor:pointer;background:linear-gradient(135deg,var(--amber),var(--amber-dark));border:none;color:white;font-family:var(--font-body);box-shadow:0 3px 12px rgba(245,158,11,0.4);transition:all 0.2s;}
-.lnav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(245,158,11,0.45);}
-.lnav-mobile-menu{display:none;flex-direction:column;gap:3px;cursor:pointer;padding:6px;}
-.lnav-mobile-menu span{display:block;width:22px;height:2px;background:white;border-radius:2px;transition:background 0.3s;}
-.landing-nav.scrolled .lnav-mobile-menu span{background:var(--slate-700);}
+.lnav-signin{
+  padding:9px 20px;border-radius:100px;font-size:0.875rem;font-weight:600;cursor:pointer;
+  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);
+  color:rgba(255,255,255,0.85);font-family:var(--font-body);transition:all 0.18s;
+}
+.lnav-signin:hover{background:rgba(255,255,255,0.18);color:white;border-color:rgba(255,255,255,0.35);}
+.lnav-cta{
+  padding:10px 22px;border-radius:100px;font-size:0.875rem;font-weight:700;cursor:pointer;
+  background:linear-gradient(135deg,var(--amber),var(--amber-dark));border:none;
+  color:white;font-family:var(--font-body);
+  box-shadow:0 3px 14px rgba(245,158,11,0.45);transition:all 0.18s;
+}
+.lnav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(245,158,11,0.55);}
+
+/* Mobile hamburger */
+.lnav-mobile-menu{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;border-radius:8px;transition:background 0.2s;}
+.lnav-mobile-menu:hover{background:rgba(255,255,255,0.1);}
+.lnav-mobile-menu span{display:block;width:22px;height:2px;background:rgba(255,255,255,0.75);border-radius:2px;transition:all 0.25s;}
+.lnav-mobile-menu.open span:nth-child(1){transform:translateY(6px) rotate(45deg);}
+.lnav-mobile-menu.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.lnav-mobile-menu.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+
 @media(max-width:768px){
   .lnav-links{display:none;}
+  .lnav-actions .lnav-signin{display:none;}
   .lnav-mobile-menu{display:flex;}
 }
-/* Mobile nav drawer */
-.lnav-drawer{position:fixed;top:68px;left:0;right:0;background:white;z-index:199;box-shadow:0 8px 32px rgba(0,0,0,0.1);transform:translateY(-110%);transition:transform 0.3s cubic-bezier(0.34,1.3,0.64,1);border-bottom:1px solid var(--slate-200);}
+
+/* Mobile drawer — matches dark brand */
+.lnav-drawer{
+  position:fixed;top:68px;left:0;right:0;z-index:199;
+  background:rgba(13,20,38,0.97);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 12px 40px rgba(0,0,0,0.4);
+  transform:translateY(-110%);
+  transition:transform 0.32s cubic-bezier(0.34,1.2,0.64,1);
+}
 .lnav-drawer.open{transform:translateY(0);}
-.lnav-drawer-inner{padding:16px 24px 24px;display:flex;flex-direction:column;gap:4px;}
-.lnav-drawer-link{padding:14px 16px;border-radius:12px;font-size:1rem;font-weight:500;color:var(--slate-700);cursor:pointer;transition:background 0.2s;border:none;background:none;font-family:var(--font-body);text-align:left;}
-.lnav-drawer-link:hover{background:var(--slate-100);}
-.lnav-drawer-divider{height:1px;background:var(--slate-200);margin:8px 0;}
+.lnav-drawer-inner{padding:12px 20px 24px;display:flex;flex-direction:column;gap:2px;}
+.lnav-drawer-link{
+  padding:13px 16px;border-radius:10px;font-size:0.9375rem;font-weight:500;
+  color:rgba(255,255,255,0.7);cursor:pointer;transition:all 0.18s;
+  border:none;background:none;font-family:var(--font-body);text-align:left;
+}
+.lnav-drawer-link:hover{background:rgba(255,255,255,0.08);color:white;}
+.lnav-drawer-divider{height:1px;background:rgba(255,255,255,0.08);margin:10px 0;}
+
 /* Ensure hero has top padding for fixed nav */
 #screen-landing .landing-hero{padding-top:140px;}
 @media(min-width:640px){#screen-landing .landing-hero{padding-top:160px;}}
@@ -785,30 +1019,76 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 
 <!-- ===== AUTH ===== -->
 <div id="screen-auth" class="screen">
-  <div class="auth-box">
-    <div class="auth-logo-row">
-      <div class="auth-logo-icon">✝️</div>
-      <span class="auth-logo-text">FaithQuest</span>
+  <!-- Left panel: brand / feature callouts -->
+  <div class="auth-panel-left">
+    <div class="auth-panel-left-glow"></div>
+    <div class="auth-left-content">
+      <div class="auth-left-logo">
+        <div class="auth-left-logo-icon">✝️</div>
+        <span class="auth-left-logo-text">FaithQuest</span>
+      </div>
+      <h2 class="auth-left-heading">Faith comes alive <span>for your whole family.</span></h2>
+      <p class="auth-left-sub">35 guided lessons. Real-world missions. Age-safe AI. Built to turn Scripture into something your kids will actually live.</p>
+      <div class="auth-left-features">
+        <div class="auth-left-feature"><div class="auth-feature-icon">🔒</div><div class="auth-feature-text"><strong>Kid-safe by design.</strong> No open AI chat. No personal data collected from children.</div></div>
+        <div class="auth-left-feature"><div class="auth-feature-icon">👨‍👩‍👧</div><div class="auth-feature-text"><strong>Parent controls everything.</strong> Approve missions, view insights, manage every profile.</div></div>
+        <div class="auth-left-feature"><div class="auth-feature-icon">📖</div><div class="auth-feature-text"><strong>Public domain Scripture.</strong> World English Bible &amp; KJV — no licensing restrictions.</div></div>
+        <div class="auth-left-feature"><div class="auth-feature-icon">🌍</div><div class="auth-feature-text"><strong>Offline-friendly missions.</strong> Faith-in-action happens in the real world, not just the app.</div></div>
+      </div>
     </div>
-    <div class="auth-tabs">
-      <div class="auth-tab active" id="tab-signin" onclick="switchAuthTab('signin')">Sign In</div>
-      <div class="auth-tab" id="tab-signup" onclick="switchAuthTab('signup')">Create Account</div>
-    </div>
+    <div class="auth-left-footer">Trusted by 12,400+ families · 4.9 ★ average rating</div>
+  </div>
+
+  <!-- Right panel: form -->
+  <div class="auth-panel-right" id="authPanelRight">
+    <button class="auth-right-back" onclick="showScreen('screen-landing')">← Back to home</button>
+
+    <!-- Sign In -->
     <div id="auth-signin-form">
-      <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" id="signin-email" placeholder="you@example.com"></div>
-      <div class="form-group"><label class="form-label">Password</label><input type="password" class="form-input" id="signin-password" placeholder="••••••••"></div>
-      <div style="margin-bottom:20px;text-align:right;"><span class="btn btn-ghost btn-sm" style="font-size:0.8125rem;color:var(--amber-dark);cursor:pointer;">Forgot password?</span></div>
-      <button class="btn btn-primary btn-full" onclick="doSignIn()">Sign In</button>
-      <div style="text-align:center;margin-top:16px;font-size:0.875rem;color:var(--slate-500);">Demo: use any email + password</div>
+      <h1 class="auth-right-heading">Welcome back</h1>
+      <p class="auth-right-sub">New to FaithQuest? <a onclick="switchAuthTab('signup')">Create a free account →</a></p>
+      <div class="auth-input-group">
+        <label class="auth-input-label">Email address</label>
+        <input type="email" class="auth-input" id="signin-email" placeholder="you@example.com" autocomplete="email">
+      </div>
+      <div class="auth-input-group" style="position:relative;">
+        <label class="auth-input-label">Password</label>
+        <input type="password" class="auth-input" id="signin-password" placeholder="••••••••" autocomplete="current-password">
+        <span class="auth-pass-toggle" onclick="togglePass('signin-password',this)" title="Show/hide">👁</span>
+      </div>
+      <a class="auth-forgot">Forgot password?</a>
+      <button class="btn btn-primary btn-full" style="margin-top:8px;" onclick="doSignIn()">Sign In →</button>
+      <div class="auth-demo-hint">
+        <span class="auth-demo-hint-icon">💡</span>
+        <span class="auth-demo-hint-text"><strong>Demo mode:</strong> Enter any email and password (6+ chars) to sign in or create an account instantly.</span>
+      </div>
     </div>
+
+    <!-- Sign Up -->
     <div id="auth-signup-form" class="hidden">
-      <div class="form-group"><label class="form-label">Your Name</label><input type="text" class="form-input" id="signup-name" placeholder="First name"></div>
-      <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" id="signup-email" placeholder="you@example.com"></div>
-      <div class="form-group"><label class="form-label">Password</label><input type="password" class="form-input" id="signup-password" placeholder="Create a password"></div>
-      <button class="btn btn-primary btn-full" onclick="doSignUp()">Create Account</button>
-    </div>
-    <div style="text-align:center;margin-top:24px;">
-      <button class="btn btn-ghost" onclick="showScreen('screen-landing')">← Back to home</button>
+      <h1 class="auth-right-heading">Start your family's quest</h1>
+      <p class="auth-right-sub">Already have an account? <a onclick="switchAuthTab('signin')">Sign in →</a></p>
+      <div class="auth-input-group">
+        <label class="auth-input-label">Your first name</label>
+        <input type="text" class="auth-input" id="signup-name" placeholder="e.g. Sarah" autocomplete="given-name">
+      </div>
+      <div class="auth-input-group">
+        <label class="auth-input-label">Email address</label>
+        <input type="email" class="auth-input" id="signup-email" placeholder="you@example.com" autocomplete="email">
+      </div>
+      <div class="auth-input-group" style="position:relative;">
+        <label class="auth-input-label">Create a password</label>
+        <input type="password" class="auth-input" id="signup-password" placeholder="At least 6 characters" autocomplete="new-password" oninput="checkStrength(this.value)">
+        <span class="auth-pass-toggle" onclick="togglePass('signup-password',this)" title="Show/hide">👁</span>
+        <div class="auth-strength" id="strengthBars">
+          <div class="auth-strength-bar" id="sb1"></div>
+          <div class="auth-strength-bar" id="sb2"></div>
+          <div class="auth-strength-bar" id="sb3"></div>
+          <div class="auth-strength-bar" id="sb4"></div>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-full" style="margin-top:4px;" onclick="doSignUp()">Create Free Account →</button>
+      <p class="auth-terms">By creating an account you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>. FaithQuest never shares family data with third parties.</p>
     </div>
   </div>
 </div>
@@ -828,14 +1108,16 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 
 <!-- ===== PARENT APP ===== -->
 <div id="screen-parent" class="screen" style="flex-direction:column;">
-  <div class="top-nav">
-    <a class="nav-logo" href="#">
-      <div class="nav-logo-icon">✝️</div>
-      <span class="nav-logo-text">FaithQuest</span>
+  <div class="parent-topbar" id="parentTopbar">
+    <a class="parent-topbar-logo" href="#">
+      <div class="parent-topbar-logo-icon">✝️</div>
+      <span class="parent-topbar-logo-text">FaithQuest</span>
     </a>
-    <div style="display:flex;gap:8px;align-items:center;">
-      <span class="badge badge-amber" id="planBadge">Free</span>
-      <button class="btn btn-ghost btn-sm" onclick="doSignOut()" style="font-size:0.8rem;padding:8px 12px;">Sign Out</button>
+    <div class="parent-topbar-right">
+      <!-- Kid quick-switch pills — rendered by JS -->
+      <div class="kid-switcher" id="parentKidSwitcher"></div>
+      <span class="badge badge-amber" id="planBadge" style="flex-shrink:0;">Free</span>
+      <button class="btn btn-ghost btn-sm" onclick="doSignOut()" style="font-size:0.8rem;padding:6px 10px;flex-shrink:0;">Out</button>
     </div>
   </div>
   <div class="app-content" id="parentContent"></div>
@@ -850,29 +1132,44 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 
 <!-- ===== KID APP ===== -->
 <div id="screen-kid" class="screen" style="flex-direction:column;background:#F0F4FF;">
-  <div id="kidContent"></div>
+  <!-- Dark mode-bar at very top -->
+  <div class="kid-mode-bar">
+    <div class="kid-mode-left">
+      <span class="kid-mode-logo">FaithQuest</span>
+      <span class="kid-mode-sep">›</span>
+      <span class="kid-mode-name" id="kidModeNameLabel">Loading...</span>
+    </div>
+    <button class="back-to-parent-btn" onclick="showParentApp()">⬆ Parent View</button>
+  </div>
+  <!-- Kid profile switcher (if multiple kids) -->
+  <div class="kid-profile-switcher" id="kidProfileSwitcher" style="display:none;"></div>
+  <!-- Main scrollable content -->
+  <div style="flex:1;overflow-y:auto;" id="kidContentWrap">
+    <div id="kidContent"></div>
+  </div>
   <nav class="bottom-nav">
     <button class="bottom-nav-item active" id="knav-home" onclick="kidNav('home')"><span class="bottom-nav-icon">🏠</span><span class="bottom-nav-label">Home</span></button>
     <button class="bottom-nav-item" id="knav-rewards" onclick="kidNav('rewards')"><span class="bottom-nav-icon">🏆</span><span class="bottom-nav-label">Rewards</span></button>
     <button class="bottom-nav-item" id="knav-library" onclick="kidNav('library')"><span class="bottom-nav-icon">📖</span><span class="bottom-nav-label">Library</span></button>
-    <button class="bottom-nav-item" id="knav-profile" onclick="kidNav('profile')"><span class="bottom-nav-label-icon">😊</span><span class="bottom-nav-label">Me</span></button>
+    <button class="bottom-nav-item" id="knav-profile" onclick="kidNav('profile')"><span class="bottom-nav-icon">😊</span><span class="bottom-nav-label">Me</span></button>
   </nav>
 </div>
 
 <!-- ===== LESSON PLAYER ===== -->
 <div id="screen-lesson" class="screen" style="flex-direction:column;">
   <div class="lesson-nav">
-    <button class="btn btn-ghost btn-sm" onclick="exitLesson()">✕</button>
+    <button class="lesson-close-btn" onclick="exitLesson()" title="Exit lesson">✕</button>
     <div class="lesson-progress-row">
-      <div class="lesson-step-label" id="lessonStepLabel">Step 1 of 6</div>
+      <div class="lesson-step-label" id="lessonStepLabel">📖 Read · Step 1 of 6</div>
       <div class="lesson-steps" id="lessonStepDots"></div>
     </div>
+    <div class="lesson-step-count" id="lessonStepCount">1 / 6</div>
   </div>
-  <div style="overflow-y:auto;flex:1;">
+  <div style="overflow-y:auto;flex:1;" id="lessonScroll">
     <div class="lesson-body" id="lessonBody"></div>
   </div>
   <div class="lesson-bottom-bar" id="lessonBottomBar">
-    <button class="btn btn-secondary" id="lessonPrevBtn" onclick="lessonPrev()">← Back</button>
+    <button class="btn btn-secondary" id="lessonPrevBtn" onclick="lessonPrev()" style="min-width:80px;">← Back</button>
     <button class="btn btn-primary" style="flex:1;" id="lessonNextBtn" onclick="lessonNext()">Next →</button>
   </div>
 </div>
@@ -1060,11 +1357,29 @@ function gotoAuth(tab){
   showScreen('screen-auth');
   switchAuthTab(tab);
 }
+function togglePass(inputId,iconEl){
+  const input=document.getElementById(inputId);
+  if(!input)return;
+  input.type=input.type==='password'?'text':'password';
+  iconEl.textContent=input.type==='password'?'👁':'🙈';
+}
+function checkStrength(val){
+  const bars=['sb1','sb2','sb3','sb4'];
+  const len=val.length;
+  let score=0;
+  if(len>=6)score++;
+  if(len>=10)score++;
+  if(/[A-Z]/.test(val)||/[0-9]/.test(val))score++;
+  if(/[^A-Za-z0-9]/.test(val))score++;
+  const cls=score<=1?'weak':score<=2?'medium':'strong';
+  bars.forEach((id,i)=>{
+    const el=document.getElementById(id);
+    if(el){el.className='auth-strength-bar '+(i<score?cls:'');}
+  });
+}
 function switchAuthTab(tab){
   document.getElementById('auth-signin-form').classList.toggle('hidden',tab!=='signin');
   document.getElementById('auth-signup-form').classList.toggle('hidden',tab!=='signup');
-  document.getElementById('tab-signin').classList.toggle('active',tab==='signin');
-  document.getElementById('tab-signup').classList.toggle('active',tab==='signup');
 }
 function doSignIn(){
   const email=document.getElementById('signin-email').value.trim();
@@ -1274,8 +1589,20 @@ function tourPrev(){if(tourStep>0){tourStep--;renderTourStep();}}
 // ===================== PARENT APP =====================
 function showParentApp(){
   document.getElementById('planBadge').textContent=state.subscription.plan==='free'?'Free':'Premium';
+  renderParentKidSwitcher();
   showScreen('screen-parent');
   parentNav('home');
+}
+function renderParentKidSwitcher(){
+  const el=document.getElementById('parentKidSwitcher');
+  if(!el)return;
+  const kids=state.members.filter(m=>m.role!=='parent');
+  if(kids.length===0){el.style.display='none';return;}
+  el.style.display='flex';
+  el.innerHTML=kids.map(k=>`
+    <button class="kid-switcher-pill${state.selectedMember===k.id?' active':''}" onclick="switchToKid('${k.id}')">
+      <span class="kid-switcher-avatar">${k.avatar}</span>${k.name.split(' ')[0]}
+    </button>`).join('');
 }
 function parentNav(tab){
   state.parentTab=tab;
@@ -1307,10 +1634,10 @@ function renderParentHome(el){
     <div class="section-title anim-in">Family Members</div>
     <div class="member-list anim-in">
       ${kids.map(k=>`
-        <div class="member-row">
+        <div class="member-row" style="${state.selectedMember===k.id?'border:2px solid var(--amber);':''}">
           <div class="avatar avatar-md" style="background:var(--amber-light);font-size:1.4rem;">${k.avatar}</div>
           <div class="member-info">
-            <div class="member-name">${k.name}</div>
+            <div class="member-name">${k.name} ${state.selectedMember===k.id?'<span class="badge badge-amber" style="font-size:0.65rem;padding:2px 8px;">Active</span>':''}</div>
             <div class="member-meta">${k.tier==='teen'?'Teen':'Kid'} · ${state.completions.filter(c=>c.memberId===k.id).length} lessons · ${getStreak(k.id)} day streak</div>
           </div>
           <button class="btn btn-sky btn-sm" onclick="switchToKid('${k.id}')">View →</button>
@@ -1506,12 +1833,63 @@ function addMember(){
   parentNav(state.parentTab);
 }
 function switchToKid(memberId){
-  state.selectedMember=memberId;saveUserData();showKidApp();
+  state.selectedMember=memberId;
+  saveUserData();
+  // Update parent switcher pills if we're still in parent view
+  renderParentKidSwitcher();
+  showKidApp();
 }
 
 // ===================== KID APP =====================
 function showKidApp(){
-  showScreen('screen-kid');kidNav('home');
+  // Populate mode bar
+  const member=getCurrentMember();
+  const nameEl=document.getElementById('kidModeNameLabel');
+  if(nameEl&&member) nameEl.innerHTML=`<span>${member.avatar}</span> ${member.name}`;
+
+  // Populate profile switcher (only if 2+ kids)
+  const kids=state.members.filter(m=>m.role!=='parent');
+  const switcherEl=document.getElementById('kidProfileSwitcher');
+  if(switcherEl){
+    if(kids.length>1){
+      switcherEl.style.display='flex';
+      switcherEl.innerHTML=kids.map(k=>`
+        <button class="kid-profile-pill${state.selectedMember===k.id?' active':''}" onclick="switchKidProfile('${k.id}')">
+          ${k.avatar} ${k.name.split(' ')[0]}
+        </button>`).join('');
+    } else {
+      switcherEl.style.display='none';
+    }
+  }
+
+  showScreen('screen-kid');
+  kidNav('home');
+}
+
+function switchKidProfile(memberId){
+  state.selectedMember=memberId;
+  saveUserData();
+  // Re-render mode bar label
+  const member=getCurrentMember();
+  const nameEl=document.getElementById('kidModeNameLabel');
+  if(nameEl&&member) nameEl.innerHTML=`<span>${member.avatar}</span> ${member.name}`;
+  // Re-render profile switcher pills
+  const kids=state.members.filter(m=>m.role!=='parent');
+  const switcherEl=document.getElementById('kidProfileSwitcher');
+  if(switcherEl&&kids.length>1){
+    switcherEl.innerHTML=kids.map(k=>`
+      <button class="kid-profile-pill${state.selectedMember===k.id?' active':''}" onclick="switchKidProfile('${k.id}')">
+        ${k.avatar} ${k.name.split(' ')[0]}
+      </button>`).join('');
+  }
+  // Also refresh parent switcher if it exists
+  renderParentKidSwitcher();
+  // Reload current kid tab with animation
+  const content=document.getElementById('kidContent');
+  if(content) content.classList.add('slide-in-right');
+  kidNav(state.kidTab||'home');
+  setTimeout(()=>content?.classList.remove('slide-in-right'),300);
+  showToast(`Switched to ${member?.name}'s view`);
 }
 function kidNav(tab){
   state.kidTab=tab;
@@ -1585,7 +1963,7 @@ function renderKidHome(el){
             <div class="mission-icon" style="background:var(--emerald-light);">✅</div>
             <div class="mission-info"><div class="mission-name">${c.missionTitle}</div><div class="mission-meta">Approved by parent · ${c.emoji||''}</div></div>
           </div>`).join('')}`:''}
-      <button class="btn btn-secondary btn-full" style="margin-top:16px;" onclick="showParentApp()">← Parent View</button>
+      <button class="btn btn-secondary btn-full" onclick="openModal('modal-ask-parent')" style="margin-top:16px;">💬 Ask a Parent</button>
     </div>`;
 }
 function getBadges(memberId){
@@ -1651,10 +2029,11 @@ function renderKidLibrary(el){
 }
 function renderKidProfile(el){
   const member=getCurrentMember();
+  const kids=state.members.filter(m=>m.role!=='parent');
   el.innerHTML=`
-    <div style="padding:24px;">
-      <div style="text-align:center;padding:32px 0 24px;">
-        <div style="font-size:4rem;margin-bottom:12px;">${member?.avatar||'😊'}</div>
+    <div style="padding:24px 20px;padding-bottom:100px;">
+      <div style="text-align:center;padding:28px 0 20px;">
+        <div style="font-size:4rem;margin-bottom:10px;">${member?.avatar||'😊'}</div>
         <div style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;">${member?.name}</div>
         <div style="font-size:0.875rem;color:var(--slate-500);margin-top:4px;">${member?.tier==='teen'?'Teen':'Kid'} · ${state.family?.name}</div>
       </div>
@@ -1663,8 +2042,20 @@ function renderKidProfile(el){
         <div class="stat-card"><span class="stat-value">${state.completions.filter(c=>c.memberId===member?.id).length}</span><span class="stat-label">Lessons</span></div>
         <div class="stat-card"><span class="stat-value">${getBadges(member?.id)}</span><span class="stat-label">Badges</span></div>
       </div>
-      <button class="btn btn-secondary btn-full" style="margin-bottom:12px;" onclick="showParentApp()">← Switch to Parent View</button>
-      <button class="btn btn-ghost btn-full" onclick="doSignOut()">Sign Out</button>
+      ${kids.length>1?`
+        <div style="margin-bottom:16px;">
+          <div style="font-size:0.75rem;font-weight:700;color:var(--slate-500);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;">Switch Profile</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            ${kids.filter(k=>k.id!==member?.id).map(k=>`
+              <button class="btn btn-secondary btn-full" onclick="switchKidProfile('${k.id}')" style="justify-content:flex-start;gap:10px;">
+                <span style="font-size:1.2rem;">${k.avatar}</span> Switch to ${k.name}
+              </button>`).join('')}
+          </div>
+        </div>`:''}
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <button class="btn btn-secondary btn-full" onclick="showParentApp()" style="justify-content:flex-start;gap:8px;">⬆ Back to Parent Dashboard</button>
+        <button class="btn btn-ghost btn-full" onclick="doSignOut()" style="color:var(--rose);">Sign Out</button>
+      </div>
     </div>`;
 }
 
@@ -1685,132 +2076,163 @@ function renderLessonStep(){
   const lesson=getLesson(pathId,lessonIndex);
   const member=getCurrentMember();
   if(!lesson){exitLesson();return;}
+
+  const STEP_META=[
+    {tag:'📖 Read',     band:'band-read',     label:'Read'},
+    {tag:'🤔 Understand',band:'band-understand',label:'Understand'},
+    {tag:'💬 Talk Together',band:'band-talk', label:'Talk'},
+    {tag:'🚀 Faith-in-Action',band:'band-do', label:'Do'},
+    {tag:'💭 Reflect',  band:'band-reflect',  label:'Reflect'},
+    {tag:'🙏 Prayer Builder',band:'band-prayer',label:'Pray'},
+  ];
+  const meta=STEP_META[step];
+
   // Update nav
-  document.getElementById('lessonStepLabel').textContent=`${STEP_LABELS[step]} · ${step+1} of ${LESSON_STEPS.length}`;
+  document.getElementById('lessonStepLabel').textContent=`${meta.tag} · Step ${step+1} of ${LESSON_STEPS.length}`;
+  document.getElementById('lessonStepCount').textContent=`${step+1} / ${LESSON_STEPS.length}`;
   const dots=document.getElementById('lessonStepDots');
   dots.innerHTML=LESSON_STEPS.map((_,i)=>`<div class="lesson-step-dot${i<step?' done':i===step?' active':''}"></div>`).join('');
   const prevBtn=document.getElementById('lessonPrevBtn');
   prevBtn.style.display=step===0?'none':'flex';
-  document.getElementById('lessonNextBtn').textContent=step===LESSON_STEPS.length-1?'Complete Lesson 🎉':'Next →';
-  const body=document.getElementById('lessonBody');
+  const nextBtn=document.getElementById('lessonNextBtn');
+  nextBtn.textContent=step===LESSON_STEPS.length-1?'Complete Lesson 🎉':'Continue →';
+
   const stepName=LESSON_STEPS[step];
+  const isTeen=member?.tier==='teen';
+  const isYounger=member?.tier==='younger';
+
+  let bandHtml=`
+    <div class="lesson-step-band ${meta.band}">
+      <div class="lesson-step-tag">${meta.tag}</div>
+      <h1 class="lesson-step-main-title">${lesson.title}</h1>
+      ${step===0?`<p class="lesson-step-main-sub">${lesson.verseRef}</p>`:''}
+    </div>`;
+
+  let contentHtml='';
+
   if(stepName==='read'){
-    body.innerHTML=`
-      <div class="anim-in">
-        <div class="lesson-step-title">📖 Read</div>
-        <h1 class="lesson-main-title">${lesson.title}</h1>
+    contentHtml=`
+      <div class="lesson-content-area anim-in">
         <div class="verse-block">
           <div class="verse-ref">${lesson.verseRef}</div>
-          <div class="verse-text">${lesson.excerpt}</div>
+          <div class="verse-text">${lesson.excerpt.replace(/— .+ \(.*?\)/,'')}</div>
+          <div class="verse-source">— ${lesson.verseRef} · World English Bible / KJV (Public Domain)</div>
         </div>
-        <p style="font-size:0.9375rem;line-height:1.7;color:var(--slate-700);">${lesson.summary}</p>
-        <div style="margin-top:20px;padding:16px;background:var(--slate-50);border-radius:var(--radius);font-size:0.875rem;color:var(--slate-600);">
-          <strong>Scripture source:</strong> ${lesson.verseRef} — World English Bible (WEB) / KJV, Public Domain
+        <div class="summary-card">
+          <div class="summary-label">Context & Summary</div>
+          <div class="summary-text">${lesson.summary}</div>
         </div>
       </div>`;
   } else if(stepName==='understand'){
-    const isTeen=member?.tier==='teen';
-    const isYounger=member?.tier==='younger';
-    const explanation=isYounger?
-      `Let's think about ${lesson.title.toLowerCase()}! ${lesson.summary} That's really cool, right? 😊`:
-      isTeen?`<strong>Deeper Dive:</strong> ${lesson.summary} The original context here is significant. ${lesson.excerpt.includes('WEB')?'The World English Bible':'The KJV'} uses specific word choices that carry important meaning. As you read this passage, consider its original audience and how the same truth applies to your world today.`:
-      `Here's what this verse means for you: ${lesson.summary}`;
-    body.innerHTML=`
-      <div class="anim-in">
-        <div class="lesson-step-title">🤔 Understand</div>
-        <h2 class="display-sm" style="margin-bottom:16px;">What does this mean for you?</h2>
+    const exp=isYounger
+      ?`Let's think about this together! ${lesson.summary} Pretty amazing, right? 😊`
+      :isTeen
+      ?`<strong>Deeper Study:</strong> ${lesson.summary}<br><br>As you read this passage, consider its original audience — what would these words have meant to them? Now think about how the same truth lands differently in your world today. The gap between then and now is where real faith grows.`
+      :`Here's what this means for you: ${lesson.summary} God's word isn't just old history — it's alive and speaking into your life right now.`;
+    contentHtml=`
+      <div class="lesson-content-area anim-in">
         <div class="explanation-box">
-          <div class="explanation-label">${isYounger?'For Little Explorers':isTeen?'For Teens':'For Kids'}</div>
-          <div class="explanation-text">${explanation}</div>
+          <div class="explanation-label">${isYounger?'🌱 For Little Explorers':isTeen?'🚀 For Teens':'⭐ For Kids'}</div>
+          <div class="explanation-text">${exp}</div>
         </div>
-        <h3 style="font-family:var(--font-display);font-size:1.1rem;margin-bottom:12px;">Check Your Understanding</h3>
+        <h3 style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;margin-bottom:12px;color:var(--slate-900);">Check Your Understanding</h3>
         <div class="question-list">
-          <div class="question-item"><div class="question-num">Question 1</div><div class="question-text">${lesson.questions[0]}</div></div>
-          <div class="question-item"><div class="question-num">Question 2</div><div class="question-text">${lesson.questions[1]}</div></div>
+          ${lesson.questions.slice(0,2).map((q,i)=>`
+            <div class="question-item">
+              <div class="question-num">Question ${i+1}</div>
+              <div class="question-text">${q}</div>
+            </div>`).join('')}
         </div>
-        <div style="margin-top:8px;text-align:center;">
-          <button class="btn btn-ghost btn-sm" onclick="openModal('modal-ask-parent')">🙋 Ask a Parent</button>
+        <div style="text-align:center;margin-top:4px;">
+          <button class="btn btn-ghost btn-sm" style="color:var(--amber-dark);" onclick="openModal('modal-ask-parent')">🙋 Ask a Parent about this</button>
         </div>
       </div>`;
   } else if(stepName==='talk'){
-    body.innerHTML=`
-      <div class="anim-in">
-        <div class="lesson-step-title">💬 Talk Together</div>
-        <h2 class="display-sm" style="margin-bottom:8px;">Family Discussion</h2>
-        <p style="font-size:0.875rem;color:var(--slate-600);margin-bottom:20px;">Gather your family and talk through these questions together.</p>
+    contentHtml=`
+      <div class="lesson-content-area anim-in">
+        <p style="font-size:0.875rem;color:var(--slate-600);margin-bottom:16px;line-height:1.65;">Gather your family and explore these questions together. There are no wrong answers — just honest conversation.</p>
         <div class="question-list">
-          ${lesson.questions.map((q,i)=>`<div class="question-item"><div class="question-num">${['First','Second','Third'][i]} Question</div><div class="question-text">${q}</div></div>`).join('')}
+          ${lesson.questions.map((q,i)=>`
+            <div class="question-item">
+              <div class="question-num">${['First','Second','Third'][i]} Question</div>
+              <div class="question-text">${q}</div>
+            </div>`).join('')}
         </div>
-        <div style="background:linear-gradient(135deg,var(--sky-light),#E0F7FF);border-radius:var(--radius);padding:16px;margin-top:4px;">
-          <div style="font-size:0.75rem;font-weight:700;color:#0369A1;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">Parent Coaching Note</div>
-          <p style="font-size:0.875rem;color:var(--slate-700);line-height:1.6;">Let your child answer first before sharing your perspective. Avoid correcting or evaluating their answers in the moment—focus on connection over perfection.</p>
+        <div class="coaching-note">
+          <div class="coaching-note-label">👨‍👩‍👧 Parent Coaching Note</div>
+          <div class="coaching-note-text">Let your child answer first before sharing your own perspective. Curiosity beats correction every time — your goal is connection, not a right answer.</div>
         </div>
       </div>`;
   } else if(stepName==='do'){
-    body.innerHTML=`
-      <div class="anim-in">
-        <div class="lesson-step-title">🚀 Faith-in-Action</div>
-        <h2 class="display-sm" style="margin-bottom:8px;">Choose Your Mission</h2>
-        <p style="font-size:0.875rem;color:var(--slate-600);margin-bottom:20px;">Pick one mission to complete in the real world.</p>
+    contentHtml=`
+      <div class="lesson-content-area anim-in">
+        <p style="font-size:0.875rem;color:var(--slate-600);margin-bottom:20px;line-height:1.65;">Pick one mission to complete in the real world this week. All missions work offline.</p>
         <div class="mission-options">
           ${lesson.missions.map((m,i)=>`
             <div class="mission-option${state.lessonState.selectedMission===i?' selected':''}" onclick="selectMission(${i})">
-              <span class="mission-option-emoji">${m.emoji}</span>
-              <div class="mission-option-title">${m.title}</div>
+              <div class="mission-option-top">
+                <span class="mission-option-emoji">${m.emoji}</span>
+                <div style="flex:1;">
+                  <div class="mission-option-title">${m.title}</div>
+                  <span class="badge badge-${m.level==='Easy'?'emerald':m.level==='Medium'?'amber':'rose'}" style="font-size:0.7rem;">${m.level}</span>
+                </div>
+                <div class="mission-option-check">${state.lessonState.selectedMission===i?'✓':''}</div>
+              </div>
               <div class="mission-option-desc">${m.desc}</div>
-              <span class="badge badge-${m.level==='Easy'?'emerald':m.level==='Medium'?'amber':'rose'}" style="margin-top:8px;">${m.level}</span>
             </div>`).join('')}
         </div>
-        <p style="font-size:0.8125rem;color:var(--slate-500);text-align:center;">🌍 All missions work offline in the real world</p>
+        <p style="font-size:0.8125rem;color:var(--slate-400);text-align:center;margin-top:-8px;">🌍 All missions are designed for real-world, offline completion</p>
       </div>`;
   } else if(stepName==='reflect'){
-    body.innerHTML=`
-      <div class="anim-in">
-        <div class="lesson-step-title">💭 Reflect</div>
-        <h2 class="display-sm" style="margin-bottom:8px;">${member?.tier==='teen'?'Journal Your Thoughts':'How did it go?'}</h2>
-        <p style="font-size:0.875rem;color:var(--slate-600);margin-bottom:20px;">After completing your mission, share how you felt.</p>
-        <div class="reflect-section">
-          <div style="font-weight:600;font-size:0.875rem;margin-bottom:12px;">How are you feeling?</div>
+    contentHtml=`
+      <div class="lesson-content-area anim-in">
+        <p style="font-size:0.875rem;color:var(--slate-600);margin-bottom:20px;line-height:1.65;">${isTeen?'Take a few minutes to journal your thoughts after completing your mission.':'After your mission, share how it went!'}</p>
+        <div style="margin-bottom:20px;">
+          <div style="font-weight:600;font-size:0.875rem;color:var(--slate-700);margin-bottom:12px;">How are you feeling right now?</div>
           <div class="emoji-grid">
             ${['😊','🤩','😅','😤','🙏','😢','💪','🥺'].map(e=>`<span class="emoji-btn${state.lessonState.selectedEmoji===e?' selected':''}" onclick="selectEmoji('${e}')">${e}</span>`).join('')}
           </div>
         </div>
-        ${member?.tier==='teen'?`
-          <div class="form-group">
-            <label class="form-label">Journal Prompt 1: ${lesson.reflectPrompts[0]}</label>
-            <textarea class="form-input" rows="3" id="reflectText1" placeholder="Write your thoughts..." oninput="updateReflect(this.value)"></textarea>
+        ${isTeen?`
+          <div class="form-group" style="margin-bottom:16px;">
+            <label class="form-label" style="color:var(--slate-700);">${lesson.reflectPrompts[0]}</label>
+            <textarea class="form-input" rows="3" id="reflectText1" placeholder="Write your thoughts..." oninput="updateReflect(this.value)" style="resize:none;">${state.lessonState.reflectText||''}</textarea>
           </div>
           <div class="form-group">
-            <label class="form-label">Journal Prompt 2: ${lesson.reflectPrompts[1]}</label>
-            <textarea class="form-input" rows="3" id="reflectText2" placeholder="Reflect deeper..."></textarea>
-          </div>`:
-        `<div class="form-group">
-            <label class="form-label">${lesson.reflectPrompts[0]}</label>
-            <textarea class="form-input" rows="3" id="reflectText1" placeholder="Write one sentence..." oninput="updateReflect(this.value)"></textarea>
+            <label class="form-label" style="color:var(--slate-700);">${lesson.reflectPrompts[1]}</label>
+            <textarea class="form-input" rows="3" id="reflectText2" placeholder="Reflect a little deeper..." style="resize:none;"></textarea>
+          </div>`:`
+          <div class="form-group">
+            <label class="form-label" style="color:var(--slate-700);">${lesson.reflectPrompts[0]}</label>
+            <textarea class="form-input" rows="3" id="reflectText1" placeholder="Write one or two sentences..." oninput="updateReflect(this.value)" style="resize:none;">${state.lessonState.reflectText||''}</textarea>
           </div>`}
       </div>`;
   } else if(stepName==='prayer'){
-    const fam=state.members;
-    body.innerHTML=`
-      <div class="anim-in">
-        <div class="lesson-step-title">🙏 Prayer Builder</div>
-        <h2 class="display-sm" style="margin-bottom:8px;">Build a Family Prayer</h2>
-        <p style="font-size:0.875rem;color:var(--slate-600);margin-bottom:20px;">Each person adds one line to create your prayer together.</p>
+    contentHtml=`
+      <div class="lesson-content-area anim-in">
+        <p style="font-size:0.875rem;color:var(--slate-600);margin-bottom:20px;line-height:1.65;">Each person adds one line to build your family prayer together. Then pray it aloud as one.</p>
         <div class="prayer-lines">
-          ${fam.map((m,i)=>`
+          ${state.members.map((m,i)=>`
             <div class="prayer-line">
-              <div class="prayer-speaker">${m.avatar||'👤'} ${m.name.split(' ')[0]}:</div>
-              <input type="text" class="form-input" style="flex:1;" id="prayer-${m.id}" placeholder="${i===0?'Start with thanks...':i===1?'Add a need...':'Add an amen...'}">
+              <div class="prayer-speaker">${m.avatar||'👤'} ${m.name.split(' ')[0]}</div>
+              <input type="text" class="form-input" style="flex:1;font-size:0.875rem;" id="prayer-${m.id}" placeholder="${['Start with gratitude...','Add a need or hope...','Say amen your way...'][Math.min(i,2)]}">
             </div>`).join('')}
         </div>
-        <button class="btn btn-primary btn-full" onclick="buildPrayer()">🙏 Pray Together</button>
-        <div id="prayerResult" style="display:none;margin-top:20px;background:linear-gradient(135deg,#1E293B,#0F3460);border-radius:var(--radius);padding:24px;color:white;text-align:center;">
-          <div style="font-size:1.5rem;margin-bottom:12px;">🙏</div>
-          <div id="prayerText" style="font-family:var(--font-display);font-size:1.05rem;line-height:1.8;color:rgba(255,255,255,0.9);"></div>
-          <div style="margin-top:16px;font-size:0.875rem;color:var(--amber);">Amen ✨</div>
+        <button class="btn btn-emerald btn-full" onclick="buildPrayer()">🙏 Compile & Pray Together</button>
+        <div id="prayerResult" style="display:none;margin-top:20px;">
+          <div class="lesson-complete-banner" style="background:linear-gradient(135deg,#1E293B,#0F3460);">
+            <span class="confetti">🙏</span>
+            <h3>Your Family Prayer</h3>
+            <p id="prayerText" style="font-family:var(--font-display);font-size:1rem;line-height:1.8;margin-top:12px;color:rgba(255,255,255,0.9);font-style:italic;"></p>
+            <p style="margin-top:16px;color:var(--amber);font-weight:700;">Amen ✨</p>
+          </div>
         </div>
       </div>`;
   }
+
+  const body=document.getElementById('lessonBody');
+  body.innerHTML=bandHtml+contentHtml;
+  document.getElementById('lessonScroll')?.scrollTo({top:0,behavior:'smooth'});
 }
 function selectMission(i){state.lessonState.selectedMission=i;renderLessonStep();}
 function selectEmoji(e){state.lessonState.selectedEmoji=e;renderLessonStep();}
@@ -1889,25 +2311,22 @@ function submitCheckin(){
 
 // ===================== INIT =====================
 // ===================== LANDING NAV =====================
-(function initNav(){
-  const nav=document.getElementById('landingNav');
-  if(!nav)return;
-  const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>40);
-  window.addEventListener('scroll',onScroll,{passive:true});
-  onScroll();
-})();
 function toggleMobileNav(){
-  document.getElementById('lnavDrawer').classList.toggle('open');
+  const drawer=document.getElementById('lnavDrawer');
+  const btn=document.getElementById('mobileMenuBtn');
+  drawer.classList.toggle('open');
+  btn.classList.toggle('open');
 }
 function closeMobileNav(){
   document.getElementById('lnavDrawer').classList.remove('open');
+  document.getElementById('mobileMenuBtn').classList.remove('open');
 }
-// Close drawer on outside click
 document.addEventListener('click',function(e){
   const drawer=document.getElementById('lnavDrawer');
   const btn=document.getElementById('mobileMenuBtn');
   if(drawer&&!drawer.contains(e.target)&&btn&&!btn.contains(e.target)){
     drawer.classList.remove('open');
+    btn.classList.remove('open');
   }
 });
 
