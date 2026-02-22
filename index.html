@@ -3,6 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' 'unsafe-eval'
+    https://www.gstatic.com
+    https://apis.google.com
+    https://accounts.google.com;
+  connect-src 'self'
+    https://*.googleapis.com
+    https://*.google.com
+    https://*.firebaseio.com
+    https://*.firebaseapp.com
+    https://identitytoolkit.googleapis.com
+    https://securetoken.googleapis.com
+    https://generativelanguage.googleapis.com
+    wss://*.firebaseio.com;
+  frame-src
+    https://accounts.google.com
+    https://*.firebaseapp.com;
+  img-src 'self' data: https:;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+  font-src 'self' https://fonts.gstatic.com;
+  worker-src blob:;
+">
 <meta name="application-name" content="FaithQuest">
 <meta name="description" content="Family Bible learning with guided lessons, real-world missions, and age-safe AI.">
 <meta name="theme-color" content="#0F172A">
@@ -1230,6 +1253,142 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 /* Gemini badge */
 .jn-gemini-badge{display:inline-flex;align-items:center;gap:5px;background:linear-gradient(135deg,#1A73E8,#4285F4);border-radius:100px;padding:3px 10px;font-size:0.62rem;font-weight:800;color:white;letter-spacing:0.05em;}
 
+
+/* Gemini AI deeper explanation */
+.lp2-gemini-btn{
+  width:100%;padding:13px;border-radius:14px;border:none;
+  background:linear-gradient(135deg,#1A73E8,#4285F4);
+  color:white;font-family:var(--font-body);font-weight:800;
+  font-size:0.875rem;cursor:pointer;transition:all 0.2s;
+  box-shadow:0 4px 14px rgba(66,133,244,0.35);
+  margin:4px 0 14px;display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.lp2-gemini-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(66,133,244,0.45);}
+.lp2-gemini-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none;}
+.lp2-gemini-loading{
+  display:flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,#EFF6FF,#DBEAFE);
+  border-radius:14px;padding:14px 16px;margin-bottom:14px;
+  font-size:0.82rem;color:#1D4ED8;font-weight:600;
+}
+.lp2-gemini-result{
+  background:linear-gradient(135deg,#EFF6FF,white);
+  border:1.5px solid rgba(66,133,244,0.2);
+  border-radius:16px;padding:18px 20px;margin-bottom:14px;
+  animation:lp2CardIn 0.4s cubic-bezier(0.34,1.2,0.64,1) both;
+}
+.lp2-gemini-label{
+  display:inline-flex;align-items:center;gap:5px;
+  background:linear-gradient(135deg,#1A73E8,#4285F4);
+  border-radius:100px;padding:3px 10px;
+  font-size:0.62rem;font-weight:800;color:white;
+  letter-spacing:0.05em;margin-bottom:10px;
+}
+.lp2-gemini-text{font-size:0.875rem;line-height:1.75;color:var(--slate-700);}
+.lp2-gemini-q{
+  background:white;border-radius:12px;padding:12px 14px;
+  margin-top:10px;border-left:3px solid #4285F4;
+  font-size:0.875rem;color:var(--slate-800);line-height:1.55;
+}
+.lp2-gemini-q-num{font-size:0.62rem;font-weight:800;color:#1A73E8;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;}
+
+/* ===== APPROVAL FLOW POLISH ===== */
+.ap-hero{
+  background:linear-gradient(155deg,#064E3B,#059669 55%,#10B981);
+  padding:28px 20px 36px;position:relative;overflow:hidden;
+}
+.ap-hero-grid{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.07) 1px,transparent 1px);background-size:20px 20px;pointer-events:none;}
+.ap-hero-glow{position:absolute;bottom:-50px;right:-30px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,0.1),transparent 65%);pointer-events:none;}
+.ap-hero-content{position:relative;z-index:2;}
+.ap-hero-top{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
+.ap-hero-icon{width:52px;height:52px;border-radius:16px;background:rgba(255,255,255,0.15);border:1.5px solid rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0;}
+.ap-hero-title{font-family:var(--font-display);font-size:1.35rem;font-weight:700;color:white;margin-bottom:2px;}
+.ap-hero-sub{font-size:0.72rem;color:rgba(255,255,255,0.55);font-weight:600;}
+.ap-stats{display:flex;gap:8px;}
+.ap-stat{flex:1;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:10px 8px;text-align:center;}
+.ap-stat-val{font-family:var(--font-display);font-size:1.2rem;font-weight:800;color:white;display:block;line-height:1;}
+.ap-stat-lbl{font-size:0.6rem;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.06em;margin-top:3px;display:block;}
+
+/* Approval card */
+.ap-body{padding:16px 16px 100px;}
+.ap-section-hd{display:flex;align-items:center;justify-content:space-between;margin:18px 0 10px;}
+.ap-section-title{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--slate-900);}
+.ap-section-count{font-size:0.72rem;font-weight:700;color:var(--slate-400);}
+
+.ap-card{
+  background:white;border-radius:20px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.09);
+  overflow:hidden;margin-bottom:12px;
+  animation:lp2CardIn 0.4s calc(var(--i,0)*0.07s) cubic-bezier(0.34,1.2,0.64,1) both;
+}
+.ap-card-banner{
+  background:linear-gradient(135deg,#0F172A,#1E3A5F);
+  padding:14px 18px;display:flex;align-items:center;gap:12px;
+}
+.ap-card-avatar{width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,0.1);border:1.5px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;}
+.ap-card-who{font-weight:800;font-size:0.9rem;color:white;}
+.ap-card-mission{font-size:0.72rem;color:rgba(255,255,255,0.55);margin-top:1px;}
+.ap-card-mood{font-size:1.5rem;margin-left:auto;flex-shrink:0;}
+
+.ap-card-body{padding:14px 18px 16px;}
+.ap-card-reflection{
+  background:var(--slate-50);border-radius:12px;
+  padding:12px 14px;margin-bottom:14px;
+  font-size:0.85rem;color:var(--slate-700);
+  line-height:1.65;font-style:italic;
+  border-left:3px solid var(--emerald);
+}
+.ap-card-date{font-size:0.68rem;color:var(--slate-400);margin-bottom:12px;}
+
+/* Praise message input */
+.ap-praise-row{margin-bottom:14px;}
+.ap-praise-label{font-size:0.68rem;font-weight:800;color:var(--slate-500);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:7px;}
+.ap-praise-input{
+  width:100%;border:2px solid var(--slate-200);border-radius:12px;
+  padding:11px 14px;font-family:var(--font-body);font-size:0.85rem;
+  color:var(--slate-900);outline:none;
+  transition:border-color 0.2s,box-shadow 0.2s;background:#FAFBFC;
+}
+.ap-praise-input:focus{border-color:var(--emerald);box-shadow:0 0 0 4px rgba(5,150,105,0.1);background:white;}
+.ap-praise-suggestions{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px;}
+.ap-praise-chip{
+  background:var(--emerald-light);border:1px solid rgba(5,150,105,0.2);
+  border-radius:100px;padding:4px 10px;
+  font-size:0.68rem;font-weight:700;color:var(--emerald);
+  cursor:pointer;transition:all 0.15s;white-space:nowrap;
+}
+.ap-praise-chip:hover{background:#A7F3D0;transform:translateY(-1px);}
+
+.ap-card-actions{display:flex;gap:8px;}
+.ap-decline-btn{
+  padding:12px 18px;border-radius:12px;border:2px solid var(--slate-200);
+  background:white;color:var(--slate-500);font-family:var(--font-body);
+  font-weight:700;font-size:0.85rem;cursor:pointer;transition:all 0.18s;
+}
+.ap-decline-btn:hover{border-color:var(--rose);color:var(--rose);}
+.ap-approve-btn{
+  flex:1;padding:12px;border-radius:12px;border:none;
+  background:linear-gradient(135deg,#059669,#10B981);
+  color:white;font-family:var(--font-body);font-weight:800;
+  font-size:0.9rem;cursor:pointer;transition:all 0.2s;
+  box-shadow:0 4px 14px rgba(5,150,105,0.35);
+}
+.ap-approve-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(5,150,105,0.45);}
+
+/* Approved history */
+.ap-history{
+  background:white;border-radius:16px;padding:14px 16px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:8px;
+  display:flex;align-items:center;gap:12px;
+}
+.ap-history-check{width:36px;height:36px;border-radius:10px;background:var(--emerald-light);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:var(--emerald);font-weight:900;}
+.ap-history-info{flex:1;}
+.ap-history-name{font-weight:700;font-size:0.875rem;color:var(--slate-900);}
+.ap-history-meta{font-size:0.7rem;color:var(--slate-400);margin-top:2px;}
+.ap-history-praise{font-size:0.75rem;color:var(--emerald);font-style:italic;margin-top:3px;}
+
+/* Empty state */
+.ap-empty{background:white;border-radius:22px;padding:40px 24px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
 /* ===== PWA ===== */
 @keyframes slideUpBanner{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 
@@ -2177,7 +2336,7 @@ import {
   getAuth, onAuthStateChanged,
   createUserWithEmailAndPassword, signInWithEmailAndPassword,
   signOut, sendPasswordResetEmail,
-  GoogleAuthProvider, signInWithPopup,
+  GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult,
   updateProfile
 } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
 import {
@@ -2202,6 +2361,13 @@ if(_fbConfigured){
   _fbAuth         = getAuth(_fbApp);
   _fbDb           = getFirestore(_fbApp);
   _googleProvider = new GoogleAuthProvider();
+
+  // ── Handle Google redirect result on page load ────────────────────────────
+  getRedirectResult(_fbAuth).then(result => {
+    if(result?.user) console.log('[FQ] Google redirect sign-in succeeded:', result.user.email);
+  }).catch(e => {
+    if(e.code !== 'auth/no-current-user') console.error('[FQ] Redirect result error:', e);
+  });
 
   // ── Auth state listener ────────────────────────────────────────────────────
   onAuthStateChanged(_fbAuth, async (fbUser) => {
@@ -2353,7 +2519,17 @@ window._fb = {
   },
   signOut: async () => signOut(_fbAuth),
   resetPw: async (email) => sendPasswordResetEmail(_fbAuth, email),
-  googleSignIn: async () => signInWithPopup(_fbAuth, _googleProvider),
+  googleSignIn: async () => {
+    // Try popup first; fall back to redirect if blocked
+    try {
+      return await signInWithPopup(_fbAuth, _googleProvider);
+    } catch(e) {
+      if(e.code === 'auth/popup-blocked' || e.code === 'auth/popup-cancelled-by-user') {
+        return signInWithRedirect(_fbAuth, _googleProvider);
+      }
+      throw e;
+    }
+  },
 };
 </script>
 
@@ -3154,57 +3330,110 @@ function selectFamilyPath(id){
 }
 
 function renderParentApprovals(el){
-  const pending=state.checkins.filter(c=>!c.approved);
-  const approved=state.checkins.filter(c=>c.approved);
-  el.innerHTML=`
-    <div class="pd-body">
-      <div class="pd-section-hd" style="margin-top:8px;"><span class="pd-section-title">Mission Approvals</span></div>
-      ${pending.length===0?`
-        <div style="text-align:center;padding:48px 24px;background:white;border-radius:20px;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
-          <div style="font-size:2.5rem;margin-bottom:12px;">✅</div>
-          <div style="font-weight:700;font-size:1.05rem;margin-bottom:4px;">All caught up!</div>
-          <p style="font-size:0.875rem;color:var(--slate-500);">No pending missions right now.</p>
-        </div>`:
-        pending.map(c=>{
-          const member=state.members.find(m=>m.id===c.memberId);
-          return `<div class="pd-approval">
-            <div class="pd-approval-top">
-              <div class="pd-approval-avatar">${member?.avatar||'🧒'}</div>
-              <div class="pd-approval-meta">
-                <div class="pd-approval-who">${member?.name}'s Mission</div>
-                <div class="pd-approval-mission">📌 ${c.missionTitle}</div>
-              </div>
-              ${c.emoji?`<div style="font-size:1.4rem;">${c.emoji}</div>`:''}
-            </div>
-            ${c.reflection?`<div class="pd-approval-reflection">"${c.reflection}"</div>`:''}
-            <div class="pd-approval-actions">
-              <button class="btn btn-secondary btn-sm" onclick="rejectCheckin('${c.id}')">✗ Decline</button>
-              <button class="btn btn-emerald btn-sm" style="flex:1;" onclick="approveCheckin('${c.id}')">✓ Approve</button>
-            </div>
-          </div>`;
-        }).join('')}
-      ${approved.length>0?`
-        <div class="pd-section-hd" style="margin-top:24px;">
-          <span class="pd-section-title">Previously Approved</span>
-          <span style="font-size:0.78rem;color:var(--slate-400);">${approved.length} total</span>
+  const pending = state.checkins.filter(c=>!c.approved);
+  const approved = state.checkins.filter(c=>c.approved)
+    .sort((a,b)=>new Date(b.approvedAt||b.createdAt)-new Date(a.approvedAt||a.createdAt));
+  const thisWeek = approved.filter(c=>(Date.now()-new Date(c.approvedAt||c.createdAt))<7*24*60*60*1000).length;
+
+  el.innerHTML = `
+    <div class="ap-hero">
+      <div class="ap-hero-grid"></div>
+      <div class="ap-hero-glow"></div>
+      <div class="ap-hero-content">
+        <div class="ap-hero-top">
+          <div class="ap-hero-icon">✅</div>
+          <div>
+            <div class="ap-hero-title">Mission Approvals</div>
+            <div class="ap-hero-sub">${pending.length>0?`${pending.length} waiting for your review`:'All caught up!'}</div>
+          </div>
         </div>
-        ${approved.slice().reverse().slice(0,5).map(c=>{
-          const m=state.members.find(x=>x.id===c.memberId);
-          return `<div style="display:flex;align-items:center;gap:12px;background:white;border-radius:14px;padding:12px 14px;box-shadow:0 2px 8px rgba(0,0,0,0.05);margin-bottom:8px;">
-            <div style="width:36px;height:36px;border-radius:10px;background:var(--emerald-light);display:flex;align-items:center;justify-content:center;">✅</div>
-            <div><div style="font-weight:600;font-size:0.875rem;">${m?.name}: ${c.missionTitle}</div><div style="font-size:0.72rem;color:var(--slate-400);">Approved</div></div>
-          </div>`;
-        }).join('')}`:''}
+        <div class="ap-stats">
+          <div class="ap-stat"><span class="ap-stat-val">${pending.length}</span><span class="ap-stat-lbl">Pending</span></div>
+          <div class="ap-stat"><span class="ap-stat-val">${approved.length}</span><span class="ap-stat-lbl">Approved</span></div>
+          <div class="ap-stat"><span class="ap-stat-val">${thisWeek}</span><span class="ap-stat-lbl">This Week</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="ap-body">
+      ${pending.length>0 ? `
+        <div class="ap-section-hd">
+          <span class="ap-section-title">Needs Your Review</span>
+          <span class="ap-section-count">${pending.length} pending</span>
+        </div>
+        ${pending.map((c,i)=>{
+          const member = state.members.find(m=>m.id===c.memberId);
+          const date = new Date(c.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});
+          const praiseId = 'praise_'+c.id;
+          return `
+            <div class="ap-card" style="--i:${i}">
+              <div class="ap-card-banner">
+                <div class="ap-card-avatar">${member?.avatar||'🧒'}</div>
+                <div>
+                  <div class="ap-card-who">${member?.name||'Your child'}</div>
+                  <div class="ap-card-mission">📌 ${c.missionTitle||'Mission'}</div>
+                </div>
+                ${c.emoji?`<div class="ap-card-mood">${c.emoji}</div>`:''}
+              </div>
+              <div class="ap-card-body">
+                <div class="ap-card-date">Submitted ${date}</div>
+                ${c.reflection?`<div class="ap-card-reflection">"${c.reflection}"</div>`:'<div class="ap-card-reflection" style="color:var(--slate-400);font-style:normal;">No reflection written.</div>'}
+                <div class="ap-praise-row">
+                  <div class="ap-praise-label">Your response (optional)</div>
+                  <input class="ap-praise-input" id="${praiseId}" placeholder="Great job! I am so proud of you..." maxlength="120">
+                  <div class="ap-praise-suggestions">
+                    ${["Amazing work! 🌟","So proud of you!","That took real courage","God is pleased with you!","Keep it up! 🙏"].map(s=>
+                      `<div class="ap-praise-chip" onclick="document.getElementById('${praiseId}').value='${s}'">${s}</div>`
+                    ).join('')}
+                  </div>
+                </div>
+                <div class="ap-card-actions">
+                  <button class="ap-decline-btn" onclick="rejectCheckin('${c.id}')">Decline</button>
+                  <button class="ap-approve-btn" onclick="approveCheckin('${c.id}','${praiseId}')">Approve Mission</button>
+                </div>
+              </div>
+            </div>`;
+        }).join('')}` : `
+        <div class="ap-empty">
+          <div style="font-size:3rem;margin-bottom:14px;">🎉</div>
+          <div style="font-weight:800;font-size:1.05rem;color:var(--slate-700);margin-bottom:6px;">All caught up!</div>
+          <div style="font-size:0.85rem;color:var(--slate-400);line-height:1.6;">No pending missions right now. When your kids complete missions and check in, they will appear here.</div>
+        </div>`}
+      ${approved.length>0 ? `
+        <div class="ap-section-hd" style="margin-top:28px;">
+          <span class="ap-section-title">Approval History</span>
+          <span class="ap-section-count">${approved.length} total</span>
+        </div>
+        ${approved.slice(0,8).map(c=>{
+          const m = state.members.find(x=>x.id===c.memberId);
+          const d = new Date(c.approvedAt||c.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric'});
+          return `
+            <div class="ap-history">
+              <div class="ap-history-check">+</div>
+              <div class="ap-history-info">
+                <div class="ap-history-name">${m?.name||'Child'} - ${c.missionTitle||'Mission'}</div>
+                <div class="ap-history-meta">Approved ${d}${c.emoji?' - '+c.emoji:''}</div>
+                ${c.praise?`<div class="ap-history-praise">"${c.praise}"</div>`:''}
+              </div>
+            </div>`;
+        }).join('')}` : ''}
     </div>`;
 }
 
-function approveCheckin(id){
-  const c=state.checkins.find(x=>x.id===id);
-  if(c){c.approved=true;saveUserData();showToast('Mission approved! 🌟');parentNav(state.parentTab);}
+function approveCheckin(id, praiseInputId){
+  const c = state.checkins.find(x=>x.id===id);
+  if(!c) return;
+  c.approved = true;
+  c.approvedAt = new Date().toISOString();
+  c.praise = praiseInputId ? (document.getElementById(praiseInputId)?.value.trim()||null) : null;
+  saveUserData();
+  showToast('Mission approved! 🌟');
+  parentNav('approvals');
 }
 function rejectCheckin(id){
-  state.checkins=state.checkins.filter(x=>x.id!==id);
-  saveUserData();showToast('Mission declined');parentNav(state.parentTab);
+  state.checkins = state.checkins.filter(x=>x.id!==id);
+  saveUserData();
+  showToast('Mission declined');
+  parentNav('approvals');
 }
 
 function renderParentInsights(el){
@@ -3737,7 +3966,7 @@ function renderKidLibrary(el){
 // ===================== TEEN JOURNAL =====================
 
 // Gemini API key — set your key here or via window.FQ_GEMINI_KEY
-const GEMINI_KEY = window.FQ_GEMINI_KEY || 'AIzaSyBFYKsXcVsg1jXHwv-qb5X5blKPXLI2oY8';
+const GEMINI_KEY = window.FQ_GEMINI_KEY || 'YOUR_GEMINI_API_KEY';
 const GEMINI_CONFIGURED = !GEMINI_KEY.startsWith('YOUR_');
 
 const JOURNAL_PROMPTS_DEFAULT = [
@@ -3747,6 +3976,180 @@ const JOURNAL_PROMPTS_DEFAULT = [
   {icon:'⚔️', text:'Where did I need more courage?'},
   {icon:'🌱', text:'How am I growing in faith?'},
 ];
+
+
+function renderKidJournal(el){
+  const member = getCurrentMember();
+  if(!member){ el.innerHTML=''; return; }
+
+  const entries = (state.journals||[]).filter(j=>j.memberId===member.id)
+    .sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt));
+
+  const lastCompletion = state.completions.filter(c=>c.memberId===member.id).slice(-1)[0];
+  let lastLesson = null;
+  if(lastCompletion){
+    const path = PATHS.find(p=>p.id===lastCompletion.pathId);
+    lastLesson = path ? path.lessons.find(l=>l.id===lastCompletion.lessonId) : null;
+  }
+
+  const today = new Date().toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+  const wordCount = entries.reduce((sum,e)=>sum+(e.text||'').split(/\s+/).filter(Boolean).length,0);
+
+  // Build prompt chips HTML separately to avoid nested template literal issues
+  var defaultChips = JOURNAL_PROMPTS_DEFAULT.slice(0,4).map(function(p){
+    return '<div class="jn-prompt-chip" onclick="jnSelectPrompt(this,' + JSON.stringify(p.text) + ')">'
+      + '<span class="jn-prompt-chip-icon">' + p.icon + '</span>' + p.text + '</div>';
+  }).join('');
+
+  var aiChip = (GEMINI_CONFIGURED && lastLesson)
+    ? '<div class="jn-prompt-chip jn-prompt-chip-generate" id="jnAiBtn" onclick="jnLoadAiPrompts()">✨ AI prompts for this lesson</div>'
+    : '';
+
+  var geminiLabel = GEMINI_CONFIGURED
+    ? '<span class="jn-gemini-badge">✨ Gemini AI</span>'
+    : '<span style="font-size:0.65rem;color:var(--slate-400);">Add Gemini key for AI prompts</span>';
+
+  // Build entries HTML separately
+  var entriesHtml = '';
+  if(entries.length === 0){
+    entriesHtml = '<div class="jn-empty">'
+      + '<span class="jn-empty-icon">📔</span>'
+      + '<div class="jn-empty-title">Your journal is waiting</div>'
+      + '<div class="jn-empty-sub">Write your first entry above. Just between you and God.</div>'
+      + '</div>';
+  } else {
+    entriesHtml = entries.map(function(e,i){
+      var d = new Date(e.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+      var promptHtml = e.prompt ? '<div class="jn-entry-prompt">"' + e.prompt + '"</div>' : '';
+      var lessonHtml = e.lessonTitle ? '<span class="jn-entry-lesson">📖 ' + e.lessonTitle + '</span>' : '';
+      return '<div class="jn-entry" style="--i:' + i + '" onclick="jnToggleEntry(this)">'
+        + '<div class="jn-entry-header">'
+        + '<span class="jn-entry-date">' + d + '</span>'
+        + '<span class="jn-entry-mood">' + (e.mood||'📔') + '</span>'
+        + '</div>'
+        + promptHtml
+        + '<div class="jn-entry-text collapsed">' + (e.text||'') + '</div>'
+        + lessonHtml
+        + '</div>';
+    }).join('');
+  }
+
+  el.innerHTML = '<div class="jn-hero">'
+    + '<div class="jn-hero-grid"></div>'
+    + '<div class="jn-hero-glow"></div>'
+    + '<div class="jn-hero-content">'
+    + '<div class="jn-hero-top">'
+    + '<div class="jn-hero-icon">✍️</div>'
+    + '<div><div class="jn-hero-name">' + member.name + "'s Journal</div>"
+    + '<div class="jn-hero-sub">Private · Faith reflections</div>'
+    + '</div></div>'
+    + '<div class="jn-streak-row">'
+    + '<div class="jn-stat"><span class="jn-stat-val">' + entries.length + '</span><span class="jn-stat-lbl">Entries</span></div>'
+    + '<div class="jn-stat"><span class="jn-stat-val">' + wordCount + '</span><span class="jn-stat-lbl">Words</span></div>'
+    + '<div class="jn-stat"><span class="jn-stat-val">' + getStreak(member.id) + '</span><span class="jn-stat-lbl">Streak</span></div>'
+    + '</div></div></div>'
+    + '<div class="jn-body">'
+    + '<div class="jn-composer" id="jnComposer">'
+    + '<div class="jn-composer-header">'
+    + '<span class="jn-composer-title">New Entry</span>'
+    + '<span class="jn-composer-date">' + today + '</span>'
+    + '</div>'
+    + '<div class="jn-composer-body">'
+    + '<div id="jnPromptArea">'
+    + '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">'
+    + '<span style="font-size:0.72rem;font-weight:700;color:var(--slate-500);text-transform:uppercase;letter-spacing:0.08em;">Prompts</span>'
+    + geminiLabel
+    + '</div>'
+    + '<div class="jn-prompt-row" id="jnPromptChips">' + defaultChips + aiChip + '</div>'
+    + '</div>'
+    + '<textarea class="jn-textarea" id="jnText" rows="5" placeholder="Write freely — this is just for you..." '
+    + 'oninput="document.getElementById(\'jnCharCount\').textContent=this.value.split(/\\s+/).filter(Boolean).length+\' words\'">'
+    + '</textarea>'
+    + '<div class="jn-composer-footer">'
+    + '<span class="jn-char-count" id="jnCharCount">0 words</span>'
+    + '<button class="jn-save-btn" onclick="jnSave()">Save Entry ✍️</button>'
+    + '</div></div></div>'
+    + '<div class="jn-section-hd">'
+    + '<span class="jn-section-title">Past Entries</span>'
+    + '<span class="jn-section-sub">' + entries.length + ' total</span>'
+    + '</div>'
+    + entriesHtml
+    + '</div>';
+
+  if(GEMINI_CONFIGURED && lastLesson && entries.length === 0){
+    setTimeout(function(){ jnLoadAiPrompts(); }, 400);
+  }
+}
+
+function jnSelectPrompt(chip, text){
+  document.querySelectorAll('.jn-prompt-chip').forEach(c=>c.classList.remove('active'));
+  if(chip) chip.classList.add('active');
+  const ta = document.getElementById('jnText');
+  if(ta && !ta.value.trim()) ta.placeholder = text + '...';
+  window._jnSelectedPrompt = text;
+}
+
+async function jnLoadAiPrompts(){
+  const member = getCurrentMember();
+  const lastCompletion = state.completions.filter(c=>c.memberId===member?.id).slice(-1)[0];
+  if(!lastCompletion) return;
+  const path = PATHS.find(p=>p.id===lastCompletion.pathId);
+  const lesson = path?.lessons.find(l=>l.id===lastCompletion.lessonId);
+  if(!lesson) return;
+
+  const chipsEl = document.getElementById('jnPromptChips');
+  if(chipsEl) chipsEl.innerHTML = `<div class="jn-ai-generating"><div class="jn-ai-dot"></div><div class="jn-ai-dot" style="animation-delay:0.2s"></div><div class="jn-ai-dot" style="animation-delay:0.4s"></div><span>Gemini is thinking...</span></div>`;
+
+  const prompts = await geminiJournalPrompts(lesson.title, lesson.summary, member.name);
+  const toShow = prompts || JOURNAL_PROMPTS_DEFAULT;
+
+  if(chipsEl){
+    chipsEl.innerHTML = toShow.map((p,i)=>`
+      <div class="jn-prompt-chip${i===0?' active':''}" onclick="jnSelectPrompt(this,${JSON.stringify(p.text||'')})">
+        <span class="jn-prompt-chip-icon">${p.icon||'💭'}</span>${p.text}
+      </div>`).join('') +
+      `<div class="jn-prompt-chip jn-prompt-chip-generate" onclick="jnLoadAiPrompts()">↻ New prompts</div>`;
+  }
+
+  if(toShow[0]){
+    const ta = document.getElementById('jnText');
+    if(ta && !ta.value.trim()) ta.placeholder = toShow[0].text + '...';
+    window._jnSelectedPrompt = toShow[0].text;
+  }
+}
+
+function jnSave(){
+  const text = (document.getElementById('jnText')?.value||'').trim();
+  if(!text){ showToast('Write something first ✍️'); return; }
+  const member = getCurrentMember();
+  const lastCompletion = state.completions.filter(c=>c.memberId===member?.id).slice(-1)[0];
+  const path = lastCompletion ? PATHS.find(p=>p.id===lastCompletion.pathId) : null;
+  const lesson = path?.lessons.find(l=>l.id===lastCompletion?.lessonId);
+
+  const entry = {
+    id:'jn_'+Date.now(),
+    memberId:member.id,
+    text,
+    prompt:window._jnSelectedPrompt||null,
+    mood:'📔',
+    lessonTitle:lesson?.title||null,
+    lessonId:lesson?.id||null,
+    createdAt:new Date().toISOString(),
+  };
+
+  if(!state.journals) state.journals=[];
+  state.journals.push(entry);
+  saveUserData();
+  window._jnSelectedPrompt=null;
+  showToast('Entry saved 📔');
+  const el=document.getElementById('kidContent');
+  if(el) renderKidJournal(el);
+}
+
+function jnToggleEntry(el){
+  const textEl=el.querySelector('.jn-entry-text');
+  if(textEl) textEl.classList.toggle('collapsed');
+}
 
 async function geminiJournalPrompts(lessonTitle, lessonSummary, memberName){
   if(!GEMINI_CONFIGURED) return null;
@@ -3783,7 +4186,72 @@ Example: [{"icon":"🌊","text":"Describe a storm you faced this week."}]`
   }
 }
 
-function renderKidJournal(el){
+async function geminiDeepen(lessonId, lessonTitle, tier){
+  const btn = document.getElementById('geminiDeepBtn');
+  const resultEl = document.getElementById('geminiDeepResult');
+  if(!btn || !resultEl) return;
+
+  btn.disabled = true;
+  btn.textContent = '✨ Thinking...';
+  resultEl.innerHTML = `<div class="lp2-gemini-loading"><div class="jn-ai-dot"></div><div class="jn-ai-dot" style="animation-delay:0.2s"></div><div class="jn-ai-dot" style="animation-delay:0.4s"></div><span>Gemini is going deeper...</span></div>`;
+
+  const path = PATHS.find(p => p.lessons.some(l => l.id === lessonId));
+  const lesson = path?.lessons.find(l => l.id === lessonId);
+  if(!lesson){ btn.disabled=false; btn.textContent='✨ Go Deeper with AI'; resultEl.innerHTML=''; return; }
+
+  const tierDesc = tier==='teen' ? 'a teenager (14-17), intellectually curious, wants real depth'
+    : tier==='younger' ? 'a young child (4-6), needs simple concrete language and fun analogies'
+    : 'a child (7-10), curious and energetic, likes stories and relatable examples';
+
+  try {
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_KEY}`,
+      {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({
+          contents:[{parts:[{text:
+`You are a faith education coach helping ${tierDesc} understand a Bible lesson.
+
+Lesson: "${lessonTitle}"
+Verse excerpt: "${lesson.excerpt}"
+Summary: "${lesson.summary}"
+
+Provide:
+1. A "Deeper Insight" paragraph (3-4 sentences) — go beyond the summary. Include historical context, original meaning, or a real-world connection appropriate for this age.
+2. Exactly 2 bonus discussion questions — fresh, not repeating the existing ones. Make them thought-provoking for this age group.
+
+Respond ONLY as JSON, no markdown:
+{"insight":"...","questions":["...","..."]}`
+          }]}],
+          generationConfig:{temperature:0.7, maxOutputTokens:500}
+        })
+      }
+    );
+    const data = await res.json();
+    const raw = data.candidates?.[0]?.content?.parts?.[0]?.text||'';
+    const clean = raw.replace(/```json|```/g,'').trim();
+    const parsed = JSON.parse(clean);
+
+    resultEl.innerHTML = `
+      <div class="lp2-gemini-result">
+        <div class="lp2-gemini-label">✨ Gemini AI · Deeper Insight</div>
+        <div class="lp2-gemini-text">${parsed.insight}</div>
+        ${parsed.questions?.map((q,i)=>`
+          <div class="lp2-gemini-q">
+            <div class="lp2-gemini-q-num">Bonus Question ${i+1}</div>
+            ${q}
+          </div>`).join('')||''}
+      </div>`;
+    btn.style.display = 'none';
+  } catch(e) {
+    console.error('[FQ] Gemini deepen error:', e);
+    resultEl.innerHTML = '';
+    btn.disabled = false;
+    btn.textContent = '✨ Go Deeper with AI';
+    showToast('AI unavailable — try again');
+  }
+}
   const member = getCurrentMember();
   if(!member){ el.innerHTML=''; return; }
 
@@ -3873,7 +4341,6 @@ function renderKidJournal(el){
         </div>` :
         entries.map((e,i)=>{
           const d = new Date(e.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-          const preview = (e.text||'').slice(0,200);
           return `
             <div class="jn-entry" style="--i:${i}" onclick="jnToggleEntry(this)">
               <div class="jn-entry-header">
@@ -3884,92 +4351,13 @@ function renderKidJournal(el){
               <div class="jn-entry-text collapsed">${e.text||''}</div>
               ${e.lessonTitle?`<span class="jn-entry-lesson">📖 ${e.lessonTitle}</span>`:''}
             </div>`;
-        }).join('')
-      }
+        }).join('')}
     </div>`;
 
   // Auto-load AI prompts if Gemini configured and there's a recent lesson
   if(GEMINI_CONFIGURED && lastLesson && entries.length === 0){
     setTimeout(()=>jnLoadAiPrompts(), 400);
   }
-}
-
-function jnSelectPrompt(chip, text){
-  document.querySelectorAll('.jn-prompt-chip').forEach(c=>c.classList.remove('active'));
-  chip.classList.add('active');
-  const ta = document.getElementById('jnText');
-  if(ta && !ta.value.trim()){
-    ta.placeholder = text + '...';
-    ta.focus();
-  }
-  window._jnSelectedPrompt = text;
-}
-
-async function jnLoadAiPrompts(){
-  const member = getCurrentMember();
-  const lastCompletion = state.completions.filter(c=>c.memberId===member?.id).slice(-1)[0];
-  if(!lastCompletion) return;
-  const path = PATHS.find(p=>p.id===lastCompletion.pathId);
-  const lesson = path?.lessons.find(l=>l.id===lastCompletion.lessonId);
-  if(!lesson) return;
-
-  const btn = document.getElementById('jnAiBtn');
-  const chipsEl = document.getElementById('jnPromptChips');
-  if(chipsEl){
-    chipsEl.innerHTML = `<div class="jn-ai-generating"><div class="jn-ai-dot"></div><div class="jn-ai-dot" style="animation-delay:0.2s"></div><div class="jn-ai-dot" style="animation-delay:0.4s"></div><span>Gemini is thinking...</span></div>`;
-  }
-
-  const prompts = await geminiJournalPrompts(lesson.title, lesson.summary, member.name);
-  const toShow = prompts || JOURNAL_PROMPTS_DEFAULT;
-
-  if(chipsEl){
-    chipsEl.innerHTML = toShow.map((p,i)=>`
-      <div class="jn-prompt-chip${i===0?' active':''}" onclick="jnSelectPrompt(this,'${(p.text||'').replace(/'/g,"\\'")}')">
-        <span class="jn-prompt-chip-icon">${p.icon||'💭'}</span>${p.text}
-      </div>`).join('') +
-      `<div class="jn-prompt-chip jn-prompt-chip-generate" onclick="jnLoadAiPrompts()">↻ New prompts</div>`;
-  }
-
-  if(toShow[0]){
-    const ta = document.getElementById('jnText');
-    if(ta && !ta.value.trim()) ta.placeholder = toShow[0].text + '...';
-    window._jnSelectedPrompt = toShow[0].text;
-  }
-}
-
-function jnSave(){
-  const text = (document.getElementById('jnText')?.value||'').trim();
-  if(!text){ showToast('Write something first ✍️'); return; }
-  const member = getCurrentMember();
-  const lastCompletion = state.completions.filter(c=>c.memberId===member?.id).slice(-1)[0];
-  const path = lastCompletion ? PATHS.find(p=>p.id===lastCompletion.pathId) : null;
-  const lesson = path?.lessons.find(l=>l.id===lastCompletion?.lessonId);
-
-  const entry = {
-    id: 'jn_'+Date.now(),
-    memberId: member.id,
-    text,
-    prompt: window._jnSelectedPrompt||null,
-    mood: '📔',
-    lessonTitle: lesson?.title||null,
-    lessonId: lesson?.id||null,
-    createdAt: new Date().toISOString(),
-  };
-
-  if(!state.journals) state.journals = [];
-  state.journals.push(entry);
-  saveUserData();
-  window._jnSelectedPrompt = null;
-  showToast('Entry saved 📔');
-
-  // Re-render
-  const el = document.getElementById('kidContent');
-  if(el) renderKidJournal(el);
-}
-
-function jnToggleEntry(el){
-  const textEl = el.querySelector('.jn-entry-text');
-  if(textEl) textEl.classList.toggle('collapsed');
 }
 
 function renderKidProfile(el){
@@ -4099,14 +4487,20 @@ function renderLessonStep(){
       ?`<strong>Deeper Study:</strong> ${lesson.summary}<br><br>Consider its original audience — what would these words have meant to them? Then ask how the same truth lands in your world today. That gap is where real faith grows.`
       :`Here's what this means for you: ${lesson.summary} God's word isn't just old history — it's alive and speaking into your life right now.`;
     const tierLabel=isYounger?'🌱 Little Explorer':isTeen?'🚀 Teen Study':'⭐ Kid Explanation';
+    const geminiBtn = GEMINI_CONFIGURED ? `
+      <button class="lp2-gemini-btn" id="geminiDeepBtn" onclick="geminiDeepen('${lesson.id}','${(lesson.title).replace(/'/g,"\\'")}','${(isTeen?'teen':isYounger?'younger':'kid')}')">
+        ✨ Go Deeper with AI
+      </button>` : '';
     contentHtml=`
       <div class="lp2-content lp2-step-in">
         <div class="lp2-explain">
           <div class="lp2-explain-tier">${tierLabel}</div>
-          <div class="lp2-explain-text">${exp}</div>
+          <div class="lp2-explain-text" id="explainText">${exp}</div>
         </div>
+        ${geminiBtn}
+        <div id="geminiDeepResult"></div>
         <div class="lp2-section-label">Think it through</div>
-        <div class="lp2-q-list">
+        <div class="lp2-q-list" id="questionList">
           ${lesson.questions.slice(0,2).map((q,i)=>`
             <div class="lp2-q" style="--i:${i}">
               <div class="lp2-q-num">Question ${i+1}</div>
