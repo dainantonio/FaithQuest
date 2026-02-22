@@ -2115,18 +2115,30 @@ if(_fbConfigured){
           _quietRefresh();
         }
       });
-      routeAfterAuth();
+      try {
+        routeAfterAuth();
+      } catch(e) {
+        console.error('[FQ] routeAfterAuth crashed:', e);
+        // routeAfterAuth missing or broken — navigate manually
+        if(!state.family){ startOnboarding(); }
+        else {
+          const parent = state.members.find(m => m.role === 'parent');
+          if(parent){ showParentApp(); } else { showKidApp(); }
+        }
+      }
     } else {
       window._fbUser = null;
       if(_unsubSnapshot){ _unsubSnapshot(); _unsubSnapshot = null; }
-      // Only navigate if we're past the landing screen
       if(document.querySelector('.screen.active')?.id !== 'screen-landing'){
         showScreen('screen-landing');
       }
     }
-    // Hide loading overlay
     const ov = document.getElementById('fq-loading-overlay');
     if(ov) ov.style.display = 'none';
+    // Re-enable any stuck auth buttons
+    document.querySelectorAll('#auth-signin-form .btn-primary, #auth-signup-form .btn-primary').forEach(b => {
+      b.disabled = false;
+    });
   });
   } catch(e) {
     console.error('[FaithQuest] Firebase init error:', e);
@@ -2440,6 +2452,7 @@ function doSignIn(){
       const saved=JSON.parse(localStorage.getItem('fq_users')||'[]');
       const user=saved.find(function(u){return u.email===email;});
       if(user){state.currentUser=user;loadUserData();routeAfterAuth();}
+      if(btn){btn.textContent='Sign In →';btn.disabled=false;}
       else{showToast('No account found. Create one!');switchAuthTab('signup');document.getElementById('signup-email').value=email;}
     }
   });
@@ -2564,6 +2577,14 @@ function saveUserData(){
   localStorage.setItem('fq_data_'+state.currentUser.id,JSON.stringify(payload));
   // Also write to Firestore if configured
   if(window._fb?.configured) window._fb.save();
+}
+
+function routeAfterAuth(){
+  if(!state.family){ startOnboarding(); }
+  else {
+    const parent = state.members.find(m => m.role === 'parent');
+    if(parent){ showParentApp(); } else { showKidApp(); }
+  }
 }
 
 // ===================== ONBOARDING =====================
