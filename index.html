@@ -2349,6 +2349,7 @@ if(_fbConfigured){
 
   // ── Auth state listener ────────────────────────────────────────────────────
   onAuthStateChanged(_fbAuth, async (fbUser) => {
+    try {
     // Signal that Firebase is live and ready
     if(window._fbReadyResolve){ window._fbReadyResolve(true); window._fbReadyResolve=null; }
     if(fbUser){
@@ -2393,8 +2394,13 @@ if(_fbConfigured){
         showScreen('screen-landing');
       }
     }
-    const ov = document.getElementById('fq-loading-overlay');
-    if(ov) ov.style.display = 'none';
+    } catch(authErr) {
+      console.error('[FQ] onAuthStateChanged handler error:', authErr);
+    } finally {
+      // ALWAYS hide the overlay, even if something above threw or hung
+      const ov = document.getElementById('fq-loading-overlay');
+      if(ov) ov.style.display = 'none';
+    }
     // Re-enable any stuck auth buttons
     document.querySelectorAll('#auth-signin-form .btn-primary, #auth-signup-form .btn-primary').forEach(b => {
       b.disabled = false;
@@ -4954,7 +4960,7 @@ initLessonPreview();
     if(ov){ ov.style.display = 'none'; }
   }
 
-  // Hard timeout: force hide overlay after 5 seconds NO MATTER WHAT
+  // Hard timeout: force hide overlay after 3 seconds NO MATTER WHAT
   setTimeout(function(){
     hideOverlay();
     // Only navigate to landing if no screen is active yet
@@ -4965,7 +4971,7 @@ initLessonPreview();
         if(landing) landing.classList.add('active');
       }
     } catch(e){}
-  }, 5000);
+  }, 3000);
 
   // Soft check at 1.5s — if Firebase never initialized, hide overlay + show landing
   setTimeout(function(){
@@ -5099,7 +5105,7 @@ function triggerInstall(){
 </script>
 
 <!-- ===== FIREBASE LOADING OVERLAY ===== -->
-<div id="fq-loading-overlay" style="position:fixed;inset:0;background:#060D1F;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;">
+<div id="fq-loading-overlay" style="position:fixed;inset:0;background:#060D1F;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;animation:overlayFadeOut 0.5s ease-out 4s forwards;">
   <div style="width:56px;height:56px;background:linear-gradient(135deg,#F59E0B,#D97706);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 8px 24px rgba(245,158,11,0.4);">✝️</div>
   <div style="font-family:Georgia,serif;font-size:1.3rem;font-weight:700;color:white;">FaithQuest</div>
   <div style="display:flex;gap:6px;margin-top:4px;">
@@ -5107,8 +5113,13 @@ function triggerInstall(){
     <div style="width:8px;height:8px;border-radius:50%;background:#F59E0B;animation:dotPulse 1.2s 0.2s ease-in-out infinite;"></div>
     <div style="width:8px;height:8px;border-radius:50%;background:#F59E0B;animation:dotPulse 1.2s 0.4s ease-in-out infinite;"></div>
   </div>
-  <style>@keyframes dotPulse{0%,80%,100%{opacity:0.2;transform:scale(0.8);}40%{opacity:1;transform:scale(1.1);}}</style>
+  <style>
+    @keyframes dotPulse{0%,80%,100%{opacity:0.2;transform:scale(0.8);}40%{opacity:1;transform:scale(1.1);}}
+    @keyframes overlayFadeOut{to{opacity:0;visibility:hidden;pointer-events:none;}}
+  </style>
 </div>
+<!-- Failsafe: hide overlay after 3s even if main script never runs -->
+<script>setTimeout(function(){var o=document.getElementById('fq-loading-overlay');if(o)o.style.display='none';},3000);</script>
 
 <!-- ===== FIREBASE CONFIG BANNER ===== -->
 <div id="fq-firebase-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:8000;background:linear-gradient(135deg,#0F172A,#1E3A5F);border-top:2px solid rgba(245,158,11,0.4);padding:16px 20px;box-shadow:0 -8px 32px rgba(0,0,0,0.4);">
