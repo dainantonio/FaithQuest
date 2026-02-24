@@ -1,0 +1,3499 @@
+[
+  {
+    "id": "jesus",
+    "emoji": "\u271d\ufe0f",
+    "color": "path-jesus",
+    "title": "Jesus & Me",
+    "desc": "Discover who Jesus is through stories, miracles, and His teachings.",
+    "tier": "free",
+    "lessons": [
+      {
+        "id": "j1",
+        "title": "Jesus, the Good Shepherd",
+        "verseRef": "John 10:11",
+        "excerpt": "\"I am the good shepherd. The good shepherd lays down his life for the sheep.\" \u2014 John 10:11 (WEB)",
+        "summary": "Jesus compares himself to a shepherd who truly cares for and protects his sheep\u2014even at great cost.",
+        "questions": [
+          "What does it mean to you that Jesus calls himself your shepherd?",
+          "How does a good shepherd act differently from someone who doesn't care about the sheep?",
+          "Where in your week could you be a \"good shepherd\" to a friend?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udc11",
+            "title": "Protect a Friend",
+            "desc": "This week, stand up for someone who is being left out or picked on. Be their shepherd.",
+            "level": "Easy"
+          },
+          {
+            "emoji": " \u2709\ufe0f",
+            "title": "Write a Care Note",
+            "desc": "Write or draw a note for someone who might feel alone. Deliver it in person.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\ude4f",
+            "title": "Prayer Vigil",
+            "desc": "Keep a list of 3 people you want to pray for every day this week.",
+            "level": "Medium"
+          }
+        ],
+        "reflectPrompts": [
+          "How did doing this mission feel?",
+          "What was hard about it?",
+          "How do you think God felt watching you?"
+        ]
+      },
+      {
+        "id": "j2",
+        "title": "Jesus Calms the Storm",
+        "verseRef": "Mark 4:39",
+        "excerpt": "\"He awoke, and rebuked the wind, and said to the sea, 'Peace! Be still!' The wind ceased, and there was a great calm.\" \u2014 Mark 4:39 (WEB)",
+        "summary": "When a fierce storm scared the disciples, Jesus spoke peace into the chaos\u2014reminding us he has authority over what frightens us.",
+        "questions": [
+          "Have you ever felt like you were in a \"storm\"\u2014a scary or overwhelming situation?",
+          "Why do you think the disciples were afraid even though Jesus was in the boat?",
+          "What does it look like to trust Jesus in a stormy moment?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83c\udf0a",
+            "title": "Peace Partner",
+            "desc": "Help calm a tense moment at home. If someone is arguing or upset, be the peacemaker.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\u270d\ufe0f",
+            "title": "Storm Journal",
+            "desc": "Write or draw a \"storm\" in your life and then write \"Peace, be still!\" over it.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83e\udd1d",
+            "title": "Be the Anchor",
+            "desc": "Check in on someone who seems stressed or worried. Offer to sit with them.",
+            "level": "Easy"
+          }
+        ],
+        "reflectPrompts": [
+          "What was your personal storm this week?",
+          "How did leaning on faith help (or feel hard)?",
+          "What would you do differently next time?"
+        ]
+      },
+      {
+        "id": "j3",
+        "title": "The Prodigal Son",
+        "verseRef": "Luke 15:20",
+        "excerpt": "\"He arose, and came to his father. But while he was yet far off, his father saw him, and was moved with compassion, and ran, and fell on his neck, and kissed him.\" \u2014 Luke 15:20 (WEB)",
+        "summary": "A son wastes his father's money but returns in shame\u2014and the father runs to embrace him. This is how God feels about us.",
+        "questions": [
+          "Why did the father run to his son instead of waiting for an apology?",
+          "Is there someone you need to forgive or make up with?",
+          "How does it feel to know God welcomes you back no matter what?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83e\udec2",
+            "title": "Make It Right",
+            "desc": "Apologize to someone you've hurt or drifted from. Mean it.",
+            "level": "Hard"
+          },
+          {
+            "emoji": "\ud83c\udf7d\ufe0f",
+            "title": "Welcome Table",
+            "desc": "Invite someone who often eats alone to share your lunch or dinner.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udcdc",
+            "title": "Grace Letter",
+            "desc": "Write a letter to yourself from God's perspective of welcome and love.",
+            "level": "Medium"
+          }
+        ],
+        "reflectPrompts": [
+          "How did apologizing (or being forgiven) feel?",
+          "What did you learn about grace this week?",
+          "How has God's welcome changed how you treat others?"
+        ]
+      },
+      {
+        "id": "j4",
+        "title": "The Sermon on the Mount",
+        "verseRef": "Matthew 5:3",
+        "excerpt": "\"Blessed are the poor in spirit, for theirs is the Kingdom of Heaven.\" \u2014 Matthew 5:3 (WEB)",
+        "summary": "Jesus starts his most famous sermon by turning worldly values upside down\u2014blessing those who feel humble, broken, or overlooked.",
+        "questions": [
+          "Which Beatitude speaks most to you right now and why?",
+          "What does it mean to be \"poor in spirit\"?",
+          "How can we build our lives on these blessings instead of what the world values?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83c\udf3f",
+            "title": "Humble Servant",
+            "desc": "Do one household chore or service task without being asked and without telling anyone.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udca7",
+            "title": "Comfort Someone",
+            "desc": "Find someone who is sad or grieving. Offer your presence and kind words.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\u262e\ufe0f",
+            "title": "Peacemaker Day",
+            "desc": "Go one whole day without speaking negatively about anyone.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "Which beatitude did you live out this week?",
+          "Was it hard? What made it hard?",
+          "How did you see God in that moment?"
+        ]
+      },
+      {
+        "id": "j5",
+        "title": "Jesus & the Children",
+        "verseRef": "Mark 10:14",
+        "excerpt": "\"Suffer the little children to come to me; forbid them not: for of such is the kingdom of God.\" \u2014 Mark 10:14 (KJV)",
+        "summary": "When people tried to keep children away from Jesus, he welcomed them and said the Kingdom of Heaven belongs to such as these.",
+        "questions": [
+          "How does it feel knowing Jesus made time especially for children?",
+          "What childlike qualities do you think Jesus was pointing to\u2014curiosity, wonder, trust?",
+          "How can your family bring that kind of childlike faith to your daily life?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83e\uddf8",
+            "title": "Kid Expert",
+            "desc": "Teach an adult something you know well\u2014a game, a fact, a skill.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83c\udf1f",
+            "title": "Wonder Walk",
+            "desc": "Go outside and find 5 things that make you say \"wow.\" Thank God for each.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\ude4c",
+            "title": "Welcome Others",
+            "desc": "At school or church, be the first to welcome someone new or shy.",
+            "level": "Medium"
+          }
+        ],
+        "reflectPrompts": [
+          "What wonder did you notice this week?",
+          "How did your family practice childlike faith together?",
+          "What surprised you about God this week?"
+        ]
+      },
+      {
+        "id": "j6",
+        "title": "The Last Supper",
+        "verseRef": "Luke 22:19",
+        "excerpt": "\"He took bread, and when he had given thanks, he broke it, and gave it to them, saying, 'This is my body which is given for you. Do this in memory of me.'\" \u2014 Luke 22:19 (WEB)",
+        "summary": "Jesus shared one final meal with his disciples, turning a simple dinner into a moment of remembrance, love, and covenant.",
+        "questions": [
+          "Why do you think Jesus chose a meal to remember him by?",
+          "What does it mean to do something \"in memory of\" someone you love?",
+          "How can your family meals become more intentional and meaningful?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83c\udf5e",
+            "title": "Gratitude Meal",
+            "desc": "At dinner, have everyone share one thing they're grateful for before eating.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udd6f\ufe0f",
+            "title": "Table Talk",
+            "desc": "Put away all devices at one family meal this week. Just talk.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\u271d\ufe0f",
+            "title": "Serve First",
+            "desc": "At every meal this week, serve someone else's plate before your own.",
+            "level": "Medium"
+          }
+        ],
+        "reflectPrompts": [
+          "What changed about your meals this week?",
+          "How did gratitude change the atmosphere?",
+          "What does Jesus' sacrifice mean to you personally?"
+        ]
+      },
+      {
+        "id": "j7",
+        "title": "The Resurrection",
+        "verseRef": "John 20:15",
+        "excerpt": "\"Jesus said to her, 'Woman, why do you weep? Who are you looking for?'\" \u2014 John 20:15 (WEB)",
+        "summary": "Mary Magdalene discovers the empty tomb and encounters the risen Jesus\u2014one of history's most stunning moments of hope defeating despair.",
+        "questions": [
+          "Why do you think Jesus appeared first to Mary, not to important religious leaders?",
+          "Easter changes everything\u2014but how does the resurrection matter for Monday mornings?",
+          "What \"empty tomb\" moments\u2014times despair turned to hope\u2014have you experienced?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83c\udf05",
+            "title": "Sunrise Reflection",
+            "desc": "Wake up early one day this week. Watch the sunrise and think about new beginnings.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udce3",
+            "title": "Share Good News",
+            "desc": "Tell one person this week something genuinely good and hopeful.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83c\udf31",
+            "title": "Plant Something",
+            "desc": "Plant a seed (in soil, a cup, or outside) as a symbol of new life.",
+            "level": "Easy"
+          }
+        ],
+        "reflectPrompts": [
+          "How did resurrection hope show up in your week?",
+          "What \"new life\" are you hoping for right now?",
+          "How does knowing Jesus rose change how you face tomorrow?"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fruit",
+    "emoji": "\ud83c\udf4e",
+    "color": "path-fruit",
+    "title": "Fruit of the Spirit",
+    "desc": "Love, joy, peace, patience\u2014learn to grow these character qualities.",
+    "tier": "premium",
+    "lessons": [
+      {
+        "id": "f1",
+        "title": "Love: The Greatest Fruit",
+        "verseRef": "1 Corinthians 13:4",
+        "excerpt": "\"Love is patient and is kind; love doesn't envy. Love doesn't brag, is not proud.\" \u2014 1 Corinthians 13:4 (WEB)",
+        "summary": "Paul's famous love definition sets the gold standard\u2014it's about actions and choices, not just feelings.",
+        "questions": [
+          "Which part of this love definition is hardest for you?",
+          "How is love a \"choice\" more than just a feeling?",
+          "Who in your life needs to experience this kind of love from you this week?"
+        ],
+        "missions": [
+          {
+            "emoji": "\u2764\ufe0f",
+            "title": "Love Letter",
+            "desc": "Write a genuine thank-you or encouragement note to someone in your family.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\ude24",
+            "title": "Patience Test",
+            "desc": "When you feel impatient today, pause and take 3 deep breaths before reacting.",
+            "level": "Hard"
+          },
+          {
+            "emoji": "\ud83c\udf81",
+            "title": "Kind Act",
+            "desc": "Do one unexpected kind act for a stranger or neighbor.",
+            "level": "Medium"
+          }
+        ],
+        "reflectPrompts": [
+          "Which part of 1 Cor 13 did you live out?",
+          "What made it hard?",
+          "What did love look like in action this week?"
+        ]
+      },
+      {
+        "id": "f2",
+        "title": "Joy: More Than Happiness",
+        "verseRef": "Nehemiah 8:10",
+        "excerpt": "\"The joy of Yahweh is your strength.\" \u2014 Nehemiah 8:10 (WEB)",
+        "summary": "Joy in scripture isn't about circumstances\u2014it's a deep-rooted strength that comes from knowing God is with you.",
+        "questions": [
+          "What's the difference between joy and just feeling happy?",
+          "When has your family had joy even in a hard time?",
+          "What practices or habits help you stay joyful?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\ude02",
+            "title": "Laugh Together",
+            "desc": "Watch a funny video or tell jokes as a family for 15 minutes tonight.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udcd4",
+            "title": "Joy List",
+            "desc": "Each day, write 3 things that gave you joy. Share one at dinner.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\ude4f",
+            "title": "Joy Prayer",
+            "desc": "Pray specifically for someone who has lost their joy.",
+            "level": "Medium"
+          }
+        ],
+        "reflectPrompts": [
+          "What gave you the most joy this week?",
+          "How is joy different from what you expected?",
+          "How did you pass joy on to someone else?"
+        ]
+      },
+      {
+        "id": "f3",
+        "title": "Peace: More Than Quiet",
+        "verseRef": "Philippians 4:7",
+        "excerpt": "\"The peace of God, which surpasses all understanding, will guard your hearts and your minds in Christ Jesus.\" \u2014 Philippians 4:7 (WEB)",
+        "summary": "Paul wrote this from prison\u2014showing that peace is not about easy circumstances but a supernatural guard for your heart.",
+        "questions": [
+          "How can someone have peace in a hard situation?",
+          "What steals your peace most often?",
+          "What would change if you truly believed God was guarding your heart?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83c\udf3f",
+            "title": "Peace Zone",
+            "desc": "Create a quiet corner in your room. Spend 5 mins there in silence each day.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\u2694\ufe0f",
+            "title": "Peace Keeper",
+            "desc": "When conflict arises in your home, be the first to work toward peace.",
+            "level": "Hard"
+          },
+          {
+            "emoji": "\ud83d\udcd6",
+            "title": "Memorize Philippians 4:7",
+            "desc": "Memorize this verse this week and share it with someone who needs it.",
+            "level": "Medium"
+          }
+        ],
+        "reflectPrompts": [
+          "Where did you find unexpected peace?",
+          "What still steals your peace?",
+          "How are you growing in trusting God's peace?"
+        ]
+      },
+      {
+        "id": "f4",
+        "title": "Patience: The Long Game",
+        "verseRef": "Romans 5:3-4",
+        "excerpt": "\"Tribulation produces perseverance; and perseverance, proven character; and proven character, hope.\" \u2014 Romans 5:3\u20134 (WEB)",
+        "summary": "Paul explains that patience isn't passive waiting\u2014it's active trust that builds strength of character over time.",
+        "questions": [
+          "What is something you're waiting for right now?",
+          "How do you think waiting builds character?",
+          "Can you think of a time when being patient paid off?"
+        ],
+        "missions": [
+          {
+            "emoji": "\u23f3",
+            "title": "No Rush Day",
+            "desc": "For one whole day, practice not rushing. Move slower and notice more.",
+            "level": "Hard"
+          },
+          {
+            "emoji": "\ud83c\udf31",
+            "title": "Long-Term Project",
+            "desc": "Start something that won't finish for weeks (garden, puzzle, craft, skill).",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83e\udd1d",
+            "title": "Wait for Others",
+            "desc": "Deliberately let others go first in lines, decisions, or conversations.",
+            "level": "Medium"
+          }
+        ],
+        "reflectPrompts": [
+          "Where did you practice patience this week?",
+          "What was the hardest moment?",
+          "How did patience change the outcome?"
+        ]
+      },
+      {
+        "id": "f5",
+        "title": "Kindness: Every Day Acts",
+        "verseRef": "Ephesians 4:32",
+        "excerpt": "\"Be kind to one another, tenderhearted, forgiving each other, just as God also in Christ forgave you.\" \u2014 Ephesians 4:32 (WEB)",
+        "summary": "Kindness is linked directly to forgiveness\u2014we give it because we've received it. It's a response to grace, not just etiquette.",
+        "questions": [
+          "Is it easier to be kind to strangers or to people you know well? Why?",
+          "How does knowing God forgave you change how you forgive others?",
+          "Who in your world needs an unexpected act of kindness this week?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udc8c",
+            "title": "Kindness Cards",
+            "desc": "Make 3 cards with kind messages and leave them somewhere they'll be found.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83e\uddf9",
+            "title": "Service Day",
+            "desc": "Clean up a space\u2014a park, a neighbor's yard, the church parking lot.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83e\udd17",
+            "title": "Warm Welcome",
+            "desc": "Greet every person you pass today with eye contact and a smile.",
+            "level": "Medium"
+          }
+        ],
+        "reflectPrompts": [
+          "How did random kindness change your day?",
+          "Was it easy or awkward? Why?",
+          "What would happen if you did this every week?"
+        ]
+      },
+      {
+        "id": "f6",
+        "title": "Goodness: Character Inside Out",
+        "verseRef": "Psalm 23:6",
+        "excerpt": "\"Surely goodness and loving kindness shall follow me all the days of my life.\" \u2014 Psalm 23:6 (WEB)",
+        "summary": "Goodness isn't just doing good things\u2014it's developing a good character from the inside, so right actions flow naturally.",
+        "questions": [
+          "What's the difference between acting good and being good?",
+          "What habits are building goodness in you right now?",
+          "How does God's goodness inspire your own?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83c\udf1f",
+            "title": "Character Check",
+            "desc": "Ask a trusted friend: \"What's one way I could grow in goodness?\" Listen without defending.",
+            "level": "Hard"
+          },
+          {
+            "emoji": "\ud83d\udcd6",
+            "title": "Goodness Biography",
+            "desc": "Read about a person of great character. Share one thing that inspired you.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83e\udde9",
+            "title": "Integrity Test",
+            "desc": "Do the right thing in one situation this week when no one is watching.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What did you learn about goodness this week?",
+          "Where did your character show up clearly?",
+          "How are you becoming more good from the inside?"
+        ]
+      },
+      {
+        "id": "f7",
+        "title": "Self-Control: The Master Key",
+        "verseRef": "Proverbs 25:28",
+        "excerpt": "\"Like a city that is broken down and without walls is a man whose spirit is without restraint.\" \u2014 Proverbs 25:28 (WEB)",
+        "summary": "Ancient cities relied on strong walls\u2014the Bible says self-control is your inner wall, protecting everything good inside you.",
+        "questions": [
+          "What \"walls\" do you need in your own life\u2014habits or limits that protect you?",
+          "What area is hardest for you to control: words, screen time, food, anger?",
+          "How does self-control actually make you more free, not less?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udcf5",
+            "title": "Screen Sabbath",
+            "desc": "Take one day off from screens (except school needs). Fill the time with something real.",
+            "level": "Hard"
+          },
+          {
+            "emoji": "\ud83c\udfcb\ufe0f",
+            "title": "Discipline Streak",
+            "desc": "Do one healthy habit every day for 7 days: walk, pray, read, journal.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83e\udd10",
+            "title": "Filter Challenge",
+            "desc": "Before speaking when upset, ask: \"Is this True, Helpful, Kind?\" This week, pause 3 times.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What habit of self-control did you practice?",
+          "What surprised you about it?",
+          "How is self-control making you stronger?"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "courage",
+    "emoji": "\ud83e\udd81",
+    "color": "path-courage",
+    "title": "Courage & Anxiety",
+    "desc": "Biblical tools for facing fears and worry with faith.",
+    "tier": "premium",
+    "lessons": [
+      {
+        "id": "c1",
+        "title": "Don't Be Afraid",
+        "verseRef": "Isaiah 41:10",
+        "excerpt": "\"Don't be afraid, for I am with you. Don't be dismayed, for I am your God.\" \u2014 Isaiah 41:10 (WEB)",
+        "summary": "God spoke this to Israel in exile\u2014not a promise of no problems, but a promise of His constant presence.",
+        "questions": [
+          "What are you currently afraid of?",
+          "How does knowing God is present change how you face fear?",
+          "What would you do differently this week if you truly believed God was with you?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83e\udd81",
+            "title": "Brave Act",
+            "desc": "Do one thing this week that scares you a little. Then reflect on it.",
+            "level": "Hard"
+          },
+          {
+            "emoji": "\ud83d\udde3\ufe0f",
+            "title": "Tell Your Fear",
+            "desc": "Share one fear with a trusted family member. Ask them to pray for you.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udcdc",
+            "title": "Memorize It",
+            "desc": "Memorize Isaiah 41:10 and say it out loud when fear comes.",
+            "level": "Easy"
+          }
+        ],
+        "reflectPrompts": [
+          "What did you face with courage?",
+          "Was God's presence real to you in that moment?",
+          "How has your fear changed?"
+        ]
+      },
+      {
+        "id": "c2",
+        "title": "When You Feel Anxious",
+        "verseRef": "Philippians 4:6",
+        "excerpt": "\"In nothing be anxious, but in everything, by prayer and petition with thanksgiving, let your requests be made known to God.\" \u2014 Philippians 4:6 (WEB)",
+        "summary": "Paul's remedy for anxiety is startlingly simple: replace worry with prayer and gratitude. Research now confirms this practice reduces anxiety.",
+        "questions": [
+          "What do you worry about most? Does worrying change it?",
+          "How is prayer different from just \"positive thinking\"?",
+          "What can you be genuinely grateful for even when things are hard?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udcd3",
+            "title": "Anxiety Journal",
+            "desc": "Write down your worries, then cross them out and write a prayer over each one.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\ude4f",
+            "title": "Gratitude Swap",
+            "desc": "Each time you catch yourself worrying, name 3 things you're grateful for instead.",
+            "level": "Hard"
+          },
+          {
+            "emoji": "\ud83e\udd32",
+            "title": "Pray Together",
+            "desc": "Share one worry with your family and pray over it together tonight.",
+            "level": "Easy"
+          }
+        ],
+        "reflectPrompts": [
+          "How did replacing worry with prayer feel?",
+          "Was it hard? What helped?",
+          "How has your anxiety changed this week?"
+        ]
+      },
+      {
+        "id": "c3",
+        "title": "David & Goliath",
+        "verseRef": "1 Samuel 17:45",
+        "excerpt": "\"David said to the Philistine, 'You come to me with a sword, with a spear, and with a javelin, but I come to you in the name of Yahweh of Armies.'\" \u2014 1 Samuel 17:45 (WEB)",
+        "summary": "A teenage shepherd defeated a giant warrior\u2014not because he was strongest, but because he trusted God's power over his own.",
+        "questions": [
+          "What is your \"Goliath\"\u2014the big, scary challenge you're facing right now?",
+          "David ran toward the giant. What would running toward your fear look like?",
+          "How does bringing God into a scary situation change it?"
+        ],
+        "missions": [
+          {
+            "emoji": "\u2694\ufe0f",
+            "title": "Face Your Giant",
+            "desc": "Identify one \"Goliath\" situation. Take one small brave step toward it this week.",
+            "level": "Hard"
+          },
+          {
+            "emoji": "\ud83e\udea8",
+            "title": "5 Smooth Stones",
+            "desc": "Write 5 strengths or gifts God has given you. Remember them when afraid.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udce3",
+            "title": "Courage Cheer",
+            "desc": "Encourage someone who is facing their own giant. Send a message or tell them in person.",
+            "level": "Medium"
+          }
+        ],
+        "reflectPrompts": [
+          "What giant did you face?",
+          "How did God show up?",
+          "What would you say to someone facing the same giant?"
+        ]
+      },
+      {
+        "id": "c4",
+        "title": "Elijah's Burnout",
+        "verseRef": "1 Kings 19:5",
+        "excerpt": "\"An angel touched him, and said to him, 'Arise and eat.'\" \u2014 1 Kings 19:5 (WEB)",
+        "summary": "After a great victory, Elijah collapsed in exhaustion and despair. God's first response was sleep and food\u2014rest is part of courage.",
+        "questions": [
+          "Have you ever felt completely burnt out or exhausted?",
+          "Why do you think God focused on Elijah's physical needs first?",
+          "What does it tell us about God that he cares about our rest?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\ude34",
+            "title": "Rest Practice",
+            "desc": "Go to bed 30 minutes earlier every night this week.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83c\udf7d\ufe0f",
+            "title": "Nourish Well",
+            "desc": "Pay attention to what you eat this week. Choose one nourishing habit to add.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udeb6",
+            "title": "Still Walk",
+            "desc": "Take a 15-minute walk in nature with no phone. Just breathe and notice.",
+            "level": "Easy"
+          }
+        ],
+        "reflectPrompts": [
+          "How did intentional rest change your energy?",
+          "Where did you feel God's care this week?",
+          "What burnout habits do you want to change?"
+        ]
+      },
+      {
+        "id": "c5",
+        "title": "Joshua's Commission",
+        "verseRef": "Joshua 1:9",
+        "excerpt": "\"Be strong and courageous. Don't be afraid, and don't be dismayed, for Yahweh your God is with you wherever you go.\" \u2014 Joshua 1:9 (WEB)",
+        "summary": "God spoke this before Joshua faced the impossible task of leading a nation. Courage was commanded\u2014not just hoped for.",
+        "questions": [
+          "If courage is a command, what does that tell us about how to develop it?",
+          "What task feels impossible to you right now?",
+          "How can your family build courage in each other?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\uddfa\ufe0f",
+            "title": "New Territory",
+            "desc": "Try something completely new this week\u2014a new skill, food, conversation, or place.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83e\udded",
+            "title": "Lead Something",
+            "desc": "Take initiative to organize or lead a family activity this week.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udce2",
+            "title": "Speak Up",
+            "desc": "Say something true but difficult this week. Speak up when you see something wrong.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What new territory did you enter?",
+          "How did leading feel?",
+          "Where did you speak courage this week?"
+        ]
+      },
+      {
+        "id": "c6",
+        "title": "Peace Like a River",
+        "verseRef": "Isaiah 48:18",
+        "excerpt": "\"Oh that you had listened to my commandments! Then your peace would have been like a river.\" \u2014 Isaiah 48:18 (WEB)",
+        "summary": "Isaiah paints peace as a flowing river\u2014constant, natural, and life-giving when we're connected to God's way of living.",
+        "questions": [
+          "What does \"peace like a river\" look like in real life?",
+          "What disrupts the flow of peace in your life most often?",
+          "What one choice could you make this week to flow more toward peace?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udca7",
+            "title": "Peace Practice",
+            "desc": "Spend 10 minutes each morning in quiet before screens. Do this 5 of 7 days.",
+            "level": "Hard"
+          },
+          {
+            "emoji": "\ud83d\udd4a\ufe0f",
+            "title": "Be the Peace",
+            "desc": "In one tense situation this week, choose peace instead of escalation.",
+            "level": "Hard"
+          },
+          {
+            "emoji": "\ud83c\udfb5",
+            "title": "Worship Therapy",
+            "desc": "When anxiety rises, play worship music for 5 minutes and sing along.",
+            "level": "Easy"
+          }
+        ],
+        "reflectPrompts": [
+          "When did peace flow most naturally?",
+          "What blocked the river this week?",
+          "How is your relationship with peace growing?"
+        ]
+      },
+      {
+        "id": "c7",
+        "title": "The Armor of God",
+        "verseRef": "Ephesians 6:11",
+        "excerpt": "\"Put on the whole armor of God, that you may be able to stand against the wiles of the devil.\" \u2014 Ephesians 6:11 (WEB)",
+        "summary": "Paul describes six pieces of spiritual armor\u2014each representing a dimension of our inner life that needs to be protected and strengthened.",
+        "questions": [
+          "Which piece of armor do you think you most need right now?",
+          "How is prayer described as a weapon, not just a spiritual discipline?",
+          "What would \"putting on the armor\" look like practically every morning?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udee1\ufe0f",
+            "title": "Morning Armor",
+            "desc": "Each morning this week, say: \"I put on truth, righteousness, peace, faith, salvation, and God's Word.\"",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\u2694\ufe0f",
+            "title": "Scripture Sword",
+            "desc": "Memorize one verse this week and use it when temptation or fear comes.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\ude4f",
+            "title": "Intercessor",
+            "desc": "Pray for three people in spiritual battles: someone sick, someone doubting, someone straying.",
+            "level": "Medium"
+          }
+        ],
+        "reflectPrompts": [
+          "Which piece of armor did you use?",
+          "How did having a \"prepared mind\" change your day?",
+          "What spiritual battle did God help you win?"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "words",
+    "emoji": "\ud83d\udcac",
+    "color": "path-words",
+    "title": "Words & Actions",
+    "desc": "Honesty, kindness in speech, and how words shape the world.",
+    "tier": "premium",
+    "lessons": [
+      {
+        "id": "w1",
+        "title": "The Power of the Tongue",
+        "verseRef": "Proverbs 18:21",
+        "excerpt": "\"Death and life are in the power of the tongue; and those who love it will eat its fruit.\" \u2014 Proverbs 18:21 (WEB)",
+        "summary": "Solomon recognized what neuroscience now confirms: words have enormous power to build up or tear down.",
+        "questions": [
+          "Think of a time someone's words greatly impacted you\u2014positively or negatively.",
+          "Why do you think the Bible compares the tongue to life and death?",
+          "What one change to your speech would make the biggest difference this week?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udde3\ufe0f",
+            "title": "Word Fast",
+            "desc": "Go one day without speaking negatively, complaining, or gossiping.",
+            "level": "Hard"
+          },
+          {
+            "emoji": "\ud83d\udcac",
+            "title": "Life Words",
+            "desc": "Intentionally speak words of life to 3 different people today.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udcdd",
+            "title": "Speech Audit",
+            "desc": "At the end of each day this week, reflect: did my words give life or bring harm today?",
+            "level": "Medium"
+          }
+        ],
+        "reflectPrompts": [
+          "When did your words give life this week?",
+          "When did you struggle to control your tongue?",
+          "What changed when you spoke more intentionally?"
+        ]
+      },
+      {
+        "id": "w2",
+        "title": "Honesty Over Everything",
+        "verseRef": "Proverbs 12:22",
+        "excerpt": "\"Lying lips are an abomination to Yahweh, but those who act faithfully are his delight.\" \u2014 Proverbs 12:22 (WEB)",
+        "summary": "Honesty is not just a rule\u2014it's fundamental to God's character and to trust in all relationships.",
+        "questions": [
+          "Why is honesty so important in a family?",
+          "Is it ever right to tell a \"kind lie\"? How do you navigate that?",
+          "What makes it hard to be fully honest sometimes?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83c\udfaf",
+            "title": "Truth Day",
+            "desc": "For one whole day, commit to saying only what is completely true. Notice what changes.",
+            "level": "Hard"
+          },
+          {
+            "emoji": "\ud83e\udd1d",
+            "title": "Honesty Conversation",
+            "desc": "Have a genuinely honest conversation with a family member about something important.",
+            "level": "Hard"
+          },
+          {
+            "emoji": "\u270b",
+            "title": "Kindly Correct",
+            "desc": "Gently and kindly correct a misunderstanding you've let slide for too long.",
+            "level": "Medium"
+          }
+        ],
+        "reflectPrompts": [
+          "How did choosing honesty feel?",
+          "What was hard about it?",
+          "How did honesty affect your relationships this week?"
+        ]
+      },
+      {
+        "id": "w3",
+        "title": "Gossip & What It Costs",
+        "verseRef": "Proverbs 26:20",
+        "excerpt": "\"For lack of wood, a fire goes out. Without a gossip, a quarrel dies down.\" \u2014 Proverbs 26:20 (WEB)",
+        "summary": "Gossip is the fuel of conflict\u2014remove it and many fights simply die. Solomon's wisdom is practical and protective.",
+        "questions": [
+          "Why do you think gossip is tempting even when we know it's harmful?",
+          "Have you ever been the subject of gossip? How did it feel?",
+          "What is one practical rule you could set for your family or friend group about gossip?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83e\udd2b",
+            "title": "Secret Keeper",
+            "desc": "This week, if someone tells you private information, keep it completely private.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udd25",
+            "title": "Fire Extinguisher",
+            "desc": "When gossip starts in a group, gently change the subject or say something positive about the person.",
+            "level": "Hard"
+          },
+          {
+            "emoji": "\ud83d\udce3",
+            "title": "Speak Well",
+            "desc": "Whenever you mention someone who isn't present, only say things you'd say to their face.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "Where did you fight the gossip temptation?",
+          "How did keeping confidences feel?",
+          "What did you notice about conversation dynamics?"
+        ]
+      },
+      {
+        "id": "w4",
+        "title": "Words That Heal",
+        "verseRef": "Proverbs 16:24",
+        "excerpt": "\"Pleasant words are like a honeycomb: sweet to the soul, and health to the bones.\" \u2014 Proverbs 16:24 (WEB)",
+        "summary": "Kind, well-chosen words are literally compared to medicine\u2014they have the power to heal and restore.",
+        "questions": [
+          "Who in your life needs healing words right now?",
+          "What stops you from saying encouraging things when you feel them?",
+          "How can your family make encouragement a daily practice?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83c\udf6f",
+            "title": "Honey Words",
+            "desc": "Tell someone something genuinely encouraging that you've been holding back.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\u270d\ufe0f",
+            "title": "Healing Note",
+            "desc": "Write a note to someone who is hurting. Focus only on encouragement and love.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udcc5",
+            "title": "Daily Compliment",
+            "desc": "Give one genuine compliment per day for 7 days to different people.",
+            "level": "Medium"
+          }
+        ],
+        "reflectPrompts": [
+          "How did speaking healing words feel?",
+          "Who responded most meaningfully?",
+          "How are you growing in encouragement?"
+        ]
+      },
+      {
+        "id": "w5",
+        "title": "The Way You Ask Matters",
+        "verseRef": "Proverbs 15:1",
+        "excerpt": "\"A gentle answer turns away wrath, but a harsh word stirs up anger.\" \u2014 Proverbs 15:1 (WEB)",
+        "summary": "How we say something often matters more than what we say. A gentle tone can de-escalate any conflict.",
+        "questions": [
+          "Think of a recent disagreement. How did your tone affect the outcome?",
+          "What techniques help you respond gently when you're upset?",
+          "How can your family practice this together?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udd4a\ufe0f",
+            "title": "Tone Challenge",
+            "desc": "In one difficult conversation this week, lower your voice and soften your tone intentionally.",
+            "level": "Hard"
+          },
+          {
+            "emoji": "\ud83d\udd01",
+            "title": "Restate & Listen",
+            "desc": "Before responding in an argument, restate what the other person said first.",
+            "level": "Hard"
+          },
+          {
+            "emoji": "\ud83d\udcf1",
+            "title": "Calm Text",
+            "desc": "Before sending any upset text or message, wait 10 minutes and reread it.",
+            "level": "Medium"
+          }
+        ],
+        "reflectPrompts": [
+          "When did your tone help or hurt this week?",
+          "What was the hardest moment to respond gently?",
+          "How is your communication style growing?"
+        ]
+      },
+      {
+        "id": "w6",
+        "title": "Actions Speak Louder",
+        "verseRef": "1 John 3:18",
+        "excerpt": "\"My little children, let's not love in word only, or with the tongue only, but in deed and truth.\" \u2014 1 John 3:18 (WEB)",
+        "summary": "John cuts through verbal niceness\u2014real love shows up in what we do, not just what we say.",
+        "questions": [
+          "Think of someone whose love you feel through their actions. What do they do?",
+          "Where might you be saying loving things but not backing them up?",
+          "What is one concrete action you can take this week to show love?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udee0\ufe0f",
+            "title": "Fix Something",
+            "desc": "Do a practical act of service that someone close to you needs.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83e\udd32",
+            "title": "Show Up",
+            "desc": "Be physically present for someone who needs support\u2014visit, sit with, be there.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83c\udf81",
+            "title": "Action Gift",
+            "desc": "Give your time instead of a thing. Offer 30 minutes of undivided attention.",
+            "level": "Easy"
+          }
+        ],
+        "reflectPrompts": [
+          "What action did you take to show love?",
+          "How was it received?",
+          "How does doing feel different from saying?"
+        ]
+      },
+      {
+        "id": "w7",
+        "title": "Speaking Truth in Love",
+        "verseRef": "Ephesians 4:15",
+        "excerpt": "\"But speaking truth in love, we may grow up in all things into him, who is the head, Christ.\" \u2014 Ephesians 4:15 (WEB)",
+        "summary": "Truth without love is brutal. Love without truth is hollow. The Bible calls us to hold them together.",
+        "questions": [
+          "When is it loving to tell someone a hard truth?",
+          "How do you tell when \"honesty\" is actually just unkindness with an excuse?",
+          "What is a truth you need to share with someone in love this week?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udc8c",
+            "title": "Loving Truth",
+            "desc": "Share something true but kind with someone who needs to hear it. Do it with gentleness.",
+            "level": "Hard"
+          },
+          {
+            "emoji": "\ud83d\udc42",
+            "title": "Loving Listen",
+            "desc": "Ask someone: \"Can I tell you one honest thing I've noticed about you?\"\u2014and listen to their reaction.",
+            "level": "Hard"
+          },
+          {
+            "emoji": "\ud83e\ude9e",
+            "title": "Self Check",
+            "desc": "Ask: \"Am I speaking truth with love, or am I just speaking?\"\u2014check your last 5 conversations.",
+            "level": "Medium"
+          }
+        ],
+        "reflectPrompts": [
+          "How did speaking truth in love go?",
+          "What made it hard?",
+          "How are truth and love growing together in you?"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prayer",
+    "emoji": "\ud83d\ude4f",
+    "color": "path-prayer",
+    "title": "Prayer & Gratitude",
+    "desc": "Learn to talk with God\u2014how to pray and why gratitude changes everything.",
+    "tier": "premium",
+    "lessons": [
+      {
+        "id": "p1",
+        "title": "How to Pray",
+        "verseRef": "Matthew 6:9",
+        "excerpt": "\"Pray like this: 'Our Father in heaven, may your name be kept holy. Let your Kingdom come.'\" \u2014 Matthew 6:9 (WEB)",
+        "summary": "Jesus gave his followers a simple prayer template\u2014not a spell to recite, but a structure that covers everything we need.",
+        "questions": [
+          "What do you notice about how Jesus starts prayer\u2014\"Our Father\"?",
+          "What does it mean to pray for God's Kingdom to come?",
+          "How can the Lord's Prayer shape your own prayer life?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udcff",
+            "title": "Lord's Prayer Week",
+            "desc": "Pray the Lord's Prayer every morning this week. Notice something new each day.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\u270d\ufe0f",
+            "title": "Personal Prayer",
+            "desc": "Write your own prayer based on the Lord's Prayer structure.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83e\udd32",
+            "title": "Pray Together",
+            "desc": "Lead your family in prayer one evening this week.",
+            "level": "Medium"
+          }
+        ],
+        "reflectPrompts": [
+          "What did you notice new in the Lord's Prayer?",
+          "How did your own prayer grow?",
+          "What was hardest about leading prayer?"
+        ]
+      },
+      {
+        "id": "p2",
+        "title": "God Hears You",
+        "verseRef": "Psalm 34:17",
+        "excerpt": "\"The righteous cry, and Yahweh hears, and delivers them out of all their troubles.\" \u2014 Psalm 34:17 (WEB)",
+        "summary": "David wrote this from personal experience of deliverance. Prayer is not shouting into void\u2014it connects to a God who listens.",
+        "questions": [
+          "Have you ever felt like your prayers weren't heard? What was that like?",
+          "Why do you think God sometimes seems silent even when we pray?",
+          "What would change if you truly believed God heard every prayer you prayed?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udcd4",
+            "title": "Prayer Log",
+            "desc": "Keep a simple log of prayers and answers this week. Even small ones count.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\ude4f",
+            "title": "Persistent Prayer",
+            "desc": "Pick one prayer you've given up on. Bring it back to God this week.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83c\udf99\ufe0f",
+            "title": "Pray Out Loud",
+            "desc": "Pray out loud once this week\u2014alone or with family. Notice how it feels different.",
+            "level": "Medium"
+          }
+        ],
+        "reflectPrompts": [
+          "What did you notice God doing this week?",
+          "Did you see any prayer answers?",
+          "How has your confidence in prayer changed?"
+        ]
+      },
+      {
+        "id": "p3",
+        "title": "Gratitude Changes Your Brain",
+        "verseRef": "1 Thessalonians 5:18",
+        "excerpt": "\"In everything give thanks, for this is the will of God in Christ Jesus toward you.\" \u2014 1 Thessalonians 5:18 (WEB)",
+        "summary": "Science and scripture agree: gratitude rewires us toward joy. Paul's \"give thanks in everything\" is not naivety\u2014it's a practiced discipline.",
+        "questions": [
+          "Is it possible to be grateful even in a hard situation? How?",
+          "What is something you often take for granted?",
+          "How could your family build a daily gratitude habit?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udcd4",
+            "title": "Gratitude Journal",
+            "desc": "Write 3 specific things you're grateful for every day this week.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udcde",
+            "title": "Gratitude Call",
+            "desc": "Call or text someone specifically to thank them for something.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83c\udf7d\ufe0f",
+            "title": "Grateful Meals",
+            "desc": "Start every dinner with two minutes of sharing what you're grateful for.",
+            "level": "Easy"
+          }
+        ],
+        "reflectPrompts": [
+          "What surprised you in your gratitude list?",
+          "How did gratitude change your mood or perspective?",
+          "What will you keep doing after this lesson?"
+        ]
+      },
+      {
+        "id": "p4",
+        "title": "Praying for Others",
+        "verseRef": "James 5:16",
+        "excerpt": "\"Confess your offenses to one another, and pray for one another, that you may be healed.\" \u2014 James 5:16 (WEB)",
+        "summary": "Intercession\u2014praying for others\u2014is one of the most powerful things Christians do for each other and for the world.",
+        "questions": [
+          "Who do you regularly pray for? Who should you add to that list?",
+          "Why might praying for someone change your feelings toward them?",
+          "How can your family become a praying family for your community?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\uddd2\ufe0f",
+            "title": "Prayer List",
+            "desc": "Make a prayer list of 7 people (one per day). Pray for each one specifically.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\u2709\ufe0f",
+            "title": "Tell Someone",
+            "desc": "Tell one person you've been praying for them. Watch their reaction.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83c\udfd8\ufe0f",
+            "title": "Neighborhood Prayer",
+            "desc": "Walk around your neighborhood or school and pray silently for the people who live/work there.",
+            "level": "Medium"
+          }
+        ],
+        "reflectPrompts": [
+          "How did praying for others change YOU?",
+          "Did anyone respond to knowing you prayed?",
+          "How has your circle of concern grown?"
+        ]
+      },
+      {
+        "id": "p5",
+        "title": "Fasting & Focus",
+        "verseRef": "Matthew 6:17-18",
+        "excerpt": "\"But when you fast, anoint your head, and wash your face; so that you are not seen by men to be fasting.\" \u2014 Matthew 6:17\u201318 (WEB)",
+        "summary": "Jesus assumed his followers would fast\u2014not if, but when. A disciplined practice of going without something to focus on God.",
+        "questions": [
+          "What is fasting, and why would going without something help you focus on God?",
+          "What could you \"fast\" from this week that isn't food? (screens, negativity, social media)",
+          "How does denying ourselves small things build larger spiritual strength?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udcf5",
+            "title": "Tech Fast",
+            "desc": "Fast from one digital thing (social media, games, TV) for one full day.",
+            "level": "Hard"
+          },
+          {
+            "emoji": "\ud83c\udf7d\ufe0f",
+            "title": "Meal Fast",
+            "desc": "Skip one meal this week. Use that time to pray instead of eat.",
+            "level": "Hard"
+          },
+          {
+            "emoji": "\ud83e\udd2b",
+            "title": "Quiet Fast",
+            "desc": "Take 30 minutes of complete silence. No music, no talking, no screens. Just pray.",
+            "level": "Medium"
+          }
+        ],
+        "reflectPrompts": [
+          "What did fasting teach you?",
+          "What was hardest to go without?",
+          "How did the focus time with God feel?"
+        ]
+      },
+      {
+        "id": "p6",
+        "title": "When Prayer Feels Hard",
+        "verseRef": "Romans 8:26",
+        "excerpt": "\"The Spirit also helps our weaknesses, for we don't know how to pray as we ought. But the Spirit himself makes intercession for us with groanings which can't be uttered.\" \u2014 Romans 8:26 (WEB)",
+        "summary": "When you don't know how to pray\u2014when words fail\u2014the Holy Spirit prays through you. You never pray alone.",
+        "questions": [
+          "Have you had seasons when prayer felt empty or hard? What caused it?",
+          "What does it mean that the Spirit prays when we can't find words?",
+          "What helps you reconnect with prayer when you've drifted?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83c\udfb5",
+            "title": "Musical Prayer",
+            "desc": "Listen to a worship song and let it be your prayer. Then sit in silence for 3 minutes.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83c\udf05",
+            "title": "Nature Prayer",
+            "desc": "Go outside and pray out loud to creation\u2014notice what you feel.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\u270d\ufe0f",
+            "title": "Prayer Letter",
+            "desc": "Write a letter to God about everything you're feeling right now\u2014no filters.",
+            "level": "Medium"
+          }
+        ],
+        "reflectPrompts": [
+          "What helped your prayer feel more real this week?",
+          "Did the Spirit meet you in your weakness?",
+          "How is your prayer life different than a week ago?"
+        ]
+      },
+      {
+        "id": "p7",
+        "title": "A Life of Prayer",
+        "verseRef": "1 Thessalonians 5:17",
+        "excerpt": "\"Pray without ceasing.\" \u2014 1 Thessalonians 5:17 (WEB)",
+        "summary": "Paul's shortest command is one of his biggest invitations\u2014to make prayer not a task but a way of being.",
+        "questions": [
+          "What would \"praying without ceasing\" look like in a normal school or work day?",
+          "How can your family weave prayer into ordinary moments?",
+          "What one habit would most help you become a person of prayer?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udd14",
+            "title": "Prayer Alarm",
+            "desc": "Set 3 alarms per day this week. Each time one goes off, pause for a 30-second prayer.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\ude97",
+            "title": "Car Prayers",
+            "desc": "Turn every car ride this week into prayer time as a family.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udecf\ufe0f",
+            "title": "Bookend Prayers",
+            "desc": "Pray first thing after waking and last thing before sleep for one full week.",
+            "level": "Medium"
+          }
+        ],
+        "reflectPrompts": [
+          "How many prayers did you pray this week?",
+          "What changed about your ordinary moments?",
+          "How is prayer becoming part of who you are?"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "creation",
+    "emoji": "\ud83c\udf0d",
+    "color": "path-creation",
+    "title": "Creation & Science",
+    "desc": "Explore how God's creation reveals His power, wisdom, and love for discovery.",
+    "tier": "premium",
+    "lessons": [
+      {
+        "id": "cs1",
+        "title": "In the Beginning",
+        "verseRef": "Genesis 1:1-3",
+        "excerpt": "\"In the beginning, God created the heavens and the earth. The earth was formless and empty. Darkness was on the surface of the deep and God's Spirit was hovering over the surface of the waters. God said, 'Let there be light,' and there was light.\" \u2014 Genesis 1:1-3 (WEB)",
+        "summary": "The Bible opens with the most incredible moment ever \u2014 God creating everything from nothing! Day by day, God shaped light, sky, land, seas, plants, stars, animals, and more. Each time He looked at what He made, He called it good. This story shows us that God is amazingly powerful and creative, and that everything in our world started with His love and imagination.",
+        "questions": [
+          "What is your favorite part of creation \u2014 the ocean, the stars, animals, or something else? Why does it amaze you?",
+          "What does it mean that God called His creation 'good'? What does that tell us about how God sees the world?",
+          "How can remembering that God made everything change the way you treat the world around you today?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83c\udf05",
+            "title": "Creation Countdown",
+            "desc": "Read Genesis 1 and draw or list something God made on each of the six days of creation.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udcf8",
+            "title": "Creation Photo Walk",
+            "desc": "Go on a walk outside and take photos (or draw pictures) of seven things in nature that remind you of God's creativity.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udcd6",
+            "title": "Creation Journal",
+            "desc": "Keep a journal for one week. Each day, write about one amazing thing in creation you noticed and thank God for it.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What was the most surprising or beautiful thing you noticed in creation during your mission?",
+          "How did paying attention to the world around you make you feel about God?",
+          "Where do you see God's creativity and care when you look at nature?"
+        ]
+      },
+      {
+        "id": "cs2",
+        "title": "Made in God's Image",
+        "verseRef": "Genesis 1:27",
+        "excerpt": "\"God created man in his own image. In God's image he created him; male and female he created them.\" \u2014 Genesis 1:27 (WEB)",
+        "summary": "Out of everything God made, people are extra special \u2014 we are created in God's own image! That doesn't mean we look exactly like God, but it means we can think, love, create, and choose \u2014 just like He does. Every single person is valuable and worthy of love because God made each of us to reflect who He is.",
+        "questions": [
+          "What does it mean to you that you are made in God's image? How does that make you feel about yourself?",
+          "If every person is made in God's image, how should we treat people who are different from us?",
+          "What is one special ability or talent you have that you think reflects God's creativity in you?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83e\ude9e",
+            "title": "Mirror Moment",
+            "desc": "Look in a mirror and say, 'I am made in God's image and I am loved.' Then tell one other person that they are made in God's image too.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83c\udfa8",
+            "title": "Image Bearer Art",
+            "desc": "Create a piece of art \u2014 a drawing, poem, song, or craft \u2014 that celebrates what makes you unique as someone made in God's image.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udc8c",
+            "title": "Encouragement Campaign",
+            "desc": "Write encouraging notes to five different people this week reminding them they are special and made in God's image.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What was it like to tell yourself or someone else that they are made in God's image?",
+          "Did doing this mission change how you see yourself or other people?",
+          "How do you think God feels when He sees you using your unique gifts and talents?"
+        ]
+      },
+      {
+        "id": "cs3",
+        "title": "The Heavens Declare His Glory",
+        "verseRef": "Psalm 19:1-2",
+        "excerpt": "\"The heavens declare the glory of God. The expanse shows his handiwork. Day after day they pour out speech, and night after night they display knowledge.\" \u2014 Psalm 19:1-2 (WEB)",
+        "summary": "King David looked up at the sky and was blown away \u2014 the stars, the sun, and the endless universe were all shouting about how great God is! Even without words, creation speaks to us every single day about God's power and beauty. When we study the natural world \u2014 from tiny cells to massive galaxies \u2014 we are discovering the amazing things God has made.",
+        "questions": [
+          "Have you ever looked at the night sky or a sunset and felt amazed? What was that moment like?",
+          "How can studying science \u2014 like learning about stars, weather, or animals \u2014 actually help us learn more about God?",
+          "If creation 'declares' God's glory without words, what is it saying to you today?"
+        ],
+        "missions": [
+          {
+            "emoji": "\u2b50",
+            "title": "Stargazer",
+            "desc": "Go outside at night (with a parent) and spend at least five minutes looking at the stars. Talk about what you see and how it makes you feel about God.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udd2c",
+            "title": "Science & Wonder Report",
+            "desc": "Research one amazing science fact (like how far away stars are, how a butterfly transforms, or how our hearts beat). Write a short report connecting it to God's creativity.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83c\udf0c",
+            "title": "Glory Journal",
+            "desc": "For five days, observe something in nature each day (sunrise, clouds, plants, animals, weather). Write or draw what you see and include a prayer of praise to God.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What was the most awe-inspiring thing you observed or learned during your mission?",
+          "How did slowing down to look at creation change your day or your mood?",
+          "Do you feel closer to God when you explore the world He made? Why or why not?"
+        ]
+      },
+      {
+        "id": "cs4",
+        "title": "Caretakers of the Earth",
+        "verseRef": "Genesis 2:15",
+        "excerpt": "\"Yahweh God took the man, and put him into the garden of Eden to cultivate and keep it.\" \u2014 Genesis 2:15 (WEB)",
+        "summary": "God didn't just make the earth and walk away \u2014 He asked people to take care of it! God placed the first humans in a beautiful garden and gave them the job of looking after it. This means caring for animals, plants, water, and land is actually something God wants us to do. Being a good steward of the earth is one way we honor God.",
+        "questions": [
+          "What does it mean to be a 'steward' or caretaker of something? Have you ever been responsible for taking care of something important?",
+          "Why do you think God chose to give humans the job of caring for the earth instead of just doing it Himself?",
+          "What is one thing your family could do differently to take better care of God's creation?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83c\udf31",
+            "title": "Plant a Seed",
+            "desc": "Plant a seed or small plant and commit to watering it and caring for it. Watch it grow as a reminder of your role as a caretaker.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83e\uddf9",
+            "title": "Creation Cleanup",
+            "desc": "Organize a cleanup of your yard, a park, or a neighborhood area. Pick up trash and leave the area better than you found it.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83c\udf3f",
+            "title": "Stewardship Challenge",
+            "desc": "For one full week, find a new way each day to care for creation: recycle, save water, feed birds, reduce waste, pick up litter, care for a pet, or plant something.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What did it feel like to actively take care of something in God's creation?",
+          "Did your mission change the way you think about your responsibility toward the earth?",
+          "How do you think God feels when He sees us caring for the world He made?"
+        ]
+      },
+      {
+        "id": "cs5",
+        "title": "The Rainbow Promise",
+        "verseRef": "Genesis 9:13-15",
+        "excerpt": "\"I set my rainbow in the cloud, and it will be a sign of a covenant between me and the earth. When I bring a cloud over the earth, that the rainbow will be seen in the cloud, I will remember my covenant, which is between me and you and every living creature of all flesh, and the waters will no more become a flood to destroy all flesh.\" \u2014 Genesis 9:13-15 (WEB)",
+        "summary": "After a great flood covered the earth, Noah and his family finally stepped onto dry land. God made a very special promise \u2014 a covenant \u2014 and placed a rainbow in the sky as a sign that He would never flood the whole earth again. This story teaches us that even after difficult times, God is faithful. He keeps His promises, and He gives us signs of hope when we need them most.",
+        "questions": [
+          "How do you think Noah felt when he saw the rainbow for the very first time? Have you ever felt relief after a hard time?",
+          "What does it mean that God makes 'covenants' or promises? Why is it important that God keeps His promises?",
+          "When you see a rainbow, what will you remember about God's faithfulness?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83c\udf08",
+            "title": "Rainbow Reminder",
+            "desc": "Draw or paint a rainbow and write God's promise from Genesis 9:13 on it. Hang it somewhere you'll see it every day.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udcdd",
+            "title": "Promise Collector",
+            "desc": "Find and write down three promises God makes in the Bible (ask a parent or search online for help). Share them with your family and talk about what they mean.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83e\udd1d",
+            "title": "Faithfulness Week",
+            "desc": "Make a personal promise to someone (a parent, sibling, or friend) and keep it faithfully for an entire week. At the end, journal about what you learned about faithfulness.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What was it like to focus on God's promises this week?",
+          "Was it easy or hard to keep your own promises? What did that teach you about faithfulness?",
+          "How does knowing that God always keeps His promises make you feel during tough times?"
+        ]
+      },
+      {
+        "id": "cs6",
+        "title": "The Gift of Wisdom",
+        "verseRef": "Proverbs 2:6-7",
+        "excerpt": "\"For Yahweh gives wisdom. Out of his mouth comes knowledge and understanding. He lays up sound wisdom for the upright. He is a shield to those who walk in integrity.\" \u2014 Proverbs 2:6-7 (WEB)",
+        "summary": "Did you know that God actually wants us to be curious and learn new things? The book of Proverbs tells us that all true wisdom and knowledge come from God. When we study, explore, and ask questions, we are using the amazing brain God gave us! Seeking wisdom isn't just about school \u2014 it's about learning how to live well, make good choices, and understand God's incredible world.",
+        "questions": [
+          "What is the difference between being smart and being wise? Can you think of an example?",
+          "Why do you think God wants us to seek wisdom and knowledge? How does learning help us grow closer to Him?",
+          "What is one question about the world or about God that you would love to find the answer to?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83e\udde0",
+            "title": "Wisdom Verse",
+            "desc": "Memorize Proverbs 2:6 and say it out loud to a family member. Talk about what it means together.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udcda",
+            "title": "Curious Learner",
+            "desc": "Pick a topic you're curious about (space, animals, the ocean, history) and spend 30 minutes learning about it. Then share one cool fact and how it shows God's wisdom.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udde3\ufe0f",
+            "title": "Wisdom Interviews",
+            "desc": "Interview three adults you respect and ask them: 'What is the wisest thing you've ever learned?' Write down their answers and share what you learned with your family.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What new thing did you learn during your mission? How did it make you feel?",
+          "Do you think learning and growing in knowledge helps you understand God better? How?",
+          "How can you keep seeking wisdom in your everyday life, not just at school?"
+        ]
+      },
+      {
+        "id": "cs7",
+        "title": "Faith and Big Questions",
+        "verseRef": "Hebrews 11:3",
+        "excerpt": "\"By faith we understand that the universe has been framed by the word of God, so that what is seen has not been made out of things which are visible.\" \u2014 Hebrews 11:3 (WEB)",
+        "summary": "Sometimes people think faith and curiosity are opposites \u2014 but they're actually great partners! Faith helps us trust God even when we can't see everything, and curiosity drives us to explore and discover more of His amazing creation. It's okay to ask big questions like 'How did God make the universe?' or 'Why did God create me?' Asking questions doesn't weaken our faith \u2014 it helps it grow stronger and deeper.",
+        "questions": [
+          "What is the biggest question you've ever had about God or about the world? Did you find an answer?",
+          "Why do you think some people believe that faith and science don't go together? Do you agree or disagree?",
+          "How can asking hard questions actually help your faith grow stronger instead of weaker?"
+        ],
+        "missions": [
+          {
+            "emoji": "\u2753",
+            "title": "Big Question Box",
+            "desc": "Write down three big questions you have about God, faith, or the universe. Share them with a parent or mentor and talk about them together.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udd0e",
+            "title": "Faith & Discovery Report",
+            "desc": "Research a famous scientist who was also a person of faith (like Isaac Newton, George Washington Carver, or Mary Anning). Write a short report about how they saw faith and science working together.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udcac",
+            "title": "Wonder Discussion",
+            "desc": "Lead a family discussion night about faith and curiosity. Prepare three big questions, look up Bible verses that relate to each, and guide the conversation. Write down what everyone shared.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What was it like to explore big questions openly? Did anything surprise you?",
+          "Do you feel more comfortable asking tough questions about faith now? Why or why not?",
+          "How do you think God feels when we bring our biggest, hardest questions to Him?"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "friendship",
+    "emoji": "\ud83e\udd1d",
+    "color": "path-friendship",
+    "title": "Friendship",
+    "desc": "Learn what it means to be a true friend through Bible stories and real-life practice.",
+    "tier": "premium",
+    "lessons": [
+      {
+        "id": "fr1",
+        "title": "A Friendship Like No Other",
+        "verseRef": "1 Samuel 18:1",
+        "excerpt": "\"The soul of Jonathan was knit with the soul of David, and Jonathan loved him as his own soul.\" \u2014 1 Samuel 18:1 (WEB)",
+        "summary": "When David defeated Goliath, he met Jonathan \u2014 the king's son. Jonathan saw David's bravery and faith, and they became the closest of friends. Jonathan even gave David his own robe and armor as a sign of loyalty. Their friendship shows us that true friends love each other deeply and stand by one another no matter what \u2014 even when it costs them something.",
+        "questions": [
+          "Who is someone you feel really close to, and what makes that friendship special?",
+          "Jonathan gave David his robe and weapons \u2014 what do you think that meant to David?",
+          "How can you show a friend that you care about them as much as you care about yourself?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udc8c",
+            "title": "Friendship Note",
+            "desc": "Write a short note or draw a picture telling a friend why they are special to you and give it to them.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83c\udf81",
+            "title": "Generous Gift",
+            "desc": "Give something meaningful to a friend \u2014 like a favorite book, toy, or handmade gift \u2014 as a sign of your friendship.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udee1\ufe0f",
+            "title": "Loyalty Challenge",
+            "desc": "For one full week, find a way to encourage or stand up for a friend every single day, even when it's not easy.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What was it like to do something special for your friend?",
+          "Did showing loyalty or generosity change how you feel about your friendship?",
+          "How do you think God feels when He sees friends loving each other well?"
+        ]
+      },
+      {
+        "id": "fr2",
+        "title": "Standing By Your Side",
+        "verseRef": "Ruth 1:16",
+        "excerpt": "\"Don't urge me to leave you, and to return from following you, for where you go, I will go; and where you stay, I will stay. Your people will be my people, and your God, my God.\" \u2014 Ruth 1:16 (WEB)",
+        "summary": "After losing their husbands, Naomi told her daughters-in-law to go back to their own families. But Ruth refused to leave. She chose to stay with Naomi through sadness, hunger, and an uncertain future. Ruth's loyalty shows us that real friendship means being there for someone even when life gets really hard \u2014 not just when things are fun and easy.",
+        "questions": [
+          "Have you ever had a friend go through a hard time? What did you do?",
+          "Why do you think Ruth chose to stay with Naomi instead of going back to her own home?",
+          "What's one thing you can do this week to support a friend who might be struggling?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udcde",
+            "title": "Check-In Call",
+            "desc": "Reach out to a friend you haven't talked to in a while \u2014 call, text, or visit and ask how they're really doing.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83c\udf6a",
+            "title": "Comfort Delivery",
+            "desc": "Make or buy a small treat and deliver it to a friend or neighbor who is going through a tough time.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83e\udd17",
+            "title": "Faithful Friend",
+            "desc": "Commit to checking in on someone who is going through a hard season at least three times over the next two weeks.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "How did your friend react when you reached out to them?",
+          "What feelings came up for you when you showed up for someone in a hard moment?",
+          "How does God show you that He stays by your side, even in tough times?"
+        ]
+      },
+      {
+        "id": "fr3",
+        "title": "Choosing Friends Wisely",
+        "verseRef": "Mark 3:14",
+        "excerpt": "\"He appointed twelve, that they might be with him, and that he might send them out to preach.\" \u2014 Mark 3:14 (WEB)",
+        "summary": "Jesus didn't pick His closest friends by accident. He prayed all night and then chose twelve disciples to walk closely with Him. Some were fishermen, one was a tax collector \u2014 they were very different \u2014 but Jesus chose people He could invest in and grow alongside. This teaches us that choosing good friends is important, and that the best friendships help us become who God wants us to be.",
+        "questions": [
+          "What qualities do you look for when choosing your closest friends?",
+          "Jesus chose people who were very different from each other \u2014 why do you think that was a good idea?",
+          "How can your friendships help you grow closer to God?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udcdd",
+            "title": "Friendship Qualities List",
+            "desc": "Write down five qualities you think make a great friend, then think about whether you show those qualities too.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83c\udf31",
+            "title": "Growth Buddy",
+            "desc": "Ask a friend to learn something new together \u2014 read a Bible chapter, start a project, or practice a skill side by side.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\ude4f",
+            "title": "Prayerful Choices",
+            "desc": "Spend time each day this week praying for your friendships \u2014 ask God to help you be a good friend and to bring good friends into your life.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What did you learn about the kind of friend you want to be?",
+          "Did doing something with a friend help you grow? How?",
+          "How do you think God guides you in choosing the right friends?"
+        ]
+      },
+      {
+        "id": "fr4",
+        "title": "A Friend to Everyone",
+        "verseRef": "Luke 10:33-34",
+        "excerpt": "\"But a certain Samaritan, as he traveled, came where he was. When he saw him, he was moved with compassion, came to him, and bound up his wounds, pouring on oil and wine.\" \u2014 Luke 10:33-34 (WEB)",
+        "summary": "In Jesus' famous parable, a man was beaten and left on the road. A priest and a Levite both walked right past him, but a Samaritan \u2014 someone most people looked down on \u2014 stopped and cared for the hurting man. Jesus used this story to teach that being a true friend isn't about labels or popularity \u2014 it's about showing kindness and compassion to whoever needs it, even strangers.",
+        "questions": [
+          "Have you ever noticed someone being left out or hurting? What did you do?",
+          "Why do you think the priest and Levite walked past the injured man?",
+          "How can you be like the Good Samaritan at school, in your neighborhood, or online?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\ude0a",
+            "title": "Kindness Moment",
+            "desc": "Do one unexpected act of kindness for someone you don't know very well \u2014 hold a door, share a snack, or offer a compliment.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83e\ude91",
+            "title": "Empty Chair Invitation",
+            "desc": "At lunch, recess, or a group activity, invite someone who is sitting alone to join you and your friends.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\u2764\ufe0f",
+            "title": "Compassion Project",
+            "desc": "Organize a small service project with friends \u2014 make care kits for a shelter, write encouraging cards, or volunteer together.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "How did it feel to reach out to someone you didn't know well?",
+          "Did you notice anything change in that person \u2014 or in yourself \u2014 after you showed kindness?",
+          "How do you think God sees us when we show compassion to strangers?"
+        ]
+      },
+      {
+        "id": "fr5",
+        "title": "Iron Sharpens Iron",
+        "verseRef": "Proverbs 27:17",
+        "excerpt": "\"Iron sharpens iron; so a man sharpens his friend's countenance.\" \u2014 Proverbs 27:17 (WEB)",
+        "summary": "The book of Proverbs is packed with wisdom about friendship. It tells us that good friends make each other better \u2014 like two pieces of iron that sharpen each other. It also says that honest words from a friend, even if they sting a little, are worth more than flattery. God wants us to have friendships where we can be truthful, grow together, and become stronger people.",
+        "questions": [
+          "Has a friend ever told you something honest that was hard to hear but helped you grow?",
+          "What does it mean to 'sharpen' a friend \u2014 how do friends make each other better?",
+          "How can you be honest with a friend while still being kind and loving?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udcac",
+            "title": "Encouragement Exchange",
+            "desc": "Tell a friend one thing you admire about them and one area where you can grow together.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udcd6",
+            "title": "Wisdom Duo",
+            "desc": "Read a chapter of Proverbs with a friend and pick out your favorite verse about friendship. Talk about what it means.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\u2694\ufe0f",
+            "title": "Accountability Partners",
+            "desc": "Ask a trusted friend to be your accountability partner for a goal or habit for two weeks \u2014 check in with each other regularly.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What was it like to have an honest conversation with a friend about growing together?",
+          "Did being accountable to someone help you stick with your goal? Why or why not?",
+          "How does God use your friendships to shape you into a better person?"
+        ]
+      },
+      {
+        "id": "fr6",
+        "title": "When Friends Mess Up",
+        "verseRef": "Matthew 18:21-22",
+        "excerpt": "\"Then Peter came and said to him, 'Lord, how often shall my brother sin against me, and I forgive him? Until seven times?' Jesus said to him, 'I don't tell you until seven times, but, until seventy times seven.'\" \u2014 Matthew 18:21-22 (WEB)",
+        "summary": "Peter thought he was being generous when he asked if he should forgive someone seven times. But Jesus said to forgive seventy times seven \u2014 meaning there's no limit! He then told the parable of a servant who was forgiven a huge debt but refused to forgive a small one. Jesus teaches us that since God forgives us so much, we should also forgive our friends when they hurt us.",
+        "questions": [
+          "Is there a time when a friend hurt your feelings? Was it hard to forgive them?",
+          "Why do you think the servant in the parable refused to forgive the small debt after being forgiven a huge one?",
+          "What can you do when you feel angry or hurt by a friend to start the process of forgiveness?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udd4a\ufe0f",
+            "title": "Forgiveness Prayer",
+            "desc": "Think of someone who hurt your feelings and say a prayer asking God to help you forgive them.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83e\udd1d",
+            "title": "Make Things Right",
+            "desc": "If there's a friend you've had a disagreement with, reach out and talk to them about it \u2014 listen to their side and work toward peace.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udcd3",
+            "title": "Forgiveness Journal",
+            "desc": "Keep a journal for one week. Each day, write about a moment where you chose forgiveness or let go of frustration \u2014 and how it made you feel.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "How did it feel to let go of hurt or anger toward someone?",
+          "Did forgiving someone change your friendship or how you feel inside?",
+          "How does knowing that God always forgives you make it easier to forgive others?"
+        ]
+      },
+      {
+        "id": "fr7",
+        "title": "The Greatest Friend of All",
+        "verseRef": "John 15:13-15",
+        "excerpt": "\"Greater love has no one than this, that someone lay down his life for his friends. You are my friends if you do whatever I command you. No longer do I call you servants, for the servant doesn't know what his lord does. But I have called you friends, for everything that I heard from my Father, I have made known to you.\" \u2014 John 15:13-15 (WEB)",
+        "summary": "In His last hours with His disciples, Jesus shared something amazing: He didn't just call them servants or followers \u2014 He called them friends. And then He showed the greatest love of all by giving His life for them \u2014 and for us. Jesus is the ultimate example of friendship. He loves without limits, forgives endlessly, and invites each of us into a real, personal relationship with Him.",
+        "questions": [
+          "What does it mean to you that Jesus calls you His friend?",
+          "How is Jesus' friendship different from other friendships you have?",
+          "Looking back at everything we've learned, what's the most important thing about being a good friend?"
+        ],
+        "missions": [
+          {
+            "emoji": "\u270d\ufe0f",
+            "title": "Letter to Jesus",
+            "desc": "Write a short letter or prayer to Jesus, thanking Him for being your friend and telling Him what His friendship means to you.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83c\udf1f",
+            "title": "Friendship Showcase",
+            "desc": "Create something \u2014 a drawing, poem, song, or video \u2014 that expresses what you've learned about true friendship and share it with someone.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udca1",
+            "title": "Friendship Legacy",
+            "desc": "Choose three friendship lessons from this path and put them into practice over the next month. Keep a record of how they change your relationships.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What was it like to reflect on Jesus as your closest friend?",
+          "How has learning about friendship in the Bible changed the way you treat your friends?",
+          "How can you carry what you've learned into every friendship for the rest of your life?"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "family",
+    "emoji": "\ud83c\udfe0",
+    "color": "path-family",
+    "title": "Family",
+    "desc": "Discover what the Bible teaches about loving, honoring, and growing as a family.",
+    "tier": "premium",
+    "lessons": [
+      {
+        "id": "fm1",
+        "title": "Honor Your Father and Mother",
+        "verseRef": "Ephesians 6:1-3",
+        "excerpt": "\"Children, obey your parents in the Lord, for this is right. 'Honor your father and mother,' which is the first commandment with a promise: 'that it may be well with you, and you may live long on the earth.'\" \u2014 Ephesians 6:1-3 (WEB)",
+        "summary": "God gave us a very special commandment about families \u2014 to honor our parents! This doesn't just mean obeying rules; it means showing love, respect, and gratitude to the people who care for us. When we honor our parents, we're also honoring God, and He promises that good things will follow.",
+        "questions": [
+          "What does it mean to 'honor' someone? Can you think of a time you showed honor to a parent or caregiver?",
+          "Why do you think God made honoring parents one of the Ten Commandments \u2014 so important it made the top ten list?",
+          "What's one way you could show more honor to your parents or caregivers this week, even when it's hard?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udc8c",
+            "title": "Thank-You Note",
+            "desc": "Write a short note or draw a picture thanking a parent or caregiver for something specific they do for you.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83e\udd1d",
+            "title": "Cheerful Helper",
+            "desc": "Choose three chores or tasks this week and do them without being asked \u2014 with a joyful attitude!",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83c\udf1f",
+            "title": "Honor Week Challenge",
+            "desc": "For seven days, find a different way each day to honor your parents \u2014 kind words, help around the house, obeying quickly, or a surprise act of love.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "How did it feel to do something kind for your parent or caregiver without being asked?",
+          "Did honoring your parents change the way your home felt this week?",
+          "How do you think God feels when He sees you showing love and respect to your family?"
+        ]
+      },
+      {
+        "id": "fm2",
+        "title": "Brothers and Sisters \u2014 Learning to Get Along",
+        "verseRef": "Genesis 33:4",
+        "excerpt": "\"Esau ran to meet him, embraced him, fell on his neck, kissed him, and they wept.\" \u2014 Genesis 33:4 (WEB)",
+        "summary": "The Bible tells us about brothers who had big problems \u2014 Cain was jealous of Abel, and Jacob tricked Esau out of his blessing. Jealousy and fighting can tear families apart! But the story of Jacob and Esau also shows us that reconciliation is possible. After many years apart, Esau chose to forgive and embrace his brother instead of staying angry.",
+        "questions": [
+          "Have you ever felt jealous of a brother, sister, or friend? What happened?",
+          "Why do you think Esau chose to hug Jacob instead of staying angry after so many years?",
+          "When you have an argument with a sibling or friend, what's one thing you could do to start making peace?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\ude0a",
+            "title": "Compliment Coupon",
+            "desc": "Give a sibling, cousin, or close friend three genuine compliments today \u2014 tell them something you admire about them.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83c\udfae",
+            "title": "Their Choice Day",
+            "desc": "Let a sibling or friend choose the game, show, or activity for the day \u2014 and participate with a great attitude, even if it's not your favorite.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udd4a\ufe0f",
+            "title": "Peacemaker Project",
+            "desc": "If you have an ongoing disagreement with a sibling or friend, take the first step to make peace. Apologize for your part, listen to their feelings, and work together on a solution.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What was it like to put someone else's preferences ahead of your own?",
+          "Did being kind to a sibling or friend change how you felt about them?",
+          "How do you think God helps us let go of jealousy and choose love instead?"
+        ]
+      },
+      {
+        "id": "fm3",
+        "title": "Joseph and His Brothers \u2014 Forgiveness and Restoration",
+        "verseRef": "Genesis 50:20",
+        "excerpt": "\"As for you, you meant evil against me, but God meant it for good, to save many people alive, as it is today.\" \u2014 Genesis 50:20 (WEB)",
+        "summary": "Joseph's brothers were so jealous of him that they sold him into slavery! Joseph went through years of hardship \u2014 but God was with him the whole time and raised him up to save an entire nation from famine. When his brothers came to him afraid, Joseph chose forgiveness instead of revenge. He saw that God can use even painful family moments for an amazing purpose.",
+        "questions": [
+          "Has someone in your family ever hurt your feelings? How did it make you feel inside?",
+          "Joseph said God turned something bad into something good. Can you think of a hard time that eventually led to something better?",
+          "Why is forgiving a family member sometimes harder than forgiving a stranger \u2014 and why is it so important?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udc9b",
+            "title": "Forgiveness Prayer",
+            "desc": "Think of someone in your family you need to forgive. Say a quiet prayer asking God to help you let go of the hurt.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83e\udd17",
+            "title": "Restoration Letter",
+            "desc": "Write a letter or have a conversation with a family member you've been upset with. Tell them you forgive them or ask for their forgiveness.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83c\udf08",
+            "title": "Good from Hard Things Journal",
+            "desc": "For one week, keep a journal where you write about difficult family moments and look for ways God might be working something good through them.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "How did it feel to pray about forgiving someone or to talk with them about it?",
+          "Did choosing forgiveness change anything inside your heart \u2014 even a little?",
+          "How does knowing that God can bring good from hard times give you hope for your family?"
+        ]
+      },
+      {
+        "id": "fm4",
+        "title": "Mary, Joseph, and Jesus \u2014 A Faithful Family Under Pressure",
+        "verseRef": "Luke 2:51-52",
+        "excerpt": "\"And he went down with them and came to Nazareth. He was subject to them, and his mother kept all these sayings in her heart. And Jesus increased in wisdom and stature, and in favor with God and men.\" \u2014 Luke 2:51-52 (WEB)",
+        "summary": "Mary and Joseph faced incredible challenges \u2014 an unexpected baby, fleeing to Egypt, and raising the Son of God! Yet they trusted God every step of the way. Even Jesus, as a boy, respected and obeyed His earthly parents. Their story shows us that faithful families stick together through hard times, lean on God, and grow stronger because of it.",
+        "questions": [
+          "Has your family ever gone through a really tough time? How did you get through it together?",
+          "Why do you think it matters that even Jesus obeyed and respected Mary and Joseph?",
+          "What's one thing your family could do to trust God more when life gets stressful or scary?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\ude4f",
+            "title": "Family Prayer Moment",
+            "desc": "Gather your family for a short prayer time. Share one challenge your family is facing and pray about it together.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udcd6",
+            "title": "Story Swap Night",
+            "desc": "Ask a parent or grandparent to share a story about a hard time in your family's past and how God helped them get through it.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udcaa",
+            "title": "Family Faith Challenge",
+            "desc": "Pick a challenge your family is currently facing. Each day for a week, do one thing together to address it with faith \u2014 pray, encourage each other, serve one another, or read a Bible verse about trusting God.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What was it like to hear your family's stories or pray together about real challenges?",
+          "Did going through something hard together make your family feel closer?",
+          "How do you see God being faithful to your family, even in tough times?"
+        ]
+      },
+      {
+        "id": "fm5",
+        "title": "Teaching and Guiding \u2014 The Role of Parents",
+        "verseRef": "Deuteronomy 6:6-7",
+        "excerpt": "\"These words, which I command you today, shall be on your heart; and you shall teach them diligently to your children, and shall talk of them when you sit in your house, and when you walk by the way, and when you lie down, and when you rise up.\" \u2014 Deuteronomy 6:6-7 (WEB)",
+        "summary": "God gave parents an incredible job \u2014 to teach their children about His love and His ways! This verse says parents should talk about God's Word all the time: at home, on the road, at bedtime, and in the morning. Learning about God isn't just for church; it's a family adventure that happens every single day, and kids play a big role by listening, asking questions, and growing.",
+        "questions": [
+          "What's something important about God or life that a parent, grandparent, or mentor has taught you?",
+          "Why do you think God wants families to talk about Him at all different times of day \u2014 not just at church?",
+          "How can you be a good learner at home and help your family grow in faith together?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udde3\ufe0f",
+            "title": "Ask and Learn",
+            "desc": "Ask a parent or caregiver one question about God or the Bible today and listen carefully to their answer.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udcda",
+            "title": "Family Devotion Night",
+            "desc": "Plan and lead a short family devotion \u2014 pick a Bible verse, read it aloud, and ask everyone to share what it means to them.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83e\udded",
+            "title": "Faith All Day Long",
+            "desc": "For five days, find a way to bring God into ordinary family moments \u2014 pray before a car ride, discuss a Bible story at dinner, or share something you learned about God at bedtime.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What did you learn from talking with your family about faith this week?",
+          "How did it feel to lead or participate in a family devotion or faith conversation?",
+          "In what ways do you think God uses your family to help you grow closer to Him?"
+        ]
+      },
+      {
+        "id": "fm6",
+        "title": "Love Is Patient, Love Is Kind \u2014 At Home",
+        "verseRef": "1 Corinthians 13:4-5",
+        "excerpt": "\"Love is patient and is kind. Love doesn't envy. Love doesn't brag, is not proud, doesn't behave itself inappropriately, doesn't seek its own way, is not provoked, takes no account of evil.\" \u2014 1 Corinthians 13:4-5 (WEB)",
+        "summary": "The famous 'love chapter' in the Bible paints a beautiful picture of what real love looks like \u2014 and it starts at home! Being patient with a little sibling, being kind when you're tired, and not keeping score of wrongs \u2014 that's love in action. God wants our homes to be full of this kind of love, and every family member can practice it every day.",
+        "questions": [
+          "Which part of this description of love is hardest for you \u2014 patience, kindness, not keeping score, or something else?",
+          "Why do you think it's sometimes easier to be patient and kind with friends than with your own family?",
+          "If your family practiced this kind of love for a whole week, what do you think would change?"
+        ],
+        "missions": [
+          {
+            "emoji": "\u23f3",
+            "title": "Patience Practice",
+            "desc": "The next time a family member annoys you or things don't go your way at home, pause, take a deep breath, and respond with patience instead of frustration.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udc9d",
+            "title": "Secret Kindness Agent",
+            "desc": "Do three secret acts of kindness for family members this week \u2014 fold their laundry, make their bed, leave a kind note \u2014 without telling anyone!",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udccb",
+            "title": "Love Checklist Week",
+            "desc": "Write out the qualities of love from 1 Corinthians 13:4-7 on a checklist. Each day, try to practice every quality at home and check them off. At the end of the week, reflect on which ones you grew in.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "Which quality of love was easiest to practice at home? Which was the most challenging?",
+          "How did your family respond when you showed patience or secret kindness?",
+          "How do you think God's love for you helps you love your family better?"
+        ]
+      },
+      {
+        "id": "fm7",
+        "title": "Building Your House on the Rock",
+        "verseRef": "Matthew 7:24-25",
+        "excerpt": "\"Everyone therefore who hears these words of mine and does them, I will liken him to a wise man who built his house on a rock. The rain came down, the floods came, and the winds blew and beat on that house; and it didn't fall, for it was founded on the rock.\" \u2014 Matthew 7:24-25 (WEB)",
+        "summary": "Jesus told a story about two builders \u2014 one wise and one foolish. The wise builder put his house on solid rock, and it stood strong through every storm. The foolish builder chose sand, and his house fell apart. Our families are like houses! When we build on God's Word \u2014 listening to it and actually doing it \u2014 our family can stand strong through any challenge life throws our way.",
+        "questions": [
+          "What are some 'storms' that families face \u2014 hard things that test how strong a family is?",
+          "What does it look like to build your family on 'the rock' of God's Word instead of 'sand'?",
+          "What's one thing your family could start doing today to make your foundation stronger?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83e\udea8",
+            "title": "Foundation Stone",
+            "desc": "Choose one Bible verse as a 'foundation stone' for your family. Write it on a card and put it somewhere everyone can see \u2014 the fridge, a mirror, or the front door.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83c\udfd7\ufe0f",
+            "title": "Family Blueprint",
+            "desc": "Sit down with your family and create a short list of values or promises based on the Bible that your family wants to live by \u2014 your family's 'blueprint.'",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83c\udfe0",
+            "title": "30-Day Family Foundation",
+            "desc": "Commit as a family to a 30-day challenge: read a short Bible passage together each day, discuss one way to apply it, and check in each week on how you're growing as a family.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What was it like to work with your family on building a stronger foundation together?",
+          "Do you feel more prepared as a family to face hard times after this experience?",
+          "How does knowing that God is your family's rock give you peace and confidence?"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "heroes",
+    "emoji": "\u2694\ufe0f",
+    "color": "path-heroes",
+    "title": "Old Testament Heroes",
+    "desc": "Meet the brave men and women of the Old Testament who trusted God against all odds.",
+    "tier": "premium",
+    "lessons": [
+      {
+        "id": "ot1",
+        "title": "Abraham's Big Adventure",
+        "verseRef": "Genesis 12:1",
+        "excerpt": "\"Now Yahweh said to Abram, 'Leave your country, and your relatives, and your father's house, and go to the land that I will show you.'\" \u2014 Genesis 12:1 (WEB)",
+        "summary": "God asked Abraham to leave everything he knew \u2014 his home, his family, and his country \u2014 and travel to a land he had never seen. Abraham trusted God's promise even though he didn't know where he was going, and God promised to make him into a great nation. His brave obedience reminds us that following God sometimes means stepping into the unknown.",
+        "questions": [
+          "Have you ever had to leave somewhere familiar, like moving to a new school or neighborhood? How did it feel?",
+          "Why do you think Abraham was willing to leave everything behind when God asked him to?",
+          "What is one area of your life where you could trust God more, even when you can't see the whole plan?"
+        ],
+        "missions": [
+          {
+            "emoji": "\u2709\ufe0f",
+            "title": "Trust Letter",
+            "desc": "Write a short letter to God about something you're unsure about and tell Him you trust His plan.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\uddfa\ufe0f",
+            "title": "New Territory",
+            "desc": "Try something new this week that feels a little scary \u2014 a new food, a new activity, or talking to someone you don't usually talk to. Journal about how it went.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83c\udf92",
+            "title": "Adventure of Faith",
+            "desc": "For one full week, start each morning by praying, 'God, I'll follow wherever You lead today.' At the end of each day, write down one way you saw God guide you.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What was the hardest part about stepping into something new or unknown?",
+          "How did it feel to trust God with something you couldn't fully see or control?",
+          "In what ways did you notice God showing up during your mission?"
+        ]
+      },
+      {
+        "id": "ot2",
+        "title": "Moses and the Burning Bush",
+        "verseRef": "Exodus 3:10-12",
+        "excerpt": "\"Come now therefore, and I will send you to Pharaoh, that you may bring my people, the children of Israel, out of Egypt.\" \u2014 Exodus 3:10 (WEB)",
+        "summary": "Moses was just a shepherd when God spoke to him from a burning bush and gave him an enormous job \u2014 go to the most powerful king in the world and demand freedom for God's people. Moses was scared and full of excuses, but God promised to be with him every step of the way. This story shows us that God doesn't call the qualified \u2014 He qualifies the called.",
+        "questions": [
+          "Have you ever felt like you weren't good enough or brave enough to do something important? What happened?",
+          "Moses gave God lots of excuses. Why do you think God was patient with him instead of choosing someone else?",
+          "If God asked you to do something big and scary for Him, what would help you say yes?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udd25",
+            "title": "Excuse Burner",
+            "desc": "Write down one excuse you often make for not doing something good or hard. Pray about it, then crumple up the paper as a symbol of letting that excuse go.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udde3\ufe0f",
+            "title": "Speak Up",
+            "desc": "Find a situation this week where you can speak up for someone who needs help \u2014 a classmate, sibling, or friend. Stand up for what's right, even if it feels uncomfortable.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83e\uddb8",
+            "title": "Unlikely Hero",
+            "desc": "Take on a responsibility that feels bigger than you \u2014 volunteer to lead something at school, church, or home. Ask God for courage each day and write about what you learn.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What excuse did you have to push past in order to complete your mission?",
+          "How did it feel to step up even when you didn't feel fully ready?",
+          "How did you sense God's help or presence while doing something brave?"
+        ]
+      },
+      {
+        "id": "ot3",
+        "title": "Joshua: Strong and Courageous",
+        "verseRef": "Joshua 1:9",
+        "excerpt": "\"Haven't I commanded you? Be strong and courageous. Don't be afraid. Don't be dismayed, for Yahweh your God is with you wherever you go.\" \u2014 Joshua 1:9 (WEB)",
+        "summary": "After Moses died, Joshua was chosen to lead the entire nation of Israel into the Promised Land. It was a huge and terrifying responsibility \u2014 there were enemies, walled cities, and an entire people depending on him. But God told Joshua three times to be strong and courageous because He would never leave his side. True courage isn't the absence of fear; it's trusting God in the middle of it.",
+        "questions": [
+          "What is something that makes you feel afraid or nervous? How do you usually handle that fear?",
+          "God told Joshua to be strong and courageous multiple times. Why do you think He repeated it?",
+          "How can remembering that God is with you change the way you face a tough situation this week?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udcaa",
+            "title": "Courage Card",
+            "desc": "Write Joshua 1:9 on a card or sticky note and put it somewhere you'll see it every day \u2014 your mirror, locker, or bedside table.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83c\udfd4\ufe0f",
+            "title": "Face the Mountain",
+            "desc": "Identify one thing you've been avoiding because it scares you. With prayer and a plan, take a real step toward facing it this week.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udee1\ufe0f",
+            "title": "Courage Journal",
+            "desc": "Keep a daily courage journal for one week. Each day, write about one moment you chose bravery over fear, and how you felt God's presence in that moment.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What moment during your mission required the most courage from you?",
+          "Did your feelings about fear change at all through this experience? How?",
+          "How did remembering God's promise to be with you make a difference?"
+        ]
+      },
+      {
+        "id": "ot4",
+        "title": "Gideon: The Unlikely Warrior",
+        "verseRef": "Judges 6:12",
+        "excerpt": "\"Yahweh is with you, you mighty man of valor.\" \u2014 Judges 6:12 (WEB)",
+        "summary": "Gideon was the least important person in his family, from the weakest clan in his tribe \u2014 and he was hiding from the enemy when God's angel called him a \"mighty man of valor.\" God saw in Gideon what Gideon couldn't see in himself. Then God shrank Gideon's army from 32,000 to just 300, proving that the victory belonged to God, not to human strength. This story teaches us that God loves to use the small and the overlooked to do amazing things.",
+        "questions": [
+          "Have you ever felt too small, too young, or too unimportant to make a difference? What was that like?",
+          "Why do you think God kept making Gideon's army smaller instead of bigger?",
+          "How does knowing that God sees you as valuable \u2014 no matter what \u2014 change how you see yourself?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83e\ude9e",
+            "title": "God's Mirror",
+            "desc": "Look in the mirror and say out loud three good things God made you to be. Write them down and keep the list somewhere special.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83e\udd1d",
+            "title": "Small but Mighty",
+            "desc": "Do one kind act this week for someone who usually gets overlooked \u2014 a quiet classmate, a younger kid, or someone who seems lonely. Notice how something small can make a big difference.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\u2b50",
+            "title": "Underdog Week",
+            "desc": "Spend a week encouraging people who feel small or left out. Each day, find someone different and tell them something genuinely encouraging. Track how it affects them and you.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What did it feel like to encourage someone who might feel overlooked?",
+          "Did this mission change how you see your own abilities or worth? How?",
+          "How does Gideon's story help you trust that God can use you just as you are?"
+        ]
+      },
+      {
+        "id": "ot5",
+        "title": "David vs. Goliath: Facing Giants",
+        "verseRef": "1 Samuel 17:45",
+        "excerpt": "\"Then David said to the Philistine, 'You come to me with a sword, with a spear, and with a javelin; but I come to you in the name of Yahweh of Armies, the God of the armies of Israel, whom you have defied.'\" \u2014 1 Samuel 17:45 (WEB)",
+        "summary": "Everyone in Israel's army was terrified of the giant warrior Goliath \u2014 everyone except a young shepherd boy named David. While the soldiers saw an unbeatable enemy, David saw someone who had insulted the living God. Armed with just a sling, five stones, and an unshakeable faith, David ran toward the giant and defeated him. David's story reminds us that with God on our side, no problem is too big to face.",
+        "questions": [
+          "What are the 'giants' in your life \u2014 big problems or fears that feel impossible to overcome?",
+          "The trained soldiers were afraid, but young David wasn't. What made David different from everyone else?",
+          "How can you 'run toward your giant' this week instead of running away from a challenge?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83e\udea8",
+            "title": "Five Smooth Stones",
+            "desc": "Find or draw five small stones. On each one, write something true about God (e.g., 'God is strong,' 'God is with me'). Keep them as reminders when you face something hard.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83c\udfaf",
+            "title": "Giant Slayer",
+            "desc": "Pick one problem or challenge you've been avoiding. Make a plan to tackle it this week, praying for God's help before each step you take.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83e\udd81",
+            "title": "Run Toward It",
+            "desc": "For one week, instead of avoiding hard or scary things, face them head-on with prayer. Keep a journal of each 'giant' you faced, what you did, and what happened.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What 'giant' did you face this week, and what happened when you stepped forward?",
+          "How did praying or trusting God change the way you felt about the challenge?",
+          "What did you learn about yourself and about God through this experience?"
+        ]
+      },
+      {
+        "id": "ot6",
+        "title": "Elijah: Standing Alone for Truth",
+        "verseRef": "1 Kings 18:21",
+        "excerpt": "\"Elijah came near to all the people, and said, 'How long will you waver between the two sides? If Yahweh is God, follow him; but if Baal, then follow him.' The people didn't say a word.\" \u2014 1 Kings 18:21 (WEB)",
+        "summary": "The prophet Elijah stood alone on Mount Carmel against 450 prophets of the false god Baal. While the whole nation had turned away from God, Elijah boldly challenged everyone to choose whom they would serve. God answered Elijah's prayer by sending fire from heaven, proving once and for all that He alone is the true God. Elijah's courage reminds us that standing for truth matters even when you're the only one doing it.",
+        "questions": [
+          "Have you ever been the only one standing up for what's right? How did it feel to be outnumbered?",
+          "Why do you think the people 'didn't say a word' when Elijah challenged them to choose?",
+          "What's one truth about God you want to stand for, even if others around you don't?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udd6f\ufe0f",
+            "title": "Light in the Dark",
+            "desc": "The next time someone around you says something unkind or untrue, gently speak up with kindness and truth. Afterward, write about what happened.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udce2",
+            "title": "Bold Declaration",
+            "desc": "Share something you believe about God with a friend, family member, or classmate this week \u2014 even if it feels a little awkward. It could be a Bible verse, a prayer, or your own testimony.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\u26f0\ufe0f",
+            "title": "Mountaintop Stand",
+            "desc": "For one week, commit to not going along with the crowd when it means doing something wrong. Each evening, write about the moments you chose to stand firm and how God helped you.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What was it like to stand for truth when it would have been easier to stay silent?",
+          "Did standing up for what's right feel lonely, empowering, or both? Why?",
+          "How did you see God support you when you chose to be bold for Him?"
+        ]
+      },
+      {
+        "id": "ot7",
+        "title": "Daniel: Faithful in the Lions' Den",
+        "verseRef": "Daniel 6:22",
+        "excerpt": "\"My God has sent his angel, and has shut the lions' mouths, and they have not hurt me, because before him innocence was found in me; and also before you, O king, I have done no harm.\" \u2014 Daniel 6:22 (WEB)",
+        "summary": "Daniel was one of the most respected officials in the kingdom, but jealous rivals tricked the king into making a law that banned prayer to anyone except the king himself. Daniel knew the law could get him killed, but he kept praying to God three times a day with his windows wide open. He was thrown into a den of hungry lions, but God sent an angel to shut the lions' mouths. Daniel's story teaches us that faithfulness to God \u2014 even when it's dangerous \u2014 is always worth it.",
+        "questions": [
+          "If someone told you that you couldn't pray or talk about God anymore, what would you do?",
+          "Daniel didn't hide his faith \u2014 he prayed with his windows open. Why do you think that detail matters?",
+          "What does Daniel's story teach you about staying faithful even when it costs you something?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\ude4f",
+            "title": "Open Window Prayer",
+            "desc": "Like Daniel, pray openly at least once today \u2014 before a meal, before bed, or before school. Don't hide it, even if others are watching.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udcc5",
+            "title": "Three Times a Day",
+            "desc": "Follow Daniel's example and pray three times every day for a full week \u2014 morning, midday, and evening. Keep a simple log of each prayer time.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83e\udd81",
+            "title": "Lions' Den Challenge",
+            "desc": "Identify a situation where living out your faith feels risky or uncomfortable. Commit to being faithful in that area for a full week, trusting God with the outcome. Journal about each day.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What was hardest about being openly faithful during your mission?",
+          "How did it feel to keep going even when it was uncomfortable or risky?",
+          "In what ways did you experience God's protection or peace, like Daniel did in the lions' den?"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "women",
+    "emoji": "\ud83d\udc51",
+    "color": "path-women",
+    "title": "Women of the Bible",
+    "desc": "Meet courageous women whose faith shaped history and inspires us today.",
+    "tier": "premium",
+    "lessons": [
+      {
+        "id": "wb1",
+        "title": "Esther: Courage for Such a Time as This",
+        "verseRef": "Esther 4:14",
+        "excerpt": "\"For if you remain silent now, then relief and deliverance will arise to the Jews from another place, but you and your father's house will perish. Who knows whether you haven't come to the kingdom for such a time as this?\" \u2014 Esther 4:14 (WEB)",
+        "summary": "Esther was a young Jewish woman who became queen of Persia. When an evil man named Haman plotted to destroy all the Jewish people, Esther's cousin Mordecai reminded her that perhaps God had placed her in the palace for this very moment. Even though approaching the king without being invited could cost her life, Esther bravely chose to speak up and save her people.",
+        "questions": [
+          "Have you ever been in a situation where you were the only one who could help someone? What did you do?",
+          "Why do you think Esther was afraid to go to the king, and what gave her the courage to do it anyway?",
+          "How can you use whatever position or abilities God has given you to stand up for others this week?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udde3\ufe0f",
+            "title": "Speak Up for Someone",
+            "desc": "Find one opportunity today to speak a kind or encouraging word to someone who is being left out or treated unfairly.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udc8c",
+            "title": "Letter of Courage",
+            "desc": "Write a letter or card to someone going through a hard time, reminding them they are not alone and that you care about them.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udee1\ufe0f",
+            "title": "Be an Esther All Week",
+            "desc": "For one full week, look for daily opportunities to stand up for others, speak truth, or use your unique position to help people around you. Keep a journal of each moment.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What happened when you spoke up or encouraged someone? How did they respond?",
+          "Did it feel scary to stand up for someone? What helped you find your courage?",
+          "How do you think God might be placing you in special positions to help others, just like He did with Esther?"
+        ]
+      },
+      {
+        "id": "wb2",
+        "title": "Ruth: A Heart of Faithfulness",
+        "verseRef": "Ruth 1:16",
+        "excerpt": "\"Ruth said, 'Don't urge me to leave you, and to return from following you, for where you go, I will go; and where you stay, I will stay. Your people will be my people, and your God my God.'\" \u2014 Ruth 1:16 (WEB)",
+        "summary": "After Ruth's husband died, she could have gone back to her own family and her own country. Instead, she chose to stay with her mother-in-law Naomi, leaving behind everything she knew to follow Naomi's God. Ruth's incredible loyalty and trust in God's plan led her on a beautiful journey where she eventually married Boaz and became the great-grandmother of King David \u2014 and part of the family line of Jesus!",
+        "questions": [
+          "Who is someone in your life that you are deeply loyal to? What makes that relationship special?",
+          "Why do you think Ruth chose to stay with Naomi instead of taking the easier path back home?",
+          "How can being faithful to the people God has placed in your life lead to unexpected blessings?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83e\udd1d",
+            "title": "Loyal Friend Moment",
+            "desc": "Do something kind today for a friend or family member to show them you are loyal and care about them \u2014 even when it's not convenient.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83c\udfe0",
+            "title": "Family Helper",
+            "desc": "Choose one family member and serve them this week by helping with their chores or responsibilities without being asked, just like Ruth served Naomi.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udc9b",
+            "title": "30-Day Faithfulness Challenge",
+            "desc": "Pick one relationship and commit to showing faithfulness every day for a month \u2014 through notes, acts of service, or quality time. Track your journey in a journal.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What did it feel like to show loyalty or kindness to someone even when it cost you something?",
+          "Did you notice any unexpected blessings or good things that came from being faithful?",
+          "How do you think God's faithfulness to you is reflected in the way you can be faithful to others?"
+        ]
+      },
+      {
+        "id": "wb3",
+        "title": "Deborah: Leading with Wisdom and Strength",
+        "verseRef": "Judges 4:14",
+        "excerpt": "\"Deborah said to Barak, 'Go! For this is the day in which Yahweh has delivered Sisera into your hand. Hasn't Yahweh gone out before you?'\" \u2014 Judges 4:14 (WEB)",
+        "summary": "Deborah was a prophetess and judge of Israel \u2014 a leader chosen by God during a very difficult time. When the Israelites were oppressed by a powerful enemy army, Deborah called on a warrior named Barak to lead the fight, but he would only go if she came with him. Deborah boldly agreed and reminded him that it was God who would give them victory. Her wisdom, faith, and courage helped an entire nation find freedom.",
+        "questions": [
+          "What does it look like to be a good leader? Can you name a leader you admire and explain why?",
+          "Why do you think Barak wanted Deborah to go with him into battle? What does that say about her character?",
+          "In what areas of your life \u2014 at school, at home, or with friends \u2014 can you lead with wisdom and kindness?"
+        ],
+        "missions": [
+          {
+            "emoji": "\u2b50",
+            "title": "Lead One Thing",
+            "desc": "Take the lead on one task today \u2014 like organizing a game, helping a younger sibling with homework, or volunteering to go first \u2014 and do it with encouragement for others.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udccb",
+            "title": "Wise Decision Maker",
+            "desc": "The next time you face a choice this week, pause and pray about it before deciding. Write down what you chose and why, and how seeking God's wisdom helped.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83c\udf1f",
+            "title": "Lead a Group Project",
+            "desc": "Take on a leadership role in a school project, church group, or family activity for an entire week. Focus on encouraging others, listening well, and relying on God's guidance.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What was it like to take the lead? Was it easier or harder than you expected?",
+          "How did seeking God's wisdom change the way you made decisions or led others?",
+          "Do you think God can use kids and teens as leaders just like He used Deborah? Why or why not?"
+        ]
+      },
+      {
+        "id": "wb4",
+        "title": "Mary: Saying Yes to God's Amazing Plan",
+        "verseRef": "Luke 1:38",
+        "excerpt": "\"Mary said, 'See, the handmaid of the Lord; be it to me according to your word.' The angel departed from her.\" \u2014 Luke 1:38 (WEB)",
+        "summary": "When the angel Gabriel appeared to a young woman named Mary and told her she would give birth to God's Son, it must have been both amazing and terrifying. Mary didn't fully understand how everything would work out, but she trusted God and said yes. Her humble willingness to follow God's plan \u2014 even when it was scary and didn't make sense \u2014 changed the entire world forever.",
+        "questions": [
+          "Has God or someone you trust ever asked you to do something that felt really big or scary? How did you respond?",
+          "Why do you think Mary was able to say yes even though she didn't understand everything about God's plan?",
+          "What is one area of your life where you could practice saying 'yes' to what God is asking of you?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\ude4b",
+            "title": "Say Yes Today",
+            "desc": "When a parent, teacher, or friend asks you to do something today, say yes cheerfully \u2014 even if it's not what you planned or wanted to do.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udcd6",
+            "title": "Trust Journal",
+            "desc": "Write about something in your life that feels uncertain or hard to understand. Then write a prayer telling God you trust Him with it, just like Mary trusted God's plan.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83c\udf31",
+            "title": "One Month of Yes",
+            "desc": "For one month, commit to saying yes to God each day. Pray each morning asking God to show you what He wants you to do, then follow through. Journal about your experiences each evening.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What happened when you said yes to something that felt uncomfortable or unexpected?",
+          "How did it feel to trust God with something you didn't fully understand?",
+          "In what ways do you think God is working in your life right now, even if you can't see the full picture yet?"
+        ]
+      },
+      {
+        "id": "wb5",
+        "title": "Rahab: Unlikely Faith and Second Chances",
+        "verseRef": "Hebrews 11:31",
+        "excerpt": "\"By faith, Rahab the prostitute didn't perish with those who were disobedient, having received the spies in peace.\" \u2014 Hebrews 11:31 (WEB)",
+        "summary": "Rahab lived in the city of Jericho and had not lived a perfect life. But when two Israelite spies came to her city, she recognized that their God was the true God and bravely hid them from danger. Because of her faith and courage, Rahab and her whole family were saved when Jericho fell. Even more amazing, Rahab became part of the family line of Jesus! Her story shows us that God offers second chances to everyone.",
+        "questions": [
+          "Have you ever been given a second chance at something? How did it feel to get a fresh start?",
+          "What do you think gave Rahab the courage to risk her safety to help the Israelite spies?",
+          "How does Rahab's story change the way you think about people who have made mistakes?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udd04",
+            "title": "Give a Second Chance",
+            "desc": "Think of someone who has upset you or made a mistake. Choose to forgive them today and give them a fresh start in your heart.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\u2709\ufe0f",
+            "title": "Encouragement for the Overlooked",
+            "desc": "Write a kind note or do something special for someone who is often left out or overlooked. Show them they are valued and that God sees them.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83c\udf08",
+            "title": "Second Chances Project",
+            "desc": "For two weeks, look for people who need a second chance \u2014 at school, in your neighborhood, or in your family. Keep a journal of how you showed grace and what happened as a result.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What was it like to forgive someone or give them a second chance? Was it easy or hard?",
+          "How did it feel to encourage someone who might have been overlooked or forgotten?",
+          "How does knowing that God gives everyone second chances \u2014 no matter their past \u2014 make you feel about His love for you?"
+        ]
+      },
+      {
+        "id": "wb6",
+        "title": "Hannah: Praying with Persistence and Trust",
+        "verseRef": "1 Samuel 1:27",
+        "excerpt": "\"For this child I prayed, and Yahweh has given me my petition which I asked of him.\" \u2014 1 Samuel 1:27 (WEB)",
+        "summary": "Hannah desperately wanted a child, but year after year her prayer went unanswered. Other people even made fun of her. But Hannah never gave up \u2014 she kept pouring out her heart to God with honesty and deep trust. When God finally blessed her with a son named Samuel, Hannah kept her promise and dedicated him back to God. Samuel grew up to become one of Israel's greatest prophets. Hannah's story teaches us that God hears every prayer and answers in His perfect timing.",
+        "questions": [
+          "Is there something you have been praying about for a long time? How does it feel to wait for an answer?",
+          "Why do you think it was important that Hannah kept praying even when it seemed like nothing was happening?",
+          "How can Hannah's example help you when you feel like giving up on something you've been asking God for?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\ude4f",
+            "title": "Heartfelt Prayer",
+            "desc": "Spend five quiet minutes today talking to God honestly about something that matters deeply to you \u2014 just like Hannah poured out her heart.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udcd3",
+            "title": "Prayer Journal Week",
+            "desc": "Start a prayer journal this week. Each day, write down one thing you are praying for and how you are feeling about it. At the end of the week, look back and see how God has been at work.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\u23f0",
+            "title": "30-Day Prayer Commitment",
+            "desc": "Pick one important prayer request and commit to praying about it every single day for 30 days. Record your thoughts, feelings, and any answers you notice along the way.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What was it like to pour out your heart honestly to God? Did anything surprise you about the experience?",
+          "How did keeping a prayer journal or praying consistently change the way you think about talking to God?",
+          "Do you trust that God hears your prayers even when the answer hasn't come yet? What helps you keep trusting?"
+        ]
+      },
+      {
+        "id": "wb7",
+        "title": "The Proverbs 31 Woman: Strength, Dignity, and Character",
+        "verseRef": "Proverbs 31:25",
+        "excerpt": "\"Strength and dignity are her clothing. She laughs at the time to come.\" \u2014 Proverbs 31:25 (WEB)",
+        "summary": "The last chapter of Proverbs paints a beautiful picture of a woman whose life overflows with strength, kindness, wisdom, and hard work. She cares for her family, helps those in need, speaks with wisdom, and faces the future without fear \u2014 all because her confidence comes from trusting God. This isn't about being perfect; it's about building the kind of character that makes a real difference in the world around you.",
+        "questions": [
+          "What character traits do you admire most in the people you look up to? Which ones would you like to grow in yourself?",
+          "What do you think it means to be 'clothed with strength and dignity'? How is that different from outward appearance?",
+          "What is one way you can build strong, godly character in your everyday life starting today?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udcaa",
+            "title": "Character Moment",
+            "desc": "Choose one character trait today \u2014 like kindness, patience, or honesty \u2014 and focus on living it out in every situation you face.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83c\udf81",
+            "title": "Serve Someone in Need",
+            "desc": "This week, find a practical way to help someone in need \u2014 donate items, help a neighbor, or volunteer your time. Do it with joy and without expecting anything in return.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83c\udfc6",
+            "title": "Character-Building Challenge",
+            "desc": "Choose three character traits you want to grow in. Spend one week focused on each trait (three weeks total), practicing it daily and journaling about your growth and struggles.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "Which character trait did you focus on, and what did you learn about yourself in the process?",
+          "How did serving others or working on your character change the way you feel about yourself and your future?",
+          "How do you think trusting God helps you face the future with confidence and joy, like the Proverbs 31 woman?"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "wisdom",
+    "emoji": "\ud83e\udde0",
+    "color": "path-wisdom",
+    "title": "Wisdom & Decisions",
+    "desc": "Learn to make wise choices using Biblical principles and God-given discernment.",
+    "tier": "premium",
+    "lessons": [
+      {
+        "id": "wd1",
+        "title": "The Wisest Wish Ever Made",
+        "verseRef": "1 Kings 3:9",
+        "excerpt": "\"Give your servant therefore an understanding heart to judge your people, that I may discern between good and evil; for who is able to judge this great people of yours?\" \u2014 1 Kings 3:9 (WEB)",
+        "summary": "When young King Solomon could have asked God for anything \u2014 riches, fame, or power \u2014 he asked for wisdom instead. God was so pleased with Solomon's humble request that He gave him not only great wisdom but also the riches and honor he never asked for. This story shows us that wisdom is the most valuable gift we can seek from God.",
+        "questions": [
+          "If God said you could have anything in the whole world, what would you ask for and why?",
+          "Why do you think God was so happy that Solomon asked for wisdom instead of treasure or power?",
+          "How can asking God for help making good choices change the way your day goes?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\ude4f",
+            "title": "Wisdom Prayer",
+            "desc": "Before bed tonight, pray and ask God for wisdom to make good choices tomorrow. Tell a family member about your prayer.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udcdd",
+            "title": "Wise Wish List",
+            "desc": "Write down three things you'd ask God for. Then rank them \u2014 which one would help you AND others the most? Share your list with your family.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udc51",
+            "title": "Solomon's Week",
+            "desc": "For five days straight, start each morning by praying for wisdom before making any decisions. Keep a short journal of how it changed your choices.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What happened when you asked God for wisdom? Did anything feel different about your day?",
+          "Was it hard to choose wisdom over other things you wanted? How did it feel?",
+          "How do you think God helps you when you ask Him for understanding?"
+        ]
+      },
+      {
+        "id": "wd2",
+        "title": "Building on the Rock",
+        "verseRef": "Matthew 7:24-25",
+        "excerpt": "\"Everyone therefore who hears these words of mine and does them, I will liken him to a wise man who built his house on the rock. The rain came down, the floods came, and the winds blew and beat on that house; and it didn't fall, for it was founded on the rock.\" \u2014 Matthew 7:24-25 (WEB)",
+        "summary": "Jesus told a story about two builders \u2014 one wise and one foolish. The wise builder took time to build his house on solid rock, while the foolish one built on shifting sand. When storms came, only the rock-built house stood strong. Jesus is teaching us that when we listen to His words and actually live by them, our lives have a strong foundation that can weather any storm.",
+        "questions": [
+          "Have you ever taken a shortcut that didn't work out? What happened?",
+          "What do you think the 'rock' and the 'sand' represent in our real lives?",
+          "What is one thing Jesus teaches that you could start 'building' your life on this week?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83c\udfd7\ufe0f",
+            "title": "Foundation Check",
+            "desc": "Think of one habit you have \u2014 is it built on 'rock' (a good choice) or 'sand' (a shaky one)? Tell a family member what you discovered.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83e\uddf1",
+            "title": "Build Something Strong",
+            "desc": "Pick one teaching of Jesus (like being kind, forgiving, or honest) and practice it deliberately for three days. Write down what happened each day.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83c\udf27\ufe0f",
+            "title": "Storm-Proof Plan",
+            "desc": "Identify a tough situation you sometimes face (peer pressure, anger, worry). Write out a plan using a Bible truth as your foundation. Practice your plan the next time the 'storm' comes.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "When you practiced building on a strong foundation, what did you notice?",
+          "Did it feel different to have a plan based on God's Word? How so?",
+          "How do you think God's teachings protect you when hard times come?"
+        ]
+      },
+      {
+        "id": "wd3",
+        "title": "Trust God's GPS",
+        "verseRef": "Proverbs 3:5-6",
+        "excerpt": "\"Trust in Yahweh with all your heart, and don't lean on your own understanding. In all your ways acknowledge him, and he will make your paths straight.\" \u2014 Proverbs 3:5-6 (WEB)",
+        "summary": "Sometimes we think we know the best way to handle things on our own, but this proverb reminds us that God sees the bigger picture we can't. When we trust Him completely \u2014 even when life is confusing \u2014 He promises to guide us along the right path. It's like having the best GPS in the universe, one that never loses signal!",
+        "questions": [
+          "Can you think of a time you were really sure about something, but it turned out you were wrong?",
+          "What does it mean to 'lean on your own understanding'? Why is that sometimes risky?",
+          "How can you 'acknowledge God' in the small everyday choices you make?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83e\udded",
+            "title": "Pause and Pray",
+            "desc": "The next time you have to make a choice today (even a small one), pause for 10 seconds and ask God to guide you. Share what happened with your family.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\uddfa\ufe0f",
+            "title": "Trust Map",
+            "desc": "Draw a simple map of your week ahead. At each important moment (school, practice, a hard conversation), write a short prayer asking for God's direction. Follow your Trust Map all week.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udd26",
+            "title": "Blind Trust Walk",
+            "desc": "With a family member, do a trust walk \u2014 one person is blindfolded and the other guides them safely through a room. Then journal about what it felt like to trust someone you couldn't see, and how that relates to trusting God.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What was it like to pause and ask God for help with your choices?",
+          "Was it easy or hard to trust God instead of just doing what you thought was best?",
+          "How did you sense God guiding you this week, even in small ways?"
+        ]
+      },
+      {
+        "id": "wd4",
+        "title": "The Narrow Gate",
+        "verseRef": "Matthew 7:13-14",
+        "excerpt": "\"Enter in by the narrow gate; for the gate is wide and the way is broad that leads to destruction, and many are those who enter in by it. How narrow is the gate and the way is restricted that leads to life! Few are those who find it.\" \u2014 Matthew 7:13-14 (WEB)",
+        "summary": "Jesus taught that there are two paths we can take in life. The wide, easy road is popular, but it leads to trouble. The narrow path is harder and fewer people choose it, but it leads to real life. Making wise choices sometimes means doing the unpopular thing and choosing what's right over what's easy.",
+        "questions": [
+          "Have you ever felt pressure to do what everyone else was doing, even when you knew it wasn't right?",
+          "Why do you think the 'narrow gate' is harder to choose? What makes the wide road so tempting?",
+          "What is one area of your life where you can choose the narrow path this week?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udeaa",
+            "title": "Spot the Gates",
+            "desc": "Today, notice one moment where you have to choose between the easy way and the right way. Choose the right way and tell your family about it.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udee4\ufe0f",
+            "title": "Narrow Path Journal",
+            "desc": "For three days, write down one choice each day where you picked the harder but better option. At the end, read through your journal and see how it felt.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83e\udd81",
+            "title": "Courageous Choice",
+            "desc": "Identify something you've been avoiding because it's hard or unpopular (like standing up for someone, admitting a mistake, or saying no to something). Do it this week, pray for courage first, and write about what happened.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What was it like to choose the narrow path? Was it as hard as you expected?",
+          "How did you feel inside after making the braver choice?",
+          "Do you think God was with you when you chose the harder right thing? How could you tell?"
+        ]
+      },
+      {
+        "id": "wd5",
+        "title": "Tiny Teachers: Lessons from the Ant",
+        "verseRef": "Proverbs 6:6-8",
+        "excerpt": "\"Go to the ant, you sluggard. Consider her ways, and be wise; which having no chief, overseer, or ruler, provides her bread in the summer, and gathers her food in the harvest.\" \u2014 Proverbs 6:6-8 (WEB)",
+        "summary": "The Bible tells us to look at the tiny ant and learn an important lesson! Even without anyone bossing them around, ants work hard, plan ahead, and prepare for the future. God wants us to be diligent too \u2014 to not be lazy, but to use our time wisely, take responsibility, and prepare for what's coming.",
+        "questions": [
+          "What's something you tend to put off doing, even though you know you should do it?",
+          "Why is it impressive that ants work hard without anyone telling them to? How can you be more like that?",
+          "How does planning ahead and working hard connect to being wise?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udc1c",
+            "title": "Ant Watch",
+            "desc": "If you can, find some ants outside and watch them for a few minutes. Notice how they work. Then do one chore without being asked!",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udccb",
+            "title": "Plan-Ahead Project",
+            "desc": "Pick something you need to do this week (homework, a chore, a project). Make a step-by-step plan and complete it ahead of time instead of at the last minute. Share your plan with your family.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\u23f0",
+            "title": "Diligence Challenge",
+            "desc": "For five days, wake up and complete your most important task first thing \u2014 before screen time, before play. Keep a chart tracking your progress and share what you learned about discipline.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "How did it feel to get something done without being told or reminded?",
+          "Did planning ahead make the task easier or harder than you expected?",
+          "How do you think God feels when you use your time and energy wisely?"
+        ]
+      },
+      {
+        "id": "wd6",
+        "title": "Better Together: The Gift of Good Advice",
+        "verseRef": "Proverbs 15:22",
+        "excerpt": "\"Where there is no counsel, plans fail; but in a multitude of counselors they are established.\" \u2014 Proverbs 15:22 (WEB)",
+        "summary": "The Bible teaches us that we aren't meant to figure everything out alone. When we seek advice from wise and godly people \u2014 parents, teachers, mentors, and friends who love God \u2014 our plans become stronger and our decisions become better. Wise people know that asking for help is a sign of strength, not weakness.",
+        "questions": [
+          "Who are the people in your life that give you the best advice? What makes their advice good?",
+          "Why do you think it's sometimes hard to ask for help or advice?",
+          "How can you tell the difference between good advice and bad advice?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udcac",
+            "title": "Ask a Wise One",
+            "desc": "Think of a decision you need to make (big or small). Ask a parent, grandparent, or trusted adult for their advice before you decide.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83e\udd1d",
+            "title": "Wisdom Council",
+            "desc": "Gather two or three trusted people (family or friends) and share a challenge you're facing. Listen to all their ideas before choosing what to do. Write down what each person suggested.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udcd6",
+            "title": "Advice Givers Log",
+            "desc": "For one week, whenever someone gives you advice, write it down in a journal along with who said it. At the end of the week, review the advice \u2014 which pieces were wisest? Thank those people for their guidance.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What happened when you asked someone for advice? Was their perspective different from yours?",
+          "How did it feel to listen to others before making your decision?",
+          "Do you think God places wise people in our lives on purpose? Who has He placed in yours?"
+        ]
+      },
+      {
+        "id": "wd7",
+        "title": "Where Wisdom Begins",
+        "verseRef": "Proverbs 9:10",
+        "excerpt": "\"The fear of Yahweh is the beginning of wisdom. The knowledge of the Holy One is understanding.\" \u2014 Proverbs 9:10 (WEB)",
+        "summary": "This powerful proverb tells us where all true wisdom starts \u2014 with respect, awe, and reverence for God. 'The fear of the Lord' doesn't mean being scared of God; it means recognizing how awesome, powerful, and loving He is. When we start with God \u2014 honoring Him and wanting to please Him \u2014 we unlock the very beginning of all wisdom and understanding.",
+        "questions": [
+          "What do you think 'the fear of the Lord' means? Is it about being scared, or something deeper?",
+          "How does knowing God \u2014 who He is and what He's like \u2014 help you make better choices?",
+          "Looking back at this whole path, what's the most important thing you've learned about wisdom?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83c\udf05",
+            "title": "Awe Moment",
+            "desc": "Spend five minutes outside looking at something God created \u2014 the sky, trees, stars. Let yourself feel amazed at how awesome God is. Tell your family about what you noticed.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udcdc",
+            "title": "Wisdom Collection",
+            "desc": "Pick three proverbs from the Book of Proverbs that mean the most to you. Write them out beautifully on paper or a card. Post them somewhere you'll see them every day.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83c\udf93",
+            "title": "Wisdom Graduation",
+            "desc": "Write a personal 'Wisdom Statement' \u2014 a paragraph about what wisdom means to you, how you want to make decisions, and how God fits into your choices. Share it with your family and discuss it together as a celebration of completing this path.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "When you spent time appreciating God's greatness, how did it make you feel inside?",
+          "Has your understanding of wisdom changed since you started this path? How?",
+          "How will you keep putting God first in your decisions from here on out?"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "forgiveness",
+    "emoji": "\ud83d\udc9b",
+    "color": "path-forgiveness",
+    "title": "Forgiveness & Grace",
+    "desc": "Discover the freedom that comes from giving and receiving forgiveness.",
+    "tier": "premium",
+    "lessons": [
+      {
+        "id": "fg1",
+        "title": "As Far as East from West",
+        "verseRef": "Psalm 103:12",
+        "excerpt": "\"As far as the east is from the west, so far has he removed our transgressions from us.\" \u2014 Psalm 103:12 (WEB)",
+        "summary": "King David wrote a beautiful song about how completely God forgives us. He said God takes our mistakes and moves them so far away it's like the distance between east and west \u2014 they can never come back! This psalm reminds us that God's love is so big and so deep that when He forgives, He truly lets go of our wrongs.",
+        "questions": [
+          "Have you ever done something wrong and felt really bad about it? What happened when you said sorry?",
+          "Why do you think David compared forgiveness to the distance between east and west instead of something smaller?",
+          "How does knowing God completely removes your mistakes change the way you feel about asking Him for forgiveness?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83c\udf05",
+            "title": "East-West Reminder",
+            "desc": "Watch a sunrise or sunset today and thank God that His forgiveness stretches even farther than the sky you see.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udcdd",
+            "title": "Clean Slate Letter",
+            "desc": "Write down something you feel guilty about on a piece of paper, then tear it up as a reminder that God removes your wrongs completely.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83c\udfb5",
+            "title": "Psalm of Thanks",
+            "desc": "Write your own short psalm (poem or song) thanking God for His forgiveness. Share it with your family during devotion time.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What did it feel like to let go of something you've been carrying guilt about?",
+          "Did this experience change how you think about God's forgiveness?",
+          "How do you think God feels when you come to Him and ask for a fresh start?"
+        ]
+      },
+      {
+        "id": "fg2",
+        "title": "The Servant Who Wouldn't Forgive",
+        "verseRef": "Matthew 18:21-22",
+        "excerpt": "\"Then Peter came and said to him, 'Lord, how often shall my brother sin against me, and I forgive him? Until seven times?' Jesus said to him, 'I don't tell you until seven times, but, until seventy times seven.'\" \u2014 Matthew 18:21-22 (WEB)",
+        "summary": "Peter asked Jesus how many times he should forgive someone, thinking seven times was generous. But Jesus said seventy times seven \u2014 meaning there's no limit! Then Jesus told a story about a servant who was forgiven a huge debt by his king but then refused to forgive a tiny debt someone owed him. The king was upset because the servant didn't share the same mercy he had received.",
+        "questions": [
+          "Has someone ever kept doing something that annoyed or hurt you? How did it feel to keep forgiving them?",
+          "Why do you think the servant in the story forgot how much he had been forgiven?",
+          "How can remembering that God forgives you help you forgive someone at school or at home?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83e\uddee",
+            "title": "Seventy Times Seven",
+            "desc": "Calculate 70 \u00d7 7 and write the number somewhere you'll see it today as a reminder that forgiveness has no limit.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83e\udd1d",
+            "title": "Forgiveness in Action",
+            "desc": "Think of someone you're holding a grudge against. Pray for them and do one kind thing for them this week.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udcd6",
+            "title": "Forgiveness Journal",
+            "desc": "Keep a journal for one week. Each day, write about a time you forgave someone or needed forgiveness, and how it made you feel.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "Was it hard or easy to be kind to someone you needed to forgive? Why?",
+          "How did it feel after you chose to forgive instead of holding on to frustration?",
+          "Do you think God helped you forgive? How?"
+        ]
+      },
+      {
+        "id": "fg3",
+        "title": "Joseph Forgives His Brothers",
+        "verseRef": "Genesis 50:20",
+        "excerpt": "\"As for you, you meant evil against me, but God meant it for good, to save many people alive, as it is today.\" \u2014 Genesis 50:20 (WEB)",
+        "summary": "Joseph's brothers were so jealous of him that they sold him into slavery. Joseph spent years suffering \u2014 in slavery, in prison \u2014 but God was with him the whole time and eventually made him a powerful leader in Egypt. When a famine brought his brothers to him for help, Joseph didn't take revenge. Instead, he forgave them and saw how God had turned their evil into something amazing.",
+        "questions": [
+          "Has someone ever been really unfair to you? How did that make you feel inside?",
+          "How do you think Joseph was able to forgive his brothers after everything they did to him?",
+          "Can you think of a hard situation in your life that God might be using for something good?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udd04",
+            "title": "Good from Bad",
+            "desc": "Think of one hard thing that happened to you and write down one good thing that came from it. Thank God for working in that situation.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udc8c",
+            "title": "Bridge Builder",
+            "desc": "Reach out to someone you've had a disagreement with \u2014 a sibling, friend, or classmate. Say something kind or offer to make things right.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83c\udf31",
+            "title": "Long-Game Trust",
+            "desc": "Pick a difficult situation you're going through right now. Each day for a week, pray and write down one way you see God working in it, even if it's small.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What was it like to look for good in a hard situation?",
+          "Did reaching out to someone or reflecting on hard times change how you feel about what happened?",
+          "How does Joseph's story help you trust that God has a plan even when things seem unfair?"
+        ]
+      },
+      {
+        "id": "fg4",
+        "title": "Jesus Restores Peter",
+        "verseRef": "John 21:15-17",
+        "excerpt": "\"So when they had eaten their breakfast, Jesus said to Simon Peter, 'Simon, son of Jonah, do you love me more than these?' He said to him, 'Yes, Lord; you know that I have affection for you.' He said to him, 'Feed my lambs.'\" \u2014 John 21:15 (WEB)",
+        "summary": "Peter had denied even knowing Jesus three times on the night Jesus was arrested. After the resurrection, Jesus found Peter and gently asked him three times, 'Do you love me?' \u2014 once for each denial. Instead of scolding Peter, Jesus gave him an important job: to care for His people. Jesus showed that failure doesn't have to be the end \u2014 grace gives us a new beginning.",
+        "questions": [
+          "Have you ever let a friend down and felt terrible about it? What happened next?",
+          "Why do you think Jesus asked Peter the same question three times?",
+          "How does it make you feel to know that Jesus didn't give up on Peter \u2014 and won't give up on you?"
+        ],
+        "missions": [
+          {
+            "emoji": "\u2615",
+            "title": "Breakfast of Grace",
+            "desc": "Share a meal or snack with someone and use it as a chance to talk about fresh starts and second chances.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udcac",
+            "title": "Three Kind Words",
+            "desc": "Think of someone who has made a mistake recently. Tell them three encouraging things to help lift them up \u2014 one for each time Jesus restored Peter.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udd01",
+            "title": "Restoration Project",
+            "desc": "Is there a relationship in your life that needs healing? Take real steps this week to restore it \u2014 apologize, listen, and show love through your actions.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What did it feel like to encourage someone who had failed or was feeling down?",
+          "Have you experienced a 'fresh start' moment? How did grace play a part in it?",
+          "How does knowing Jesus restores people change the way you see your own mistakes?"
+        ]
+      },
+      {
+        "id": "fg5",
+        "title": "Grace Meets the Woman at the Well",
+        "verseRef": "John 4:13-14",
+        "excerpt": "\"Jesus answered her, 'Everyone who drinks of this water will thirst again, but whoever drinks of the water that I will give him will never thirst again; but the water that I will give him will become in him a well of water springing up to eternal life.'\" \u2014 John 4:13-14 (WEB)",
+        "summary": "A Samaritan woman came to draw water at a well in the middle of the day, probably to avoid the judgmental stares of others. Jesus surprised her by starting a conversation \u2014 something no one expected, since Jews didn't normally talk to Samaritans. He knew all about her past mistakes but didn't shame her. Instead, He offered her living water \u2014 a life overflowing with God's grace and love.",
+        "questions": [
+          "Have you ever felt left out or judged by others? How did that make you feel?",
+          "Why do you think Jesus chose to talk to someone everyone else avoided?",
+          "What do you think 'living water' means for your everyday life?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udca7",
+            "title": "Living Water",
+            "desc": "Every time you drink water today, pause and thank God for the grace He pours into your life.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udc4b",
+            "title": "The Unexpected Hello",
+            "desc": "This week, start a friendly conversation with someone who is often left out or overlooked \u2014 at school, church, or in your neighborhood.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83e\uded7",
+            "title": "Overflow of Grace",
+            "desc": "Identify someone in your life who might be carrying shame. Find ways to show them kindness and acceptance every day for a week without expecting anything in return.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "How did it feel to reach out to someone who is usually left out?",
+          "Did showing grace to someone else change how you feel about the grace God shows you?",
+          "How do you think God sees people that others judge or avoid?"
+        ]
+      },
+      {
+        "id": "fg6",
+        "title": "Zacchaeus \u2014 A Life Transformed by Grace",
+        "verseRef": "Luke 19:9-10",
+        "excerpt": "\"Jesus said to him, 'Today, salvation has come to this house, because he also is a son of Abraham. For the Son of Man came to seek and to save that which was lost.'\" \u2014 Luke 19:9-10 (WEB)",
+        "summary": "Zacchaeus was a tax collector that everyone disliked because he cheated people out of their money. He was so curious about Jesus that he climbed a tree just to see Him. When Jesus looked up and said He was coming to Zacchaeus's house, everything changed. Grace didn't just forgive Zacchaeus \u2014 it transformed him. He gave back everything he had stolen and then some!",
+        "questions": [
+          "Have you ever been so excited about something that you did something silly or brave to see it? What was it?",
+          "Why do you think meeting Jesus changed Zacchaeus so quickly and completely?",
+          "How can experiencing God's grace change the way we treat other people and handle our mistakes?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83c\udf33",
+            "title": "Tree-Top Faith",
+            "desc": "Go outside and find a tree. Stand or sit near it and think about what it would be like to want to see Jesus so badly that you'd climb a tree!",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83c\udf81",
+            "title": "Give It Back",
+            "desc": "Think of something you've taken that wasn't yours \u2014 someone's time, a borrowed item, or even credit for something. Make it right this week.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udcb0",
+            "title": "Generosity Challenge",
+            "desc": "Like Zacchaeus who gave back four times what he took, go above and beyond in generosity this week. Give away toys, time, or help \u2014 more than what's expected of you.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "How did it feel to make something right or to be extra generous?",
+          "Did being generous or making amends change how you see yourself?",
+          "How do you think God's grace can turn anyone's life around, no matter what they've done?"
+        ]
+      },
+      {
+        "id": "fg7",
+        "title": "Father, Forgive Them",
+        "verseRef": "Luke 23:34",
+        "excerpt": "\"Jesus said, 'Father, forgive them, for they don't know what they are doing.'\" \u2014 Luke 23:34 (WEB)",
+        "summary": "In His most painful moment on the cross, Jesus didn't cry out for revenge or justice \u2014 He asked God to forgive the very people who were hurting Him. This is the ultimate example of forgiveness and grace. If Jesus could forgive from the cross, He shows us that no situation is too hard, and no hurt is too deep, for forgiveness to reach.",
+        "questions": [
+          "What is the hardest thing you've ever had to forgive someone for?",
+          "Why do you think Jesus chose to forgive the people who were hurting Him instead of being angry?",
+          "How can Jesus' example on the cross help you when you're struggling to forgive someone?"
+        ],
+        "missions": [
+          {
+            "emoji": "\u271d\ufe0f",
+            "title": "Cross Reflection",
+            "desc": "Find a quiet place, close your eyes, and imagine being at the cross. Think about what it means that Jesus forgave even then. Write or draw what you feel.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udd4a\ufe0f",
+            "title": "Release and Forgive",
+            "desc": "Write the name of someone you need to forgive on a piece of paper. Pray for them, then safely let the paper go (tear it up, release it in the wind) as a symbol of letting go.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udc9b",
+            "title": "Radical Forgiveness",
+            "desc": "Choose to forgive someone who hurt you deeply \u2014 even if they haven't apologized. Pray for them daily for one week and look for ways to show them grace.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What did it feel like to release someone through forgiveness, even if it was hard?",
+          "Has forgiving someone changed something inside of you? What feels different?",
+          "How does Jesus' prayer from the cross shape the way you understand God's love and grace?"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "serving",
+    "emoji": "\ud83e\udd32",
+    "color": "path-serving",
+    "title": "Serving Others",
+    "desc": "Follow Jesus' example of humble service and discover the joy of putting others first.",
+    "tier": "premium",
+    "lessons": [
+      {
+        "id": "sv1",
+        "title": "The King Who Knelt Down",
+        "verseRef": "John 13:14-15",
+        "excerpt": "\"If I then, the Lord and the Teacher, have washed your feet, you also ought to wash one another's feet. For I have given you an example, that you also should do as I have done to you.\" \u2014 John 13:14-15 (WEB)",
+        "summary": "On the night before He died, Jesus did something that shocked His disciples \u2014 He got down on His knees and washed their dirty feet, a job usually given to the lowest servant. By doing this, Jesus showed that true greatness isn't about being served but about serving others with a humble heart.",
+        "questions": [
+          "How would you feel if the most important person you know offered to do something really humble for you, like cleaning your shoes?",
+          "Why do you think Jesus chose to wash feet instead of just telling the disciples to serve each other?",
+          "What is one small act of service you could do today that no one would expect from you?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83e\uddf9",
+            "title": "Secret Servant",
+            "desc": "Do one chore at home that isn't yours without being asked \u2014 and don't tell anyone you did it.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83d\udc5f",
+            "title": "Feet First",
+            "desc": "Offer to help a family member with something they usually do themselves, like setting the table, folding laundry, or organizing their space.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83e\udee7",
+            "title": "A Week of Kneeling",
+            "desc": "Pick one act of humble service to do every day for a full week \u2014 things like helping carry groceries, cleaning up after others, or tidying shared spaces.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What was it like to serve someone without being asked or getting credit?",
+          "Did serving quietly change how you felt inside? How?",
+          "How do you think Jesus feels when He sees you serving others with a humble heart?"
+        ]
+      },
+      {
+        "id": "sv2",
+        "title": "The Gift That Outshined Them All",
+        "verseRef": "Mark 12:43-44",
+        "excerpt": "\"Most certainly I tell you, this poor widow gave more than all those who are giving into the treasury, for they all gave out of their abundance, but she, out of her poverty, gave all that she had to live on.\" \u2014 Mark 12:43-44 (WEB)",
+        "summary": "While rich people dropped big, clanging coins into the offering box at the temple, a poor widow quietly placed two tiny coins \u2014 all the money she had. Jesus noticed her and told His disciples that she had given more than everyone else, because she gave everything she had out of love and trust in God.",
+        "questions": [
+          "Have you ever given something away that was really special or hard to part with? How did it feel?",
+          "Why did Jesus say the widow gave more than the rich people, even though her coins were worth less?",
+          "What is something you could share with someone this week, even if it feels like it's not very much?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83c\udf81",
+            "title": "Small but Mighty Gift",
+            "desc": "Find something you own that you could give to someone who would enjoy it \u2014 a toy, a book, or a drawing you made.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\u23f0",
+            "title": "Give Your Time",
+            "desc": "Spend at least 30 minutes of your free time helping someone \u2014 a sibling with homework, a neighbor with yard work, or a parent with a project.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udcb0",
+            "title": "Save and Share",
+            "desc": "Set aside a portion of your allowance or money for two weeks and donate it to a cause your family chooses together.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What did you give or share, and what made you choose that?",
+          "Was it hard to let go of something? What helped you do it anyway?",
+          "How do you think God views your offering, no matter how big or small it is?"
+        ]
+      },
+      {
+        "id": "sv3",
+        "title": "A Boy's Lunch Feeds Thousands",
+        "verseRef": "John 6:9-11",
+        "excerpt": "\"There is a boy here who has five barley loaves and two fish, but what are these among so many?\" Jesus took the loaves, and having given thanks, he distributed to the disciples, and the disciples to those who were sitting down, likewise also of the fish as much as they desired. \u2014 John 6:9-11 (WEB)",
+        "summary": "A huge crowd had followed Jesus and everyone was getting hungry. One young boy offered his small lunch of five loaves and two fish. It didn't look like much, but Jesus took it, blessed it, and fed over 5,000 people with plenty of leftovers! God can take whatever we offer \u2014 no matter how small \u2014 and do amazing things with it.",
+        "questions": [
+          "If you had the only lunch in a crowd of thousands, would you be willing to share it? Why or why not?",
+          "What does this story teach us about what God can do with something small?",
+          "What is one thing you have \u2014 a skill, a talent, or even just your time \u2014 that you could offer to help others?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83e\udd6a",
+            "title": "Share a Snack",
+            "desc": "Pack an extra snack or treat and share it with a friend, classmate, or sibling today.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83c\udf72",
+            "title": "Cook and Share",
+            "desc": "Help your family prepare a meal or baked goods and deliver a portion to a neighbor, friend, or someone who could use encouragement.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udce6",
+            "title": "Organize a Collection",
+            "desc": "Organize a small food drive \u2014 collect canned goods or non-perishable items from family and friends and donate them to a local food bank.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What did you share, and how did the other person react?",
+          "Did offering something small end up feeling bigger than you expected? How so?",
+          "How does it feel to know that God can multiply your small offering into something amazing?"
+        ]
+      },
+      {
+        "id": "sv4",
+        "title": "When You Serve Them, You Serve Me",
+        "verseRef": "Matthew 25:40",
+        "excerpt": "\"The King will answer them, 'Most certainly I tell you, because you did it to one of the least of these my brothers, you did it to me.'\" \u2014 Matthew 25:40 (WEB)",
+        "summary": "Jesus told a powerful story about the day when God will separate people like a shepherd separates sheep from goats. Those who fed the hungry, welcomed strangers, clothed the poor, and visited the sick were blessed \u2014 because Jesus said that when we help people in need, it's the same as helping Him. Every act of kindness matters to God.",
+        "questions": [
+          "Who are 'the least of these' in your school, neighborhood, or community?",
+          "How does it change the way you think about helping others when you imagine you're helping Jesus Himself?",
+          "What is one way your family could reach out to someone who is lonely, hungry, or going through a hard time?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udc8c",
+            "title": "Kindness Card",
+            "desc": "Make a handwritten card or letter for someone who might be feeling lonely \u2014 a grandparent, a new kid at school, or a neighbor who lives alone.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83e\udde5",
+            "title": "Clothing Care Package",
+            "desc": "Go through your closet and gather gently used clothes, shoes, or coats to donate to a shelter or clothing drive.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83c\udfe0",
+            "title": "Serve the Overlooked",
+            "desc": "With a parent's help, volunteer at a local soup kitchen, shelter, or community service event. Spend time talking to the people you meet there.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "Who did you serve, and what was it like to meet or help them?",
+          "Did anything surprise you about the experience or how it made you feel?",
+          "How did this experience help you see Jesus in the people around you?"
+        ]
+      },
+      {
+        "id": "sv5",
+        "title": "Dorcas and Her Giving Hands",
+        "verseRef": "Acts 9:36",
+        "excerpt": "\"Now there was at Joppa a certain disciple named Tabitha, which when translated, means Dorcas. This woman was full of good works and acts of mercy which she did.\" \u2014 Acts 9:36 (WEB)",
+        "summary": "Dorcas was a woman in the early church who used her talent for sewing to make clothes for widows and people in need. When she died, her community was heartbroken \u2014 they showed Peter all the robes and garments she had lovingly made. God raised her back to life! Dorcas reminds us that using our everyday talents to serve others can have a powerful, lasting impact.",
+        "questions": [
+          "What are you good at? Drawing, cooking, building, writing, sports \u2014 how could you use that talent to help someone?",
+          "Why do you think the people were so sad when Dorcas died? What does that tell us about the power of quiet, steady service?",
+          "How can using your unique gifts be a way of worshiping God?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83c\udfa8",
+            "title": "Talent Share",
+            "desc": "Use one of your talents to create something for someone else \u2014 draw a picture, write a poem, build something, or bake a treat.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83e\uddd1\u200d\ud83c\udfeb",
+            "title": "Teach What You Know",
+            "desc": "Offer to teach a younger kid or a friend something you're good at \u2014 a skill, a game, a craft, or a school subject.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udee0\ufe0f",
+            "title": "Talent Service Project",
+            "desc": "Plan and carry out a service project using your talents \u2014 make blankets for a shelter, create art for a nursing home, or organize a free tutoring session for classmates.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What talent did you use, and who did you serve with it?",
+          "How did it feel to use something you enjoy doing to bless someone else?",
+          "Do you think God gave you your talents for a reason? What might that reason be?"
+        ]
+      },
+      {
+        "id": "sv6",
+        "title": "Barnabas: The Friend Everyone Needs",
+        "verseRef": "Acts 4:36-37",
+        "excerpt": "\"Joses, who by the apostles was also named Barnabas (which is, being interpreted, Son of Encouragement), a Levite, a man of Cyprus by race, having a field, sold it and brought the money and laid it at the apostles' feet.\" \u2014 Acts 4:36-37 (WEB)",
+        "summary": "Barnabas was so generous and uplifting that the apostles gave him a special nickname: 'Son of Encouragement.' He sold his own land to help the early church, and later he was the one who believed in Paul when everyone else was afraid of him. Barnabas shows us that encouraging others and lifting people up is one of the most powerful ways to serve.",
+        "questions": [
+          "Has someone ever encouraged you when you were feeling down or unsure? How did it change things for you?",
+          "Why do you think encouragement is such a powerful form of service?",
+          "Who in your life could really use some encouragement right now, and how could you give it to them?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udcdd",
+            "title": "Encouragement Note",
+            "desc": "Write a kind note, text, or letter to someone telling them something specific you appreciate about them.",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\ud83e\udd1d",
+            "title": "Be a Barnabas",
+            "desc": "Find someone at school or in your community who seems left out or discouraged. Make an effort to include them, sit with them, or stand up for them this week.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83c\udf1f",
+            "title": "Encouragement Campaign",
+            "desc": "Start a week-long encouragement project \u2014 write a different person a note of encouragement each day for seven days. Include friends, family, teachers, and someone unexpected.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "Who did you encourage, and how did they respond?",
+          "How did encouraging someone else affect your own mood and outlook?",
+          "How do you think God uses encouragement to build His kingdom and strengthen people?"
+        ]
+      },
+      {
+        "id": "sv7",
+        "title": "The Greatest Love of All",
+        "verseRef": "John 15:12-13",
+        "excerpt": "\"This is my commandment, that you love one another, even as I have loved you. Greater love has no one than this, that someone lay down his life for his friends.\" \u2014 John 15:12-13 (WEB)",
+        "summary": "In His final teaching to His closest friends, Jesus gave them the ultimate command: love one another the way He loved them. And the greatest kind of love? Giving up what matters most for someone else. Jesus lived this out completely by dying on the cross for us. Sacrificial love \u2014 putting others before ourselves \u2014 is the heart of what it means to serve like Jesus.",
+        "questions": [
+          "What does it mean to 'lay down your life' for someone? Does it always mean dying, or can it mean other things too?",
+          "Can you think of a time when someone gave up something important so you could have what you needed?",
+          "What is one thing you could sacrifice \u2014 your time, your comfort, your preference \u2014 to show love to someone this week?"
+        ],
+        "missions": [
+          {
+            "emoji": "\ud83d\udc97",
+            "title": "Put Someone First",
+            "desc": "Let someone else go first today \u2014 pick what to watch, choose the game, or have the last treat. Do it cheerfully!",
+            "level": "Easy"
+          },
+          {
+            "emoji": "\u2696\ufe0f",
+            "title": "Give Up to Lift Up",
+            "desc": "Give up something you enjoy for a day (screen time, a favorite activity) and spend that time doing something kind for someone else instead.",
+            "level": "Medium"
+          },
+          {
+            "emoji": "\ud83d\udd4a\ufe0f",
+            "title": "Sacrificial Service Week",
+            "desc": "Commit to one week of daily sacrificial service \u2014 each day, intentionally give up something (time, comfort, preferences) to serve a different person in your life.",
+            "level": "Hard"
+          }
+        ],
+        "reflectPrompts": [
+          "What did you sacrifice, and who did you serve by doing it?",
+          "Was it hard to put someone else first? What helped you follow through?",
+          "How does knowing that Jesus made the ultimate sacrifice for you inspire you to serve others?"
+        ]
+      }
+    ]
+  }
+]
