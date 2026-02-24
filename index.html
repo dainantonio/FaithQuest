@@ -3962,108 +3962,9 @@ const JOURNAL_PROMPTS_DEFAULT = [
 ];
 
 
-function renderKidJournal(el){
-  const member = getCurrentMember();
-  if(!member){ el.innerHTML=''; return; }
 
-  const entries = (state.journals||[]).filter(j=>j.memberId===member.id)
-    .sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt));
+// Old renderKidJournal removed — replaced by updated version below
 
-  const lastCompletion = state.completions.filter(c=>c.memberId===member.id).slice(-1)[0];
-  let lastLesson = null;
-  if(lastCompletion){
-    const path = PATHS.find(p=>p.id===lastCompletion.pathId);
-    lastLesson = path ? path.lessons.find(l=>l.id===lastCompletion.lessonId) : null;
-  }
-
-  const today = new Date().toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
-  const wordCount = entries.reduce((sum,e)=>sum+(e.text||'').split(/\s+/).filter(Boolean).length,0);
-
-  // Build prompt chips HTML separately to avoid nested template literal issues
-  var defaultChips = JOURNAL_PROMPTS_DEFAULT.slice(0,4).map(function(p){
-    return '<div class="jn-prompt-chip" onclick="jnSelectPrompt(this,' + JSON.stringify(p.text) + ')">'
-      + '<span class="jn-prompt-chip-icon">' + p.icon + '</span>' + p.text + '</div>';
-  }).join('');
-
-  var aiChip = (GEMINI_CONFIGURED && lastLesson)
-    ? '<div class="jn-prompt-chip jn-prompt-chip-generate" id="jnAiBtn" onclick="jnLoadAiPrompts()">✨ AI prompts for this lesson</div>'
-    : '';
-
-  var geminiLabel = GEMINI_CONFIGURED
-    ? '<span class="jn-gemini-badge">✨ Gemini AI</span>'
-    : '<span style="font-size:0.65rem;color:var(--slate-400);">Add Gemini key for AI prompts</span>';
-
-  // Build entries HTML separately
-  var entriesHtml = '';
-  if(entries.length === 0){
-    entriesHtml = '<div class="jn-empty">'
-      + '<span class="jn-empty-icon">📔</span>'
-      + '<div class="jn-empty-title">Your journal is waiting</div>'
-      + '<div class="jn-empty-sub">Write your first entry above. Just between you and God.</div>'
-      + '</div>';
-  } else {
-    entriesHtml = entries.map(function(e,i){
-      var d = new Date(e.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-      var promptHtml = e.prompt ? '<div class="jn-entry-prompt">"' + e.prompt + '"</div>' : '';
-      var lessonHtml = e.lessonTitle ? '<span class="jn-entry-lesson">📖 ' + e.lessonTitle + '</span>' : '';
-      return '<div class="jn-entry" style="--i:' + i + '" onclick="jnToggleEntry(this)">'
-        + '<div class="jn-entry-header">'
-        + '<span class="jn-entry-date">' + d + '</span>'
-        + '<span class="jn-entry-mood">' + (e.mood||'📔') + '</span>'
-        + '</div>'
-        + promptHtml
-        + '<div class="jn-entry-text collapsed">' + (e.text||'') + '</div>'
-        + lessonHtml
-        + '</div>';
-    }).join('');
-  }
-
-  el.innerHTML = '<div class="jn-hero">'
-    + '<div class="jn-hero-grid"></div>'
-    + '<div class="jn-hero-glow"></div>'
-    + '<div class="jn-hero-content">'
-    + '<div class="jn-hero-top">'
-    + '<div class="jn-hero-icon">✍️</div>'
-    + '<div><div class="jn-hero-name">' + member.name + "'s Journal</div>"
-    + '<div class="jn-hero-sub">Private · Faith reflections</div>'
-    + '</div></div>'
-    + '<div class="jn-streak-row">'
-    + '<div class="jn-stat"><span class="jn-stat-val">' + entries.length + '</span><span class="jn-stat-lbl">Entries</span></div>'
-    + '<div class="jn-stat"><span class="jn-stat-val">' + wordCount + '</span><span class="jn-stat-lbl">Words</span></div>'
-    + '<div class="jn-stat"><span class="jn-stat-val">' + getStreak(member.id) + '</span><span class="jn-stat-lbl">Streak</span></div>'
-    + '</div></div></div>'
-    + '<div class="jn-body">'
-    + '<div class="jn-composer" id="jnComposer">'
-    + '<div class="jn-composer-header">'
-    + '<span class="jn-composer-title">New Entry</span>'
-    + '<span class="jn-composer-date">' + today + '</span>'
-    + '</div>'
-    + '<div class="jn-composer-body">'
-    + '<div id="jnPromptArea">'
-    + '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">'
-    + '<span style="font-size:0.72rem;font-weight:700;color:var(--slate-500);text-transform:uppercase;letter-spacing:0.08em;">Prompts</span>'
-    + geminiLabel
-    + '</div>'
-    + '<div class="jn-prompt-row" id="jnPromptChips">' + defaultChips + aiChip + '</div>'
-    + '</div>'
-    + '<textarea class="jn-textarea" id="jnText" rows="5" placeholder="Write freely — this is just for you..." '
-    + 'oninput="document.getElementById(\'jnCharCount\').textContent=this.value.split(/\\s+/).filter(Boolean).length+\' words\'">'
-    + '</textarea>'
-    + '<div class="jn-composer-footer">'
-    + '<span class="jn-char-count" id="jnCharCount">0 words</span>'
-    + '<button class="jn-save-btn" onclick="jnSave()">Save Entry ✍️</button>'
-    + '</div></div></div>'
-    + '<div class="jn-section-hd">'
-    + '<span class="jn-section-title">Past Entries</span>'
-    + '<span class="jn-section-sub">' + entries.length + ' total</span>'
-    + '</div>'
-    + entriesHtml
-    + '</div>';
-
-  if(GEMINI_CONFIGURED && lastLesson && entries.length === 0){
-    setTimeout(function(){ jnLoadAiPrompts(); }, 400);
-  }
-}
 
 function jnSelectPrompt(chip, text){
   document.querySelectorAll('.jn-prompt-chip').forEach(c=>c.classList.remove('active'));
@@ -4236,6 +4137,7 @@ Respond ONLY as JSON, no markdown:
     showToast('AI unavailable — try again');
   }
 }
+function renderKidJournal(el){
   const member = getCurrentMember();
   if(!member){ el.innerHTML=''; return; }
 
@@ -5033,7 +4935,7 @@ initLessonPreview();
 (function(){
   if (!('serviceWorker' in navigator)) return;
   var sw = [
-    "const CACHE='faithquest-v1';",
+    "const CACHE='faithquest-v2';",
     "const FC='faithquest-fonts-v1';",
     "self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.add(self.location.pathname||'/').catch(()=>{})).then(()=>self.skipWaiting()));});",
     "self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE&&k!==FC).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});",
