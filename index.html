@@ -1861,9 +1861,93 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 .kh-bookmark-info{flex:1;min-width:0;}
 .kh-bookmark-title{font-size:0.82rem;font-weight:700;color:var(--slate-700);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .kh-bookmark-meta{font-size:0.7rem;color:var(--slate-400);}
+.avatar-cat-label{font-size:0.7rem;font-weight:700;color:var(--slate-500);text-transform:uppercase;letter-spacing:0.05em;margin:12px 0 6px;padding-left:2px;}
+.kp-container{padding:0 20px 120px;max-width:600px;margin:0 auto;}
+.kp-hero{position:relative;text-align:center;padding:32px 20px 24px;margin:0 -20px 20px;overflow:hidden;}
+.kp-hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--sky-700),var(--indigo-500));opacity:0.12;border-radius:0 0 28px 28px;}
+.kp-avatar-big{font-size:4.5rem;cursor:pointer;transition:transform 0.2s;display:inline-block;}
+.kp-avatar-big:hover{transform:scale(1.1);}
+.kp-edit-hint{font-size:0.7rem;color:var(--slate-400);margin-top:2px;}
+.kp-name{font-family:var(--font-display);font-size:1.5rem;font-weight:700;margin-top:8px;cursor:pointer;}
+.kp-edit-icon{font-size:0.8rem;opacity:0.4;transition:opacity 0.2s;}
+.kp-name:hover .kp-edit-icon{opacity:1;}
+.kp-role{font-size:0.85rem;color:var(--sky-600);font-weight:600;margin-top:4px;}
+.kp-family{font-size:0.8rem;color:var(--slate-400);margin-top:2px;}
+.kp-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px;}
+.kp-stat{background:white;border-radius:14px;padding:14px 8px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06);}
+.kp-stat-val{font-size:1.1rem;font-weight:700;}
+.kp-stat-lbl{font-size:0.7rem;color:var(--slate-500);margin-top:2px;}
+.kp-progress-section{background:white;border-radius:16px;padding:16px;margin-bottom:20px;box-shadow:0 1px 4px rgba(0,0,0,0.06);}
+.kp-progress-header{display:flex;justify-content:space-between;font-weight:700;font-size:0.9rem;margin-bottom:8px;}
+.kp-progress-pct{color:var(--emerald);}
+.kp-progress-bar{height:10px;background:var(--slate-100);border-radius:99px;overflow:hidden;}
+.kp-progress-fill{height:100%;background:linear-gradient(90deg,var(--sky-400),var(--emerald));border-radius:99px;transition:width 0.5s;}
+.kp-progress-detail{font-size:0.75rem;color:var(--slate-400);margin-top:6px;}
+.kp-section-title{font-size:0.75rem;font-weight:700;color:var(--slate-500);text-transform:uppercase;letter-spacing:0.06em;margin:20px 0 10px;padding-left:2px;}
+.kp-paths{display:flex;flex-direction:column;gap:8px;margin-bottom:10px;}
+.kp-path-row{display:flex;align-items:center;gap:10px;background:white;border-radius:12px;padding:12px;box-shadow:0 1px 4px rgba(0,0,0,0.06);}
+.kp-path-emoji{font-size:1.3rem;flex-shrink:0;}
+.kp-path-info{flex:1;min-width:0;}
+.kp-path-name{font-size:0.85rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.kp-path-bar{height:6px;background:var(--slate-100);border-radius:99px;margin-top:4px;overflow:hidden;}
+.kp-path-fill{height:100%;background:var(--sky-400);border-radius:99px;transition:width 0.4s;}
+.kp-path-frac{font-size:0.75rem;color:var(--slate-400);font-weight:600;flex-shrink:0;}
+.kp-switch-list{display:flex;flex-direction:column;gap:8px;margin-bottom:20px;}
+.kp-switch-card{display:flex;align-items:center;gap:12px;background:white;border-radius:14px;padding:14px;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:all 0.2s;}
+.kp-switch-card:hover{transform:translateX(4px);box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+.kp-switch-avatar{font-size:2rem;}
+.kp-switch-info{flex:1;}
+.kp-switch-name{font-weight:700;font-size:0.95rem;}
+.kp-switch-meta{font-size:0.75rem;color:var(--slate-400);margin-top:2px;}
+.kp-switch-arrow{color:var(--slate-300);font-size:1.2rem;}
+.kp-actions{display:flex;flex-direction:column;gap:8px;margin-top:24px;}
+.kp-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:10000;display:flex;align-items:center;justify-content:center;padding:20px;}
+.kp-modal{background:var(--slate-50);border-radius:20px;padding:24px;max-width:380px;width:100%;max-height:80vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+.kp-modal-title{font-family:var(--font-display);font-size:1.2rem;font-weight:700;text-align:center;margin-bottom:12px;}
+.ai-chat-container{background:white;border-radius:16px;padding:16px;margin-top:16px;box-shadow:0 1px 6px rgba(0,0,0,0.06);}
+.ai-chat-header{display:flex;align-items:center;gap:8px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--slate-100);}
+.ai-chat-header-icon{font-size:1.4rem;}
+.ai-chat-header-title{font-weight:700;font-size:0.9rem;}
+.ai-chat-header-sub{font-size:0.7rem;color:var(--slate-400);margin-left:auto;}
+.ai-chat-messages{display:flex;flex-direction:column;gap:10px;max-height:400px;overflow-y:auto;margin-bottom:12px;scroll-behavior:smooth;}
+.ai-msg{max-width:85%;padding:10px 14px;border-radius:16px;font-size:0.88rem;line-height:1.5;animation:aiMsgIn 0.3s ease;}
+.ai-msg-ai{background:linear-gradient(135deg,#EEF2FF,#E0E7FF);align-self:flex-start;border-bottom-left-radius:4px;color:var(--slate-700);}
+.ai-msg-user{background:var(--sky-500);color:white;align-self:flex-end;border-bottom-right-radius:4px;}
+.ai-msg-typing{display:flex;gap:4px;align-items:center;padding:12px 16px;}
+.ai-msg-typing .dot{width:6px;height:6px;background:var(--slate-400);border-radius:50%;animation:aiTypeDot 1.2s infinite;}
+.ai-msg-typing .dot:nth-child(2){animation-delay:0.2s;}
+.ai-msg-typing .dot:nth-child(3){animation-delay:0.4s;}
+@keyframes aiTypeDot{0%,60%,100%{transform:translateY(0);opacity:0.4;}30%{transform:translateY(-4px);opacity:1;}}
+@keyframes aiMsgIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.ai-chat-input{display:flex;gap:8px;align-items:center;}
+.ai-chat-input input{flex:1;border:1.5px solid var(--slate-200);border-radius:99px;padding:10px 16px;font-size:0.88rem;outline:none;transition:border-color 0.2s;}
+.ai-chat-input input:focus{border-color:var(--sky-400);}
+.ai-chat-input button{width:40px;height:40px;border-radius:50%;border:none;background:var(--sky-500);color:white;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;}
+.ai-chat-input button:hover{background:var(--sky-600);transform:scale(1.05);}
+.ai-chat-input button:disabled{opacity:0.5;cursor:not-allowed;transform:none;}
+.ai-chat-suggestions{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;}
+.ai-chat-suggest-btn{background:var(--slate-50);border:1.5px solid var(--slate-200);border-radius:99px;padding:6px 14px;font-size:0.78rem;cursor:pointer;transition:all 0.2s;color:var(--slate-600);}
+.ai-chat-suggest-btn:hover{border-color:var(--sky-400);background:#EFF6FF;color:var(--sky-600);}
+
+.offline-bar{position:fixed;top:0;left:0;right:0;background:#F59E0B;color:white;text-align:center;padding:6px 16px;font-size:0.8rem;font-weight:600;z-index:9999;transform:translateY(-100%);transition:transform 0.3s;display:flex;align-items:center;justify-content:center;gap:6px;}
+.offline-bar.show{transform:translateY(0);}
+.offline-dot{width:8px;height:8px;background:white;border-radius:50%;animation:offPulse 2s infinite;}
+@keyframes offPulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+.notif-settings{background:white;border-radius:16px;padding:16px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,0.06);}
+.notif-toggle{display:flex;align-items:center;justify-content:space-between;padding:12px 0;}
+.notif-toggle-label{font-weight:600;font-size:0.9rem;}
+.notif-toggle-sub{font-size:0.75rem;color:var(--slate-400);margin-top:2px;}
+.notif-switch{width:48px;height:26px;background:var(--slate-200);border-radius:99px;position:relative;cursor:pointer;transition:background 0.3s;border:none;padding:0;}
+.notif-switch.active{background:var(--emerald);}
+.notif-switch::after{content:'';position:absolute;width:22px;height:22px;background:white;border-radius:50%;top:2px;left:2px;transition:transform 0.3s;box-shadow:0 1px 3px rgba(0,0,0,0.2);}
+.notif-switch.active::after{transform:translateX(22px);}
+.notif-time-picker{display:flex;align-items:center;gap:8px;margin-top:8px;}
+.notif-time-input{border:1.5px solid var(--slate-200);border-radius:10px;padding:8px 12px;font-size:0.9rem;font-family:inherit;}
 </style>
 </head>
 <body>
+<div class="offline-bar" id="offlineBar"><div class="offline-dot"></div> You're offline — lessons are still available!</div>
+
 
 <div id="toast"></div>
 
@@ -2608,7 +2692,17 @@ async function loadPaths() {
     PATHS = await resp.json();
     console.log(`[FQ] Loaded ${PATHS.length} paths, ${PATHS.reduce((s,p)=>s+p.lessons.length,0)} lessons`);
   } catch(e) {
-    console.error('[FQ] Error loading lessons:', e);
+    console.warn('[FQ] Could not fetch lessons.json, trying cache...', e);
+    try {
+      const cache = await caches.open('faithquest-lessons-v1');
+      const cached = await cache.match('/lessons.json');
+      if (cached) {
+        PATHS = await cached.json();
+        console.log(`[FQ] Loaded ${PATHS.length} paths from cache`);
+      }
+    } catch(e2) {
+      console.error('[FQ] No cached lessons available');
+    }
   }
 }
 const _pathsReady = loadPaths();
@@ -2642,7 +2736,13 @@ let state = {
   bookmarks: [],
 };
 
-const AVATARS = ['😊','🦁','🐯','🦊','🐻','🦋','🌟','🚀','🌈','🎯','🦅','🐘','🌺','⚡','🎪'];
+const AVATAR_CATEGORIES = {
+  '😊 Faces': ['😊','😎','🤗','🥳','😇','🤩','🧒','👧','👦','🧑'],
+  '🦁 Animals': ['🦁','🐯','🦊','🐻','🐼','🦋','🦅','🐘','🐳','🐬','🦄','🐕','🐈','🐾','🦖'],
+  '⭐ Fun': ['⭐','🌟','🚀','🌈','🎯','⚡','🎪','🎨','🎵','⚽','🏀','🎮','🛹','🧩','🎭'],
+  '🌿 Nature': ['🌿','🌺','🌻','🌸','🍀','🌊','☀️','🌙','❄️','🔥','🌍','🏔️','🦩','🐚','🍃']
+};
+const AVATARS = Object.values(AVATAR_CATEGORIES).flat();
 
 // ===================== UTILS =====================
 function showScreen(id){
@@ -3000,9 +3100,12 @@ function renderOnboardStep(){
   } else if(stepName==='avatar'){
     body.innerHTML=`
       <div class="ob-avatar-preview" id="obAvatarPreview">${state.onboardData.avatar}</div>
-      <div class="avatar-grid">
-        ${AVATARS.map(a=>`<div class="avatar-option${state.onboardData.avatar===a?' selected':''}" onclick="selectObAvatar('${a}')">${a}</div>`).join('')}
-      </div>`;
+      ${Object.entries(AVATAR_CATEGORIES).map(([cat, avatars]) => `
+        <div class="avatar-cat-label">${cat}</div>
+        <div class="avatar-grid">
+          ${avatars.map(a=>`<div class="avatar-option${state.onboardData.avatar===a?' selected':''}" onclick="selectObAvatar('${a}')">${a}</div>`).join('')}
+        </div>
+      `).join('')}`;
     noteEl.textContent='You can change this later in your profile.';
 
   } else if(stepName==='path'){
@@ -3534,6 +3637,20 @@ function renderParentInsights(el){
         <div class="pd-ins-card"><span class="pd-ins-icon">🔥</span><span class="pd-ins-val">${familyStreak}</span><span class="pd-ins-lbl">Best streak</span></div>
         <div class="pd-ins-card"><span class="pd-ins-icon">👨‍👩‍👧</span><span class="pd-ins-val">${kids.length}</span><span class="pd-ins-lbl">Members</span></div>
       </div>
+      <div class="notif-settings">
+  <div style="font-size:0.75rem;font-weight:700;color:var(--slate-500);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">🔔 Daily Reminders</div>
+  <div class="notif-toggle">
+    <div>
+      <div class="notif-toggle-label">Lesson Reminders</div>
+      <div class="notif-toggle-sub">Get a daily notification to do a lesson</div>
+    </div>
+    <button class="notif-switch${getNotifSettings().enabled?' active':''}" id="notifToggleBtn" onclick="toggleNotifications()"></button>
+  </div>
+  <div class="notif-time-picker">
+    <span style="font-size:0.85rem;color:var(--slate-600);">Remind at:</span>
+    <input type="time" class="notif-time-input" value="${getNotifSettings().time}" onchange="updateNotifTime(this.value)">
+  </div>
+</div>
       <div class="pd-section-hd"><span class="pd-section-title">4-Week Activity</span></div>
       <div class="pd-heatmap-wrap">
         <div class="heatmap-day-labels">${days.map(d=>`<div class="heatmap-day-lbl">${d}</div>`).join('')}</div>
@@ -3667,7 +3784,7 @@ function downgradePlan(){
   showToast('Downgraded to Free plan');parentNav('family');
 }
 function openAddMember(){
-  document.getElementById('newMemberAvatarGrid').innerHTML=AVATARS.map(a=>`<div class="avatar-option" onclick="selectNewAvatar('${a}')">${a}</div>`).join('');
+  document.getElementById('newMemberAvatarGrid').innerHTML=Object.entries(AVATAR_CATEGORIES).map(([cat, avatars]) => `<div class="avatar-cat-label">${cat}</div><div class="avatar-grid">${avatars.map(a=>`<div class="avatar-option" onclick="selectNewAvatar('${a}')">${a}</div>`).join('')}</div>`).join('');
   openModal('modal-add-member');
 }
 let newMemberSelectedAvatar='😊';
@@ -4310,6 +4427,150 @@ Example: [{"icon":"🌊","text":"Describe a storm you faced this week."}]`
   }
 }
 
+// ── AI Interactive Chat ──────────────────────────────────────
+let _aiChatHistory = [];
+let _aiChatLesson = null;
+let _aiChatTier = null;
+
+function initAiChat(lessonId, lessonTitle, tier) {
+  const path = PATHS.find(p => p.lessons.some(l => l.id === lessonId));
+  const lesson = path?.lessons.find(l => l.id === lessonId);
+  if (!lesson) return;
+  
+  _aiChatLesson = lesson;
+  _aiChatTier = tier;
+  _aiChatHistory = [];
+  
+  const member = getCurrentMember();
+  const tierDesc = tier === 'teen' ? 'a teenager (14-17)' : tier === 'younger' ? 'a young child (4-6)' : 'a child (7-10)';
+  
+  // System context (sent with every request but not shown in UI)
+  _aiChatHistory.push({
+    role: 'user',
+    parts: [{ text: `SYSTEM CONTEXT (do not repeat this): You are FaithBot, a warm and encouraging Bible study companion for ${tierDesc} named ${member?.name || 'friend'}. You are helping them understand the lesson "${lessonTitle}" based on ${lesson.verseRef}. The verse says: "${lesson.excerpt}". The lesson summary: "${lesson.summary}". Keep responses concise (2-4 sentences for kids, 3-5 for teens). Be warm, use age-appropriate language. Ask follow-up questions to keep the conversation going. Use 1-2 emojis per message. Never be preachy — be curious and engaging like a cool mentor.` }]
+  });
+  _aiChatHistory.push({
+    role: 'model',
+    parts: [{ text: 'Understood! I will be a warm, encouraging Bible study companion.' }]
+  });
+  
+  renderAiChat();
+  // Send opening message
+  sendAiChat(null, true);
+}
+
+function renderAiChat() {
+  const container = document.getElementById('geminiDeepResult');
+  if (!container) return;
+  
+  // Filter out system messages for display
+  const displayMsgs = _aiChatHistory.slice(2); // skip system context pair
+  
+  const suggestions = _aiChatTier === 'teen' 
+    ? ['What does this mean for my life?', 'Why is this important?', 'Tell me the historical context']
+    : _aiChatTier === 'younger'
+    ? ['Tell me more!', 'Why did that happen?', 'Can you explain simpler?']
+    : ['What does this mean?', 'Tell me a fun fact!', 'Why should I care about this?'];
+  
+  container.innerHTML = `
+    <div class="ai-chat-container">
+      <div class="ai-chat-header">
+        <span class="ai-chat-header-icon">✨</span>
+        <span class="ai-chat-header-title">FaithBot</span>
+        <span class="ai-chat-header-sub">AI Bible Buddy</span>
+      </div>
+      <div class="ai-chat-messages" id="aiChatMessages">
+        ${displayMsgs.map(m => `
+          <div class="ai-msg ${m.role === 'model' ? 'ai-msg-ai' : 'ai-msg-user'}">
+            ${m.parts[0].text}
+          </div>
+        `).join('')}
+      </div>
+      ${displayMsgs.length <= 2 ? `
+        <div class="ai-chat-suggestions" id="aiChatSuggestions">
+          ${suggestions.map(s => `<button class="ai-chat-suggest-btn" onclick="sendAiChat('${s.replace(/'/g, "\\'")}')">${s}</button>`).join('')}
+        </div>
+      ` : ''}
+      <div class="ai-chat-input">
+        <input type="text" id="aiChatInput" placeholder="Ask me anything about this lesson..." 
+               onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendAiChat();}">
+        <button onclick="sendAiChat()" id="aiChatSendBtn">➤</button>
+      </div>
+    </div>`;
+  
+  // Scroll to bottom
+  const msgs = document.getElementById('aiChatMessages');
+  if (msgs) msgs.scrollTop = msgs.scrollHeight;
+}
+
+async function sendAiChat(text, isOpening) {
+  if (!GEMINI_CONFIGURED || !_aiChatLesson) return;
+  
+  const input = document.getElementById('aiChatInput');
+  const sendBtn = document.getElementById('aiChatSendBtn');
+  
+  if (!isOpening) {
+    const userText = text || input?.value?.trim();
+    if (!userText) return;
+    
+    _aiChatHistory.push({ role: 'user', parts: [{ text: userText }] });
+    if (input) input.value = '';
+  } else {
+    // Opening message request
+    _aiChatHistory.push({ 
+      role: 'user', 
+      parts: [{ text: 'Start our conversation! Give me an exciting, brief intro to this lesson and ask me an engaging question to get me thinking.' }] 
+    });
+  }
+  
+  // Show typing indicator
+  renderAiChat();
+  const msgs = document.getElementById('aiChatMessages');
+  if (msgs) {
+    msgs.insertAdjacentHTML('beforeend', `<div class="ai-msg ai-msg-ai ai-msg-typing" id="aiTyping"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>`);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+  if (sendBtn) sendBtn.disabled = true;
+  if (input) input.disabled = true;
+  
+  // Remove suggestion buttons
+  const sugEl = document.getElementById('aiChatSuggestions');
+  if (sugEl) sugEl.remove();
+  
+  try {
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_KEY}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: _aiChatHistory,
+          generationConfig: { temperature: 0.8, maxOutputTokens: 300 }
+        })
+      }
+    );
+    const data = await res.json();
+    const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Hmm, I couldn't think of a response. Try asking again! 🤔";
+    
+    _aiChatHistory.push({ role: 'model', parts: [{ text: reply }] });
+    
+    // If this was the opening, remove the fake user message from display
+    if (isOpening) {
+      // The opening user prompt shouldn't show in UI - it stays in history for context
+      // We handle this by renderAiChat which shows _aiChatHistory[2:]
+    }
+    
+    renderAiChat();
+  } catch (e) {
+    console.error('[FQ] AI chat error:', e);
+    document.getElementById('aiTyping')?.remove();
+    showToast('AI is having trouble connecting — try again');
+  }
+  
+  if (sendBtn) sendBtn.disabled = false;
+  if (input) { input.disabled = false; input.focus(); }
+}
+
 async function geminiDeepen(lessonId, lessonTitle, tier){
   const btn = document.getElementById('geminiDeepBtn');
   const resultEl = document.getElementById('geminiDeepResult');
@@ -4487,34 +4748,138 @@ function renderKidJournal(el){
 
 function renderKidProfile(el){
   const member=getCurrentMember();
+  if(!member){el.innerHTML='';return;}
   const kids=state.members.filter(m=>m.role!=='parent');
+  const doneCount=state.completions.filter(c=>c.memberId===member.id).length;
+  const streak=getStreak(member.id);
+  const badges=getBadges(member.id);
+  const missions=state.checkins.filter(c=>c.memberId===member.id&&c.approved).length;
+  const totalLessons=PATHS.reduce((s,p)=>s+p.lessons.length,0)||91;
+  const pct=Math.round((doneCount/totalLessons)*100);
+  const lvl=Math.floor(doneCount/3)+1;
+  const journalCount=(state.journals||[]).filter(j=>j.memberId===member.id).length;
+  // Paths completed
+  const pathsDone=PATHS.filter(p=>p.lessons.every(l=>state.completions.some(c=>c.memberId===member.id&&c.lessonId===l.id))).length;
+
   el.innerHTML=`
-    <div style="padding:24px 20px;padding-bottom:100px;">
-      <div style="text-align:center;padding:28px 0 20px;">
-        <div style="font-size:4rem;margin-bottom:10px;">${member?.avatar||'😊'}</div>
-        <div style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;">${member?.name}</div>
-        <div style="font-size:0.875rem;color:var(--slate-500);margin-top:4px;">${member?.tier==='teen'?'Teen':'Kid'} · ${state.family?.name}</div>
+    <div class="kp-container">
+      <!-- Hero Card -->
+      <div class="kp-hero">
+        <div class="kp-hero-bg"></div>
+        <div class="kp-avatar-big" onclick="openAvatarEditor()">${member.avatar}</div>
+        <div class="kp-edit-hint">Tap to change</div>
+        <div class="kp-name" id="kpName" onclick="openNameEditor()">${member.name} <span class="kp-edit-icon">✏️</span></div>
+        <div class="kp-role">${member.tier==='teen'?'Teen Explorer':'Young Explorer'} · Level ${lvl}</div>
+        <div class="kp-family">${state.family?.name||'My Family'}</div>
       </div>
-      <div class="stats-row" style="margin-bottom:24px;">
-        <div class="stat-card"><span class="stat-value">${getStreak(member?.id)}</span><span class="stat-label">Streak</span></div>
-        <div class="stat-card"><span class="stat-value">${state.completions.filter(c=>c.memberId===member?.id).length}</span><span class="stat-label">Lessons</span></div>
-        <div class="stat-card"><span class="stat-value">${getBadges(member?.id)}</span><span class="stat-label">Badges</span></div>
+
+      <!-- Stats Grid -->
+      <div class="kp-stats">
+        <div class="kp-stat"><div class="kp-stat-val">🔥 ${streak}</div><div class="kp-stat-lbl">Day Streak</div></div>
+        <div class="kp-stat"><div class="kp-stat-val">📚 ${doneCount}</div><div class="kp-stat-lbl">Lessons</div></div>
+        <div class="kp-stat"><div class="kp-stat-val">🏆 ${badges}</div><div class="kp-stat-lbl">Badges</div></div>
+        <div class="kp-stat"><div class="kp-stat-val">🚀 ${missions}</div><div class="kp-stat-lbl">Missions</div></div>
       </div>
+
+      <!-- Progress bar -->
+      <div class="kp-progress-section">
+        <div class="kp-progress-header">
+          <span>Overall Progress</span>
+          <span class="kp-progress-pct">${pct}%</span>
+        </div>
+        <div class="kp-progress-bar"><div class="kp-progress-fill" style="width:${pct}%"></div></div>
+        <div class="kp-progress-detail">${doneCount} of ${totalLessons} lessons · ${pathsDone} paths completed · ${journalCount} journal entries</div>
+      </div>
+
+      <!-- Path Progress -->
+      <div class="kp-section-title">My Paths</div>
+      <div class="kp-paths">
+        ${PATHS.map(p=>{
+          const done=p.lessons.filter(l=>state.completions.some(c=>c.memberId===member.id&&c.lessonId===l.id)).length;
+          const ppct=Math.round((done/p.lessons.length)*100);
+          return `<div class="kp-path-row">
+            <span class="kp-path-emoji">${p.emoji||'📖'}</span>
+            <div class="kp-path-info">
+              <div class="kp-path-name">${p.title}</div>
+              <div class="kp-path-bar"><div class="kp-path-fill" style="width:${ppct}%"></div></div>
+            </div>
+            <span class="kp-path-frac">${done}/${p.lessons.length}</span>
+          </div>`;
+        }).join('')}
+      </div>
+
       ${kids.length>1?`
-        <div style="margin-bottom:16px;">
-          <div style="font-size:0.75rem;font-weight:700;color:var(--slate-500);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;">Switch Profile</div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            ${kids.filter(k=>k.id!==member?.id).map(k=>`
-              <button class="btn btn-secondary btn-full" onclick="switchKidProfile('${k.id}')" style="justify-content:flex-start;gap:10px;">
-                <span style="font-size:1.2rem;">${k.avatar}</span> Switch to ${k.name}
-              </button>`).join('')}
-          </div>
-        </div>`:''}
-      <div style="display:flex;flex-direction:column;gap:8px;">
-        <button class="btn btn-secondary btn-full" onclick="showParentApp()" style="justify-content:flex-start;gap:8px;">⬆ Back to Parent Dashboard</button>
+      <!-- Switch Profile -->
+      <div class="kp-section-title">Switch Profile</div>
+      <div class="kp-switch-list">
+        ${kids.filter(k=>k.id!==member.id).map(k=>{
+          const kDone=state.completions.filter(c=>c.memberId===k.id).length;
+          const kStreak=getStreak(k.id);
+          return `<div class="kp-switch-card" onclick="switchKidProfile('${k.id}')">
+            <div class="kp-switch-avatar">${k.avatar}</div>
+            <div class="kp-switch-info">
+              <div class="kp-switch-name">${k.name}</div>
+              <div class="kp-switch-meta">${kDone} lessons · 🔥${kStreak} streak</div>
+            </div>
+            <span class="kp-switch-arrow">→</span>
+          </div>`;
+        }).join('')}
+      </div>`:''} 
+
+      <!-- Actions -->
+      <div class="kp-actions">
+        <button class="btn btn-secondary btn-full" onclick="showParentApp()" style="gap:8px;">⬆ Back to Parent Dashboard</button>
         <button class="btn btn-ghost btn-full" onclick="doSignOut()" style="color:var(--rose);">Sign Out</button>
       </div>
     </div>`;
+}
+
+function openAvatarEditor(){
+  const member=getCurrentMember();
+  if(!member)return;
+  const modal=document.createElement('div');
+  modal.className='kp-modal-overlay';
+  modal.id='avatarEditorModal';
+  modal.onclick=function(e){if(e.target===modal)modal.remove();};
+  modal.innerHTML=`
+    <div class="kp-modal">
+      <div class="kp-modal-title">Choose Your Avatar</div>
+      ${Object.entries(AVATAR_CATEGORIES).map(([cat, avatars]) => `
+        <div class="avatar-cat-label">${cat}</div>
+        <div class="avatar-grid">
+          ${avatars.map(a => `<div class="avatar-option${member.avatar===a?' selected':''}" onclick="pickProfileAvatar('${a}')">${a}</div>`).join('')}
+        </div>
+      `).join('')}
+      <button class="btn btn-ghost btn-full" onclick="document.getElementById('avatarEditorModal').remove()" style="margin-top:12px;">Cancel</button>
+    </div>`;
+  document.body.appendChild(modal);
+}
+
+function pickProfileAvatar(a){
+  const member=getCurrentMember();
+  if(!member)return;
+  member.avatar=a;
+  saveUserData();
+  document.getElementById('avatarEditorModal')?.remove();
+  kidNav('profile');
+  // Update header too
+  const nameEl=document.getElementById('kidModeNameLabel');
+  if(nameEl) nameEl.innerHTML=`<span>${member.avatar}</span> ${member.name}`;
+  showToast('Avatar updated! '+a);
+}
+
+function openNameEditor(){
+  const member=getCurrentMember();
+  if(!member)return;
+  const newName=prompt('Edit name:',member.name);
+  if(newName&&newName.trim()){
+    member.name=newName.trim();
+    saveUserData();
+    kidNav('profile');
+    const nameEl=document.getElementById('kidModeNameLabel');
+    if(nameEl) nameEl.innerHTML=`<span>${member.avatar}</span> ${member.name}`;
+    showToast('Name updated!');
+  }
 }
 
 // ===================== LESSON PLAYER =====================
@@ -4524,6 +4889,7 @@ function startLesson(pathId,lessonIndex){
 }
 function exitLesson(){
   window.speechSynthesis.cancel();_speechPlaying=false;
+  _aiChatHistory=[];_aiChatLesson=null;
   const was=state.selectedMember?'kid':'parent';
   if(state.members.find(m=>m.id===state.selectedMember)?.role==='parent'){showParentApp();}
   else{showKidApp();}
@@ -4652,8 +5018,8 @@ function renderLessonStep(){
       :`Here's what this means for you: ${lesson.summary} God's word isn't just old history — it's alive and speaking into your life right now.`;
     const tierLabel=isYounger?'🌱 Little Explorer':isTeen?'🚀 Teen Study':'⭐ Kid Explanation';
     const geminiBtn = GEMINI_CONFIGURED ? `
-      <button class="lp2-gemini-btn" id="geminiDeepBtn" onclick="geminiDeepen('${lesson.id}','${(lesson.title).replace(/'/g,"\\'")}','${(isTeen?'teen':isYounger?'younger':'kid')}')">
-        ✨ Go Deeper with AI
+      <button class="lp2-gemini-btn" id="geminiDeepBtn" onclick="initAiChat('${lesson.id}','${(lesson.title).replace(/'/g,"\\'")}','${(isTeen?'teen':isYounger?'younger':'kid')}')">
+        ✨ Chat with FaithBot
       </button>` : '';
     contentHtml=`
       <div class="lp2-content lp2-step-in">
@@ -5205,7 +5571,7 @@ initLessonPreview();
 // ── PWA: Inline Web App Manifest ─────────────────────────────────────────
 (function(){
   var manifest = {
-    name: "FaithQuest \u2014 Family Bible Learning",
+    name: "FaithQuest — Family Bible Learning",
     short_name: "FaithQuest",
     description: "Family Bible learning with guided lessons, real-world missions, and age-safe AI.",
     start_url: "./",
@@ -5234,28 +5600,74 @@ initLessonPreview();
 (function(){
   if (!('serviceWorker' in navigator)) return;
   var sw = [
-    "const CACHE='faithquest-v4';",
+    "const CACHE='faithquest-v5';",
     "const FC='faithquest-fonts-v1';",
-    "self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.add(self.location.pathname||'/').catch(()=>{})).then(()=>self.skipWaiting()));});",
-    "self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE&&k!==FC).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});",
+    "const LC='faithquest-lessons-v1';",
+    "",
+    "self.addEventListener('install',e=>{",
+    "  e.waitUntil(Promise.all([",
+    "    caches.open(CACHE).then(c=>c.add(self.location.pathname||'/').catch(()=>{})),",
+    "    caches.open(LC).then(c=>c.add('/lessons.json').catch(()=>{}))",
+    "  ]).then(()=>self.skipWaiting()));",
+    "});",
+    "",
+    "self.addEventListener('activate',e=>{",
+    "  const keep=[CACHE,FC,LC];",
+    "  e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>!keep.includes(k)).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));",
+    "});",
+    "",
     "self.addEventListener('fetch',e=>{",
     "  const u=new URL(e.request.url);",
+    "",
+    "  // Fonts: cache-first",
     "  if(u.hostname==='fonts.googleapis.com'||u.hostname==='fonts.gstatic.com'){",
     "    e.respondWith(caches.open(FC).then(c=>c.match(e.request).then(cached=>{",
     "      if(cached)return cached;",
     "      return fetch(e.request).then(r=>{if(r&&r.status===200)c.put(e.request,r.clone());return r;}).catch(()=>cached);",
     "    })));return;",
     "  }",
-    "  if(e.request.mode==='navigate'){",
-    "    e.respondWith(fetch(e.request).then(r=>{if(r&&r.status===200)caches.open(CACHE).then(c=>c.put(e.request,r.clone()));return r;}).catch(()=>caches.match(e.request).then(c=>c||new Response('<html><body style=\"font-family:sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;background:#0F172A;color:white;text-align:center;padding:24px\"><div><div style=\"font-size:3rem;margin-bottom:16px\">&#10013;</div><h2 style=\"font-family:serif\">FaithQuest</h2><p style=\"opacity:.7\">You are offline. Reconnect to continue.</p></div></body></html>',{headers:{'Content-Type':'text/html'}}))));return;",
+    "",
+    "  // lessons.json: network-first with cache fallback",
+    "  if(u.pathname.endsWith('/lessons.json')){",
+    "    e.respondWith(caches.open(LC).then(c=>",
+    "      fetch(e.request).then(r=>{if(r&&r.status===200)c.put(e.request,r.clone());return r;}).catch(()=>c.match(e.request))",
+    "    ));return;",
     "  }",
+    "",
+    "  // Navigation: network-first",
+    "  if(e.request.mode==='navigate'){",
+    "    e.respondWith(fetch(e.request).then(r=>{if(r&&r.status===200)caches.open(CACHE).then(c=>c.put(e.request,r.clone()));return r;}).catch(()=>caches.match(e.request).then(c=>c||new Response('<html><body style=\"font-family:sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;background:#0F172A;color:white;text-align:center;padding:24px\"><div><div style=\"font-size:3rem;margin-bottom:16px\">✝</div><h2 style=\"font-family:serif\">FaithQuest</h2><p style=\"opacity:.7\">You are offline but your lessons are saved!</p><p style=\"opacity:.5;font-size:0.85rem\">Reconnect to sync your progress.</p></div></body></html>',{headers:{\"Content-Type\":\"text/html\"}}))));return;",
+    "  }",
+    "",
+    "  // Firebase/API calls: network-only",
+    "  if(u.hostname.includes('firebaseio.com')||u.hostname.includes('googleapis.com')||u.hostname.includes('firestore.googleapis.com')){",
+    "    e.respondWith(fetch(e.request));return;",
+    "  }",
+    "",
+    "  // Everything else: stale-while-revalidate",
     "  e.respondWith(caches.match(e.request).then(cached=>{",
     "    const fresh=fetch(e.request).then(r=>{if(r&&r.status===200)caches.open(CACHE).then(c=>c.put(e.request,r.clone()));return r;}).catch(()=>cached);",
     "    return cached||fresh;",
     "  }));",
     "});",
+    "",
     "self.addEventListener('sync',e=>{if(e.tag==='sync-missions')console.log('[FQ SW] sync');});",
-    "self.addEventListener('notificationclick',e=>{e.notification.close();e.waitUntil(clients.matchAll({type:'window',includeUncontrolled:true}).then(l=>{for(const c of l){if(c.focus)return c.focus();}return clients.openWindow('./');})  );});"
+    "",
+    "self.addEventListener('notificationclick',e=>{",
+    "  e.notification.close();",
+    "  e.waitUntil(clients.matchAll({type:'window',includeUncontrolled:true}).then(l=>{",
+    "    for(const c of l){if(c.focus)return c.focus();}",
+    "    return clients.openWindow('./');",
+    "  }));",
+    "});",
+    "",
+    "self.addEventListener('push',e=>{",
+    "  const data=e.data?e.data.json():{};",
+    "  const title=data.title||'FaithQuest';",
+    "  const body=data.body||'Time for today\\'s lesson! 📖';",
+    "  const icon=data.icon||'✝';",
+    "  e.waitUntil(self.registration.showNotification(title,{body,icon,badge:icon,tag:'fq-daily',renotify:true}));",
+    "});"
   ].join('\n');
   var blob = new Blob([sw], {type:'application/javascript'});
   navigator.serviceWorker.register(URL.createObjectURL(blob))
@@ -5284,6 +5696,119 @@ window.addEventListener('appinstalled', function(){
   _ip = null; hideInstallBanner();
   showToast('FaithQuest added to your home screen!', 4000);
 });
+
+// ── Offline detection ──
+window.addEventListener('online', function() {
+  document.getElementById('offlineBar')?.classList.remove('show');
+  showToast('Back online! Syncing...');
+  saveUserData(); // Sync any offline changes
+});
+window.addEventListener('offline', function() {
+  document.getElementById('offlineBar')?.classList.add('show');
+});
+if (!navigator.onLine) {
+  document.getElementById('offlineBar')?.classList.add('show');
+}
+
+// ── Push Notifications ──
+function getNotifSettings() {
+  try {
+    return JSON.parse(localStorage.getItem('fq_notif_settings')) || { enabled: false, time: '18:00' };
+  } catch(e) { return { enabled: false, time: '18:00' }; }
+}
+function saveNotifSettings(settings) {
+  localStorage.setItem('fq_notif_settings', JSON.stringify(settings));
+}
+
+async function toggleNotifications() {
+  const settings = getNotifSettings();
+  
+  if (!settings.enabled) {
+    // Enable
+    if (!('Notification' in window)) {
+      showToast('Notifications not supported on this device');
+      return;
+    }
+    const perm = await Notification.requestPermission();
+    if (perm !== 'granted') {
+      showToast('Please allow notifications to get daily reminders');
+      return;
+    }
+    settings.enabled = true;
+    saveNotifSettings(settings);
+    scheduleNotification(settings.time);
+    showToast('Daily reminders enabled! 🔔');
+  } else {
+    // Disable
+    settings.enabled = false;
+    saveNotifSettings(settings);
+    cancelScheduledNotification();
+    showToast('Daily reminders turned off');
+  }
+  
+  // Re-render the parent settings if visible
+  const el = document.getElementById('notifToggleBtn');
+  if (el) el.className = 'notif-switch' + (settings.enabled ? ' active' : '');
+}
+
+function updateNotifTime(time) {
+  const settings = getNotifSettings();
+  settings.time = time;
+  saveNotifSettings(settings);
+  if (settings.enabled) {
+    scheduleNotification(time);
+  }
+}
+
+function scheduleNotification(timeStr) {
+  // Use setTimeout-based scheduling since we can't do real push without a server
+  cancelScheduledNotification();
+  
+  const [hours, minutes] = timeStr.split(':').map(Number);
+  const now = new Date();
+  const target = new Date();
+  target.setHours(hours, minutes, 0, 0);
+  if (target <= now) target.setDate(target.getDate() + 1);
+  
+  const delay = target - now;
+  
+  window._fqNotifTimer = setTimeout(function() {
+    if (Notification.permission === 'granted') {
+      const verses = [
+        'Let your light shine! ✨ — Matthew 5:16',
+        'Be strong and courageous! 💪 — Joshua 1:9',
+        'Trust in the Lord with all your heart 💛 — Proverbs 3:5',
+        'I can do all things through Christ ⭐ — Philippians 4:13',
+        'The Lord is my shepherd 🌿 — Psalm 23:1',
+        'Love one another as I have loved you ❤️ — John 13:34'
+      ];
+      const verse = verses[Math.floor(Math.random() * verses.length)];
+      new Notification('FaithQuest — Time for Today\'s Lesson!', {
+        body: verse,
+        icon: '✝',
+        tag: 'fq-daily'
+      });
+    }
+    // Reschedule for tomorrow
+    scheduleNotification(timeStr);
+  }, delay);
+}
+
+function cancelScheduledNotification() {
+  if (window._fqNotifTimer) {
+    clearTimeout(window._fqNotifTimer);
+    window._fqNotifTimer = null;
+  }
+}
+
+// Auto-start notification scheduling on load
+(function() {
+  const s = getNotifSettings();
+  if (s.enabled && Notification.permission === 'granted') {
+    scheduleNotification(s.time);
+  }
+})();
+
 function showInstallBanner(){
   if(!_ip || document.getElementById('pwa-banner')) return;
   var b = document.createElement('div');
