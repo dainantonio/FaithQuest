@@ -1799,6 +1799,28 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
   .badge-grid{grid-template-columns:repeat(2,1fr);}
 }
 
+/* Parent Discussion Guide */
+.pdg-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px;animation:fadeIn 0.2s;}
+.pdg-container{background:white;border-radius:20px;max-width:600px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);}
+.pdg-header{padding:24px 24px 16px;border-bottom:1px solid #F1F5F9;}
+.pdg-header h2{font-size:1.1rem;font-weight:800;color:#1E293B;margin:0 0 4px;}
+.pdg-header p{font-size:0.8rem;color:#64748B;margin:0;}
+.pdg-body{padding:20px 24px;}
+.pdg-section{margin-bottom:20px;}
+.pdg-section-title{font-size:0.85rem;font-weight:700;color:#1E293B;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.pdg-section-content{font-size:0.82rem;color:#475569;line-height:1.7;}
+.pdg-section-content ul{padding-left:18px;margin:6px 0;}
+.pdg-section-content li{margin-bottom:6px;}
+.pdg-tip{padding:12px 14px;background:#FEF3C7;border-radius:12px;font-size:0.8rem;color:#92400E;line-height:1.6;margin-top:8px;}
+.pdg-prayer{padding:14px;background:#F0FDF4;border-radius:12px;font-size:0.82rem;color:#166534;line-height:1.7;font-style:italic;}
+.pdg-actions{padding:16px 24px;border-top:1px solid #F1F5F9;display:flex;gap:10px;justify-content:flex-end;}
+.pdg-btn{padding:10px 20px;border-radius:12px;font-weight:700;font-size:0.82rem;cursor:pointer;border:none;transition:all 0.2s;}
+.pdg-btn-print{background:#1E293B;color:white;}
+.pdg-btn-print:hover{background:#334155;}
+.pdg-btn-close{background:#F1F5F9;color:#475569;}
+.pdg-btn-close:hover{background:#E2E8F0;}
+@media print{.pdg-overlay{position:static;background:none;}.pdg-container{max-height:none;box-shadow:none;border-radius:0;}.pdg-actions{display:none;}}
+
 /* Confetti celebration */
 .confetti-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:10000;overflow:hidden;}
 .confetti-piece{position:absolute;width:10px;height:10px;top:-20px;opacity:0;animation:confettiFallBurst 3s ease-in forwards;}
@@ -4981,6 +5003,7 @@ function renderLessonStep(){
       <div class="lp2-band-content">
         <div class="lp2-step-tag">${meta.tag}</div>
         <div class="lp2-lesson-title">${lesson.title}</div>
+        <button class="lp2-guide-btn" style="position:absolute;top:14px;right:52px;background:rgba(255,255,255,0.2);border:none;border-radius:10px;padding:6px 10px;font-size:0.75rem;color:white;cursor:pointer;backdrop-filter:blur(4px);" onclick="showDiscussionGuide('${lesson.id}','${pathId}')">📋 Guide</button>
         <button class="bookmark-btn ${isBookmarked(lesson.id)?'active':''}" style="position:absolute;top:14px;right:14px;" onclick="toggleBookmark('${lesson.id}','${pathId}')">${isBookmarked(lesson.id)?'🔖':'🏷️'}</button>
         ${step===0?`<div class="lp2-lesson-sub">${lesson.verseRef}</div>`:''}
       </div>
@@ -5008,6 +5031,11 @@ function renderLessonStep(){
           <div class="lp2-summary-label">Context</div>
           <div class="lp2-summary-text">${lesson.summary}</div>
         </div>
+        ${isYounger
+          ? '<div class="lp2-age-tip" style="margin-top:14px;padding:14px 16px;background:#FEF3C7;border-radius:14px;border-left:4px solid #F59E0B;"><div style="font-weight:700;font-size:0.8rem;color:#92400E;margin-bottom:6px;">🌱 In Simple Words</div><div style="font-size:0.85rem;color:#78350F;line-height:1.6;">' + lesson.summary.split('.')[0] + '. That\'s pretty amazing!</div></div>'
+          : isTeen
+          ? '<div class="lp2-age-tip" style="margin-top:14px;padding:14px 16px;background:#EEF2FF;border-radius:14px;border-left:4px solid #6366F1;"><div style="font-weight:700;font-size:0.8rem;color:#3730A3;margin-bottom:6px;">📚 Go Deeper</div><div style="font-size:0.85rem;color:#312E81;line-height:1.6;">This verse from <strong>' + lesson.verseRef.split(' ').slice(0,-1).join(' ') + '</strong> was written in a specific historical context. Think about what the original audience would have understood and how that meaning speaks to your life today.</div></div>'
+          : ''}
       </div>`;
 
   } else if(stepName==='understand'){
@@ -5045,7 +5073,7 @@ function renderLessonStep(){
       <div class="lp2-content lp2-step-in">
         <div class="lp2-coaching">
           <div class="lp2-coaching-label">👨‍👩‍👧 Family Coach</div>
-          <div class="lp2-coaching-text">Gather together. Let your child answer first — curiosity beats correction every time. Your goal is connection, not the right answer.</div>
+          <div class="lp2-coaching-text">${isYounger ? 'Let your little one answer first — there are no wrong answers! Use drawings or role-play if words are hard.' : isTeen ? "Give your teen space to lead the discussion. Don't correct — ask 'what makes you think that?' to encourage depth." : 'Gather together. Let your child answer first — curiosity beats correction every time. Your goal is connection, not the right answer.'}</div>
         </div>
         <div class="lp2-section-label">Discussion questions</div>
         <div class="lp2-q-list">
@@ -5070,7 +5098,7 @@ function renderLessonStep(){
                 <span class="lp2-mission-emoji">${m.emoji}</span>
                 <div class="lp2-mission-meta">
                   <div class="lp2-mission-title">${m.title}</div>
-                  <div class="lp2-mission-desc">${m.desc}</div>
+                  <div class="lp2-mission-desc">${m.desc}${isYounger && m.level!=='Easy' ? ' <span style="color:#D97706;font-weight:600;font-size:0.75rem;">(With a grown-up\'s help)</span>' : ''}${isTeen && m.level==='Easy' ? ' <span style="color:#6366F1;font-style:italic;font-size:0.75rem;">Level up: try doing this for a stranger, not just someone you know</span>' : ''}</div>
                 </div>
                 <div class="lp2-mission-check">${sel?'✓':''}</div>
               </div>
@@ -5094,14 +5122,7 @@ function renderLessonStep(){
               <button class="lp2-mood-btn${state.lessonState.selectedEmoji===e?' selected':''}" onclick="selectEmoji('${e}')">${e}</button>`).join('')}
           </div>
         </div>
-        ${prompts.slice(0,isTeen?2:1).map((p,i)=>`
-          <div class="lp2-journal">
-            <div class="lp2-journal-label">${p}</div>
-            <textarea class="lp2-journal-input" rows="${isTeen?3:3}" id="reflectText${i+1}"
-              placeholder="${isYounger?'Just one sentence is great!':'Write a few sentences...'}"
-              oninput="${i===0?'updateReflect(this.value)':''}"
-              style="width:100%;">${i===0?state.lessonState.reflectText||'':''}</textarea>
-          </div>`).join('')}
+        ${isYounger ? '<div class="lp2-journal"><div class="lp2-journal-label">🎨 Draw how your mission went! Or tell a grown-up and they can write it for you.</div><textarea class="lp2-journal-input" rows="3" id="reflectText1" placeholder="Draw a picture or ask a grown-up to write here..." oninput="updateReflect(this.value)" style="width:100%;">' + (state.lessonState.reflectText||'') + '</textarea></div>' : prompts.slice(0,isTeen?2:1).map((p,i)=>'<div class="lp2-journal"><div class="lp2-journal-label">' + p + '</div><textarea class="lp2-journal-input" rows="' + (isTeen?3:3) + '" id="reflectText' + (i+1) + '" placeholder="Write a few sentences..." oninput="' + (i===0?'updateReflect(this.value)':'') + '" style="width:100%;">' + (i===0?state.lessonState.reflectText||'':'') + '</textarea></div>').join('')}
       </div>`;
 
   } else if(stepName==='prayer'){
@@ -5161,6 +5182,95 @@ function buildPrayer(){
     </div>`;
   result.style.display='block';
   setTimeout(()=>result.scrollIntoView({behavior:'smooth',block:'center'}),100);
+}
+function showDiscussionGuide(lessonId, pathId){
+  const lesson = getLesson(pathId, window.PATHS.find(p=>p.id===pathId)?.lessons.findIndex(l=>l.id===lessonId));
+  if(!lesson) return;
+  const member = getCurrentMember();
+  const tierLabel = member?.tier==='teen'?'Teen (11-17)':member?.tier==='younger'?'Little Explorer (4-6)':'Kid (6-10)';
+  
+  const overlay = document.createElement('div');
+  overlay.className = 'pdg-overlay';
+  overlay.onclick = (e) => { if(e.target===overlay) overlay.remove(); };
+  
+  overlay.innerHTML = `
+    <div class="pdg-container">
+      <div class="pdg-header">
+        <h2>📋 Parent Discussion Guide</h2>
+        <p>${lesson.title} · ${lesson.verseRef} · ${tierLabel}</p>
+      </div>
+      <div class="pdg-body">
+        <div class="pdg-section">
+          <div class="pdg-section-title">📖 Today's Verse</div>
+          <div class="pdg-section-content">
+            <strong>${lesson.verseRef}</strong><br>
+            "${lesson.excerpt.replace(/—\s*.+?(\(.*?\))?$/,'').trim()}"
+          </div>
+        </div>
+        
+        <div class="pdg-section">
+          <div class="pdg-section-title">💡 Key Takeaway</div>
+          <div class="pdg-section-content">${lesson.summary}</div>
+        </div>
+        
+        <div class="pdg-section">
+          <div class="pdg-section-title">🗣️ Conversation Starters</div>
+          <div class="pdg-section-content">
+            <ul>
+              ${lesson.questions.map(q => `<li>${q}</li>`).join('')}
+              <li><strong>Bonus:</strong> What's one thing from this verse you want to remember all week?</li>
+            </ul>
+            <div class="pdg-tip">
+              <strong>💡 Parent Tip:</strong> ${
+                member?.tier==='younger'
+                  ? "Let your child answer with drawings, actions, or just one word — any response is a win! Use puppets or toys to role-play the story."
+                  : member?.tier==='teen'
+                  ? "Give your teen permission to disagree or question. The goal is authentic engagement, not perfect answers. Ask 'what do you think?' more than 'the right answer is...'"
+                  : "Let your child answer first before sharing your thoughts. Curiosity beats correction — there are no wrong answers in family devotions."
+              }
+            </div>
+          </div>
+        </div>
+        
+        <div class="pdg-section">
+          <div class="pdg-section-title">🎯 This Week's Missions</div>
+          <div class="pdg-section-content">
+            <ul>
+              ${lesson.missions.map(m => `<li><strong>${m.emoji} ${m.title}</strong> (${m.level}) — ${m.desc}</li>`).join('')}
+            </ul>
+          </div>
+        </div>
+        
+        <div class="pdg-section">
+          <div class="pdg-section-title">🤔 Reflection Questions</div>
+          <div class="pdg-section-content">
+            <ul>
+              ${(lesson.reflectPrompts||[]).map(p => `<li>${p}</li>`).join('')}
+            </ul>
+          </div>
+        </div>
+        
+        <div class="pdg-section">
+          <div class="pdg-section-title">🙏 Closing Prayer Idea</div>
+          <div class="pdg-prayer">
+            "Dear God, thank you for teaching us through ${lesson.title.toLowerCase()}. Help us to ${lesson.missions[0]?.title?.toLowerCase()||'live out this lesson'} this week. Give us courage and kindness. Amen."
+          </div>
+        </div>
+        
+        <div class="pdg-section">
+          <div class="pdg-section-title">📝 Notes</div>
+          <div class="pdg-section-content" style="font-style:italic;color:#94A3B8;">
+            Space for your own observations about how your child responded...
+          </div>
+        </div>
+      </div>
+      <div class="pdg-actions">
+        <button class="pdg-btn pdg-btn-close" onclick="this.closest('.pdg-overlay').remove()">Close</button>
+        <button class="pdg-btn pdg-btn-print" onclick="window.print()">🖨️ Print Guide</button>
+      </div>
+    </div>`;
+  
+  document.body.appendChild(overlay);
 }
 function lessonNext(){
   const {step,path:pathId,lessonIndex}=state.lessonState;
@@ -5600,7 +5710,7 @@ initLessonPreview();
 (function(){
   if (!('serviceWorker' in navigator)) return;
   var sw = [
-    "const CACHE='faithquest-v5';",
+    "const CACHE='faithquest-v6';",
     "const FC='faithquest-fonts-v1';",
     "const LC='faithquest-lessons-v1';",
     "",
