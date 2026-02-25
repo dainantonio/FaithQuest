@@ -1798,6 +1798,69 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
   .stats-row{grid-template-columns:1fr 1fr;}
   .badge-grid{grid-template-columns:repeat(2,1fr);}
 }
+
+/* Confetti celebration */
+.confetti-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:10000;overflow:hidden;}
+.confetti-piece{position:absolute;width:10px;height:10px;top:-20px;opacity:0;animation:confettiFallBurst 3s ease-in forwards;}
+@keyframes confettiFallBurst{0%{transform:translateY(0) rotate(0deg) scale(1);opacity:1;}100%{transform:translateY(100vh) rotate(720deg) scale(0.3);opacity:0;}}
+
+/* Daily verse card */
+.kh-verse-card{background:linear-gradient(135deg,#1E293B,#334155);border-radius:18px;padding:20px;margin-bottom:18px;position:relative;overflow:hidden;}
+.kh-verse-glow{position:absolute;top:-40%;right:-20%;width:140px;height:140px;background:radial-gradient(circle,rgba(251,191,36,0.15),transparent);border-radius:50%;}
+.kh-verse-tag{font-size:0.7rem;font-weight:700;color:#FBBF24;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.kh-verse-text{font-size:0.95rem;font-weight:500;color:white;line-height:1.65;font-style:italic;margin-bottom:10px;}
+.kh-verse-ref{font-size:0.75rem;color:rgba(255,255,255,0.5);font-weight:600;}
+
+/* Enhanced insights */
+.pi-child-card{background:white;border-radius:18px;padding:18px;margin-bottom:14px;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
+.pi-child-header{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.pi-child-avatar{font-size:2rem;}
+.pi-child-name{font-weight:700;font-size:1rem;}
+.pi-child-meta{font-size:0.75rem;color:var(--slate-400);}
+.pi-path-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.pi-path-emoji{font-size:1rem;width:24px;text-align:center;}
+.pi-path-info{flex:1;min-width:0;}
+.pi-path-name{font-size:0.75rem;font-weight:600;color:var(--slate-600);margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.pi-path-bar{height:8px;background:var(--slate-100);border-radius:100px;overflow:hidden;}
+.pi-path-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--amber),#F97316);transition:width 0.6s ease;}
+.pi-path-count{font-size:0.68rem;color:var(--slate-400);white-space:nowrap;min-width:36px;text-align:right;}
+.pi-timeline{background:white;border-radius:18px;padding:18px;margin-bottom:14px;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
+.pi-day-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--slate-100);}
+.pi-day-row:last-child{border:none;}
+.pi-day-name{font-size:0.75rem;font-weight:600;color:var(--slate-500);min-width:60px;}
+.pi-day-dots{display:flex;gap:4px;flex-wrap:wrap;}
+.pi-day-dot{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.65rem;}
+.pi-popular{background:white;border-radius:18px;padding:18px;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
+.pi-pop-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--slate-100);}
+.pi-pop-row:last-child{border:none;}
+.pi-pop-rank{font-size:0.75rem;font-weight:800;color:var(--slate-300);min-width:20px;}
+.pi-pop-emoji{font-size:1.2rem;}
+.pi-pop-info{flex:1;}
+.pi-pop-name{font-size:0.8rem;font-weight:600;}
+.pi-pop-count{font-size:0.7rem;color:var(--slate-400);}
+
+/* Audio narration */
+.lp2-audio-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#3B82F6,#1D4ED8);color:white;border:none;padding:10px 18px;border-radius:14px;font-size:0.8rem;font-weight:700;cursor:pointer;margin-top:12px;transition:all 0.2s;}
+.lp2-audio-btn:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(59,130,246,0.3);}
+.lp2-audio-btn.playing{background:linear-gradient(135deg,#EF4444,#DC2626);}
+.lp2-audio-btn .audio-icon{font-size:1rem;}
+
+/* Shareable badges */
+.rw-share-btn{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#8B5CF6,#6D28D9);color:white;border:none;padding:5px 12px;border-radius:100px;font-size:0.65rem;font-weight:700;cursor:pointer;margin-top:6px;transition:all 0.2s;}
+.rw-share-btn:hover{transform:scale(1.05);box-shadow:0 3px 12px rgba(139,92,246,0.3);}
+
+/* Bookmarks */
+.bookmark-btn{background:none;border:none;font-size:1.2rem;cursor:pointer;padding:4px;transition:transform 0.2s;}
+.bookmark-btn:hover{transform:scale(1.2);}
+.bookmark-btn.active{animation:bookmarkPop 0.3s ease;}
+@keyframes bookmarkPop{0%{transform:scale(1);}50%{transform:scale(1.4);}100%{transform:scale(1);}}
+.kh-bookmark-section{margin-top:18px;}
+.kh-bookmark-card{background:white;border-radius:14px;padding:14px 16px;margin-bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);display:flex;align-items:center;gap:12px;cursor:pointer;transition:transform 0.2s;}
+.kh-bookmark-card:hover{transform:translateY(-1px);}
+.kh-bookmark-emoji{font-size:1.2rem;}
+.kh-bookmark-info{flex:1;min-width:0;}
+.kh-bookmark-title{font-size:0.82rem;font-weight:700;color:var(--slate-700);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.kh-bookmark-meta{font-size:0.7rem;color:var(--slate-400);}
 </style>
 </head>
 <body>
@@ -2576,6 +2639,7 @@ let state = {
   kidTab: 'home',
   lessonState: {path:null,lessonIndex:0,step:0,selectedMission:null,selectedEmoji:null,reflectText:''},
   checkinState: {mission:null,member:null},
+  bookmarks: [],
 };
 
 const AVATARS = ['😊','🦁','🐯','🦊','🐻','🦋','🌟','🚀','🌈','🎯','🦅','🐘','🌺','⚡','🎪'];
@@ -2826,6 +2890,7 @@ function loadUserData(){
     state.subscription=data.subscription||{plan:'free'};
     state.selectedPath=data.selectedPath||'jesus';
     state.selectedMember=data.selectedMember||null;
+    state.bookmarks=data.bookmarks||[];
   }
 }
 
@@ -2835,6 +2900,7 @@ function saveUserData(){
     family:state.family,members:state.members,completions:state.completions,
     checkins:state.checkins,journals:state.journals||[],subscription:state.subscription,
     selectedPath:state.selectedPath,selectedMember:state.selectedMember,
+    bookmarks:state.bookmarks||[],
   };
   // Always write localStorage as offline cache
   localStorage.setItem('fq_data_'+state.currentUser.id,JSON.stringify(payload));
@@ -3420,6 +3486,45 @@ function renderParentInsights(el){
     {label:'Courage',icon:'🦁',color:'#F43F5E',val:Math.min(95,10+(total*5)%70)},
   ];
   const days=['S','M','T','W','T','F','S'];
+
+  // Per-child path progress data
+  const childPathData=kids.map(k=>{
+    const kidCompletions=state.completions.filter(c=>c.memberId===k.id);
+    const pathProgress=PATHS.map(p=>{
+      const done=kidCompletions.filter(c=>c.pathId===p.id).length;
+      return {id:p.id,title:p.title,emoji:p.emoji,done,total:p.lessons.length,pct:p.lessons.length?Math.round(done/p.lessons.length*100):0};
+    }).filter(pp=>pp.done>0);
+    return {kid:k,paths:pathProgress,totalDone:kidCompletions.length};
+  });
+
+  // Family activity timeline (last 7 days)
+  const timelineDays=[];
+  for(let d=6;d>=0;d--){
+    const date=new Date();date.setDate(date.getDate()-d);
+    const dayStr=date.getFullYear()+'-'+String(date.getMonth()+1).padStart(2,'0')+'-'+String(date.getDate()).padStart(2,'0');
+    const dayName=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][date.getDay()];
+    const dayActivity=kids.map(k=>{
+      const count=state.completions.filter(c=>{
+        if(c.memberId!==k.id)return false;
+        const cd=new Date(c.completedAt||Date.now());
+        const cs=cd.getFullYear()+'-'+String(cd.getMonth()+1).padStart(2,'0')+'-'+String(cd.getDate()).padStart(2,'0');
+        return cs===dayStr;
+      }).length;
+      return {kid:k,count};
+    }).filter(a=>a.count>0);
+    timelineDays.push({dayName,dayStr,activity:dayActivity,isToday:d===0});
+  }
+
+  // Popular paths
+  const pathCounts={};
+  state.completions.forEach(c=>{
+    pathCounts[c.pathId]=(pathCounts[c.pathId]||0)+1;
+  });
+  const popularPaths=Object.entries(pathCounts).map(([pid,count])=>{
+    const p=PATHS.find(pp=>pp.id===pid);
+    return p?{id:pid,title:p.title,emoji:p.emoji,count}:null;
+  }).filter(Boolean).sort((a,b)=>b.count-a.count).slice(0,5);
+
   el.innerHTML=`
     <div class="pd-body">
       <div class="pd-section-hd" style="margin-top:8px;"><span class="pd-section-title">Family Insights</span></div>
@@ -3450,6 +3555,55 @@ function renderParentInsights(el){
             <div class="pd-char-bar"><div class="pd-char-fill" style="width:${c.val}%;background:${c.color};"></div></div>
           </div>`).join('')}
       </div>
+
+      <div class="pd-section-hd"><span class="pd-section-title">📊 Per-Child Progress</span></div>
+      ${childPathData.map(cpd=>`
+        <div class="pi-child-card">
+          <div class="pi-child-header">
+            <div class="pi-child-avatar">${cpd.kid.avatar}</div>
+            <div>
+              <div class="pi-child-name">${cpd.kid.name}</div>
+              <div class="pi-child-meta">${cpd.totalDone} lesson${cpd.totalDone!==1?'s':''} completed</div>
+            </div>
+          </div>
+          ${cpd.paths.length>0?cpd.paths.map(pp=>`
+            <div class="pi-path-row">
+              <div class="pi-path-emoji">${pp.emoji}</div>
+              <div class="pi-path-info">
+                <div class="pi-path-name">${pp.title}</div>
+                <div class="pi-path-bar"><div class="pi-path-fill" style="width:${pp.pct}%"></div></div>
+              </div>
+              <div class="pi-path-count">${pp.done}/${pp.total}</div>
+            </div>`).join(''):'<div style="font-size:0.75rem;color:var(--slate-400);">No lessons completed yet</div>'}
+        </div>`).join('')}
+
+      <div class="pd-section-hd"><span class="pd-section-title">📅 Family Activity (Last 7 Days)</span></div>
+      <div class="pi-timeline">
+        ${timelineDays.map(td=>`
+          <div class="pi-day-row">
+            <div class="pi-day-name">${td.dayName}${td.isToday?' 📍':''}</div>
+            <div class="pi-day-dots">
+              ${td.activity.length>0?td.activity.map(a=>`
+                <div class="pi-day-dot" style="background:var(--amber-100);color:var(--amber-700);" title="${a.kid.name}: ${a.count} lesson${a.count!==1?'s':''}">${a.kid.avatar}</div>
+              `).join(''):'<span style="font-size:0.7rem;color:var(--slate-300);">—</span>'}
+            </div>
+          </div>`).join('')}
+      </div>
+
+      ${popularPaths.length>0?`
+      <div class="pd-section-hd"><span class="pd-section-title">🏆 Most Popular Paths</span></div>
+      <div class="pi-popular">
+        ${popularPaths.map((pp,i)=>`
+          <div class="pi-pop-row">
+            <div class="pi-pop-rank">${i+1}</div>
+            <div class="pi-pop-emoji">${pp.emoji}</div>
+            <div class="pi-pop-info">
+              <div class="pi-pop-name">${pp.title}</div>
+              <div class="pi-pop-count">${pp.count} lesson${pp.count!==1?'s':''} completed</div>
+            </div>
+          </div>`).join('')}
+      </div>`:''}
+
       <div class="pd-section-hd"><span class="pd-section-title">By Family Member</span></div>
       ${kids.map(k=>{
         const done=state.completions.filter(c=>c.memberId===k.id).length;
@@ -3478,7 +3632,29 @@ function renderParentInsights(el){
 }
 
 function getStreak(memberId){
-  return state.completions.filter(c=>c.memberId===memberId).length;
+  const completions=state.completions.filter(c=>c.memberId===memberId);
+  if(completions.length===0)return 0;
+  // Get unique dates (YYYY-MM-DD) sorted descending
+  const dates=[...new Set(completions.map(c=>{
+    const d=new Date(c.completedAt||Date.now());
+    return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+  }))].sort().reverse();
+  // Count consecutive days from today
+  const today=new Date();
+  const todayStr=today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'+String(today.getDate()).padStart(2,'0');
+  // If most recent completion isn't today or yesterday, streak is 0
+  const mostRecent=dates[0];
+  const diffMs=new Date(todayStr)-new Date(mostRecent);
+  const diffDays=Math.round(diffMs/(1000*60*60*24));
+  if(diffDays>1)return 0;
+  let streak=1;
+  for(let i=0;i<dates.length-1;i++){
+    const d1=new Date(dates[i]);
+    const d2=new Date(dates[i+1]);
+    const gap=Math.round((d1-d2)/(1000*60*60*24));
+    if(gap===1){streak++;}else{break;}
+  }
+  return streak;
 }
 function upgradePlan(){
   state.subscription.plan='premium';saveUserData();
@@ -3588,6 +3764,17 @@ function renderKidContent(tab){
   const journalBtn = document.getElementById('knav-journal');
   if(journalBtn) journalBtn.style.display = member?.tier==='teen' ? 'flex' : 'none';
 }
+function getDailyVerse(){
+  if(!PATHS||PATHS.length===0)return{verse:'For God so loved the world...',ref:'John 3:16'};
+  // Deterministic daily pick based on date
+  const today=new Date();
+  const dayNum=Math.floor(today.getTime()/(1000*60*60*24));
+  const allLessons=PATHS.flatMap(p=>p.lessons);
+  if(allLessons.length===0)return{verse:'For God so loved the world...',ref:'John 3:16'};
+  const lesson=allLessons[dayNum%allLessons.length];
+  return{verse:lesson.verse||lesson.summary,ref:lesson.title};
+}
+
 function renderKidHome(el){
   const member=getCurrentMember();
   if(!member){el.innerHTML='<div style="padding:40px;text-align:center;">No member selected.</div>';return;}
@@ -3707,6 +3894,14 @@ function renderKidHome(el){
         </div>
       </div>
 
+    <!-- ── Daily Verse ── -->
+    <div class="kh-verse-card">
+      <div class="kh-verse-glow"></div>
+      <div class="kh-verse-tag">✨ Today's Verse</div>
+      <div class="kh-verse-text">"${getDailyVerse().verse}"</div>
+      <div class="kh-verse-ref">— ${getDailyVerse().ref}</div>
+    </div>
+
       <!-- ── Active missions ── -->
       <div class="kh-section-hd">
         <span class="kh-section-title">Active Missions</span>
@@ -3763,6 +3958,32 @@ function getBadges(memberId){
   if(missions>=1)count++;if(missions>=3)count++;if(streak>=3)count++;
   return count;
 }
+function shareBadge(emoji,name,memberName){
+  const canvas=document.createElement('canvas');
+  canvas.width=600;canvas.height=400;
+  const ctx=canvas.getContext('2d');
+  const grad=ctx.createLinearGradient(0,0,600,400);
+  grad.addColorStop(0,'#1E293B');grad.addColorStop(1,'#334155');
+  ctx.fillStyle=grad;ctx.beginPath();ctx.roundRect(0,0,600,400,20);ctx.fill();
+  const glow=ctx.createRadialGradient(300,160,10,300,160,120);
+  glow.addColorStop(0,'rgba(251,191,36,0.3)');glow.addColorStop(1,'transparent');
+  ctx.fillStyle=glow;ctx.fillRect(0,0,600,400);
+  ctx.font='80px serif';ctx.textAlign='center';ctx.fillText(emoji,300,170);
+  ctx.fillStyle='#FBBF24';ctx.font='bold 28px system-ui';ctx.fillText(name,300,230);
+  ctx.fillStyle='rgba(255,255,255,0.7)';ctx.font='18px system-ui';ctx.fillText('Earned by '+memberName,300,270);
+  ctx.fillStyle='rgba(255,255,255,0.3)';ctx.font='14px system-ui';ctx.fillText('FaithQuest · Family Bible Adventure',300,370);
+  ctx.fillStyle='rgba(255,255,255,0.15)';
+  for(let i=0;i<20;i++){const x=Math.random()*600,y=Math.random()*400,s=Math.random()*3+1;ctx.beginPath();ctx.arc(x,y,s,0,Math.PI*2);ctx.fill();}
+  canvas.toBlob(blob=>{
+    if(navigator.share&&navigator.canShare){
+      const file=new File([blob],name.replace(/\s/g,'-')+'.png',{type:'image/png'});
+      navigator.share({title:name+' Badge',text:memberName+' earned the '+name+' badge on FaithQuest!',files:[file]}).catch(()=>{});
+    }else{
+      const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name.replace(/\s/g,'-')+'-badge.png';a.click();
+    }
+  },'image/png');
+}
+
 function renderKidRewards(el){
   const member=getCurrentMember();
   if(!member){el.innerHTML='';return;}
@@ -3882,6 +4103,7 @@ function renderKidRewards(el){
             <span class="rw-badge-icon">${b.emoji}</span>
             <div class="rw-badge-name">${b.name}</div>
             <div class="rw-badge-req">${b.req}</div>
+            <button class="rw-share-btn" onclick="event.stopPropagation();shareBadge('${b.emoji}','${b.name}','${member.name}')">📤 Share</button>
           </div>`).join('')}
       </div>`:`
       <div style="background:white;border-radius:20px;padding:28px 20px;text-align:center;margin-bottom:8px;box-shadow:0 2px 12px rgba(0,0,0,0.07);">
@@ -3911,25 +4133,59 @@ function renderKidRewards(el){
     if(fill) fill.style.width=xpPct+'%';
   });
 }
+
+function toggleBookmark(lessonId,pathId){
+  if(!state.bookmarks)state.bookmarks=[];
+  const idx=state.bookmarks.findIndex(b=>b.lessonId===lessonId);
+  if(idx>=0){state.bookmarks.splice(idx,1);showToast('Bookmark removed');}
+  else{state.bookmarks.push({lessonId,pathId,addedAt:new Date().toISOString()});showToast('Bookmarked! 🔖');}
+  saveUserData();
+  const el=document.getElementById('kidContent');
+  if(el&&state.kidTab==='library')renderKidLibrary(el);
+}
+function isBookmarked(lessonId){
+  return (state.bookmarks||[]).some(b=>b.lessonId===lessonId);
+}
+
 function renderKidLibrary(el){
   const member=getCurrentMember();
   const done=state.completions.filter(c=>c.memberId===member?.id).map(c=>c.lessonId);
   let allLessons=[];
   PATHS.forEach(p=>p.lessons.forEach(l=>allLessons.push({...l,pathId:p.id,pathTitle:p.title,pathEmoji:p.emoji})));
+  const bookmarked=(state.bookmarks||[]).map(b=>{
+    const p=PATHS.find(pp=>pp.id===b.pathId);
+    const l=p?.lessons.find(ll=>ll.id===b.lessonId);
+    return l?{...l,pathId:p.id,pathTitle:p.title,pathEmoji:p.emoji}:null;
+  }).filter(Boolean);
   el.innerHTML=`
     <div style="padding:20px 16px 0;">
       <h2 style="font-family:var(--font-display);font-size:1.4rem;font-weight:700;">My Library</h2>
       <p style="font-size:0.875rem;color:var(--slate-500);margin-top:4px;">${done.length} of ${PATHS.reduce((s,p)=>s+p.lessons.length,0)||91} lessons completed</p>
     </div>
     <div style="padding:12px 16px;padding-bottom:100px;" class="library-list">
+      ${bookmarked.length>0?`
+        <div style="margin-bottom:18px;">
+          <div style="font-size:0.75rem;font-weight:700;color:var(--slate-500);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;">🔖 Bookmarked</div>
+          ${bookmarked.map(l=>`
+            <div class="kh-bookmark-card" onclick="startLesson('${l.pathId}',${PATHS.find(p=>p.id===l.pathId).lessons.indexOf(l)})">
+              <span class="kh-bookmark-emoji">${l.pathEmoji}</span>
+              <div class="kh-bookmark-info">
+                <div class="kh-bookmark-title">${l.title}</div>
+                <div class="kh-bookmark-meta">${l.pathTitle} · ${l.verseRef}</div>
+              </div>
+              <button class="bookmark-btn active" onclick="event.stopPropagation();toggleBookmark('${l.id}','${l.pathId}')">🔖</button>
+            </div>`).join('')}
+        </div>`:''}
       ${done.length===0?`<div class="card" style="text-align:center;padding:32px;"><div style="font-size:2rem;margin-bottom:8px;">📖</div><div style="font-weight:600;">No lessons yet</div><p class="body-sm muted">Complete your first lesson to see it here!</p></div>`:''}
       ${allLessons.filter(l=>done.includes(l.id)).map(l=>`
         <div class="library-item" onclick="startLesson('${l.pathId}',${PATHS.find(p=>p.id===l.pathId).lessons.indexOf(l)})">
           <div class="library-check">✓</div>
           <div class="library-info"><div class="library-title">${l.title}</div><div class="library-meta">${l.pathEmoji} ${l.pathTitle} · ${l.verseRef}</div></div>
+          <button class="bookmark-btn ${isBookmarked(l.id)?'active':''}" onclick="event.stopPropagation();toggleBookmark('${l.id}','${l.pathId}')">${isBookmarked(l.id)?'🔖':'🏷️'}</button>
         </div>`).join('')}
     </div>`;
 }
+
 // ===================== TEEN JOURNAL =====================
 
 // Gemini API key — set your key here or via window.FQ_GEMINI_KEY
@@ -4267,6 +4523,7 @@ function startLesson(pathId,lessonIndex){
   showScreen('screen-lesson');renderLessonStep();
 }
 function exitLesson(){
+  window.speechSynthesis.cancel();_speechPlaying=false;
   const was=state.selectedMember?'kid':'parent';
   if(state.members.find(m=>m.id===state.selectedMember)?.role==='parent'){showParentApp();}
   else{showKidApp();}
@@ -4281,6 +4538,42 @@ const STEP_META=[
   {tag:'💭 Reflect',  band:'lp2-band-reflect', label:'Reflect', clr:'clr-reflect'},
   {tag:'🙏 Pray',     band:'lp2-band-prayer',  label:'Pray',    clr:'clr-prayer'},
 ];
+
+let _speechUtterance=null;
+let _speechPlaying=false;
+function toggleLessonAudio(){
+  if(_speechPlaying){
+    window.speechSynthesis.cancel();
+    _speechPlaying=false;
+    const btn=document.getElementById('audioNarrateBtn');
+    if(btn){btn.innerHTML='<span class="audio-icon">🔊</span> Listen to this';btn.classList.remove('playing');}
+    return;
+  }
+  const {path:pathId,lessonIndex,step}=state.lessonState;
+  const lesson=getLesson(pathId,lessonIndex);
+  if(!lesson)return;
+  const stepName=LESSON_STEPS[step];
+  let text='';
+  if(stepName==='read') text=lesson.verseRef+'. '+lesson.excerpt+'. '+lesson.summary;
+  else if(stepName==='understand') text=lesson.summary;
+  else if(stepName==='talk') text='Discussion questions. '+lesson.questions.join('. ');
+  else if(stepName==='do') text='Choose a mission. '+lesson.missions.map(m=>m.title+'. '+m.desc).join('. ');
+  else if(stepName==='reflect') text='Take a moment to reflect on what you learned today.';
+  else if(stepName==='prayer') text="Let's build a family prayer together.";
+  if(!text)return;
+  _speechUtterance=new SpeechSynthesisUtterance(text);
+  _speechUtterance.rate=0.9;
+  _speechUtterance.pitch=1;
+  _speechUtterance.onend=()=>{
+    _speechPlaying=false;
+    const btn=document.getElementById('audioNarrateBtn');
+    if(btn){btn.innerHTML='<span class="audio-icon">🔊</span> Listen to this';btn.classList.remove('playing');}
+  };
+  window.speechSynthesis.speak(_speechUtterance);
+  _speechPlaying=true;
+  const btn=document.getElementById('audioNarrateBtn');
+  if(btn){btn.innerHTML='<span class="audio-icon">⏹️</span> Stop listening';btn.classList.add('playing');}
+}
 
 function renderLessonStep(){
   const {path:pathId,lessonIndex,step}=state.lessonState;
@@ -4322,8 +4615,10 @@ function renderLessonStep(){
       <div class="lp2-band-content">
         <div class="lp2-step-tag">${meta.tag}</div>
         <div class="lp2-lesson-title">${lesson.title}</div>
+        <button class="bookmark-btn ${isBookmarked(lesson.id)?'active':''}" style="position:absolute;top:14px;right:14px;" onclick="toggleBookmark('${lesson.id}','${pathId}')">${isBookmarked(lesson.id)?'🔖':'🏷️'}</button>
         ${step===0?`<div class="lp2-lesson-sub">${lesson.verseRef}</div>`:''}
       </div>
+      <button class="lp2-audio-btn" id="audioNarrateBtn" onclick="toggleLessonAudio()"><span class="audio-icon">🔊</span> Listen to this</button>
     </div>`;
 
   // ── Step content ──
@@ -4512,7 +4807,28 @@ function lessonNext(){
 function lessonPrev(){
   if(state.lessonState.step>0){state.lessonState.step--;renderLessonStep();}
 }
+function launchConfetti(){
+  const container=document.createElement('div');
+  container.className='confetti-container';
+  const colors=['#F59E0B','#EF4444','#3B82F6','#10B981','#8B5CF6','#EC4899','#F97316'];
+  for(let i=0;i<60;i++){
+    const piece=document.createElement('div');
+    piece.className='confetti-piece';
+    piece.style.left=Math.random()*100+'%';
+    piece.style.background=colors[Math.floor(Math.random()*colors.length)];
+    piece.style.animationDelay=Math.random()*0.8+'s';
+    piece.style.animationDuration=(2+Math.random()*2)+'s';
+    piece.style.width=(6+Math.random()*8)+'px';
+    piece.style.height=(6+Math.random()*8)+'px';
+    piece.style.borderRadius=Math.random()>0.5?'50%':'2px';
+    container.appendChild(piece);
+  }
+  document.body.appendChild(container);
+  setTimeout(()=>container.remove(),4000);
+}
+
 function completeLesson(){
+  launchConfetti();
   const {path:pathId,lessonIndex,selectedMission,selectedEmoji,reflectText}=state.lessonState;
   const lesson=getLesson(pathId,lessonIndex);
   const member=getCurrentMember();
@@ -4525,7 +4841,7 @@ function completeLesson(){
     state.checkins.push({id:'ci_'+Date.now(),memberId:member.id,lessonId:lesson.id,missionTitle:mission.title,reflection:reflectText||'Completed the mission!',emoji:selectedEmoji,approved:false,createdAt:new Date().toISOString()});
   }
   saveUserData();
-  showToast('Lesson complete! 🎉 Mission submitted for parent approval.');
+  showToast('🎉 Lesson complete! Mission submitted for parent approval.');
   setTimeout(()=>{
     if(member.role==='parent'){showParentApp();}else{showKidApp();}
   },300);
@@ -4918,7 +5234,7 @@ initLessonPreview();
 (function(){
   if (!('serviceWorker' in navigator)) return;
   var sw = [
-    "const CACHE='faithquest-v3';",
+    "const CACHE='faithquest-v4';",
     "const FC='faithquest-fonts-v1';",
     "self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.add(self.location.pathname||'/').catch(()=>{})).then(()=>self.skipWaiting()));});",
     "self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE&&k!==FC).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});",
