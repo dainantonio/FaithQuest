@@ -1819,10 +1819,15 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 .pdg-btn-print:hover{background:#334155;}
 .pdg-btn-close{background:#F1F5F9;color:#475569;}
 .pdg-btn-close:hover{background:#E2E8F0;}
-@media print{.pdg-overlay{position:static;background:none;}.pdg-container{max-height:none;box-shadow:none;border-radius:0;}.pdg-actions{display:none;}}
+@media print{
+  body>*:not(.pdg-overlay){display:none!important;}
+  .pdg-overlay{position:static;background:none;overflow:visible;}
+  .pdg-container{max-height:none;box-shadow:none;border-radius:0;}
+  .pdg-actions{display:none;}
+}
 
 /* Confetti celebration */
-.confetti-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:10000;overflow:hidden;}
+.confetti-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9000;overflow:hidden;}
 .confetti-piece{position:absolute;width:10px;height:10px;top:-20px;opacity:0;animation:confettiFallBurst 3s ease-in forwards;}
 @keyframes confettiFallBurst{0%{transform:translateY(0) rotate(0deg) scale(1);opacity:1;}100%{transform:translateY(100vh) rotate(720deg) scale(0.3);opacity:0;}}
 
@@ -2616,6 +2621,7 @@ async function _fbLoadUserData(uid){
       state.completions  = d.completions  || [];
       state.checkins     = d.checkins     || [];
       state.journals     = d.journals     || [];
+      state.bookmarks    = d.bookmarks    || [];
       state.subscription = d.subscription || {plan:'free'};
       state.selectedPath = d.selectedPath || 'jesus';
       state.selectedMember = d.selectedMember || null;
@@ -2630,6 +2636,8 @@ async function _fbLoadUserData(uid){
         state.subscription = local.subscription || {plan:'free'};
         state.selectedPath = local.selectedPath || 'jesus';
         state.selectedMember = local.selectedMember || null;
+        state.journals     = local.journals     || [];
+        state.bookmarks    = local.bookmarks    || [];
         // Migrate to Firestore
         await _fbSaveUserData(uid);
         showToast('Data migrated to cloud sync ☁️');
@@ -2652,6 +2660,7 @@ async function _fbSaveUserData(uid){
       completions:   state.completions,
       checkins:      state.checkins,
       journals:      state.journals||[],
+      bookmarks:     state.bookmarks||[],
       subscription:  state.subscription,
       selectedPath:  state.selectedPath,
       selectedMember:state.selectedMember,
@@ -2757,6 +2766,8 @@ let state = {
   checkinState: {mission:null,member:null},
   bookmarks: [],
 };
+
+function _esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
 const AVATAR_CATEGORIES = {
   '😊 Faces': ['😊','😎','🤗','🥳','😇','🤩','🧒','👧','👦','🧑'],
@@ -2899,9 +2910,9 @@ function doSignIn(){
       if(btn){btn.textContent='Sign In →';btn.disabled=false;}
       const saved=JSON.parse(localStorage.getItem('fq_users')||'[]');
       const user=saved.find(function(u){return u.email===email;});
-      if(user){state.currentUser=user;loadUserData();routeAfterAuth();}
-      if(btn){btn.textContent='Sign In →';btn.disabled=false;}
+      if(user){state.currentUser=user;loadUserData();_pathsReady.then(()=>routeAfterAuth());}
       else{showToast('No account found. Create one!');switchAuthTab('signup');document.getElementById('signup-email').value=email;}
+      if(btn){btn.textContent='Sign In →';btn.disabled=false;}
     }
   });
 }
@@ -2991,10 +3002,15 @@ function doSignOut(){
       window._fb.signOut().then(function(){
         state.currentUser=null;state.family=null;state.members=[];
         state.completions=[];state.checkins=[];
+        state.journals=[];state.bookmarks=[];state.subscription={plan:'free'};
+        state.selectedPath=null;state.selectedMember=null;state.lessonState=null;
         showScreen('screen-landing');showToast('Signed out');
       });
     } else {
       state.currentUser=null;state.family=null;state.members=[];
+      state.completions=[];state.checkins=[];
+      state.journals=[];state.bookmarks=[];state.subscription={plan:'free'};
+      state.selectedPath=null;state.selectedMember=null;state.lessonState=null;
       showScreen('screen-landing');showToast('Signed out');
     }
   });
@@ -3836,7 +3852,7 @@ function showKidApp(){
   // Populate mode bar
   const member=getCurrentMember();
   const nameEl=document.getElementById('kidModeNameLabel');
-  if(nameEl&&member) nameEl.innerHTML=`<span>${member.avatar}</span> ${member.name}`;
+  if(nameEl&&member) nameEl.innerHTML=`<span>${member.avatar}</span> ${_esc(member.name)}`;
 
   // Populate profile switcher (only if 2+ kids)
   const kids=state.members.filter(m=>m.role!=='parent');
@@ -3863,7 +3879,7 @@ function switchKidProfile(memberId){
   // Re-render mode bar label
   const member=getCurrentMember();
   const nameEl=document.getElementById('kidModeNameLabel');
-  if(nameEl&&member) nameEl.innerHTML=`<span>${member.avatar}</span> ${member.name}`;
+  if(nameEl&&member) nameEl.innerHTML=`<span>${member.avatar}</span> ${_esc(member.name)}`;
   // Re-render profile switcher pills
   const kids=state.members.filter(m=>m.role!=='parent');
   const switcherEl=document.getElementById('kidProfileSwitcher');
@@ -3918,7 +3934,7 @@ function renderKidHome(el){
   const member=getCurrentMember();
   if(!member){el.innerHTML='<div style="padding:40px;text-align:center;">No member selected.</div>';return;}
   const path=getPath(state.selectedPath||'jesus');
-  const doneCount=state.completions.filter(c=>c.memberId===member.id).length;
+  const doneCount=state.completions.filter(c=>c.memberId===member.id&&c.pathId===path.id).length;
   const nextIdx=Math.min(doneCount,path.lessons.length-1);
   const lesson=path.lessons[nextIdx];
   const streak=getStreak(member.id);
@@ -3964,7 +3980,7 @@ function renderKidHome(el){
         </div>
         <div class="kh-greeting-block">
           <div class="kh-time-greeting">${timeGreeting}</div>
-          <div class="kh-hero-name">${member.name}</div>
+          <div class="kh-hero-name">${_esc(member.name)}</div>
         </div>
       </div>
 
@@ -4169,7 +4185,7 @@ function renderKidRewards(el){
         <div class="rw-hero-top">
           <div class="rw-trophy">🏆</div>
           <div>
-            <div class="rw-hero-name">${member.name}'s Trophy Room</div>
+            <div class="rw-hero-name">${_esc(member.name)}'s Trophy Room</div>
             <div class="rw-hero-level">Level ${lvl} · ${earned.length} of ${ALL_BADGES.length} badges</div>
           </div>
         </div>
@@ -4242,7 +4258,7 @@ function renderKidRewards(el){
             <span class="rw-badge-icon">${b.emoji}</span>
             <div class="rw-badge-name">${b.name}</div>
             <div class="rw-badge-req">${b.req}</div>
-            <button class="rw-share-btn" onclick="event.stopPropagation();shareBadge('${b.emoji}','${b.name}','${member.name}')">📤 Share</button>
+            <button class="rw-share-btn" onclick="event.stopPropagation();shareBadge('${b.emoji}','${b.name}','${_esc(member.name)}')">📤 Share</button>
           </div>`).join('')}
       </div>`:`
       <div style="background:white;border-radius:20px;padding:28px 20px;text-align:center;margin-bottom:8px;box-shadow:0 2px 12px rgba(0,0,0,0.07);">
@@ -4277,13 +4293,13 @@ function toggleBookmark(lessonId,pathId){
   if(!state.bookmarks)state.bookmarks=[];
   const idx=state.bookmarks.findIndex(b=>b.lessonId===lessonId);
   if(idx>=0){state.bookmarks.splice(idx,1);showToast('Bookmark removed');}
-  else{state.bookmarks.push({lessonId,pathId,addedAt:new Date().toISOString()});showToast('Bookmarked! 🔖');}
+  else{state.bookmarks.push({lessonId,pathId,memberId:getCurrentMember().id,addedAt:new Date().toISOString()});showToast('Bookmarked! 🔖');}
   saveUserData();
   const el=document.getElementById('kidContent');
   if(el&&state.kidTab==='library')renderKidLibrary(el);
 }
 function isBookmarked(lessonId){
-  return (state.bookmarks||[]).some(b=>b.lessonId===lessonId);
+  const mid=getCurrentMember()?.id;return (state.bookmarks||[]).some(b=>b.lessonId===lessonId&&(!b.memberId||b.memberId===mid));
 }
 
 function renderKidLibrary(el){
@@ -4291,7 +4307,7 @@ function renderKidLibrary(el){
   const done=state.completions.filter(c=>c.memberId===member?.id).map(c=>c.lessonId);
   let allLessons=[];
   PATHS.forEach(p=>p.lessons.forEach(l=>allLessons.push({...l,pathId:p.id,pathTitle:p.title,pathEmoji:p.emoji})));
-  const bookmarked=(state.bookmarks||[]).map(b=>{
+  const bookmarked=(state.bookmarks||[]).filter(b=>!b.memberId||b.memberId===member?.id).map(b=>{
     const p=PATHS.find(pp=>pp.id===b.pathId);
     const l=p?.lessons.find(ll=>ll.id===b.lessonId);
     return l?{...l,pathId:p.id,pathTitle:p.title,pathEmoji:p.emoji}:null;
@@ -4477,6 +4493,8 @@ function initAiChat(lessonId, lessonTitle, tier) {
   });
   
   renderAiChat();
+  const chatArea = document.getElementById('aiChatMessages');
+  if(chatArea) chatArea.innerHTML += '<div id="aiTyping" class="ai-msg ai-msg-ai" style="opacity:.6">Thinking...</div>';
   // Send opening message
   sendAiChat(null, true);
 }
@@ -4486,7 +4504,7 @@ function renderAiChat() {
   if (!container) return;
   
   // Filter out system messages for display
-  const displayMsgs = _aiChatHistory.slice(2); // skip system context pair
+  const displayMsgs = _aiChatHistory.slice(3); // skip system context pair
   
   const suggestions = _aiChatTier === 'teen' 
     ? ['What does this mean for my life?', 'Why is this important?', 'Tell me the historical context']
@@ -4504,7 +4522,7 @@ function renderAiChat() {
       <div class="ai-chat-messages" id="aiChatMessages">
         ${displayMsgs.map(m => `
           <div class="ai-msg ${m.role === 'model' ? 'ai-msg-ai' : 'ai-msg-user'}">
-            ${m.parts[0].text}
+            ${m.role === 'user' ? _esc(m.parts[0].text) : m.parts[0].text}
           </div>
         `).join('')}
       </div>
@@ -4586,6 +4604,8 @@ async function sendAiChat(text, isOpening) {
   } catch (e) {
     console.error('[FQ] AI chat error:', e);
     document.getElementById('aiTyping')?.remove();
+    _aiChatHistory.pop();
+    renderAiChat();
     showToast('AI is having trouble connecting — try again');
   }
   
@@ -4593,72 +4613,6 @@ async function sendAiChat(text, isOpening) {
   if (input) { input.disabled = false; input.focus(); }
 }
 
-async function geminiDeepen(lessonId, lessonTitle, tier){
-  const btn = document.getElementById('geminiDeepBtn');
-  const resultEl = document.getElementById('geminiDeepResult');
-  if(!btn || !resultEl) return;
-
-  btn.disabled = true;
-  btn.textContent = '✨ Thinking...';
-  resultEl.innerHTML = `<div class="lp2-gemini-loading"><div class="jn-ai-dot"></div><div class="jn-ai-dot" style="animation-delay:0.2s"></div><div class="jn-ai-dot" style="animation-delay:0.4s"></div><span>Gemini is going deeper...</span></div>`;
-
-  const path = PATHS.find(p => p.lessons.some(l => l.id === lessonId));
-  const lesson = path?.lessons.find(l => l.id === lessonId);
-  if(!lesson){ btn.disabled=false; btn.textContent='✨ Go Deeper with AI'; resultEl.innerHTML=''; return; }
-
-  const tierDesc = tier==='teen' ? 'a teenager (14-17), intellectually curious, wants real depth'
-    : tier==='younger' ? 'a young child (4-6), needs simple concrete language and fun analogies'
-    : 'a child (7-10), curious and energetic, likes stories and relatable examples';
-
-  try {
-    const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_KEY}`,
-      {
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({
-          contents:[{parts:[{text:
-`You are a faith education coach helping ${tierDesc} understand a Bible lesson.
-
-Lesson: "${lessonTitle}"
-Verse excerpt: "${lesson.excerpt}"
-Summary: "${lesson.summary}"
-
-Provide:
-1. A "Deeper Insight" paragraph (3-4 sentences) — go beyond the summary. Include historical context, original meaning, or a real-world connection appropriate for this age.
-2. Exactly 2 bonus discussion questions — fresh, not repeating the existing ones. Make them thought-provoking for this age group.
-
-Respond ONLY as JSON, no markdown:
-{"insight":"...","questions":["...","..."]}`
-          }]}],
-          generationConfig:{temperature:0.7, maxOutputTokens:500}
-        })
-      }
-    );
-    const data = await res.json();
-    const raw = data.candidates?.[0]?.content?.parts?.[0]?.text||'';
-    const clean = raw.replace(/```json|```/g,'').trim();
-    const parsed = JSON.parse(clean);
-
-    resultEl.innerHTML = `
-      <div class="lp2-gemini-result">
-        <div class="lp2-gemini-label">✨ Gemini AI · Deeper Insight</div>
-        <div class="lp2-gemini-text">${parsed.insight}</div>
-        ${parsed.questions?.map((q,i)=>`
-          <div class="lp2-gemini-q">
-            <div class="lp2-gemini-q-num">Bonus Question ${i+1}</div>
-            ${q}
-          </div>`).join('')||''}
-      </div>`;
-    btn.style.display = 'none';
-  } catch(e) {
-    console.error('[FQ] Gemini deepen error:', e);
-    resultEl.innerHTML = '';
-    btn.disabled = false;
-    btn.textContent = '✨ Go Deeper with AI';
-    showToast('AI unavailable — try again');
-  }
-}
 function renderKidJournal(el){
   const member = getCurrentMember();
   if(!member){ el.innerHTML=''; return; }
@@ -4686,7 +4640,7 @@ function renderKidJournal(el){
         <div class="jn-hero-top">
           <div class="jn-hero-icon">✍️</div>
           <div>
-            <div class="jn-hero-name">${member.name}'s Journal</div>
+            <div class="jn-hero-name">${_esc(member.name)}'s Journal</div>
             <div class="jn-hero-sub">Private · Faith reflections</div>
           </div>
         </div>
@@ -4790,7 +4744,7 @@ function renderKidProfile(el){
         <div class="kp-hero-bg"></div>
         <div class="kp-avatar-big" onclick="openAvatarEditor()">${member.avatar}</div>
         <div class="kp-edit-hint">Tap to change</div>
-        <div class="kp-name" id="kpName" onclick="openNameEditor()">${member.name} <span class="kp-edit-icon">✏️</span></div>
+        <div class="kp-name" id="kpName" onclick="openNameEditor()">${_esc(member.name)} <span class="kp-edit-icon">✏️</span></div>
         <div class="kp-role">${member.tier==='teen'?'Teen Explorer':'Young Explorer'} · Level ${lvl}</div>
         <div class="kp-family">${state.family?.name||'My Family'}</div>
       </div>
@@ -4886,7 +4840,7 @@ function pickProfileAvatar(a){
   kidNav('profile');
   // Update header too
   const nameEl=document.getElementById('kidModeNameLabel');
-  if(nameEl) nameEl.innerHTML=`<span>${member.avatar}</span> ${member.name}`;
+  if(nameEl) nameEl.innerHTML=`<span>${member.avatar}</span> ${_esc(member.name)}`;
   showToast('Avatar updated! '+a);
 }
 
@@ -4899,7 +4853,7 @@ function openNameEditor(){
     saveUserData();
     kidNav('profile');
     const nameEl=document.getElementById('kidModeNameLabel');
-    if(nameEl) nameEl.innerHTML=`<span>${member.avatar}</span> ${member.name}`;
+    if(nameEl) nameEl.innerHTML=`<span>${member.avatar}</span> ${_esc(member.name)}`;
     showToast('Name updated!');
   }
 }
@@ -4964,6 +4918,7 @@ function toggleLessonAudio(){
 }
 
 function renderLessonStep(){
+  if(window.speechSynthesis){window.speechSynthesis.cancel();}_speechPlaying=false;
   const {path:pathId,lessonIndex,step}=state.lessonState;
   const lesson=getLesson(pathId,lessonIndex);
   const member=getCurrentMember();
@@ -5122,7 +5077,7 @@ function renderLessonStep(){
               <button class="lp2-mood-btn${state.lessonState.selectedEmoji===e?' selected':''}" onclick="selectEmoji('${e}')">${e}</button>`).join('')}
           </div>
         </div>
-        ${isYounger ? '<div class="lp2-journal"><div class="lp2-journal-label">🎨 Draw how your mission went! Or tell a grown-up and they can write it for you.</div><textarea class="lp2-journal-input" rows="3" id="reflectText1" placeholder="Draw a picture or ask a grown-up to write here..." oninput="updateReflect(this.value)" style="width:100%;">' + (state.lessonState.reflectText||'') + '</textarea></div>' : prompts.slice(0,isTeen?2:1).map((p,i)=>'<div class="lp2-journal"><div class="lp2-journal-label">' + p + '</div><textarea class="lp2-journal-input" rows="' + (isTeen?3:3) + '" id="reflectText' + (i+1) + '" placeholder="Write a few sentences..." oninput="' + (i===0?'updateReflect(this.value)':'') + '" style="width:100%;">' + (i===0?state.lessonState.reflectText||'':'') + '</textarea></div>').join('')}
+        ${isYounger ? '<div class="lp2-journal"><div class="lp2-journal-label">🎨 Draw how your mission went! Or tell a grown-up and they can write it for you.</div><textarea class="lp2-journal-input" rows="3" id="reflectText1" placeholder="Draw a picture or ask a grown-up to write here..." oninput="updateReflect(this.value)" style="width:100%;">' + (state.lessonState.reflectText||'') + '</textarea></div>' : prompts.slice(0,isTeen?2:1).map((p,i)=>'<div class="lp2-journal"><div class="lp2-journal-label">' + p + '</div><textarea class="lp2-journal-input" rows="' + (isTeen?3:3) + '" id="reflectText' + (i+1) + '" placeholder="Write a few sentences..." oninput="' + (i===0?"updateReflect(this.value)":"updateReflect(document.getElementById('reflectText1').value + '\\n---\\n' + this.value)") + '" style="width:100%;">' + (i===0?state.lessonState.reflectText||'':'') + '</textarea></div>').join('')}
       </div>`;
 
   } else if(stepName==='prayer'){
@@ -5710,7 +5665,7 @@ initLessonPreview();
 (function(){
   if (!('serviceWorker' in navigator)) return;
   var sw = [
-    "const CACHE='faithquest-v6';",
+    "const CACHE='faithquest-v7';",
     "const FC='faithquest-fonts-v1';",
     "const LC='faithquest-lessons-v1';",
     "",
