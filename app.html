@@ -338,6 +338,9 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 .avatar-option.locked::after{content:'🔒';position:absolute;right:6px;bottom:6px;font-size:0.7rem;background:white;border-radius:999px;padding:2px 4px;line-height:1;}
 .avatar-option.locked:hover{transform:none;background:white;}
 .avatar-token{width:1.4em;height:1.4em;border-radius:999px;object-fit:cover;vertical-align:middle;display:inline-block;}
+.kh-avatar .avatar-token{width:100%;height:100%;border-radius:14px;}
+.kp-avatar-big .avatar-token{width:4.5rem;height:4.5rem;border-radius:999px;}
+.pd-member-avatar .avatar-token,.pd-approval-avatar .avatar-token,.ap-card-avatar .avatar-token,.pd-kid-card-avatar .avatar-token,.kp-switch-avatar .avatar-token,.pi-child-avatar .avatar-token{width:100%;height:100%;border-radius:inherit;}
 .avatar-option-image{width:100%;height:100%;object-fit:cover;border-radius:10px;display:block;}
 
 /* Path picker */
@@ -2837,11 +2840,16 @@ const AVATAR_IMAGE_ASSETS={
   'img:girl8':'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><rect width="128" height="128" rx="64" fill="%23EFF6FF"/><circle cx="64" cy="50" r="25" fill="%2380513A"/><path d="M39 46c4-18 46-18 50 0" stroke="%23221A1A" stroke-width="9" stroke-linecap="round"/><circle cx="54" cy="50" r="4" fill="%232C1D12"/><circle cx="74" cy="50" r="4" fill="%232C1D12"/><path d="M49 61c5 4 24 4 30 0" stroke="%232C1D12" stroke-width="2" fill="none" stroke-linecap="round"/><rect x="42" y="44" width="20" height="14" rx="6" fill="none" stroke="%231D4ED8" stroke-width="3"/><rect x="66" y="44" width="20" height="14" rx="6" fill="none" stroke="%231D4ED8" stroke-width="3"/><path d="M62 50h4" stroke="%231D4ED8" stroke-width="3"/><rect x="26" y="82" width="76" height="34" rx="16" fill="%23FDE68A"/></svg>'
 };
 function renderAvatarToken(avatar,cls='avatar-token'){
-  if(AVATAR_IMAGE_ASSETS[avatar]) return `<img src="${AVATAR_IMAGE_ASSETS[avatar]}" alt="avatar" class="${cls}">`;
+  if(AVATAR_IMAGE_ASSETS[avatar]) return `<img src='${AVATAR_IMAGE_ASSETS[avatar]}' alt='avatar' class='${cls}'>`;
   return _esc(avatar||'😊');
 }
 function avatarOptionMarkup(a){
-  return AVATAR_IMAGE_ASSETS[a]?`<img src="${AVATAR_IMAGE_ASSETS[a]}" alt="avatar" class="avatar-option-image">`:a;
+  return AVATAR_IMAGE_ASSETS[a]?`<img src='${AVATAR_IMAGE_ASSETS[a]}' alt='avatar' class='avatar-option-image'>`:a;
+}
+
+function openAvatarEditorFromKidHome(){
+  kidNav('profile');
+  setTimeout(function(){openAvatarEditor();},80);
 }
 
 function getMemberProgress(memberId){
@@ -4101,7 +4109,7 @@ function renderKidHome(el){
         <div class="kh-greeting-block">
           <div class="kh-time-greeting">${timeGreeting}</div>
           <div class="kh-hero-name">${_esc(member.name)}</div>
-          <button class="kh-avatar-edit-btn" onclick="kidNav('profile');setTimeout(openAvatarEditor,80)">🎨 Change avatar</button>
+          <button class="kh-avatar-edit-btn" onclick="openAvatarEditorFromKidHome()">🎨 Change avatar</button>
         </div>
       </div>
 
