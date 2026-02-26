@@ -2807,19 +2807,22 @@ let state = {
   lessonState: {path:null,lessonIndex:0,step:0,selectedMission:null,selectedEmoji:null,reflectText:''},
   checkinState: {mission:null,member:null},
   bookmarks: [],
+  avatarSeen: {},
+  analyticsEvents: [],
+  avatarEditor: {memberId:null,tab:'owned'},
 };
 
 function _esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
-const AVATAR_CATEGORIES = {
-  '🧑‍🤝‍🧑 People': ['🧒🏻','🧒🏽','🧒🏿','👧🏽','👦🏾','🧑🏻','🧑🏽','🧑🏿','👩🏽','👨🏿','img:girl11','img:girl8'],
+let AVATAR_CATEGORIES = {
+  '🧑‍🤝‍🧑 People': ['🧒🏻','🧒🏽','🧒🏿','👧🏽','👦🏾','🧑🏻','🧑🏽','🧑🏿','👩🏽','👨🏿'],
   '🕊️ Worship': ['🙏🏻','🙏🏾','🙌🏻','🙌🏿','🤲🏽','🧎🏽','🙇🏾','📖'],
   '🦁 Animals': ['🦁','🐯','🦊','🐻','🐼','🦋','🦅','🐘','🐳','🐬','🦄','🐕','🐈','🐾','🦖'],
   '⭐ Fun': ['⭐','🌟','🚀','🌈','🎯','⚡','🎨','🎵','⚽','🏀','🎮','🧩'],
   '🌿 Nature': ['🌿','🌺','🌻','🌸','🍀','🌊','☀️','🌙','❄️','🔥','🌍','🏔️','🦩','🐚','🍃']
 };
 
-const AVATAR_UNLOCKABLES = [
+let AVATAR_UNLOCKABLES = [
   {avatar:'👶🏻', category:'🧑‍🤝‍🧑 People', req:{type:'lessons', count:2, label:'Complete 2 lessons'}},
   {avatar:'👶🏽', category:'🧑‍🤝‍🧑 People', req:{type:'lessons', count:4, label:'Complete 4 lessons'}},
   {avatar:'🧓🏻', category:'🧑‍🤝‍🧑 People', req:{type:'lessons', count:6, label:'Complete 6 lessons'}},
@@ -2833,12 +2836,42 @@ const AVATAR_UNLOCKABLES = [
   {avatar:'🏅', category:'⭐ Fun', req:{type:'missions', count:3, label:'Get 3 missions approved'}},
   {avatar:'👑', category:'⭐ Fun', req:{type:'missions', count:6, label:'Get 6 missions approved'}}
 ];
-const AVATARS = Object.values(AVATAR_CATEGORIES).flat().concat(AVATAR_UNLOCKABLES.map(v=>v.avatar));
+let AVATARS = Object.values(AVATAR_CATEGORIES).flat().concat(AVATAR_UNLOCKABLES.map(v=>v.avatar));
 
-const AVATAR_IMAGE_ASSETS={
-  'img:girl11':'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><rect width="128" height="128" rx="64" fill="%23FDF2F8"/><circle cx="64" cy="50" r="26" fill="%238B5A3C"/><ellipse cx="64" cy="44" rx="35" ry="26" fill="%23221A1A"/><circle cx="54" cy="50" r="4" fill="%232C1D12"/><circle cx="74" cy="50" r="4" fill="%232C1D12"/><path d="M48 61c5 5 27 5 32 0" stroke="%232C1D12" stroke-width="2" fill="none" stroke-linecap="round"/><rect x="43" y="44" width="20" height="14" rx="7" fill="none" stroke="%23A7C5FF" stroke-width="3"/><rect x="65" y="44" width="20" height="14" rx="7" fill="none" stroke="%23A7C5FF" stroke-width="3"/><path d="M63 50h2" stroke="%23A7C5FF" stroke-width="3"/><rect x="28" y="82" width="72" height="34" rx="16" fill="%23F472B6"/></svg>',
-  'img:girl8':'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><rect width="128" height="128" rx="64" fill="%23EFF6FF"/><circle cx="64" cy="50" r="25" fill="%2380513A"/><path d="M39 46c4-18 46-18 50 0" stroke="%23221A1A" stroke-width="9" stroke-linecap="round"/><circle cx="54" cy="50" r="4" fill="%232C1D12"/><circle cx="74" cy="50" r="4" fill="%232C1D12"/><path d="M49 61c5 4 24 4 30 0" stroke="%232C1D12" stroke-width="2" fill="none" stroke-linecap="round"/><rect x="42" y="44" width="20" height="14" rx="6" fill="none" stroke="%231D4ED8" stroke-width="3"/><rect x="66" y="44" width="20" height="14" rx="6" fill="none" stroke="%231D4ED8" stroke-width="3"/><path d="M62 50h4" stroke="%231D4ED8" stroke-width="3"/><rect x="26" y="82" width="76" height="34" rx="16" fill="%23FDE68A"/></svg>'
-};
+let AVATAR_IMAGE_ASSETS={};
+
+function trackEvent(name,payload){
+  const evt={name,payload:payload||{},ts:new Date().toISOString()};
+  state.analyticsEvents=(state.analyticsEvents||[]).concat(evt).slice(-250);
+  if(window.console&&console.log) console.log('[FQ:analytics]',name,payload||{});
+}
+
+async function loadAvatarManifest(){
+  try{
+    const res=await fetch('avatars.json',{cache:'no-store'});
+    if(!res.ok) throw new Error('avatar manifest missing');
+    const data=await res.json();
+    const list=Array.isArray(data?.avatars)?data.avatars:[];
+    list.forEach(item=>{
+      if(!item?.id||!item?.src)return;
+      AVATAR_IMAGE_ASSETS[item.id]=item.src;
+      if(item.category){
+        if(!AVATAR_CATEGORIES[item.category]) AVATAR_CATEGORIES[item.category]=[];
+        if(!AVATAR_CATEGORIES[item.category].includes(item.id)) AVATAR_CATEGORIES[item.category].push(item.id);
+      }
+    });
+    AVATARS=Object.values(AVATAR_CATEGORIES).flat().concat(AVATAR_UNLOCKABLES.map(v=>v.avatar));
+  } catch(e){
+    AVATAR_IMAGE_ASSETS={
+      'img:girl11':'avatars/girl11.svg',
+      'img:girl8':'avatars/girl8.svg',
+    };
+    if(!AVATAR_CATEGORIES['🧑‍🤝‍🧑 People'].includes('img:girl11')) AVATAR_CATEGORIES['🧑‍🤝‍🧑 People'].push('img:girl11');
+    if(!AVATAR_CATEGORIES['🧑‍🤝‍🧑 People'].includes('img:girl8')) AVATAR_CATEGORIES['🧑‍🤝‍🧑 People'].push('img:girl8');
+    AVATARS=Object.values(AVATAR_CATEGORIES).flat().concat(AVATAR_UNLOCKABLES.map(v=>v.avatar));
+  }
+}
+const _avatarsReady=loadAvatarManifest();
 function renderAvatarToken(avatar,cls='avatar-token'){
   if(AVATAR_IMAGE_ASSETS[avatar]) return `<img src='${AVATAR_IMAGE_ASSETS[avatar]}' alt='avatar' class='${cls}'>`;
   return _esc(avatar||'😊');
@@ -2888,6 +2921,10 @@ function maybeNotifyAvatarUnlocks(memberId,beforeProgress){
     return !had&&has;
   });
   if(newly.length>0){
+    state.avatarSeen=state.avatarSeen||{};
+    const seen=state.avatarSeen[memberId]||[];
+    state.avatarSeen[memberId]=seen.filter(x=>!newly.some(n=>n.avatar===x));
+    trackEvent('avatar_unlock_toast',{memberId,avatars:newly.map(n=>n.avatar)});
     const icons=newly.slice(0,3).map(n=>n.avatar).join(' ');
     showToast(`New avatar unlocked! ${icons}`);
   }
@@ -3145,6 +3182,8 @@ function loadUserData(){
     state.selectedPath=data.selectedPath||'jesus';
     state.selectedMember=data.selectedMember||null;
     state.bookmarks=data.bookmarks||[];
+    state.avatarSeen=data.avatarSeen||{};
+    state.analyticsEvents=data.analyticsEvents||[];
   }
 }
 
@@ -3155,6 +3194,8 @@ function saveUserData(){
     checkins:state.checkins,journals:state.journals||[],subscription:state.subscription,
     selectedPath:state.selectedPath,selectedMember:state.selectedMember,
     bookmarks:state.bookmarks||[],
+    avatarSeen:state.avatarSeen||{},
+    analyticsEvents:state.analyticsEvents||[],
   };
   // Always write localStorage as offline cache
   localStorage.setItem('fq_data_'+state.currentUser.id,JSON.stringify(payload));
@@ -4943,8 +4984,21 @@ function renderKidProfile(el){
 function openAvatarEditor(){
   const member=getCurrentMember();
   if(!member)return;
+  document.getElementById('avatarEditorModal')?.remove();
   const categories=getUnlockedAvatarCategories(member.id,true);
   const progress=getMemberProgress(member.id);
+  const seenSet=new Set((state.avatarSeen?.[member.id]||[]));
+  const allOptions=Object.entries(categories).flatMap(([cat,avatars])=>avatars.map(a=>({cat,a,unlocked:isAvatarUnlocked(member.id,a)})));
+  const owned=allOptions.filter(x=>x.unlocked);
+  const locked=allOptions.filter(x=>!x.unlocked);
+  const newItems=owned.filter(x=>!seenSet.has(x.a));
+  const tabs=[{id:'owned',label:`Owned (${owned.length})`},{id:'new',label:`New (${newItems.length})`},{id:'locked',label:`Locked (${locked.length})`}];
+  const activeTab=(state.avatarEditor?.memberId===member.id?state.avatarEditor?.tab:'owned')||'owned';
+  state.avatarEditor={memberId:member.id,tab:activeTab};
+  const tabData=activeTab==='locked'?locked:activeTab==='new'?newItems:owned;
+  const grouped={};
+  tabData.forEach(item=>{if(!grouped[item.cat])grouped[item.cat]=[];grouped[item.cat].push(item.a);});
+  trackEvent('avatar_editor_opened',{memberId:member.id,tab:activeTab,newCount:newItems.length});
   const modal=document.createElement('div');
   modal.className='kp-modal-overlay';
   modal.id='avatarEditorModal';
@@ -4956,7 +5010,11 @@ function openAvatarEditor(){
         <div class="kp-unlock-title">Avatar quest progress</div>
         <div class="kp-unlock-sub">📚 ${progress.lessons} lessons complete · 🎯 ${progress.missions} approved missions. Keep learning to unlock age variants, skin tones, and worship poses.</div>
       </div>
-      ${Object.entries(categories).map(([cat, avatars]) => `
+      <div style="display:flex;gap:8px;margin:8px 0 10px;flex-wrap:wrap;">
+        ${tabs.map(t=>`<button class="btn btn-sm ${activeTab===t.id?'btn-primary':'btn-secondary'}" style="border-radius:999px;" onclick="switchAvatarEditorTab('${t.id}')">${t.label}</button>`).join('')}
+      </div>
+      ${Object.keys(grouped).length===0?`<div style="font-size:0.82rem;color:var(--slate-500);padding:6px 2px 10px;">No avatars in this tab yet.</div>`:''}
+      ${Object.entries(grouped).map(([cat, avatars]) => `
         <div class="avatar-cat-label">${cat}</div>
         <div class="avatar-grid">
           ${avatars.map(a => {
@@ -4972,14 +5030,28 @@ function openAvatarEditor(){
   document.body.appendChild(modal);
 }
 
+function switchAvatarEditorTab(tab){
+  const member=getCurrentMember();
+  if(!member)return;
+  state.avatarEditor={memberId:member.id,tab};
+  openAvatarEditor();
+  trackEvent('avatar_editor_tab_switched',{memberId:member.id,tab});
+}
+
 function pickProfileAvatar(a){
   const member=getCurrentMember();
   if(!member)return;
   if(!isAvatarUnlocked(member.id,a)){
     const rule=getAvatarUnlockRule(a);
+    trackEvent('avatar_locked_tap',{memberId:member.id,avatar:a,rule:rule?.label||null});
     showToast(rule?`Locked: ${rule.label}`:'Avatar locked');
     return;
   }
+  trackEvent('avatar_equipped',{memberId:member.id,avatar:a});
+  state.avatarSeen=state.avatarSeen||{};
+  const seenSet=new Set(state.avatarSeen[member.id]||[]);
+  seenSet.add(a);
+  state.avatarSeen[member.id]=Array.from(seenSet);
   member.avatar=a;
   saveUserData();
   document.getElementById('avatarEditorModal')?.remove();
