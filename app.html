@@ -133,7 +133,7 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 .progress-fill{height:100%;background:linear-gradient(90deg,var(--amber),var(--amber-dark));border-radius:100px;transition:width 0.5s ease;}
 
 /* ===== TOAST ===== */
-#toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:var(--slate-900);color:var(--white);padding:12px 24px;border-radius:100px;font-size:0.875rem;font-weight:500;z-index:9999;opacity:0;transition:opacity 0.3s;pointer-events:none;white-space:nowrap;max-width:90vw;text-align:center;}
+#toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:var(--slate-900);color:var(--white);padding:12px 24px;border-radius:100px;font-size:0.875rem;font-weight:500;z-index:9999;opacity:0;transition:opacity 0.3s;pointer-events:none;white-space:normal;max-width:90vw;text-align:center;word-break:break-word;}
 #toast.show{opacity:1;}
 
 /* ===== MODAL ===== */
@@ -334,6 +334,11 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 .avatar-option{aspect-ratio:1;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;cursor:pointer;border:2.5px solid transparent;transition:all 0.18s;background:white;box-shadow:0 1px 4px rgba(0,0,0,0.06);}
 .avatar-option:hover{background:#FEF9EE;transform:scale(1.08);}
 .avatar-option.selected{border-color:var(--amber);background:#FEF3C7;transform:scale(1.12);box-shadow:0 4px 14px rgba(245,158,11,0.3);}
+.avatar-option.locked{position:relative;opacity:0.55;filter:saturate(0.3);cursor:not-allowed;}
+.avatar-option.locked::after{content:'🔒';position:absolute;right:6px;bottom:6px;font-size:0.7rem;background:white;border-radius:999px;padding:2px 4px;line-height:1;}
+.avatar-option.locked:hover{transform:none;background:white;}
+.avatar-token{width:1.4em;height:1.4em;border-radius:999px;object-fit:cover;vertical-align:middle;display:inline-block;}
+.avatar-option-image{width:100%;height:100%;object-fit:cover;border-radius:10px;display:block;}
 
 /* Path picker */
 .ob-path-list{display:flex;flex-direction:column;gap:9px;}
@@ -532,6 +537,8 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 .kh-greeting-block{flex:1;}
 .kh-time-greeting{font-size:0.7rem;font-weight:700;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.12em;}
 .kh-hero-name{font-family:var(--font-display);font-size:1.55rem;font-weight:700;color:white;line-height:1.1;}
+.kh-avatar-edit-btn{margin-top:8px;display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.25);color:white;border-radius:999px;padding:6px 10px;font-size:0.68rem;font-weight:800;letter-spacing:0.02em;cursor:pointer;max-width:100%;white-space:normal;}
+.kh-avatar-edit-btn:hover{background:rgba(255,255,255,0.2);}
 
 /* ── Animated streak ring ── */
 .kh-streak-center{display:flex;flex-direction:column;align-items:center;position:relative;z-index:2;margin-bottom:20px;}
@@ -1812,6 +1819,19 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
   .stats-row{grid-template-columns:1fr 1fr;}
   .badge-grid{grid-template-columns:repeat(2,1fr);}
 }
+@media(max-width:480px){
+  .avatar-grid{grid-template-columns:repeat(4,1fr);}
+  .kp-modal-overlay{padding:12px;}
+  .kp-modal{max-height:86vh;padding:18px;}
+  .pd-member-card{align-items:flex-start;gap:10px;padding:12px;}
+  .pd-member-action{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end;}
+  .pd-member-action .btn-sm{padding:7px 10px;font-size:0.72rem;}
+  .kp-avatar-cta{max-width:100%;text-align:center;justify-content:center;white-space:normal;}
+}
+@media(max-width:360px){
+  .avatar-grid{grid-template-columns:repeat(3,1fr);}
+  .kp-modal{padding:14px;}
+}
 
 /* Parent Discussion Guide */
 .pdg-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px;animation:fadeIn 0.2s;}
@@ -1909,6 +1929,8 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 .kp-avatar-big{font-size:4.5rem;cursor:pointer;transition:transform 0.2s;display:inline-block;}
 .kp-avatar-big:hover{transform:scale(1.1);}
 .kp-edit-hint{font-size:0.7rem;color:var(--slate-400);margin-top:2px;}
+.kp-avatar-cta{display:inline-flex;align-items:center;gap:8px;margin-top:10px;background:linear-gradient(135deg,var(--amber),var(--amber-dark));color:white;border:none;border-radius:999px;padding:9px 14px;font-size:0.78rem;font-weight:800;cursor:pointer;box-shadow:0 6px 18px rgba(245,158,11,0.3);}
+.kp-avatar-cta:hover{transform:translateY(-1px);}
 .kp-name{font-family:var(--font-display);font-size:1.5rem;font-weight:700;margin-top:8px;cursor:pointer;}
 .kp-edit-icon{font-size:0.8rem;opacity:0.4;transition:opacity 0.2s;}
 .kp-name:hover .kp-edit-icon{opacity:1;}
@@ -1945,6 +1967,9 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 .kp-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:10000;display:flex;align-items:center;justify-content:center;padding:20px;}
 .kp-modal{background:var(--slate-50);border-radius:20px;padding:24px;max-width:380px;width:100%;max-height:80vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
 .kp-modal-title{font-family:var(--font-display);font-size:1.2rem;font-weight:700;text-align:center;margin-bottom:12px;}
+.kp-unlock-card{background:white;border:1.5px solid var(--amber-200);border-radius:14px;padding:12px 14px;margin-bottom:10px;}
+.kp-unlock-title{font-size:0.7rem;font-weight:800;color:var(--amber-700);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px;}
+.kp-unlock-sub{font-size:0.82rem;color:var(--slate-600);line-height:1.45;}
 .ai-chat-container{background:white;border-radius:16px;padding:16px;margin-top:16px;box-shadow:0 1px 6px rgba(0,0,0,0.06);}
 .ai-chat-header{display:flex;align-items:center;gap:8px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--slate-100);}
 .ai-chat-header-icon{font-size:1.4rem;}
@@ -2784,12 +2809,81 @@ let state = {
 function _esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
 const AVATAR_CATEGORIES = {
-  '😊 Faces': ['😊','😎','🤗','🥳','😇','🤩','🧒','👧','👦','🧑'],
+  '🧑‍🤝‍🧑 People': ['🧒🏻','🧒🏽','🧒🏿','👧🏽','👦🏾','🧑🏻','🧑🏽','🧑🏿','👩🏽','👨🏿','img:girl11','img:girl8'],
+  '🕊️ Worship': ['🙏🏻','🙏🏾','🙌🏻','🙌🏿','🤲🏽','🧎🏽','🙇🏾','📖'],
   '🦁 Animals': ['🦁','🐯','🦊','🐻','🐼','🦋','🦅','🐘','🐳','🐬','🦄','🐕','🐈','🐾','🦖'],
-  '⭐ Fun': ['⭐','🌟','🚀','🌈','🎯','⚡','🎪','🎨','🎵','⚽','🏀','🎮','🛹','🧩','🎭'],
+  '⭐ Fun': ['⭐','🌟','🚀','🌈','🎯','⚡','🎨','🎵','⚽','🏀','🎮','🧩'],
   '🌿 Nature': ['🌿','🌺','🌻','🌸','🍀','🌊','☀️','🌙','❄️','🔥','🌍','🏔️','🦩','🐚','🍃']
 };
-const AVATARS = Object.values(AVATAR_CATEGORIES).flat();
+
+const AVATAR_UNLOCKABLES = [
+  {avatar:'👶🏻', category:'🧑‍🤝‍🧑 People', req:{type:'lessons', count:2, label:'Complete 2 lessons'}},
+  {avatar:'👶🏽', category:'🧑‍🤝‍🧑 People', req:{type:'lessons', count:4, label:'Complete 4 lessons'}},
+  {avatar:'🧓🏻', category:'🧑‍🤝‍🧑 People', req:{type:'lessons', count:6, label:'Complete 6 lessons'}},
+  {avatar:'🧓🏿', category:'🧑‍🤝‍🧑 People', req:{type:'lessons', count:9, label:'Complete 9 lessons'}},
+  {avatar:'🙏🏽', category:'🕊️ Worship', req:{type:'lessons', count:3, label:'Complete 3 lessons'}},
+  {avatar:'🙌🏽', category:'🕊️ Worship', req:{type:'lessons', count:5, label:'Complete 5 lessons'}},
+  {avatar:'📖✨', category:'🕊️ Worship', req:{type:'lessons', count:8, label:'Complete 8 lessons'}},
+  {avatar:'🤲🏿', category:'🕊️ Worship', req:{type:'missions', count:1, label:'Get 1 mission approved'}},
+  {avatar:'🙇🏽', category:'🕊️ Worship', req:{type:'missions', count:2, label:'Get 2 missions approved'}},
+  {avatar:'🧎🏿', category:'🕊️ Worship', req:{type:'missions', count:4, label:'Get 4 missions approved'}},
+  {avatar:'🏅', category:'⭐ Fun', req:{type:'missions', count:3, label:'Get 3 missions approved'}},
+  {avatar:'👑', category:'⭐ Fun', req:{type:'missions', count:6, label:'Get 6 missions approved'}}
+];
+const AVATARS = Object.values(AVATAR_CATEGORIES).flat().concat(AVATAR_UNLOCKABLES.map(v=>v.avatar));
+
+const AVATAR_IMAGE_ASSETS={
+  'img:girl11':'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><rect width="128" height="128" rx="64" fill="%23FDF2F8"/><circle cx="64" cy="50" r="26" fill="%238B5A3C"/><ellipse cx="64" cy="44" rx="35" ry="26" fill="%23221A1A"/><circle cx="54" cy="50" r="4" fill="%232C1D12"/><circle cx="74" cy="50" r="4" fill="%232C1D12"/><path d="M48 61c5 5 27 5 32 0" stroke="%232C1D12" stroke-width="2" fill="none" stroke-linecap="round"/><rect x="43" y="44" width="20" height="14" rx="7" fill="none" stroke="%23A7C5FF" stroke-width="3"/><rect x="65" y="44" width="20" height="14" rx="7" fill="none" stroke="%23A7C5FF" stroke-width="3"/><path d="M63 50h2" stroke="%23A7C5FF" stroke-width="3"/><rect x="28" y="82" width="72" height="34" rx="16" fill="%23F472B6"/></svg>',
+  'img:girl8':'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><rect width="128" height="128" rx="64" fill="%23EFF6FF"/><circle cx="64" cy="50" r="25" fill="%2380513A"/><path d="M39 46c4-18 46-18 50 0" stroke="%23221A1A" stroke-width="9" stroke-linecap="round"/><circle cx="54" cy="50" r="4" fill="%232C1D12"/><circle cx="74" cy="50" r="4" fill="%232C1D12"/><path d="M49 61c5 4 24 4 30 0" stroke="%232C1D12" stroke-width="2" fill="none" stroke-linecap="round"/><rect x="42" y="44" width="20" height="14" rx="6" fill="none" stroke="%231D4ED8" stroke-width="3"/><rect x="66" y="44" width="20" height="14" rx="6" fill="none" stroke="%231D4ED8" stroke-width="3"/><path d="M62 50h4" stroke="%231D4ED8" stroke-width="3"/><rect x="26" y="82" width="76" height="34" rx="16" fill="%23FDE68A"/></svg>'
+};
+function renderAvatarToken(avatar,cls='avatar-token'){
+  if(AVATAR_IMAGE_ASSETS[avatar]) return `<img src="${AVATAR_IMAGE_ASSETS[avatar]}" alt="avatar" class="${cls}">`;
+  return _esc(avatar||'😊');
+}
+function avatarOptionMarkup(a){
+  return AVATAR_IMAGE_ASSETS[a]?`<img src="${AVATAR_IMAGE_ASSETS[a]}" alt="avatar" class="avatar-option-image">`:a;
+}
+
+function getMemberProgress(memberId){
+  return {
+    lessons:state.completions.filter(c=>c.memberId===memberId).length,
+    missions:state.checkins.filter(c=>c.memberId===memberId&&c.approved).length,
+  };
+}
+function getUnlockedAvatarCategories(memberId, includeLocked=false){
+  const categories=JSON.parse(JSON.stringify(AVATAR_CATEGORIES));
+  if(!memberId) return categories;
+  const progress=getMemberProgress(memberId);
+  AVATAR_UNLOCKABLES.forEach(item=>{
+    const met=progress[item.req.type]>=item.req.count;
+    if(met||includeLocked){
+      if(!categories[item.category]) categories[item.category]=[];
+      categories[item.category].push(item.avatar);
+    }
+  });
+  return categories;
+}
+function getAvatarUnlockRule(avatar){
+  return AVATAR_UNLOCKABLES.find(a=>a.avatar===avatar)?.req||null;
+}
+function isAvatarUnlocked(memberId, avatar){
+  const rule=getAvatarUnlockRule(avatar);
+  if(!rule||!memberId) return true;
+  const progress=getMemberProgress(memberId);
+  return progress[rule.type]>=rule.count;
+}
+function maybeNotifyAvatarUnlocks(memberId,beforeProgress){
+  const after=getMemberProgress(memberId);
+  const newly=AVATAR_UNLOCKABLES.filter(item=>{
+    const had=(beforeProgress?.[item.req.type]||0)>=item.req.count;
+    const has=after[item.req.type]>=item.req.count;
+    return !had&&has;
+  });
+  if(newly.length>0){
+    const icons=newly.slice(0,3).map(n=>n.avatar).join(' ');
+    showToast(`New avatar unlocked! ${icons}`);
+  }
+}
 
 // ===================== UTILS =====================
 function showScreen(id){
@@ -3150,12 +3244,13 @@ function renderOnboardStep(){
     noteEl.textContent='You can add more children after setup.';
 
   } else if(stepName==='avatar'){
+    const onboardingCats=getUnlockedAvatarCategories(null);
     body.innerHTML=`
-      <div class="ob-avatar-preview" id="obAvatarPreview">${state.onboardData.avatar}</div>
-      ${Object.entries(AVATAR_CATEGORIES).map(([cat, avatars]) => `
+      <div class="ob-avatar-preview" id="obAvatarPreview">${renderAvatarToken(state.onboardData.avatar,'avatar-token')}</div>
+      ${Object.entries(onboardingCats).map(([cat, avatars]) => `
         <div class="avatar-cat-label">${cat}</div>
         <div class="avatar-grid">
-          ${avatars.map(a=>`<div class="avatar-option${state.onboardData.avatar===a?' selected':''}" onclick="selectObAvatar('${a}')">${a}</div>`).join('')}
+          ${avatars.map(a=>`<div class="avatar-option${state.onboardData.avatar===a?' selected':''}" data-avatar="${a}" onclick="selectObAvatar('${a}')">${avatarOptionMarkup(a)}</div>`).join('')}
         </div>
       `).join('')}`;
     noteEl.textContent='You can change this later in your profile.';
@@ -3190,7 +3285,7 @@ function renderOnboardStep(){
     const path=PATHS.find(p=>p.id===state.onboardData.selectedPath);
     body.innerHTML=`
       <div class="ob-confirm-card">
-        <div class="ob-confirm-avatar-ring">${state.onboardData.avatar}</div>
+        <div class="ob-confirm-avatar-ring">${renderAvatarToken(state.onboardData.avatar,'avatar-token')}</div>
         <div class="ob-confirm-name">${state.onboardData.kidName||'Your Child'}</div>
         <div class="ob-confirm-sub">${state.onboardData.tier==='teen'?'Teen':'Kid'} &middot; ${state.onboardData.familyName||'Your Family'}</div>
         <div class="ob-confirm-row">
@@ -3225,8 +3320,8 @@ function selectTier(t){
 function selectObAvatar(a){
   state.onboardData.avatar=a;
   const prev=document.getElementById('obAvatarPreview');
-  if(prev){prev.style.transform='scale(1.25)';prev.textContent=a;setTimeout(()=>prev.style.transform='',220);}
-  document.querySelectorAll('.avatar-option').forEach(el=>el.classList.toggle('selected',el.textContent===a));
+  if(prev){prev.style.transform='scale(1.25)';prev.innerHTML=renderAvatarToken(a,'avatar-token');setTimeout(()=>prev.style.transform='',220);}
+  document.querySelectorAll('.avatar-option').forEach(el=>el.classList.toggle('selected',el.dataset.avatar===a));
 }
 function selectObPath(id){
   if(state.subscription.plan==='free'&&id!=='jesus'){showToast('Upgrade to Premium for all paths');return;}
@@ -3320,7 +3415,7 @@ function renderParentKidSwitcher(){
   el.style.display='flex';
   el.innerHTML=kids.map(k=>`
     <button class="kid-switcher-pill${state.selectedMember===k.id?' active':''}" onclick="switchToKid('${k.id}')">
-      <span class="kid-switcher-avatar">${k.avatar}</span>${k.name.split(' ')[0]}
+      <span class="kid-switcher-avatar">${renderAvatarToken(k.avatar,'avatar-token')}</span>${k.name.split(' ')[0]}
     </button>`).join('');
 }
 function parentNav(tab){
@@ -3384,7 +3479,7 @@ function renderParentHome(el){
           const missions=state.checkins.filter(c=>c.memberId===k.id&&c.approved).length;
           const isActive=state.selectedMember===k.id;
           return `<div class="pd-member-card${isActive?' active-member':''}" onclick="switchToKid('${k.id}')">
-            <div class="pd-member-avatar" style="background:${isActive?'var(--amber-light)':'var(--slate-100)'};">${k.avatar}</div>
+            <div class="pd-member-avatar" style="background:${isActive?'var(--amber-light)':'var(--slate-100)'};">${renderAvatarToken(k.avatar,'avatar-token')}</div>
             <div class="pd-member-info">
               <div class="pd-member-name">${k.name}${isActive?'<span style="font-size:0.62rem;background:var(--amber);color:white;padding:2px 7px;border-radius:100px;font-weight:700;margin-left:6px;">Active</span>':''}</div>
               <div class="pd-member-meta">${k.tier==='teen'?'Teen':'Kid'}</div>
@@ -3398,6 +3493,7 @@ function renderParentHome(el){
                 <div class="pd-member-prog-label">${done} of ${PATHS.reduce((s,p)=>s+p.lessons.length,0)||91} lessons &middot; ${pct}%</div>
               </div>
             </div>
+            <div class="pd-member-action"><button class="btn btn-sky btn-sm" onclick="event.stopPropagation();switchToKidAvatarEditor('${k.id}')">Avatar</button></div>
           </div>`;
         }).join('')}
         <button class="btn btn-secondary btn-full" onclick="openAddMember()" style="border-radius:14px;margin-top:2px;">+ Add Family Member</button>
@@ -3411,7 +3507,7 @@ function renderParentHome(el){
         const member=state.members.find(m=>m.id===c.memberId);
         return `<div class="pd-approval">
           <div class="pd-approval-top">
-            <div class="pd-approval-avatar">${member?.avatar||'🧒'}</div>
+            <div class="pd-approval-avatar">${renderAvatarToken(member?.avatar||'🧒','avatar-token')}</div>
             <div class="pd-approval-meta">
               <div class="pd-approval-who">${member?.name}</div>
               <div class="pd-approval-mission">📌 ${c.missionTitle}</div>
@@ -3445,7 +3541,7 @@ function renderParentFamily(el){
       <div class="pd-section-hd" style="margin-top:8px;"><span class="pd-section-title">Family Members</span></div>
       <div class="pd-members">
         ${parent?`<div class="pd-member-card">
-          <div class="pd-member-avatar" style="background:var(--sky-light);">${parent.avatar||'👤'}</div>
+          <div class="pd-member-avatar" style="background:var(--sky-light);">${renderAvatarToken(parent.avatar||'👤','avatar-token')}</div>
           <div class="pd-member-info">
             <div class="pd-member-name">${parent.name}<span style="font-size:0.62rem;background:var(--sky);color:white;padding:2px 7px;border-radius:100px;font-weight:700;margin-left:6px;">Parent</span></div>
             <div class="pd-member-meta">Admin &middot; Manages all profiles</div>
@@ -3455,7 +3551,7 @@ function renderParentFamily(el){
           const done=state.completions.filter(c=>c.memberId===k.id).length;
           const pct=Math.min(100,Math.round((done/(PATHS.reduce((s,p)=>s+p.lessons.length,0)||91))*100));
           return `<div class="pd-member-card${state.selectedMember===k.id?' active-member':''}" onclick="switchToKid('${k.id}')">
-            <div class="pd-member-avatar" style="background:var(--amber-light);">${k.avatar}</div>
+            <div class="pd-member-avatar" style="background:var(--amber-light);">${renderAvatarToken(k.avatar,'avatar-token')}</div>
             <div class="pd-member-info">
               <div class="pd-member-name">${k.name}</div>
               <div class="pd-member-meta">${k.tier==='teen'?'Teen':'Kid'} &middot; ${done} lessons</div>
@@ -3464,7 +3560,7 @@ function renderParentFamily(el){
                 <div class="pd-member-prog-label">${pct}% of all lessons complete</div>
               </div>
             </div>
-            <div class="pd-member-action"><button class="btn btn-sky btn-sm" onclick="event.stopPropagation();switchToKid('${k.id}')">View →</button></div>
+            <div class="pd-member-action" style="display:flex;gap:6px;"><button class="btn btn-secondary btn-sm" onclick="event.stopPropagation();switchToKidAvatarEditor('${k.id}')">Avatar</button><button class="btn btn-sky btn-sm" onclick="event.stopPropagation();switchToKid('${k.id}')">View →</button></div>
           </div>`;
         }).join('')}
       </div>
@@ -3555,7 +3651,7 @@ function renderParentApprovals(el){
           return `
             <div class="ap-card" style="--i:${i}">
               <div class="ap-card-banner">
-                <div class="ap-card-avatar">${member?.avatar||'🧒'}</div>
+                <div class="ap-card-avatar">${renderAvatarToken(member?.avatar||'🧒','avatar-token')}</div>
                 <div>
                   <div class="ap-card-who">${member?.name||'Your child'}</div>
                   <div class="ap-card-mission">📌 ${c.missionTitle||'Mission'}</div>
@@ -3610,10 +3706,12 @@ function renderParentApprovals(el){
 function approveCheckin(id, praiseInputId){
   const c = state.checkins.find(x=>x.id===id);
   if(!c) return;
+  const before=getMemberProgress(c.memberId);
   c.approved = true;
   c.approvedAt = new Date().toISOString();
   c.praise = praiseInputId ? (document.getElementById(praiseInputId)?.value.trim()||null) : null;
   saveUserData();
+  maybeNotifyAvatarUnlocks(c.memberId,before);
   showToast('Mission approved! 🌟');
   parentNav('approvals');
 }
@@ -3729,7 +3827,7 @@ function renderParentInsights(el){
       ${childPathData.map(cpd=>`
         <div class="pi-child-card">
           <div class="pi-child-header">
-            <div class="pi-child-avatar">${cpd.kid.avatar}</div>
+            <div class="pi-child-avatar">${renderAvatarToken(cpd.kid.avatar,'avatar-token')}</div>
             <div>
               <div class="pi-child-name">${cpd.kid.name}</div>
               <div class="pi-child-meta">${cpd.totalDone} lesson${cpd.totalDone!==1?'s':''} completed</div>
@@ -3753,7 +3851,7 @@ function renderParentInsights(el){
             <div class="pi-day-name">${td.dayName}${td.isToday?' 📍':''}</div>
             <div class="pi-day-dots">
               ${td.activity.length>0?td.activity.map(a=>`
-                <div class="pi-day-dot" style="background:var(--amber-100);color:var(--amber-700);" title="${a.kid.name}: ${a.count} lesson${a.count!==1?'s':''}">${a.kid.avatar}</div>
+                <div class="pi-day-dot" style="background:var(--amber-100);color:var(--amber-700);" title="${a.kid.name}: ${a.count} lesson${a.count!==1?'s':''}">${renderAvatarToken(a.kid.avatar,'avatar-token')}</div>
               `).join(''):'<span style="font-size:0.7rem;color:var(--slate-300);">—</span>'}
             </div>
           </div>`).join('')}
@@ -3781,7 +3879,7 @@ function renderParentInsights(el){
         const pct=Math.min(100,Math.round((done/(PATHS.reduce((s,p)=>s+p.lessons.length,0)||91))*100));
         return `<div class="pd-kid-card">
           <div class="pd-kid-card-top">
-            <div class="pd-kid-card-avatar">${k.avatar}</div>
+            <div class="pd-kid-card-avatar">${renderAvatarToken(k.avatar,'avatar-token')}</div>
             <div style="flex:1;">
               <div class="pd-kid-card-name">${k.name}</div>
               <div class="pd-kid-card-meta">${k.tier==='teen'?'Teen':'Kid'}</div>
@@ -3836,13 +3934,14 @@ function downgradePlan(){
   showToast('Downgraded to Free plan');parentNav('family');
 }
 function openAddMember(){
-  document.getElementById('newMemberAvatarGrid').innerHTML=Object.entries(AVATAR_CATEGORIES).map(([cat, avatars]) => `<div class="avatar-cat-label">${cat}</div><div class="avatar-grid">${avatars.map(a=>`<div class="avatar-option" onclick="selectNewAvatar('${a}')">${a}</div>`).join('')}</div>`).join('');
+  const freeCats=getUnlockedAvatarCategories(null);
+  document.getElementById('newMemberAvatarGrid').innerHTML=Object.entries(freeCats).map(([cat, avatars]) => `<div class="avatar-cat-label">${cat}</div><div class="avatar-grid">${avatars.map(a=>`<div class="avatar-option" data-avatar="${a}" onclick="selectNewAvatar('${a}')">${avatarOptionMarkup(a)}</div>`).join('')}</div>`).join('');
   openModal('modal-add-member');
 }
 let newMemberSelectedAvatar='😊';
 function selectNewAvatar(a){
   newMemberSelectedAvatar=a;
-  document.querySelectorAll('#newMemberAvatarGrid .avatar-option').forEach(el=>el.classList.toggle('selected',el.textContent===a));
+  document.querySelectorAll('#newMemberAvatarGrid .avatar-option').forEach(el=>el.classList.toggle('selected',el.dataset.avatar===a));
 }
 function addMember(){
   const name=document.getElementById('new-member-name').value.trim();
@@ -3860,13 +3959,20 @@ function switchToKid(memberId){
   renderParentKidSwitcher();
   showKidApp();
 }
+function switchToKidAvatarEditor(memberId){
+  switchToKid(memberId);
+  setTimeout(function(){
+    kidNav('profile');
+    openAvatarEditor();
+  },120);
+}
 
 // ===================== KID APP =====================
 function showKidApp(){
   // Populate mode bar
   const member=getCurrentMember();
   const nameEl=document.getElementById('kidModeNameLabel');
-  if(nameEl&&member) nameEl.innerHTML=`<span>${member.avatar}</span> ${_esc(member.name)}`;
+  if(nameEl&&member) nameEl.innerHTML=`<span>${renderAvatarToken(member.avatar,'avatar-token')}</span> ${_esc(member.name)}`;
 
   // Populate profile switcher (only if 2+ kids)
   const kids=state.members.filter(m=>m.role!=='parent');
@@ -3876,7 +3982,7 @@ function showKidApp(){
       switcherEl.style.display='flex';
       switcherEl.innerHTML=kids.map(k=>`
         <button class="kid-profile-pill${state.selectedMember===k.id?' active':''}" onclick="switchKidProfile('${k.id}')">
-          ${k.avatar} ${k.name.split(' ')[0]}
+          ${renderAvatarToken(k.avatar,'avatar-token')} ${k.name.split(' ')[0]}
         </button>`).join('');
     } else {
       switcherEl.style.display='none';
@@ -3893,14 +3999,14 @@ function switchKidProfile(memberId){
   // Re-render mode bar label
   const member=getCurrentMember();
   const nameEl=document.getElementById('kidModeNameLabel');
-  if(nameEl&&member) nameEl.innerHTML=`<span>${member.avatar}</span> ${_esc(member.name)}`;
+  if(nameEl&&member) nameEl.innerHTML=`<span>${renderAvatarToken(member.avatar,'avatar-token')}</span> ${_esc(member.name)}`;
   // Re-render profile switcher pills
   const kids=state.members.filter(m=>m.role!=='parent');
   const switcherEl=document.getElementById('kidProfileSwitcher');
   if(switcherEl&&kids.length>1){
     switcherEl.innerHTML=kids.map(k=>`
       <button class="kid-profile-pill${state.selectedMember===k.id?' active':''}" onclick="switchKidProfile('${k.id}')">
-        ${k.avatar} ${k.name.split(' ')[0]}
+        ${renderAvatarToken(k.avatar,'avatar-token')} ${k.name.split(' ')[0]}
       </button>`).join('');
   }
   // Also refresh parent switcher if it exists
@@ -3989,12 +4095,13 @@ function renderKidHome(el){
       <!-- Avatar + name row -->
       <div class="kh-top-row">
         <div class="kh-avatar-wrap">
-          <div class="kh-avatar">${member.avatar}</div>
+          <div class="kh-avatar">${renderAvatarToken(member.avatar,'avatar-token')}</div>
           <div class="kh-avatar-lvl">LV${lvl}</div>
         </div>
         <div class="kh-greeting-block">
           <div class="kh-time-greeting">${timeGreeting}</div>
           <div class="kh-hero-name">${_esc(member.name)}</div>
+          <button class="kh-avatar-edit-btn" onclick="kidNav('profile');setTimeout(openAvatarEditor,80)">🎨 Change avatar</button>
         </div>
       </div>
 
@@ -4756,8 +4863,9 @@ function renderKidProfile(el){
       <!-- Hero Card -->
       <div class="kp-hero">
         <div class="kp-hero-bg"></div>
-        <div class="kp-avatar-big" onclick="openAvatarEditor()">${member.avatar}</div>
+        <div class="kp-avatar-big" onclick="openAvatarEditor()">${renderAvatarToken(member.avatar,'avatar-token')}</div>
         <div class="kp-edit-hint">Tap to change</div>
+        <button class="kp-avatar-cta" onclick="openAvatarEditor()">✨ Customize Avatar</button>
         <div class="kp-name" id="kpName" onclick="openNameEditor()">${_esc(member.name)} <span class="kp-edit-icon">✏️</span></div>
         <div class="kp-role">${member.tier==='teen'?'Teen Explorer':'Young Explorer'} · Level ${lvl}</div>
         <div class="kp-family">${state.family?.name||'My Family'}</div>
@@ -4806,7 +4914,7 @@ function renderKidProfile(el){
           const kDone=state.completions.filter(c=>c.memberId===k.id).length;
           const kStreak=getStreak(k.id);
           return `<div class="kp-switch-card" onclick="switchKidProfile('${k.id}')">
-            <div class="kp-switch-avatar">${k.avatar}</div>
+            <div class="kp-switch-avatar">${renderAvatarToken(k.avatar,'avatar-token')}</div>
             <div class="kp-switch-info">
               <div class="kp-switch-name">${k.name}</div>
               <div class="kp-switch-meta">${kDone} lessons · 🔥${kStreak} streak</div>
@@ -4827,6 +4935,8 @@ function renderKidProfile(el){
 function openAvatarEditor(){
   const member=getCurrentMember();
   if(!member)return;
+  const categories=getUnlockedAvatarCategories(member.id,true);
+  const progress=getMemberProgress(member.id);
   const modal=document.createElement('div');
   modal.className='kp-modal-overlay';
   modal.id='avatarEditorModal';
@@ -4834,10 +4944,19 @@ function openAvatarEditor(){
   modal.innerHTML=`
     <div class="kp-modal">
       <div class="kp-modal-title">Choose Your Avatar</div>
-      ${Object.entries(AVATAR_CATEGORIES).map(([cat, avatars]) => `
+      <div class="kp-unlock-card">
+        <div class="kp-unlock-title">Avatar quest progress</div>
+        <div class="kp-unlock-sub">📚 ${progress.lessons} lessons complete · 🎯 ${progress.missions} approved missions. Keep learning to unlock age variants, skin tones, and worship poses.</div>
+      </div>
+      ${Object.entries(categories).map(([cat, avatars]) => `
         <div class="avatar-cat-label">${cat}</div>
         <div class="avatar-grid">
-          ${avatars.map(a => `<div class="avatar-option${member.avatar===a?' selected':''}" onclick="pickProfileAvatar('${a}')">${a}</div>`).join('')}
+          ${avatars.map(a => {
+            const unlocked=isAvatarUnlocked(member.id,a);
+            const rule=getAvatarUnlockRule(a);
+            const tip=unlocked?'Tap to equip':(rule?`Locked: ${rule.label}`:'Locked');
+            return `<div class="avatar-option${member.avatar===a?' selected':''}${unlocked?'':' locked'}" data-avatar="${a}" title="${tip}" onclick="pickProfileAvatar('${a}')">${avatarOptionMarkup(a)}</div>`;
+          }).join('')}
         </div>
       `).join('')}
       <button class="btn btn-ghost btn-full" onclick="document.getElementById('avatarEditorModal').remove()" style="margin-top:12px;">Cancel</button>
@@ -4848,13 +4967,18 @@ function openAvatarEditor(){
 function pickProfileAvatar(a){
   const member=getCurrentMember();
   if(!member)return;
+  if(!isAvatarUnlocked(member.id,a)){
+    const rule=getAvatarUnlockRule(a);
+    showToast(rule?`Locked: ${rule.label}`:'Avatar locked');
+    return;
+  }
   member.avatar=a;
   saveUserData();
   document.getElementById('avatarEditorModal')?.remove();
   kidNav('profile');
   // Update header too
   const nameEl=document.getElementById('kidModeNameLabel');
-  if(nameEl) nameEl.innerHTML=`<span>${member.avatar}</span> ${_esc(member.name)}`;
+  if(nameEl) nameEl.innerHTML=`<span>${renderAvatarToken(member.avatar,'avatar-token')}</span> ${_esc(member.name)}`;
   showToast('Avatar updated! '+a);
 }
 
@@ -4867,7 +4991,7 @@ function openNameEditor(){
     saveUserData();
     kidNav('profile');
     const nameEl=document.getElementById('kidModeNameLabel');
-    if(nameEl) nameEl.innerHTML=`<span>${member.avatar}</span> ${_esc(member.name)}`;
+    if(nameEl) nameEl.innerHTML=`<span>${renderAvatarToken(member.avatar,'avatar-token')}</span> ${_esc(member.name)}`;
     showToast('Name updated!');
   }
 }
@@ -5277,6 +5401,7 @@ function completeLesson(){
   const {path:pathId,lessonIndex,selectedMission,selectedEmoji,reflectText}=state.lessonState;
   const lesson=getLesson(pathId,lessonIndex);
   const member=getCurrentMember();
+  const before=getMemberProgress(member.id);
   if(!isLessonComplete(member.id,lesson.id)){
     state.completions.push({memberId:member.id,lessonId:lesson.id,pathId,completedAt:new Date().toISOString()});
   }
@@ -5286,6 +5411,7 @@ function completeLesson(){
     state.checkins.push({id:'ci_'+Date.now(),memberId:member.id,lessonId:lesson.id,missionTitle:mission.title,reflection:reflectText||'Completed the mission!',emoji:selectedEmoji,approved:false,createdAt:new Date().toISOString()});
   }
   saveUserData();
+  maybeNotifyAvatarUnlocks(member.id,before);
   showToast('🎉 Lesson complete! Mission submitted for parent approval.');
   setTimeout(()=>{
     if(member.role==='parent'){showParentApp();}else{showKidApp();}
