@@ -334,6 +334,9 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 .avatar-option{aspect-ratio:1;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;cursor:pointer;border:2.5px solid transparent;transition:all 0.18s;background:white;box-shadow:0 1px 4px rgba(0,0,0,0.06);}
 .avatar-option:hover{background:#FEF9EE;transform:scale(1.08);}
 .avatar-option.selected{border-color:var(--amber);background:#FEF3C7;transform:scale(1.12);box-shadow:0 4px 14px rgba(245,158,11,0.3);}
+.avatar-option.locked{position:relative;opacity:0.55;filter:saturate(0.3);cursor:not-allowed;}
+.avatar-option.locked::after{content:'🔒';position:absolute;right:6px;bottom:6px;font-size:0.7rem;background:white;border-radius:999px;padding:2px 4px;line-height:1;}
+.avatar-option.locked:hover{transform:none;background:white;}
 
 /* Path picker */
 .ob-path-list{display:flex;flex-direction:column;gap:9px;}
@@ -1909,6 +1912,8 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 .kp-avatar-big{font-size:4.5rem;cursor:pointer;transition:transform 0.2s;display:inline-block;}
 .kp-avatar-big:hover{transform:scale(1.1);}
 .kp-edit-hint{font-size:0.7rem;color:var(--slate-400);margin-top:2px;}
+.kp-avatar-cta{display:inline-flex;align-items:center;gap:8px;margin-top:10px;background:linear-gradient(135deg,var(--amber),var(--amber-dark));color:white;border:none;border-radius:999px;padding:9px 14px;font-size:0.78rem;font-weight:800;cursor:pointer;box-shadow:0 6px 18px rgba(245,158,11,0.3);}
+.kp-avatar-cta:hover{transform:translateY(-1px);}
 .kp-name{font-family:var(--font-display);font-size:1.5rem;font-weight:700;margin-top:8px;cursor:pointer;}
 .kp-edit-icon{font-size:0.8rem;opacity:0.4;transition:opacity 0.2s;}
 .kp-name:hover .kp-edit-icon{opacity:1;}
@@ -1945,6 +1950,9 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 .kp-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:10000;display:flex;align-items:center;justify-content:center;padding:20px;}
 .kp-modal{background:var(--slate-50);border-radius:20px;padding:24px;max-width:380px;width:100%;max-height:80vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
 .kp-modal-title{font-family:var(--font-display);font-size:1.2rem;font-weight:700;text-align:center;margin-bottom:12px;}
+.kp-unlock-card{background:white;border:1.5px solid var(--amber-200);border-radius:14px;padding:12px 14px;margin-bottom:10px;}
+.kp-unlock-title{font-size:0.7rem;font-weight:800;color:var(--amber-700);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px;}
+.kp-unlock-sub{font-size:0.82rem;color:var(--slate-600);line-height:1.45;}
 .ai-chat-container{background:white;border-radius:16px;padding:16px;margin-top:16px;box-shadow:0 1px 6px rgba(0,0,0,0.06);}
 .ai-chat-header{display:flex;align-items:center;gap:8px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--slate-100);}
 .ai-chat-header-icon{font-size:1.4rem;}
@@ -2784,12 +2792,69 @@ let state = {
 function _esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
 const AVATAR_CATEGORIES = {
-  '😊 Faces': ['😊','😎','🤗','🥳','😇','🤩','🧒','👧','👦','🧑'],
+  '🧑‍🤝‍🧑 People': ['🧒🏻','🧒🏽','🧒🏿','👧🏽','👦🏾','🧑🏻','🧑🏽','🧑🏿','👩🏽','👨🏿'],
+  '🕊️ Worship': ['🙏🏻','🙏🏾','🙌🏻','🙌🏿','🤲🏽','🧎🏽','🙇🏾','📖'],
   '🦁 Animals': ['🦁','🐯','🦊','🐻','🐼','🦋','🦅','🐘','🐳','🐬','🦄','🐕','🐈','🐾','🦖'],
-  '⭐ Fun': ['⭐','🌟','🚀','🌈','🎯','⚡','🎪','🎨','🎵','⚽','🏀','🎮','🛹','🧩','🎭'],
+  '⭐ Fun': ['⭐','🌟','🚀','🌈','🎯','⚡','🎨','🎵','⚽','🏀','🎮','🧩'],
   '🌿 Nature': ['🌿','🌺','🌻','🌸','🍀','🌊','☀️','🌙','❄️','🔥','🌍','🏔️','🦩','🐚','🍃']
 };
-const AVATARS = Object.values(AVATAR_CATEGORIES).flat();
+
+const AVATAR_UNLOCKABLES = [
+  {avatar:'👶🏻', category:'🧑‍🤝‍🧑 People', req:{type:'lessons', count:2, label:'Complete 2 lessons'}},
+  {avatar:'👶🏽', category:'🧑‍🤝‍🧑 People', req:{type:'lessons', count:4, label:'Complete 4 lessons'}},
+  {avatar:'🧓🏻', category:'🧑‍🤝‍🧑 People', req:{type:'lessons', count:6, label:'Complete 6 lessons'}},
+  {avatar:'🧓🏿', category:'🧑‍🤝‍🧑 People', req:{type:'lessons', count:9, label:'Complete 9 lessons'}},
+  {avatar:'🙏🏽', category:'🕊️ Worship', req:{type:'lessons', count:3, label:'Complete 3 lessons'}},
+  {avatar:'🙌🏽', category:'🕊️ Worship', req:{type:'lessons', count:5, label:'Complete 5 lessons'}},
+  {avatar:'📖✨', category:'🕊️ Worship', req:{type:'lessons', count:8, label:'Complete 8 lessons'}},
+  {avatar:'🤲🏿', category:'🕊️ Worship', req:{type:'missions', count:1, label:'Get 1 mission approved'}},
+  {avatar:'🙇🏽', category:'🕊️ Worship', req:{type:'missions', count:2, label:'Get 2 missions approved'}},
+  {avatar:'🧎🏿', category:'🕊️ Worship', req:{type:'missions', count:4, label:'Get 4 missions approved'}},
+  {avatar:'🏅', category:'⭐ Fun', req:{type:'missions', count:3, label:'Get 3 missions approved'}},
+  {avatar:'👑', category:'⭐ Fun', req:{type:'missions', count:6, label:'Get 6 missions approved'}}
+];
+const AVATARS = Object.values(AVATAR_CATEGORIES).flat().concat(AVATAR_UNLOCKABLES.map(v=>v.avatar));
+
+function getMemberProgress(memberId){
+  return {
+    lessons:state.completions.filter(c=>c.memberId===memberId).length,
+    missions:state.checkins.filter(c=>c.memberId===memberId&&c.approved).length,
+  };
+}
+function getUnlockedAvatarCategories(memberId, includeLocked=false){
+  const categories=JSON.parse(JSON.stringify(AVATAR_CATEGORIES));
+  if(!memberId) return categories;
+  const progress=getMemberProgress(memberId);
+  AVATAR_UNLOCKABLES.forEach(item=>{
+    const met=progress[item.req.type]>=item.req.count;
+    if(met||includeLocked){
+      if(!categories[item.category]) categories[item.category]=[];
+      categories[item.category].push(item.avatar);
+    }
+  });
+  return categories;
+}
+function getAvatarUnlockRule(avatar){
+  return AVATAR_UNLOCKABLES.find(a=>a.avatar===avatar)?.req||null;
+}
+function isAvatarUnlocked(memberId, avatar){
+  const rule=getAvatarUnlockRule(avatar);
+  if(!rule||!memberId) return true;
+  const progress=getMemberProgress(memberId);
+  return progress[rule.type]>=rule.count;
+}
+function maybeNotifyAvatarUnlocks(memberId,beforeProgress){
+  const after=getMemberProgress(memberId);
+  const newly=AVATAR_UNLOCKABLES.filter(item=>{
+    const had=(beforeProgress?.[item.req.type]||0)>=item.req.count;
+    const has=after[item.req.type]>=item.req.count;
+    return !had&&has;
+  });
+  if(newly.length>0){
+    const icons=newly.slice(0,3).map(n=>n.avatar).join(' ');
+    showToast(`New avatar unlocked! ${icons}`);
+  }
+}
 
 // ===================== UTILS =====================
 function showScreen(id){
@@ -3150,9 +3215,10 @@ function renderOnboardStep(){
     noteEl.textContent='You can add more children after setup.';
 
   } else if(stepName==='avatar'){
+    const onboardingCats=getUnlockedAvatarCategories(null);
     body.innerHTML=`
       <div class="ob-avatar-preview" id="obAvatarPreview">${state.onboardData.avatar}</div>
-      ${Object.entries(AVATAR_CATEGORIES).map(([cat, avatars]) => `
+      ${Object.entries(onboardingCats).map(([cat, avatars]) => `
         <div class="avatar-cat-label">${cat}</div>
         <div class="avatar-grid">
           ${avatars.map(a=>`<div class="avatar-option${state.onboardData.avatar===a?' selected':''}" onclick="selectObAvatar('${a}')">${a}</div>`).join('')}
@@ -3398,6 +3464,7 @@ function renderParentHome(el){
                 <div class="pd-member-prog-label">${done} of ${PATHS.reduce((s,p)=>s+p.lessons.length,0)||91} lessons &middot; ${pct}%</div>
               </div>
             </div>
+            <div class="pd-member-action"><button class="btn btn-sky btn-sm" onclick="event.stopPropagation();switchToKidAvatarEditor('${k.id}')">Avatar</button></div>
           </div>`;
         }).join('')}
         <button class="btn btn-secondary btn-full" onclick="openAddMember()" style="border-radius:14px;margin-top:2px;">+ Add Family Member</button>
@@ -3464,7 +3531,7 @@ function renderParentFamily(el){
                 <div class="pd-member-prog-label">${pct}% of all lessons complete</div>
               </div>
             </div>
-            <div class="pd-member-action"><button class="btn btn-sky btn-sm" onclick="event.stopPropagation();switchToKid('${k.id}')">View →</button></div>
+            <div class="pd-member-action" style="display:flex;gap:6px;"><button class="btn btn-secondary btn-sm" onclick="event.stopPropagation();switchToKidAvatarEditor('${k.id}')">Avatar</button><button class="btn btn-sky btn-sm" onclick="event.stopPropagation();switchToKid('${k.id}')">View →</button></div>
           </div>`;
         }).join('')}
       </div>
@@ -3610,10 +3677,12 @@ function renderParentApprovals(el){
 function approveCheckin(id, praiseInputId){
   const c = state.checkins.find(x=>x.id===id);
   if(!c) return;
+  const before=getMemberProgress(c.memberId);
   c.approved = true;
   c.approvedAt = new Date().toISOString();
   c.praise = praiseInputId ? (document.getElementById(praiseInputId)?.value.trim()||null) : null;
   saveUserData();
+  maybeNotifyAvatarUnlocks(c.memberId,before);
   showToast('Mission approved! 🌟');
   parentNav('approvals');
 }
@@ -3836,7 +3905,8 @@ function downgradePlan(){
   showToast('Downgraded to Free plan');parentNav('family');
 }
 function openAddMember(){
-  document.getElementById('newMemberAvatarGrid').innerHTML=Object.entries(AVATAR_CATEGORIES).map(([cat, avatars]) => `<div class="avatar-cat-label">${cat}</div><div class="avatar-grid">${avatars.map(a=>`<div class="avatar-option" onclick="selectNewAvatar('${a}')">${a}</div>`).join('')}</div>`).join('');
+  const freeCats=getUnlockedAvatarCategories(null);
+  document.getElementById('newMemberAvatarGrid').innerHTML=Object.entries(freeCats).map(([cat, avatars]) => `<div class="avatar-cat-label">${cat}</div><div class="avatar-grid">${avatars.map(a=>`<div class="avatar-option" onclick="selectNewAvatar('${a}')">${a}</div>`).join('')}</div>`).join('');
   openModal('modal-add-member');
 }
 let newMemberSelectedAvatar='😊';
@@ -3859,6 +3929,13 @@ function switchToKid(memberId){
   // Update parent switcher pills if we're still in parent view
   renderParentKidSwitcher();
   showKidApp();
+}
+function switchToKidAvatarEditor(memberId){
+  switchToKid(memberId);
+  setTimeout(function(){
+    kidNav('profile');
+    openAvatarEditor();
+  },120);
 }
 
 // ===================== KID APP =====================
@@ -4758,6 +4835,7 @@ function renderKidProfile(el){
         <div class="kp-hero-bg"></div>
         <div class="kp-avatar-big" onclick="openAvatarEditor()">${member.avatar}</div>
         <div class="kp-edit-hint">Tap to change</div>
+        <button class="kp-avatar-cta" onclick="openAvatarEditor()">✨ Customize Avatar</button>
         <div class="kp-name" id="kpName" onclick="openNameEditor()">${_esc(member.name)} <span class="kp-edit-icon">✏️</span></div>
         <div class="kp-role">${member.tier==='teen'?'Teen Explorer':'Young Explorer'} · Level ${lvl}</div>
         <div class="kp-family">${state.family?.name||'My Family'}</div>
@@ -4827,6 +4905,8 @@ function renderKidProfile(el){
 function openAvatarEditor(){
   const member=getCurrentMember();
   if(!member)return;
+  const categories=getUnlockedAvatarCategories(member.id,true);
+  const progress=getMemberProgress(member.id);
   const modal=document.createElement('div');
   modal.className='kp-modal-overlay';
   modal.id='avatarEditorModal';
@@ -4834,10 +4914,19 @@ function openAvatarEditor(){
   modal.innerHTML=`
     <div class="kp-modal">
       <div class="kp-modal-title">Choose Your Avatar</div>
-      ${Object.entries(AVATAR_CATEGORIES).map(([cat, avatars]) => `
+      <div class="kp-unlock-card">
+        <div class="kp-unlock-title">Avatar quest progress</div>
+        <div class="kp-unlock-sub">📚 ${progress.lessons} lessons complete · 🎯 ${progress.missions} approved missions. Keep learning to unlock age variants, skin tones, and worship poses.</div>
+      </div>
+      ${Object.entries(categories).map(([cat, avatars]) => `
         <div class="avatar-cat-label">${cat}</div>
         <div class="avatar-grid">
-          ${avatars.map(a => `<div class="avatar-option${member.avatar===a?' selected':''}" onclick="pickProfileAvatar('${a}')">${a}</div>`).join('')}
+          ${avatars.map(a => {
+            const unlocked=isAvatarUnlocked(member.id,a);
+            const rule=getAvatarUnlockRule(a);
+            const tip=unlocked?'Tap to equip':(rule?`Locked: ${rule.label}`:'Locked');
+            return `<div class="avatar-option${member.avatar===a?' selected':''}${unlocked?'':' locked'}" title="${tip}" onclick="pickProfileAvatar('${a}')">${a}</div>`;
+          }).join('')}
         </div>
       `).join('')}
       <button class="btn btn-ghost btn-full" onclick="document.getElementById('avatarEditorModal').remove()" style="margin-top:12px;">Cancel</button>
@@ -4848,6 +4937,11 @@ function openAvatarEditor(){
 function pickProfileAvatar(a){
   const member=getCurrentMember();
   if(!member)return;
+  if(!isAvatarUnlocked(member.id,a)){
+    const rule=getAvatarUnlockRule(a);
+    showToast(rule?`Locked: ${rule.label}`:'Avatar locked');
+    return;
+  }
   member.avatar=a;
   saveUserData();
   document.getElementById('avatarEditorModal')?.remove();
@@ -5277,6 +5371,7 @@ function completeLesson(){
   const {path:pathId,lessonIndex,selectedMission,selectedEmoji,reflectText}=state.lessonState;
   const lesson=getLesson(pathId,lessonIndex);
   const member=getCurrentMember();
+  const before=getMemberProgress(member.id);
   if(!isLessonComplete(member.id,lesson.id)){
     state.completions.push({memberId:member.id,lessonId:lesson.id,pathId,completedAt:new Date().toISOString()});
   }
@@ -5286,6 +5381,7 @@ function completeLesson(){
     state.checkins.push({id:'ci_'+Date.now(),memberId:member.id,lessonId:lesson.id,missionTitle:mission.title,reflection:reflectText||'Completed the mission!',emoji:selectedEmoji,approved:false,createdAt:new Date().toISOString()});
   }
   saveUserData();
+  maybeNotifyAvatarUnlocks(member.id,before);
   showToast('🎉 Lesson complete! Mission submitted for parent approval.');
   setTimeout(()=>{
     if(member.role==='parent'){showParentApp();}else{showKidApp();}
