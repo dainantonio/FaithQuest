@@ -1912,6 +1912,8 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 .kp-avatar-big{font-size:4.5rem;cursor:pointer;transition:transform 0.2s;display:inline-block;}
 .kp-avatar-big:hover{transform:scale(1.1);}
 .kp-edit-hint{font-size:0.7rem;color:var(--slate-400);margin-top:2px;}
+.kp-avatar-cta{display:inline-flex;align-items:center;gap:8px;margin-top:10px;background:linear-gradient(135deg,var(--amber),var(--amber-dark));color:white;border:none;border-radius:999px;padding:9px 14px;font-size:0.78rem;font-weight:800;cursor:pointer;box-shadow:0 6px 18px rgba(245,158,11,0.3);}
+.kp-avatar-cta:hover{transform:translateY(-1px);}
 .kp-name{font-family:var(--font-display);font-size:1.5rem;font-weight:700;margin-top:8px;cursor:pointer;}
 .kp-edit-icon{font-size:0.8rem;opacity:0.4;transition:opacity 0.2s;}
 .kp-name:hover .kp-edit-icon{opacity:1;}
@@ -3462,6 +3464,7 @@ function renderParentHome(el){
                 <div class="pd-member-prog-label">${done} of ${PATHS.reduce((s,p)=>s+p.lessons.length,0)||91} lessons &middot; ${pct}%</div>
               </div>
             </div>
+            <div class="pd-member-action"><button class="btn btn-sky btn-sm" onclick="event.stopPropagation();switchToKidAvatarEditor('${k.id}')">Avatar</button></div>
           </div>`;
         }).join('')}
         <button class="btn btn-secondary btn-full" onclick="openAddMember()" style="border-radius:14px;margin-top:2px;">+ Add Family Member</button>
@@ -3528,7 +3531,7 @@ function renderParentFamily(el){
                 <div class="pd-member-prog-label">${pct}% of all lessons complete</div>
               </div>
             </div>
-            <div class="pd-member-action"><button class="btn btn-sky btn-sm" onclick="event.stopPropagation();switchToKid('${k.id}')">View →</button></div>
+            <div class="pd-member-action" style="display:flex;gap:6px;"><button class="btn btn-secondary btn-sm" onclick="event.stopPropagation();switchToKidAvatarEditor('${k.id}')">Avatar</button><button class="btn btn-sky btn-sm" onclick="event.stopPropagation();switchToKid('${k.id}')">View →</button></div>
           </div>`;
         }).join('')}
       </div>
@@ -3926,6 +3929,13 @@ function switchToKid(memberId){
   // Update parent switcher pills if we're still in parent view
   renderParentKidSwitcher();
   showKidApp();
+}
+function switchToKidAvatarEditor(memberId){
+  switchToKid(memberId);
+  setTimeout(function(){
+    kidNav('profile');
+    openAvatarEditor();
+  },120);
 }
 
 // ===================== KID APP =====================
@@ -4825,6 +4835,7 @@ function renderKidProfile(el){
         <div class="kp-hero-bg"></div>
         <div class="kp-avatar-big" onclick="openAvatarEditor()">${member.avatar}</div>
         <div class="kp-edit-hint">Tap to change</div>
+        <button class="kp-avatar-cta" onclick="openAvatarEditor()">✨ Customize Avatar</button>
         <div class="kp-name" id="kpName" onclick="openNameEditor()">${_esc(member.name)} <span class="kp-edit-icon">✏️</span></div>
         <div class="kp-role">${member.tier==='teen'?'Teen Explorer':'Young Explorer'} · Level ${lvl}</div>
         <div class="kp-family">${state.family?.name||'My Family'}</div>
