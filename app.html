@@ -2665,6 +2665,7 @@ async function _fbLoadUserData(uid){
       state.journals     = d.journals     || [];
       state.bookmarks    = d.bookmarks    || [];
       state.subscription = d.subscription || {plan:'free'};
+      state.familySettings = d.familySettings || {autoApproveMissions:false};
       state.selectedPath = d.selectedPath || 'jesus';
       state.selectedMember = d.selectedMember || null;
     } else {
@@ -2676,6 +2677,7 @@ async function _fbLoadUserData(uid){
         state.completions  = local.completions  || [];
         state.checkins     = local.checkins     || [];
         state.subscription = local.subscription || {plan:'free'};
+        state.familySettings = local.familySettings || {autoApproveMissions:false};
         state.selectedPath = local.selectedPath || 'jesus';
         state.selectedMember = local.selectedMember || null;
         state.journals     = local.journals     || [];
@@ -2704,6 +2706,7 @@ async function _fbSaveUserData(uid){
       journals:      state.journals||[],
       bookmarks:     state.bookmarks||[],
       subscription:  state.subscription,
+      familySettings:state.familySettings||{autoApproveMissions:false},
       selectedPath:  state.selectedPath,
       selectedMember:state.selectedMember,
       updatedAt:     new Date().toISOString(),
@@ -2806,11 +2809,16 @@ let state = {
   kidTab: 'home',
   lessonState: {path:null,lessonIndex:0,step:0,selectedMission:null,selectedEmoji:null,reflectText:''},
   checkinState: {mission:null,member:null},
+  familySettings: {autoApproveMissions:false},
   bookmarks: [],
   avatarSeen: {},
   analyticsEvents: [],
   avatarEditor: {memberId:null,tab:'owned'},
 };
+
+function autoApproveMissionsEnabled(){
+  return !!(state.familySettings&&state.familySettings.autoApproveMissions);
+}
 
 function _esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
@@ -3179,6 +3187,7 @@ function loadUserData(){
     state.checkins=data.checkins||[];
     state.journals=data.journals||[];
     state.subscription=data.subscription||{plan:'free'};
+    state.familySettings=data.familySettings||{autoApproveMissions:false};
     state.selectedPath=data.selectedPath||'jesus';
     state.selectedMember=data.selectedMember||null;
     state.bookmarks=data.bookmarks||[];
@@ -3192,6 +3201,7 @@ function saveUserData(){
   const payload={
     family:state.family,members:state.members,completions:state.completions,
     checkins:state.checkins,journals:state.journals||[],subscription:state.subscription,
+    familySettings:state.familySettings||{autoApproveMissions:false},
     selectedPath:state.selectedPath,selectedMember:state.selectedMember,
     bookmarks:state.bookmarks||[],
     avatarSeen:state.avatarSeen||{},
@@ -3626,7 +3636,22 @@ function renderParentFamily(el){
           <p style="font-size:0.825rem;color:var(--slate-600);margin-bottom:16px;line-height:1.6;">All 13 paths &middot; Unlimited members &middot; Full insights &middot; Teen journaling &middot; Priority support</p>
           <button class="btn btn-primary btn-full" onclick="upgradePlan()">Upgrade to Premium →</button>
         </div>`:`<button class="btn btn-ghost btn-sm" onclick="downgradePlan()" style="color:var(--slate-400);">Downgrade to Free</button>`}
+
+      <div class="pd-section-hd" style="margin-top:24px;"><span class="pd-section-title">Parent Workflow</span></div>
+      <div class="card" style="padding:14px 16px;border-radius:14px;">
+        <div style="font-weight:700;font-size:0.9rem;margin-bottom:4px;">Auto-approve mission check-ins</div>
+        <div style="font-size:0.78rem;color:var(--slate-500);line-height:1.5;margin-bottom:10px;">Reduces approval queue friction for trusted families. You can turn this off any time.</div>
+        <button class="btn ${autoApproveMissionsEnabled()?'btn-primary':'btn-secondary'} btn-sm" onclick="toggleAutoApproveMissions()">${autoApproveMissionsEnabled()?'On: auto-approve enabled':'Off: manual approvals required'}</button>
+      </div>
     </div>`;
+}
+
+function toggleAutoApproveMissions(){
+  state.familySettings=state.familySettings||{autoApproveMissions:false};
+  state.familySettings.autoApproveMissions=!state.familySettings.autoApproveMissions;
+  saveUserData();
+  showToast(state.familySettings.autoApproveMissions?'Auto-approve enabled':'Auto-approve disabled');
+  parentNav('family');
 }
 
 function renderParentPaths(el){
@@ -3693,6 +3718,9 @@ function renderParentApprovals(el){
           <span class="ap-section-title">Needs Your Review</span>
           <span class="ap-section-count">${pending.length} pending</span>
         </div>
+        <div style="display:flex;justify-content:flex-end;margin:-6px 0 10px;">
+          <button class="btn btn-secondary btn-sm" onclick="approveAllPendingCheckins()">Approve All (${pending.length})</button>
+        </div>
         ${pending.map((c,i)=>{
           const member = state.members.find(m=>m.id===c.memberId);
           const date = new Date(c.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});
@@ -3750,6 +3778,19 @@ function renderParentApprovals(el){
             </div>`;
         }).join('')}` : ''}
     </div>`;
+}
+
+function approveAllPendingCheckins(){
+  const pending=state.checkins.filter(c=>!c.approved);
+  if(pending.length===0){showToast('No pending missions');return;}
+  pending.forEach(c=>{
+    c.approved=true;
+    c.approvedAt=new Date().toISOString();
+    if(!c.praise)c.praise='Approved by parent';
+  });
+  saveUserData();
+  showToast(`Approved ${pending.length} mission${pending.length!==1?'s':''} ✅`);
+  parentNav('approvals');
 }
 
 function approveCheckin(id, praiseInputId){
@@ -5488,11 +5529,12 @@ function completeLesson(){
   // Auto-create mission checkin
   if(selectedMission!==null){
     const mission=lesson.missions[selectedMission];
-    state.checkins.push({id:'ci_'+Date.now(),memberId:member.id,lessonId:lesson.id,missionTitle:mission.title,reflection:reflectText||'Completed the mission!',emoji:selectedEmoji,approved:false,createdAt:new Date().toISOString()});
+    const auto=autoApproveMissionsEnabled();
+    state.checkins.push({id:'ci_'+Date.now(),memberId:member.id,lessonId:lesson.id,missionTitle:mission.title,reflection:reflectText||'Completed the mission!',emoji:selectedEmoji,approved:auto,approvedAt:auto?new Date().toISOString():null,praise:auto?'Auto-approved by family setting':null,createdAt:new Date().toISOString()});
   }
   saveUserData();
   maybeNotifyAvatarUnlocks(member.id,before);
-  showToast('🎉 Lesson complete! Mission submitted for parent approval.');
+  showToast(autoApproveMissionsEnabled()?'🎉 Lesson complete! Mission auto-approved.':'🎉 Lesson complete! Mission submitted for parent approval.');
   setTimeout(()=>{
     if(member.role==='parent'){showParentApp();}else{showKidApp();}
   },300);
@@ -5646,6 +5688,7 @@ function ciSubmit(){
     c.memberId===member?.id&&c.missionTitle===mission?.title&&!c.approved
   );
   if(!existing){
+    const auto=autoApproveMissionsEnabled();
     state.checkins.push({
       id:'ci_'+Date.now(),
       memberId:member?.id,
@@ -5653,7 +5696,9 @@ function ciSubmit(){
       missionTitle:mission?.title||'Mission',
       reflection:text,
       emoji:selectedMood||'😊',
-      approved:false,
+      approved:auto,
+      approvedAt:auto?new Date().toISOString():null,
+      praise:auto?'Auto-approved by family setting':null,
       createdAt:new Date().toISOString(),
     });
     saveUserData();
